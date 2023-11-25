@@ -92,8 +92,6 @@ export default function Nav({ elements, whatsapp }: Props) {
                   Whatsapp
                 </a>
               </ul>
-
-              <hr className="border-gray-200" />
             </nav>
           )}
         </div>
