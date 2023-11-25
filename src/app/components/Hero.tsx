@@ -23,7 +23,7 @@ export default function Hero() {
     <div>
       {/* div padre*/}
       <div className="sm:flex">
-        <div className="w-full px-10 flex flex-col py-10 gap-y-14 ">
+        <div className="w-full px-10 flex flex-col py-10 gap-y-14 xl:pl-20">
           <article className="text-sm text-myZinc flex flex-col gap-y-10">
             <div className="text-5xl font-bold lg:text-6xl">
               <h1>{article.title}</h1>
@@ -34,7 +34,7 @@ export default function Hero() {
                 </span>
               </h2>
             </div>
-            <p className=" xl:w-7/12 ">{article.paragraph}</p>
+            <p className=" xl:w-8/12 ">{article.paragraph}</p>
             <div className="flex items-center xl:justify-start gap-4 text-sm">
               <a
                 href="https://drive.google.com/file/d/16F51hw6q29nuomOuLaDSJxlWXl1N-it3/view?usp=sharing"
@@ -77,7 +77,7 @@ export default function Hero() {
                 <li>
                   <a
                     rel="noopener noreferrer"
-                    href="https://maps.app.goo.gl/NGMc6mL8N5qEDu6K9"
+                    href="https://instagram.com/jortega.jewerly?igshid=MzMyNGUyNmU2YQ%3D%3D&utm_source=qr"
                     target="_blank"
                   >
                     <span className="icon-[mdi--instagram]" />
@@ -102,7 +102,7 @@ export default function Hero() {
               href="https://maps.app.goo.gl/NGMc6mL8N5qEDu6K9"
               rel="noopener noreferrer"
               target="_blank"
-              className="bg-myWhite rounded-lg px-6 py-2 flex flex-col items-center justify-center mr-4 text-myZinc xl:mr-8"
+              className="bg-myWhite rounded-lg px-6 py-2 flex flex-col items-center justify-center mr-4 text-myZinc xl:mr-20"
             >
               <div>
                 <span className="icon-[material-symbols--star]" />
@@ -111,14 +111,14 @@ export default function Hero() {
                 <span className="icon-[material-symbols--star]" />
                 <span className="icon-[material-symbols--star-half]" />
               </div>
-              <h4>
-                Google Maps{" "}
+              <div className="flex items-center gap-2">
+                <h4>Google Maps</h4>
                 <span className="icon-[solar--map-arrow-right-bold-duotone] text-myZinc" />
-              </h4>
+              </div>
             </a>
           </div>
           <div>
-            <ul className="flex text-xs justify-end gap-4 text-myWhite mr-4 sm:mt-48 md:mt-10 lg:mt-0 xl:mr-10">
+            <ul className="flex text-xs justify-end gap-4 text-myWhite mr-4 sm:mt-48 md:mt-10 lg:mt-0 xl:mr-20">
               {materials.map((obj, index) => {
                 const indexMaterials = `custom_${index}`;
                 return (
