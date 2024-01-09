@@ -9,7 +9,10 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@nextui-org/react": "^2.2.9",
+    "framer-motion": "^10.16.5",
     "next": "14.0.3",
+    "pure-react-carousel": "^1.30.1",
     "react": "^18",
     "react-dom": "^18",
     "react-magic-motion": "^1.1.1"
@@ -18,6 +21,7 @@
     "@iconify-json/ant-design": "^1.1.10",
     "@iconify-json/logos": "^1.1.38",
     "@iconify-json/material-symbols": "^1.1.63",
+    "@iconify-json/material-symbols-light": "^1.1.6",
     "@iconify-json/mdi": "^1.1.55",
     "@iconify-json/mdi-light": "^1.1.7",
     "@iconify-json/ps": "^1.1.6",
