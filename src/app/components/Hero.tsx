@@ -37,8 +37,7 @@ export default function Hero() {
             <p className=" xl:w-8/12 ">{article.paragraph}</p>
             <div className="flex items-center xl:justify-start gap-4 text-sm">
               <a
-                href="https://drive.google.com/file/d/16F51hw6q29nuomOuLaDSJxlWXl1N-it3/view?usp=sharing"
-                target="_blank"
+                href="./shop"
                 rel="noopener noreferrer"
                 className="relative inline-flex items-center justify-start px-6 py-3 overflow-hidden font-medium transition-all bg-myZinc rounded-xl group"
               >
