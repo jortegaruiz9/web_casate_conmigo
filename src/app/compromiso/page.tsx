@@ -1,4 +1,5 @@
 "use client";
+
 import Card from "../components/Card";
 import Acordion from "../components/Acordion";
 
