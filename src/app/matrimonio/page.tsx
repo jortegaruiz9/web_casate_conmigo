@@ -1,19 +1,46 @@
 "use client";
+
 import Card from "../components/Card";
 import Acordion from "../components/Acordion";
-
 const rings = [
   {
-    image: "/modelos/801242.jpg",
+    image: "/modelos/801243.jpg",
     linkProduct:
-      "https://www.instagram.com/p/C12nqsbpLN7/?igsh=MWEwZTY1eXB6Mm1uYQ==",
+      "https://www.instagram.com/p/C12nY_kp_JN/?igsh=MTkzOGtwaDUyZGw0Yg==",
     alt: "imagen modelo 80124",
-    model: "ACI-001",
+    model: "AM-001",
+    color: "Oro 18k (Blanco)",
+    price: 392,
+  },
+  {
+    image: "/modelos/80124.jpg",
+    linkProduct:
+      "https://www.instagram.com/p/C12m3bCJExx/?igsh=MXRhamdxbXd1cW9neQ==",
+    alt: "imagen modelo 80124",
+    model: "AM-002",
     color: "Oro 18k (Amarillo)",
-    price: 249,
+    price: 415,
+  },
+  {
+    image: "/modelos/801245.jpg",
+    linkProduct:
+      "https://www.instagram.com/p/C12m9zKppAG/?igsh=ZmpyZHEza2k2bGZu",
+    alt: "imagen modelo 80124",
+    model: "AU-001",
+    color: "Oro 18k (Amarillo)",
+    price: 664,
+  },
+  {
+    image: "/modelos/801244.jpg",
+    linkProduct:
+      "https://www.instagram.com/p/C12nJvbpvWl/?igsh=cm5yM3MzcGZpdmdt",
+    alt: "imagen modelo 80124",
+    model: "AM-003",
+    color: "Oro 18k (Bicolor)",
+    price: 807,
   },
 ];
-export default function Shop() {
+export default function Compromiso() {
   return (
     <div className="flex flex-col items-center">
       <div>

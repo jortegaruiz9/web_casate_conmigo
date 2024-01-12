@@ -1,13 +1,12 @@
 "use client";
-
-import Image from "next/image";
+import { Image } from "@nextui-org/react";
 
 interface CardProps {
   product: {
     image: string;
     linkProduct: string;
     alt: string;
-    modelo: string;
+    model: string;
     color: string;
     price: number;
   };
@@ -16,7 +15,7 @@ interface CardProps {
 export default function Card({ product }: CardProps) {
   const handleOrderClick = () => {
     // Construir el enlace de WhatsApp con la información del producto y la imagen
-    const whatsappMessage = `¡Hola! Me gustaría ordenar el modelo ${product.modelo} en el color ${product.color}. Precio: ${product.price},00. Más detalles del producto aquí: ${product.linkProduct}`;
+    const whatsappMessage = `¡Hola! Me gustaría ordenar el modelo ${product.model} en el color ${product.color}. Precio: ${product.price},00. Más detalles del producto aquí: ${product.linkProduct}`;
     const whatsappImage = product.image; // URL de la imagen
 
     // Reemplaza '1234567890' con tu número de teléfono de WhatsApp
@@ -32,6 +31,7 @@ export default function Card({ product }: CardProps) {
     <div>
       <div className="w-[350px] h-[350px]">
         <Image
+          isZoomed
           width={2000}
           height={2000}
           src={product.image}
@@ -41,7 +41,7 @@ export default function Card({ product }: CardProps) {
       <div className="shopFont w-[350px] ring-1 mt-2 ring-myZinc">
         <div className="px-2 py-2">
           <div className="flex justify-between">
-            <h2>Modelo: {product.modelo}</h2>
+            <h2>Modelo: {product.model}</h2>
             <h4>Precio: {product.price},00</h4>
           </div>
 
