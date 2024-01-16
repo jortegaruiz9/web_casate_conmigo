@@ -7,17 +7,26 @@ const rings = [
     image: "/modelos/801243.jpg",
     linkProduct:
       "https://www.instagram.com/p/C12nY_kp_JN/?igsh=MTkzOGtwaDUyZGw0Yg==",
-    alt: "imagen modelo 80124",
+    alt: "imagen modelo AM-001",
     model: "AM-001",
     color: "Oro 18k (Blanco)",
     price: 392,
   },
   {
+    image: "/modelos/1601243.jpeg",
+    linkProduct:
+      "https://www.instagram.com/p/C2LLzapp9X5/?igsh=MTRpcDViNG1obWhpMw==",
+    alt: "imagen modelo AM-002",
+    model: "AM-002",
+    color: "Oro 18k (Amarillo)",
+    price: 332,
+  },
+  {
     image: "/modelos/80124.jpg",
     linkProduct:
       "https://www.instagram.com/p/C12m3bCJExx/?igsh=MXRhamdxbXd1cW9neQ==",
-    alt: "imagen modelo 80124",
-    model: "AM-002",
+    alt: "imagen modelo AM-003",
+    model: "AM-003",
     color: "Oro 18k (Amarillo)",
     price: 415,
   },
@@ -25,8 +34,8 @@ const rings = [
     image: "/modelos/801245.jpg",
     linkProduct:
       "https://www.instagram.com/p/C12m9zKppAG/?igsh=ZmpyZHEza2k2bGZu",
-    alt: "imagen modelo 80124",
-    model: "AU-001",
+    alt: "imagen modelo AM-004",
+    model: "AM-004",
     color: "Oro 18k (Amarillo)",
     price: 664,
   },
@@ -34,10 +43,19 @@ const rings = [
     image: "/modelos/801244.jpg",
     linkProduct:
       "https://www.instagram.com/p/C12nJvbpvWl/?igsh=cm5yM3MzcGZpdmdt",
-    alt: "imagen modelo 80124",
-    model: "AM-003",
+    alt: "imagen modelo AM-005",
+    model: "AM-005",
     color: "Oro 18k (Bicolor)",
     price: 807,
+  },
+  {
+    image: "/modelos/160124.jpeg",
+    linkProduct:
+      "https://www.instagram.com/p/C2DsRzOpGbI/?igsh=MXVqaTBpMGN6MzNwNQ==",
+    alt: "imagen modelo AM-004",
+    model: "AM-004",
+    color: "Oro 18k (Bicolor)",
+    price: 980,
   },
 ];
 export default function Compromiso() {

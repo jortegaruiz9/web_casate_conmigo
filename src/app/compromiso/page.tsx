@@ -5,13 +5,13 @@ import Acordion from "../components/Acordion";
 
 const rings = [
   {
-    image: "/modelos/801242.jpg",
+    image: "/modelos/1601242.jpeg",
     linkProduct:
-      "https://www.instagram.com/p/C12nqsbpLN7/?igsh=MWEwZTY1eXB6Mm1uYQ==",
-    alt: "imagen modelo 80124",
+      "https://www.instagram.com/p/C2LNKhxp2Tq/?igsh=MWgwNzJjMGVra2hkMg==",
+    alt: "imagen modelo ACI-001",
     model: "ACI-001",
     color: "Oro 18k (Amarillo)",
-    price: 249,
+    price: 332,
   },
 ];
 export default function Shop() {
