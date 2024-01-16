@@ -3,6 +3,7 @@ import { Providers } from "./providers";
 
 import "./globals.css";
 import Nav from "./components/Nav";
+import Footer from "./components/Footer";
 
 export const metadata: Metadata = {
   title: "Jortega jewerly",
@@ -33,6 +34,9 @@ export default function RootLayout({
         </header>
         <main>
           <Providers>{children}</Providers>
+          <footer>
+            <Footer />
+          </footer>
         </main>
       </body>
     </html>
