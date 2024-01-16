@@ -13,7 +13,7 @@ const rings = [
     price: 392,
   },
   {
-    image: "/modelos/1601243.jpg",
+    image: "/modelos/1601243.jpeg",
     linkProduct:
       "https://www.instagram.com/p/C2LLzapp9X5/?igsh=MTRpcDViNG1obWhpMw==",
     alt: "imagen modelo AM-002",
@@ -49,7 +49,7 @@ const rings = [
     price: 807,
   },
   {
-    image: "/modelos/160124.jpg",
+    image: "/modelos/160124.jpeg",
     linkProduct:
       "https://www.instagram.com/p/C2DsRzOpGbI/?igsh=MXVqaTBpMGN6MzNwNQ==",
     alt: "imagen modelo AM-004",

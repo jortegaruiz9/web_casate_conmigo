@@ -5,7 +5,7 @@ import Acordion from "../components/Acordion";
 
 const rings = [
   {
-    image: "/modelos/1601242.jpg",
+    image: "/modelos/1601242.jpeg",
     linkProduct:
       "https://www.instagram.com/p/C2LNKhxp2Tq/?igsh=MWgwNzJjMGVra2hkMg==",
     alt: "imagen modelo ACI-001",
