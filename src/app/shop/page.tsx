@@ -4,11 +4,20 @@ import Acordion from "../components/Acordion";
 
 const rings = [
   {
+    image: "/modelos/190124.jpg",
+    linkProduct:
+      "https://www.instagram.com/p/C2TBmgNJYbK/?igsh=MTh4cjM1dnZ2ODMxMw==",
+    alt: "imagen modelo ACI-001",
+    model: "ACI-001",
+    color: "Oro 18k (Amarillo)",
+    price: 166,
+  },
+  {
     image: "/modelos/801242.jpg",
     linkProduct:
       "https://www.instagram.com/p/C12nqsbpLN7/?igsh=MWEwZTY1eXB6Mm1uYQ==",
-    alt: "imagen modelo ACI-001",
-    model: "ACI-001",
+    alt: "imagen modelo ACI-002",
+    model: "ACI-002",
     color: "Oro 18k (Amarillo)",
     price: 249,
   },
