@@ -31,11 +31,29 @@ const rings = [
     price: 415,
   },
   {
+    image: "/modelos/1901245.jpg",
+    linkProduct:
+      "https://www.instagram.com/p/C2S_-ykJuM2/?igsh=MTRtb3ZpMzZsbHE3aw==",
+    alt: "imagen modelo AM-004",
+    model: "AM-004",
+    color: "Oro 18k (Amarillo)",
+    price: 498,
+  },
+  {
+    image: "/modelos/1901244.jpg",
+    linkProduct:
+      "https://www.instagram.com/p/C2TBY0PpDX4/?igsh=Y3diZDE2bG1kMjF1",
+    alt: "imagen modelo AM-005",
+    model: "AM-005",
+    color: "Oro 18k (Amarillo)",
+    price: 664,
+  },
+  {
     image: "/modelos/801245.jpg",
     linkProduct:
       "https://www.instagram.com/p/C12m9zKppAG/?igsh=ZmpyZHEza2k2bGZu",
-    alt: "imagen modelo AM-004",
-    model: "AM-004",
+    alt: "imagen modelo AM-006",
+    model: "AM-006",
     color: "Oro 18k (Amarillo)",
     price: 664,
   },
@@ -43,8 +61,8 @@ const rings = [
     image: "/modelos/801244.jpg",
     linkProduct:
       "https://www.instagram.com/p/C12nJvbpvWl/?igsh=cm5yM3MzcGZpdmdt",
-    alt: "imagen modelo AM-005",
-    model: "AM-005",
+    alt: "imagen modelo AM-007",
+    model: "AM-007",
     color: "Oro 18k (Bicolor)",
     price: 807,
   },
@@ -52,8 +70,8 @@ const rings = [
     image: "/modelos/160124.jpeg",
     linkProduct:
       "https://www.instagram.com/p/C2DsRzOpGbI/?igsh=MXVqaTBpMGN6MzNwNQ==",
-    alt: "imagen modelo AM-004",
-    model: "AM-004",
+    alt: "imagen modelo AM-008",
+    model: "AM-008",
     color: "Oro 18k (Bicolor)",
     price: 980,
   },

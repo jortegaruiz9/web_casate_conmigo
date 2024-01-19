@@ -51,7 +51,7 @@ export default function Card({ product }: CardProps) {
               className="ring-1 px-2 ring-myZinc rounded-xl"
               onClick={handleOrderClick}
             >
-              Ordenar
+              Comprar
             </button>
           </div>
         </div>

@@ -8,10 +8,28 @@ const rings = [
     image: "/modelos/1601242.jpeg",
     linkProduct:
       "https://www.instagram.com/p/C2LNKhxp2Tq/?igsh=MWgwNzJjMGVra2hkMg==",
-    alt: "imagen modelo ACI-001",
-    model: "ACI-001",
+    alt: "imagen modelo AC-001",
+    model: "AC-001",
     color: "Oro 18k (Amarillo)",
     price: 332,
+  },
+  {
+    image: "/modelos/1901241.jpeg",
+    linkProduct:
+      "https://www.instagram.com/p/C2TAJ7_Jg9C/?igsh=MTB6bmd1YmFvZzVvbQ==",
+    alt: "imagen modelo AC-002",
+    model: "AC-002",
+    color: "Oro 18k (Amarillo)",
+    price: 332,
+  },
+  {
+    image: "/modelos/1901243.jpg",
+    linkProduct:
+      "https://www.instagram.com/p/C2TDDkcJVCD/?igsh=MXM3cDlrdmFqd2szMQ==",
+    alt: "imagen modelo AC-003",
+    model: "AC-003",
+    color: "Oro 18k (Blanco)",
+    price: 392,
   },
 ];
 export default function Shop() {
