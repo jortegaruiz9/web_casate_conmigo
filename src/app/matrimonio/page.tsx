@@ -5,22 +5,22 @@ import Acordion from "../components/Acordion";
 import NavProduct from "../components/NavProduct";
 const rings = [
   {
-    image: "/modelos/801243.jpg",
-    linkProduct:
-      "https://www.instagram.com/p/C12nY_kp_JN/?igsh=MTkzOGtwaDUyZGw0Yg==",
-    alt: "imagen modelo AM-001",
-    model: "AM-001",
-    color: "Oro 18k (Blanco)",
-    price: 392,
-  },
-  {
     image: "/modelos/1601243.jpeg",
     linkProduct:
       "https://www.instagram.com/p/C2LLzapp9X5/?igsh=MTRpcDViNG1obWhpMw==",
-    alt: "imagen modelo AM-002",
-    model: "AM-002",
+    alt: "imagen modelo AM-001",
+    model: "AM-001",
     color: "Oro 18k (Amarillo)",
     price: 332,
+  },
+  {
+    image: "/modelos/2901245.jpeg",
+    linkProduct:
+      "https://www.instagram.com/p/C2tN7ZZtZbp/?igsh=MW5nZGZnNTYxNHZncw==",
+    alt: "imagen modelo AM-002",
+    model: "AM-002",
+    color: "Oro 18k (Blanco)",
+    price: 392,
   },
   {
     image: "/modelos/80124.jpg",
@@ -68,11 +68,20 @@ const rings = [
     price: 807,
   },
   {
+    image: "/modelos/2901246.jpeg",
+    linkProduct:
+      "https://www.instagram.com/p/C2tOEOsNNeT/?igsh=MXN3OG9wdXdoNXowdg==",
+    alt: "imagen modelo AC-008",
+    model: "AC-008",
+    color: "Oro 18k (Amarillo)",
+    price: 830,
+  },
+  {
     image: "/modelos/160124.jpeg",
     linkProduct:
       "https://www.instagram.com/p/C2DsRzOpGbI/?igsh=MXVqaTBpMGN6MzNwNQ==",
-    alt: "imagen modelo AM-008",
-    model: "AM-008",
+    alt: "imagen modelo AM-009",
+    model: "AM-009",
     color: "Oro 18k (Bicolor)",
     price: 980,
   },
