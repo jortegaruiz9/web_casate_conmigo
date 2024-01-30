@@ -8,6 +8,9 @@ export default function NavProduct() {
         <a href="./compromiso">
           <li className="rounded-xl bg-myZinc px-3 py-1">Compromiso</li>
         </a>
+        <a href="./diamantes">
+          <li className="rounded-xl bg-myZinc px-3 py-1">Diamantes</li>
+        </a>
         <a href="./matrimonio">
           <li className="rounded-xl bg-myZinc px-3 py-1">Matrimonio</li>
         </a>

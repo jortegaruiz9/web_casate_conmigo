@@ -22,6 +22,15 @@ const rings = [
     color: "Oro 18k (Amarillo)",
     price: 249,
   },
+  {
+    image: "/modelos/290124.jpeg",
+    linkProduct:
+      "https://www.instagram.com/p/C2tJPCCNEXR/?igsh=MTRlYWo2OG4xMXZ4ag==",
+    alt: "imagen modelo ACI-003",
+    model: "ACI-003",
+    color: "Oro 18k (Amarillo)",
+    price: 332,
+  },
 ];
 export default function Shop() {
   return (
