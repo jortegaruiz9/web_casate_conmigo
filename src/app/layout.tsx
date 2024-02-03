@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 
 let items = [
   { name: "Tienda", link: "./shop" },
-  { name: "Diamantes", link: "/" },
+  { name: "Lo que debes saber", link: "./explicacion" },
   { name: "Contacto", link: "/" },
 ];
 
