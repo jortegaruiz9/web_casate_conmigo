@@ -22,6 +22,7 @@ const data = [
     title2: "manera sencilla",
     color: "text-gray-500",
     number: 2,
+    ruta: "/video/medidaVideo.MOV",
   },
   {
     content:
