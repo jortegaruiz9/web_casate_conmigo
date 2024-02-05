@@ -3,7 +3,7 @@ import CardInfo from "../components/CardInfo";
 const data = [
   {
     content:
-      "Una vez extraídos de la mina, los metales preciosos pasan por un proceso de refinación. En este procedimiento, se elimina nimpurezas y se logra una pureza de 24k para el oro y 1000 para laplata, obteniendo así la calidad óptima. Posteriormente, ambos metales se mezclan cuidadosamente para fortalecer su estructura, resultando en una aleación final de 18k para el oro y 925 para la plata.",
+      "Una vez extraídos de la mina, los metales preciosos pasan por un proceso de refinación. En este procedimiento, se elimina nimpurezas y se logra una pureza de 24k para el oro y 1000 para la plata, obteniendo así la calidad óptima. Posteriormente, ambos metales se mezclan cuidadosamente para fortalecer su estructura, resultando en una aleación final de 18k para el oro y 925 para la plata.",
     img: "/imagenes/mina.jpeg",
     alt: "foto mina",
     tema: "01 | Materiales",
