@@ -3,7 +3,7 @@ import CardInfo from "../components/CardInfo";
 const data = [
   {
     content:
-      "Una vez extraídos de la mina, los metales preciosos pasan por unproceso de refinación. En este procedimiento, se eliminanimpurezas y se logra una pureza de 24k para el oro y 1000 para laplata, obteniendo así la calidad óptima. Posteriormente, ambosmetales se mezclan cuidadosamente para fortalecer su estructura,resultando en una aleación final de 18k para el oro y 925 para la plata.",
+      "Una vez extraídos de la mina, los metales preciosos pasan por un proceso de refinación. En este procedimiento, se eliminan impurezas y se logra una pureza de 24k para el oro y 1000 para la plata, obteniendo así la calidad óptima. Posteriormente, ambosmetales se mezclan cuidadosamente para fortalecer su estructura, resultando en una aleación final de 18k para el oro y 925 para la plata.",
     img: "/imagenes/mina.jpeg",
     alt: "foto mina",
     tema: "01 | Materiales",
@@ -30,7 +30,7 @@ const data = [
     alt: "foto grabado de anillos",
     tema: "03 | Marca tus anillos?",
     title: "Haz tus anillos",
-    title2: "unicos",
+    title2: "únicos",
     color: "text-yellow-600",
     number: 3,
   },
