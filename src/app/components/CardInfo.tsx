@@ -14,7 +14,7 @@ interface CardProps {
 export default function CardInfo({ info }: CardProps) {
   return (
     <div className="sm:flex sm:flex-row-reverse">
-      <div className="bg-blue-500 h-[260px] sm:h-[500px] w-full relative flex items-end sm:justify-center">
+      <div className=" h-[260px] sm:h-[500px] w-full relative flex items-end sm:justify-center">
         <div className="text-xs absolute text-white bg-gradient-to-b from-transparent via-myZinc to-myZinc h-[160px] hidden sm:block lg:text-sm lg:pl-2 xl:pl-4">
           <p className="m-auto w-11/12">{info.content}</p>
         </div>
@@ -25,7 +25,7 @@ export default function CardInfo({ info }: CardProps) {
           className="w-full h-full object-cover"
         />
       </div>
-      <div className="bg-myWhite h-[300px] sm:h-[500px] w-full flex justify-center items-center relative ">
+      <div className="h-[300px] sm:h-[500px] w-full flex justify-center items-center relative ">
         <h4 className=" text-white z-10 text-[330px] font-bold absolute left-0 pl-2 hidden sm:block lg:pl-6 xl:pl-20 mb-8 ">
           {info.number}
         </h4>

@@ -1,7 +1,6 @@
 "use client";
 import { Accordion, AccordionItem } from "@nextui-org/react";
 import { Image } from "@nextui-org/react";
-import Card from "./Card";
 
 export default function Acordion() {
   return (
