@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 let items = [
   { name: "Tienda", link: "./shop" },
   { name: "Lo que debes saber", link: "./explicacion" },
-  { name: "Contacto", link: "/" },
+  { name: "Nosotros", link: "./nosotros" },
 ];
 
 export default function RootLayout({

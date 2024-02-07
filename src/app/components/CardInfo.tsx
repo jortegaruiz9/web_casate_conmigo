@@ -16,7 +16,6 @@ interface CardProps {
 }
 
 export default function CardInfo({ info }: CardProps) {
-  let [isOpen, setIsOpen] = useState(false);
   let [isCreateModalOpen, setIsCreateModalOpen] = useState(false);
   return (
     <div className="sm:flex sm:flex-row-reverse">
