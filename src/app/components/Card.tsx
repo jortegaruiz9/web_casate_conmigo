@@ -19,7 +19,7 @@ export default function Card({ product }: CardProps) {
     const whatsappImage = product.image; // URL de la imagen
 
     // Reemplaza '1234567890' con tu número de teléfono de WhatsApp
-    const whatsappLink = `https://wa.me/+593983883197?text=${encodeURIComponent(
+    const whatsappLink = `https://wa.me/+593995001783?text=${encodeURIComponent(
       whatsappMessage
     )}&media=${encodeURIComponent(whatsappImage)}`;
 
