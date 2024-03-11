@@ -28,7 +28,7 @@ export default function RootLayout({
           <Nav
             elements={items}
             whatsapp={
-              "https://api.whatsapp.com/send/?phone=5930983883197&text=Hola,%20vi%20su%20página%20y%20deseo%20información%20sobre%20sus%20anillos"
+              "https://api.whatsapp.com/send/?phone=5930995001783&text=Hola,%20vi%20su%20página%20y%20deseo%20información%20sobre%20sus%20anillos"
             }
           />
         </header>
