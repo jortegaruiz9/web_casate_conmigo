@@ -1,15 +1,17 @@
 "use client";
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { MagicMotion } from "react-magic-motion";
+import { AdviserContext } from "../context/AdviserContext";
 
 type Props = {
   elements: { name: string; link: string }[];
-  whatsapp: string;
 };
 
-export default function Nav({ elements, whatsapp }: Props) {
+export default function Nav({ elements }: Props) {
   let [isOpen, setIsOpen] = useState(false);
+  let adviserData = useContext(AdviserContext) as any;
+  let whatsapp = `https://api.whatsapp.com/send/?phone=593${adviserData.adviser.tel}&text=Hola,%20vi%20su%20página%20y%20deseo%20información%20sobre%20sus%20anillos`;
 
   const toggle = () => {
     setIsOpen(!isOpen);

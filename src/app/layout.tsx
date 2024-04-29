@@ -4,6 +4,7 @@ import { Providers } from "./providers";
 import "./globals.css";
 import Nav from "./components/Nav";
 import Footer from "./components/Footer";
+import AdviserContextProvider from "./context/AdviserContext";
 
 export const metadata: Metadata = {
   title: "Jortega jewerly",
@@ -23,22 +24,19 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="dark">
-      <body className="bg-myWhite">
-        <header>
-          <Nav
-            elements={items}
-            whatsapp={
-              "https://api.whatsapp.com/send/?phone=5930995001783&text=Hola,%20vi%20su%20página%20y%20deseo%20información%20sobre%20sus%20anillos"
-            }
-          />
-        </header>
-        <main>
-          <Providers>{children}</Providers>
-          <footer>
-            <Footer />
-          </footer>
-        </main>
-      </body>
+      <AdviserContextProvider>
+        <body className="bg-myWhite">
+          <header>
+            <Nav elements={items} />
+          </header>
+          <main>
+            <Providers>{children}</Providers>
+            <footer>
+              <Footer />
+            </footer>
+          </main>
+        </body>
+      </AdviserContextProvider>
     </html>
   );
 }

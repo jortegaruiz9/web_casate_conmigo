@@ -1,5 +1,7 @@
 "use client";
 import { Image } from "@nextui-org/react";
+import { useContext } from "react";
+import { AdviserContext } from "../context/AdviserContext";
 
 interface CardProps {
   product: {
@@ -13,15 +15,18 @@ interface CardProps {
 }
 
 export default function Card({ product }: CardProps) {
+  const whatsapp = useContext(AdviserContext) as any;
   const handleOrderClick = () => {
     // Construir el enlace de WhatsApp con la información del producto y la imagen
     const whatsappMessage = `¡Hola! Me gustaría ordenar el modelo ${product.model} en el color ${product.color}. Precio: ${product.price},00. Más detalles del producto aquí: ${product.linkProduct}`;
     const whatsappImage = product.image; // URL de la imagen
 
     // Reemplaza '1234567890' con tu número de teléfono de WhatsApp
-    const whatsappLink = `https://wa.me/+593995001783?text=${encodeURIComponent(
-      whatsappMessage
-    )}&media=${encodeURIComponent(whatsappImage)}`;
+    const whatsappLink = `https://wa.me/+593${
+      whatsapp.adviser.tel
+    }?text=${encodeURIComponent(whatsappMessage)}&media=${encodeURIComponent(
+      whatsappImage
+    )}`;
 
     // Abrir el enlace en una nueva pestaña
     window.open(whatsappLink, "_blank");
