@@ -1,4 +1,7 @@
+"use client";
 import Image from "next/image";
+import { useContext } from "react";
+import { AdviserContext } from "../context/AdviserContext";
 
 const perfiles = [
   {
@@ -22,6 +25,7 @@ const perfiles = [
 ];
 
 export default function contacto() {
+  let whatsapp = useContext(AdviserContext) as any;
   return (
     <div className="flex flex-col gap-y-10 py-10">
       <div className=" w-full flex flex-col  gap-y-10">
@@ -85,7 +89,8 @@ export default function contacto() {
               que contamos con un equipo de profesionales altamente capacitados
               que te orientarán durante todo el proceso de compra. Escribenos y
               recibe Asesoría Personalizada con un Experto en Anillos de boda.
-              Whatsapp: <span className="shopFont">(+593) 98 388 3197</span>
+              Whatsapp:{" "}
+              <span className="shopFont">(+593){whatsapp.adviser.tel}</span>
             </p>
           </div>
           <div className="sm:w-4/12 md:w-3/12">
