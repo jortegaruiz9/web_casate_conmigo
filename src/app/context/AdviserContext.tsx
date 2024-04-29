@@ -19,8 +19,13 @@ const adviserDetails: Adviser[] = [
 export default function AdviserContextProvider({ children }: any) {
   const [adviser, setAdviser] = useState<Adviser>(() => {
     // Intenta recuperar el valor del asesor del almacenamiento local, si no existe, usa el primer asesor por defecto
-    const storedAdviser = localStorage.getItem("adviser");
-    return storedAdviser ? JSON.parse(storedAdviser) : adviserDetails[0];
+    if (typeof localStorage !== "undefined") {
+      const storedAdviser = localStorage.getItem("adviser");
+      return storedAdviser ? JSON.parse(storedAdviser) : adviserDetails[0];
+    } else {
+      console.error("El navegador no soporta localStorage.");
+      return adviserDetails[0]; // Usa el primer asesor por defecto
+    }
   });
 
   useEffect(() => {
@@ -34,7 +39,13 @@ export default function AdviserContextProvider({ children }: any) {
 
   useEffect(() => {
     // Guarda el valor del asesor en el almacenamiento local cada vez que cambie
-    localStorage.setItem("adviser", JSON.stringify(adviser));
+    if (typeof localStorage !== "undefined") {
+      localStorage.setItem("adviser", JSON.stringify(adviser));
+    } else {
+      console.error(
+        "El navegador no soporta localStorage. No se pudo guardar el asesor en el almacenamiento local."
+      );
+    }
   }, [adviser]);
 
   return (
