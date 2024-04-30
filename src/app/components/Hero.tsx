@@ -1,5 +1,7 @@
 "use client";
 import Image from "next/image";
+import { useContext, useState, useEffect } from "react";
+import { AdviserContext } from "../context/AdviserContext";
 
 const materials = [
   { name: "Oro Amarillo", detail: "18 Kilates" },
@@ -18,7 +20,40 @@ const article = {
   detail: "Modelos / Precios",
 };
 
+let socialLinks = [
+  {
+    name: "sandra",
+    facebook: "https://www.facebook.com/casateconmigo.ecuador/",
+    instagram: "https://www.instagram.com/noamenciso1989?igsh=emhuaWJ0eDg4ZGlw",
+  },
+  {
+    name: "juan",
+    facebook:
+      "https://www.facebook.com/people/C%C3%A1sate-Conmigo/61558269571631/",
+    instagram:
+      "https://www.instagram.com/jortega.jewerly?igsh=Y2pxam9oOG5leDVu",
+  },
+  {
+    name: "camila",
+    facebook: "https://www.facebook.com/people/Joyeria-Camila/100087172031030/",
+    instagram: "https://www.instagram.com/ca.camicc/",
+  },
+];
+
 export default function Hero() {
+  const adviserName = useContext(AdviserContext) as any;
+  const adviser = adviserName.adviser.name;
+  const [socialMedia, setSocialMedia] = useState(socialLinks[0]);
+
+  useEffect(() => {
+    if (adviser === "juan") {
+      setSocialMedia(socialLinks[1]);
+    } else if (adviser === "camila") {
+      setSocialMedia(socialLinks[2]);
+    } else {
+      setSocialMedia(socialLinks[0]);
+    }
+  }, [adviser]);
   return (
     <div>
       {/* div padre*/}
@@ -67,7 +102,7 @@ export default function Hero() {
                 <li>
                   <a
                     rel="noopener noreferrer"
-                    href="https://www.facebook.com/casateconmigo.ecuador/"
+                    href={socialMedia.facebook}
                     target="_blank"
                   >
                     <span className="icon-[mdi--facebook]" />
@@ -76,7 +111,7 @@ export default function Hero() {
                 <li>
                   <a
                     rel="noopener noreferrer"
-                    href="https://instagram.com/jortega.jewerly?igshid=MzMyNGUyNmU2YQ%3D%3D&utm_source=qr"
+                    href={socialMedia.instagram}
                     target="_blank"
                   >
                     <span className="icon-[mdi--instagram]" />
