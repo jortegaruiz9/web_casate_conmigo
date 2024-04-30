@@ -10,8 +10,19 @@ type Props = {
 
 export default function Nav({ elements }: Props) {
   let [isOpen, setIsOpen] = useState(false);
-  let adviserData = useContext(AdviserContext) as any;
-  let whatsapp = `https://api.whatsapp.com/send/?phone=593${adviserData.adviser.tel}&text=Hola,%20vi%20su%20página%20y%20deseo%20información%20sobre%20sus%20anillos`;
+  const whatsapp = useContext(AdviserContext) as any;
+  const handleOrderClick = () => {
+    // Construir el enlace de WhatsApp con la información del producto y la imagen
+    const whatsappMessage = `Me interesa conocer más sobre sus anillos, pude revisar su web`;
+
+    // Reemplaza '1234567890' con tu número de teléfono de WhatsApp
+    const whatsappLink = `https://wa.me/+593${
+      whatsapp.adviser.tel
+    }?text=${encodeURIComponent(whatsappMessage)}`;
+
+    // Abrir el enlace en una nueva pestaña
+    window.open(whatsappLink, "_blank");
+  };
 
   const toggle = () => {
     setIsOpen(!isOpen);
@@ -21,15 +32,10 @@ export default function Nav({ elements }: Props) {
     <div>
       <div className="bg-myZinc h-[55px] flex items-center justify-center text-myWhite gap-2">
         <h3>Adquiere tu anillo.</h3>
-        <a
-          href={whatsapp}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex items-center gap-1"
-        >
+        <button className="flex items-center gap-1" onClick={handleOrderClick}>
           Agendar una cita
           <span className="icon-[material-symbols--arrow-forward-rounded] text-3xl text-myWhite hover:scale-110 transition-all" />
-        </a>
+        </button>
       </div>
 
       <nav className="bg-myWhite flex justify-between px-8 md:px-0 md:justify-around h-[80px] items-center text-myZinc">
@@ -37,6 +43,7 @@ export default function Nav({ elements }: Props) {
           <a className="flex items-center" href="/">
             <Image
               src="/logo.svg"
+              priority={true}
               alt="logo de jortega"
               width={2000}
               height={2000}
@@ -54,14 +61,13 @@ export default function Nav({ elements }: Props) {
           })}
           <hr className="border-r border-gray-300 h-8" />
           <li className="flex justify-center items-center text-myWhite">
-            <a
-              href={whatsapp}
+            <button
               className="py-3 px-8 bg-myZinc rounded-lg hover:ring-2 hover:ring-offset-2 hover:ring-myZinc transition-all ease-out duration-300"
               rel="noopener noreferrer"
-              target="_blank"
+              onClick={handleOrderClick}
             >
               Whatsapp
-            </a>
+            </button>
           </li>
         </ul>
         <button className="flex items-center md:hidden" onClick={toggle}>
@@ -85,14 +91,13 @@ export default function Nav({ elements }: Props) {
                     </li>
                   );
                 })}
-                <a
-                  href={whatsapp}
+                <button
                   className="py-3 w-full bg-myZinc rounded-lg hover:ring-2 hover:ring-offset-2 hover:ring-myZinc transition-all ease-out duration-300 text-myWhite text-center"
                   rel="noopener noreferrer"
-                  target="_blank"
+                  onClick={handleOrderClick}
                 >
                   Whatsapp
-                </a>
+                </button>
               </ul>
             </nav>
           )}
