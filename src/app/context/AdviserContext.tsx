@@ -1,6 +1,5 @@
 "use client";
 import React, { useState, useEffect } from "react";
-
 // Define una interfaz para el objeto adviser
 interface Adviser {
   name: string;
@@ -18,8 +17,8 @@ const adviserDetails: Adviser[] = [
 
 export default function AdviserContextProvider({ children }: any) {
   const [adviser, setAdviser] = useState<Adviser>(() => {
-    // Intenta recuperar el valor del asesor del almacenamiento local, si no existe, usa el primer asesor por defecto
-    if (typeof localStorage !== "undefined") {
+    // Verificar si estamos en el navegador antes de acceder a localStorage
+    if (typeof window !== "undefined" && typeof localStorage !== "undefined") {
       const storedAdviser = localStorage.getItem("adviser");
       return storedAdviser ? JSON.parse(storedAdviser) : adviserDetails[0];
     } else {
@@ -29,17 +28,20 @@ export default function AdviserContextProvider({ children }: any) {
   });
 
   useEffect(() => {
-    let urlParams = new URLSearchParams(window.location.search);
-    let adviserKey = urlParams.get("adviserKey");
-    let adviserSelect = adviserDetails.find((a) => a.name === adviserKey);
-    if (adviserSelect) {
-      setAdviser(adviserSelect);
+    // Verificar si estamos en el navegador antes de acceder a localStorage
+    if (typeof window !== "undefined") {
+      let urlParams = new URLSearchParams(window.location.search);
+      let adviserKey = urlParams.get("adviserKey");
+      let adviserSelect = adviserDetails.find((a) => a.name === adviserKey);
+      if (adviserSelect) {
+        setAdviser(adviserSelect);
+      }
     }
   }, []);
 
   useEffect(() => {
-    // Guarda el valor del asesor en el almacenamiento local cada vez que cambie
-    if (typeof localStorage !== "undefined") {
+    // Verificar si estamos en el navegador antes de acceder a localStorage
+    if (typeof window !== "undefined" && typeof localStorage !== "undefined") {
       localStorage.setItem("adviser", JSON.stringify(adviser));
     } else {
       console.error(
