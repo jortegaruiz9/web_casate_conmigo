@@ -39,18 +39,18 @@ export default function Nav({ elements }: Props) {
       </div>
 
       <nav className="bg-myWhite flex justify-between px-8 md:px-0 md:justify-around h-[80px] items-center text-myZinc">
-        <div className="max-w-[100px]">
+        <div className="max-w-[180px]">
           <a className="flex items-center" href="/">
             <Image
-              src="/logo.svg"
+              src="/logoOscuro.png"
               priority={true}
               alt="logo de jortega"
-              width={2000}
-              height={2000}
+              width={3000}
+              height={3000}
             />
           </a>
         </div>
-        <ul className=" gap-12 items-center hidden md:flex">
+        <ul className="gap-8 items-center hidden md:flex lg:gap-12">
           {elements.map((element, index) => {
             const indexNav = `custom_${index}`;
             return (
