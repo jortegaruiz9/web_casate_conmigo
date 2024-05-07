@@ -3,6 +3,10 @@
 import Card from "../components/Card";
 import Acordion from "../components/Acordion";
 import NavProduct from "../components/NavProduct";
+
+const gold = 91;
+const goldM = 108;
+
 const rings = [
   {
     image: "/modelos/1601243.jpeg",
@@ -11,7 +15,7 @@ const rings = [
     alt: "imagen modelo AM-001",
     model: "AM-001",
     color: "Oro 18k (Amarillo)",
-    price: 332,
+    price: gold * 4,
   },
   {
     image: "/modelos/2901245.jpeg",
@@ -20,7 +24,7 @@ const rings = [
     alt: "imagen modelo AM-002",
     model: "AM-002",
     color: "Oro 18k (Blanco)",
-    price: 392,
+    price: goldM * 4,
   },
   {
     image: "/modelos/80124.jpg",
@@ -29,7 +33,7 @@ const rings = [
     alt: "imagen modelo AM-003",
     model: "AM-003",
     color: "Oro 18k (Amarillo)",
-    price: 415,
+    price: gold * 5,
   },
   {
     image: "/modelos/1901245.jpg",
@@ -38,7 +42,7 @@ const rings = [
     alt: "imagen modelo AM-004",
     model: "AM-004",
     color: "Oro 18k (Amarillo)",
-    price: 498,
+    price: gold * 6,
   },
   {
     image: "/modelos/1901244.jpg",
@@ -47,7 +51,7 @@ const rings = [
     alt: "imagen modelo AM-005",
     model: "AM-005",
     color: "Oro 18k (Amarillo)",
-    price: 664,
+    price: gold * 8,
   },
   {
     image: "/modelos/801245.jpg",
@@ -56,7 +60,7 @@ const rings = [
     alt: "imagen modelo AM-006",
     model: "AM-006",
     color: "Oro 18k (Amarillo)",
-    price: 664,
+    price: gold * 9,
   },
   {
     image: "/modelos/801244.jpg",
@@ -65,7 +69,7 @@ const rings = [
     alt: "imagen modelo AM-007",
     model: "AM-007",
     color: "Oro 18k (Bicolor)",
-    price: 807,
+    price: goldM * 8,
   },
   {
     image: "/modelos/2901246.jpeg",
@@ -74,7 +78,7 @@ const rings = [
     alt: "imagen modelo AC-008",
     model: "AC-008",
     color: "Oro 18k (Amarillo)",
-    price: 830,
+    price: gold * 10,
   },
   {
     image: "/modelos/160124.jpeg",
@@ -83,7 +87,7 @@ const rings = [
     alt: "imagen modelo AM-009",
     model: "AM-009",
     color: "Oro 18k (Bicolor)",
-    price: 980,
+    price: goldM * 10,
   },
 ];
 export default function Compromiso() {

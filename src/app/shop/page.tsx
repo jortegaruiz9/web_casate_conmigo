@@ -3,6 +3,8 @@ import Card from "../components/Card";
 import Acordion from "../components/Acordion";
 import NavProduct from "../components/NavProduct";
 
+const gold = 91;
+
 const rings = [
   {
     image: "/modelos/190124.jpg",
@@ -11,7 +13,7 @@ const rings = [
     alt: "imagen modelo ACI-001",
     model: "ACI-001",
     color: "Oro 18k (Amarillo)",
-    price: 166,
+    price: gold * 2,
   },
   {
     image: "/modelos/801242.jpg",
@@ -20,7 +22,7 @@ const rings = [
     alt: "imagen modelo ACI-002",
     model: "ACI-002",
     color: "Oro 18k (Amarillo)",
-    price: 249,
+    price: gold * 3,
   },
   {
     image: "/modelos/290124.jpeg",
@@ -29,7 +31,7 @@ const rings = [
     alt: "imagen modelo ACI-003",
     model: "ACI-003",
     color: "Oro 18k (Amarillo)",
-    price: 332,
+    price: gold * 4,
   },
 ];
 export default function Shop() {

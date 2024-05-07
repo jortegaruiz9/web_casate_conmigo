@@ -4,6 +4,9 @@ import Card from "../components/Card";
 import Acordion from "../components/Acordion";
 import NavProduct from "../components/NavProduct";
 
+const gold = 91;
+const goldM = 108;
+
 const rings = [
   {
     image: "/modelos/2901242.jpeg",
@@ -12,7 +15,7 @@ const rings = [
     alt: "imagen modelo AC-001",
     model: "AC-001",
     color: "Oro 18k (Amarillo)",
-    price: 166,
+    price: gold * 2,
   },
   {
     image: "/modelos/1601242.jpeg",
@@ -21,7 +24,7 @@ const rings = [
     alt: "imagen modelo AC-002",
     model: "AC-002",
     color: "Oro 18k (Amarillo)",
-    price: 332,
+    price: gold * 4,
   },
   {
     image: "/modelos/1901241.jpeg",
@@ -30,7 +33,7 @@ const rings = [
     alt: "imagen modelo AC-003",
     model: "AC-003",
     color: "Oro 18k (Amarillo)",
-    price: 332,
+    price: gold * 4,
   },
   {
     image: "/modelos/2901244.jpeg",
@@ -39,7 +42,7 @@ const rings = [
     alt: "imagen modelo AC-004",
     model: "AC-004",
     color: "Oro 18k (Amarillo)",
-    price: 332,
+    price: gold * 4,
   },
   {
     image: "/modelos/1901243.jpg",
@@ -48,7 +51,7 @@ const rings = [
     alt: "imagen modelo AC-005",
     model: "AC-005",
     color: "Oro 18k (Blanco)",
-    price: 392,
+    price: goldM * 4,
   },
   {
     image: "/modelos/2901243.jpeg",
@@ -57,7 +60,7 @@ const rings = [
     alt: "imagen modelo AC-006",
     model: "AC-006",
     color: "Oro 18k (Blanco)",
-    price: 490,
+    price: goldM * 5,
   },
 ];
 export default function compromiso() {
