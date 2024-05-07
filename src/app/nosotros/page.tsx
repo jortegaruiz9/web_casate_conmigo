@@ -85,7 +85,7 @@ export default function contacto() {
               que contamos con un equipo de profesionales altamente capacitados
               que te orientarán durante todo el proceso de compra. Escribenos y
               recibe Asesoría Personalizada con un Experto en Anillos de boda.
-              Whatsapp: <span className="shopFont">(+593) 98 388 3197</span>
+              Escribenos a Whatsapp
             </p>
           </div>
           <div className="sm:w-4/12 md:w-3/12">
