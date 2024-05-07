@@ -31,7 +31,7 @@ export default function contacto() {
               Nosotros
             </h2>
             <p className="text-sm">
-              Jortega Jewerly es una Empresa especializada en la confección y
+              Cásate Conmigo es una Empresa especializada en la confección y
               fabricación de Anillos de Compromiso, Aros de Matrimonio y Joyeria
               Fina. Nuestro objetivo es crear Joyas Únicas y de la más alta
               calidad utilizando materiales como Oro 18k, Diamantes Naturales
