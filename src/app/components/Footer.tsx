@@ -8,7 +8,7 @@ export default function Footer() {
         <div className="w-52 p-3">
           <Image
             alt="Cásate Conmigo Logo"
-            src="/casateConmigo.png"
+            src="/logoWhite.svg"
             width={3000}
             height={3000}
           />

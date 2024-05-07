@@ -42,7 +42,7 @@ export default function Nav({ elements }: Props) {
         <div className="max-w-[180px]">
           <a className="flex items-center" href="/">
             <Image
-              src="/logoOscuro.png"
+              src="/logoBlack.svg"
               priority={true}
               alt="logo de jortega"
               width={3000}
