@@ -15,7 +15,7 @@ const article = {
   title2: "perfecto",
   textDecoration: "Oro18k",
   paragraph:
-    "Descubre el anillo de tus sueños, diseñado a medida y con los más exquisitos materiales y acabados. Pensado exclusivamente para nuestros clientes VIP en todo el Ecuador, porque tu elegancia merece lo extraordinario.",
+    "Cásate Conmigo es una joyería ecuatoriana especializada en la confección de anillos de boda personalizados en oro 18k y plata 925. Realiza tus compras en nuestra tienda en Quito y disfruta de envíos rápidos a todo Ecuador.",
   boton: "Ir al Catálogo",
   detail: "Modelos / Precios",
 };
@@ -61,7 +61,7 @@ export default function Hero() {
         <div className="w-full px-10 flex flex-col py-10 gap-y-14 xl:pl-20">
           <article className="text-sm text-myZinc flex flex-col gap-y-10">
             <div className="text-5xl font-bold lg:text-6xl">
-              <h1>{article.title}</h1>
+              <h2>{article.title}</h2>
               <h2>
                 {article.title2}{" "}
                 <span className="text-2xl bg-clip-text text-transparent bg-gradient-to-b from-yellow-600 via-yellow-400 to-zinc-800 lg:text-4xl">
@@ -69,7 +69,7 @@ export default function Hero() {
                 </span>
               </h2>
             </div>
-            <p className=" xl:w-8/12 ">{article.paragraph}</p>
+            <h1 className=" xl:w-8/12 ">{article.paragraph}</h1>
             <div className="flex items-center xl:justify-start gap-4 text-sm">
               <a
                 href="./shop"
