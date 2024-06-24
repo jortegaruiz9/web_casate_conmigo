@@ -1,51 +1,56 @@
 "use client";
-import Card from "../components/Card";
-import Acordion from "../components/Acordion";
-import NavProduct from "../components/NavProduct";
 
-const gold = 91;
+import Image from "next/image";
+import Link from "next/link";
 
-const rings = [
+const products = [
   {
-    image: "/modelos/190124.jpg",
-    linkProduct:
-      "https://www.instagram.com/p/C2TBmgNJYbK/?igsh=MTh4cjM1dnZ2ODMxMw==",
-    alt: "imagen modelo ACI-001",
-    model: "ACI-001",
-    color: "Oro 18k (Amarillo)",
-    price: gold * 2,
+    url: "./shop/cintillos",
+    category: "Cintillos",
+    src: "Cintillos",
+    imageUrl: "/modelos/801242.jpg",
   },
   {
-    image: "/modelos/801242.jpg",
-    linkProduct:
-      "https://www.instagram.com/p/C12nqsbpLN7/?igsh=MWEwZTY1eXB6Mm1uYQ==",
-    alt: "imagen modelo ACI-002",
-    model: "ACI-002",
-    color: "Oro 18k (Amarillo)",
-    price: gold * 3,
+    url: "./shop/compromiso",
+    category: "Compromiso",
+    src: "Compromiso",
+    imageUrl: "/modelos/2901242.jpeg",
   },
   {
-    image: "/modelos/290124.jpeg",
-    linkProduct:
-      "https://www.instagram.com/p/C2tJPCCNEXR/?igsh=MTRlYWo2OG4xMXZ4ag==",
-    alt: "imagen modelo ACI-003",
-    model: "ACI-003",
-    color: "Oro 18k (Amarillo)",
-    price: gold * 4,
+    url: "./shop/matrimonio",
+    category: "Matrimonio",
+    src: "Matrimonio",
+    imageUrl: "/modelos/2901246.jpeg",
+  },
+  {
+    url: "./shop/set",
+    category: "Set Anillos",
+    src: "Set",
+    imageUrl: "/portadaTrio.jpg",
   },
 ];
+
 export default function Shop() {
   return (
-    <div className="flex flex-col items-center">
-      <div>
-        <NavProduct />
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 justify-center my-10">
-          {rings.map((model, index) => {
-            return <Card key={index} product={model} />;
-          })}
-        </div>
+    <div className="flex flex-col justify-center items-center">
+      <h1 className="mt-10 text-2xl">Conoce todos nuestros anillos</h1>
+      <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-4 my-10">
+        {products.map((model, index) => {
+          return (
+            <Link href={model.url} key={index}>
+              <div className="w-[350px]">
+                <h2 className="text-center text-xl">{model.category}</h2>
+                <Image
+                  src={model.imageUrl}
+                  alt={model.src}
+                  height={1080}
+                  width={1080}
+                />
+              </div>
+            </Link>
+          );
+        })}
       </div>
-      <Acordion />
     </div>
   );
 }

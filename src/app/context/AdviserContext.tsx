@@ -10,9 +10,11 @@ interface Adviser {
 export const AdviserContext = React.createContext({});
 
 const adviserDetails: Adviser[] = [
-  { name: "sandra", tel: 995001783 },
-  { name: "camila", tel: 983335393 },
-  { name: "juan", tel: 983883197 },
+  { name: "s", tel: 995001783 },
+  { name: "c", tel: 983335393 },
+  { name: "f", tel: 983883197 },
+  { name: "j", tel: 984171976 },
+  { name: "d", tel: 958606651 },
 ];
 
 export default function AdviserContextProvider({ children }: any) {
@@ -31,8 +33,8 @@ export default function AdviserContextProvider({ children }: any) {
     // Verificar si estamos en el navegador antes de acceder a localStorage
     if (typeof window !== "undefined") {
       let urlParams = new URLSearchParams(window.location.search);
-      let adviserKey = urlParams.get("adviserKey");
-      let adviserSelect = adviserDetails.find((a) => a.name === adviserKey);
+      let ad = urlParams.get("ad");
+      let adviserSelect = adviserDetails.find((a) => a.name === ad);
       if (adviserSelect) {
         setAdviser(adviserSelect);
       }

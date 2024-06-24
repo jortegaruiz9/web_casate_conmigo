@@ -2,6 +2,7 @@
 import Image from "next/image";
 import { useContext, useState, useEffect } from "react";
 import { AdviserContext } from "../context/AdviserContext";
+import Link from "next/link";
 
 const materials = [
   { name: "Oro Amarillo", detail: "18 Kilates" },
@@ -71,7 +72,7 @@ export default function Hero() {
             </div>
             <h1 className=" xl:w-8/12 ">{article.paragraph}</h1>
             <div className="flex items-center xl:justify-start gap-4 text-sm">
-              <a
+              <Link
                 href="./shop"
                 rel="noopener noreferrer"
                 className="relative inline-flex items-center justify-start px-6 py-3 overflow-hidden font-medium transition-all bg-myZinc rounded-xl group"
@@ -83,7 +84,7 @@ export default function Hero() {
                 <span className="relative w-full text-left text-white transition-colors duration-200 ease-in-out group-hover:text-myWhite font-bold">
                   {article.boton}
                 </span>
-              </a>
+              </Link>
               <h3>{article.detail}</h3>
             </div>
           </article>
@@ -100,22 +101,22 @@ export default function Hero() {
             <div className="text-4xl text-myZinc">
               <ul className="flex">
                 <li>
-                  <a
+                  <Link
                     rel="noopener noreferrer"
                     href={socialMedia.facebook}
                     target="_blank"
                   >
                     <span className="icon-[mdi--facebook]" />
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a
+                  <Link
                     rel="noopener noreferrer"
                     href={socialMedia.instagram}
                     target="_blank"
                   >
                     <span className="icon-[mdi--instagram]" />
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </div>
@@ -132,7 +133,7 @@ export default function Hero() {
                 height={2000}
               />
             </div>
-            <a
+            <Link
               href="https://maps.app.goo.gl/NGMc6mL8N5qEDu6K9"
               rel="noopener noreferrer"
               target="_blank"
@@ -149,7 +150,7 @@ export default function Hero() {
                 <h4>Google Maps</h4>
                 <span className="icon-[solar--map-arrow-right-bold-duotone] text-myZinc" />
               </div>
-            </a>
+            </Link>
           </div>
           <div>
             <ul className="flex text-xs justify-end gap-4 text-myWhite mr-4 sm:mt-48 md:mt-10 lg:mt-0 xl:mr-20">
