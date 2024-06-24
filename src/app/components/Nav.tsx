@@ -3,6 +3,7 @@ import Image from "next/image";
 import { useState, useContext } from "react";
 import { MagicMotion } from "react-magic-motion";
 import { AdviserContext } from "../context/AdviserContext";
+import Link from "next/link";
 
 type Props = {
   elements: { name: string; link: string }[];
@@ -40,7 +41,7 @@ export default function Nav({ elements }: Props) {
 
       <nav className="bg-myWhite flex justify-between px-8 md:px-0 md:justify-around h-[80px] items-center text-myZinc">
         <div className="max-w-[180px]">
-          <a className="flex items-center" href="/">
+          <Link className="flex items-center" href="/">
             <Image
               src="/logoBlack.svg"
               priority={true}
@@ -48,14 +49,14 @@ export default function Nav({ elements }: Props) {
               width={3000}
               height={3000}
             />
-          </a>
+          </Link>
         </div>
         <ul className="gap-8 items-center hidden md:flex lg:gap-12">
           {elements.map((element, index) => {
             const indexNav = `custom_${index}`;
             return (
               <li key={indexNav}>
-                <a href={element.link}>{element.name}</a>
+                <Link href={element.link}>{element.name}</Link>
               </li>
             );
           })}
@@ -87,7 +88,7 @@ export default function Nav({ elements }: Props) {
                   const indexHamburger = `custom_${index}`;
                   return (
                     <li key={indexHamburger}>
-                      <a href={element.link}>{element.name}</a>
+                      <Link href={element.link}>{element.name}</Link>
                     </li>
                   );
                 })}

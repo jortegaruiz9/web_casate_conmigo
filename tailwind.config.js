@@ -20,7 +20,7 @@ module.exports = {
       },
     },
     darkMode: "class",
-    plugins: [nextui()],
+    plugins: [nextui(), addDynamicIconSelectors()],
   },
   plugins: [addDynamicIconSelectors()],
 };
