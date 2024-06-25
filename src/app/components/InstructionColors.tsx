@@ -10,19 +10,19 @@ export default function InstructionColors() {
         </li>
         <li className="flex gap-x-4">
           <div className=" w-6 h-6  flex items-center justify-center rounded-full border-2  text-xs bg-gradient-to-br from-yellow-800 to-yellow-300 border-myZinc text-white">
-            P
+            A
           </div>
           <p>Oro Amarillo 18K</p>
         </li>
         <li className="flex gap-x-4">
           <div className=" w-6 h-6  flex items-center justify-center rounded-full border-2  text-xs bg-gradient-to-br from-gray-800 to-gray-300 border-myZinc text-white">
-            P
+            B
           </div>
           <p>Oro Blanco 18K</p>
         </li>
         <li className="flex gap-x-4">
           <div className=" w-6 h-6  flex items-center justify-center rounded-full border-2  text-xs bg-gradient-to-br from-pink-900 to-zinc-400 border-myZinc text-white">
-            P
+            R
           </div>
           <p>Oro Rosado 18K</p>
         </li>

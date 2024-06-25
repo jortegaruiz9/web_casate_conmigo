@@ -23,21 +23,33 @@ const article = {
 
 let socialLinks = [
   {
-    name: "sandra",
+    name: "s",
     facebook: "https://www.facebook.com/casateconmigo.ecuador/",
     instagram: "https://www.instagram.com/noamenciso1989?igsh=emhuaWJ0eDg4ZGlw",
   },
   {
-    name: "juan",
+    name: "f",
     facebook:
       "https://www.facebook.com/people/C%C3%A1sate-Conmigo/61558269571631/",
     instagram:
-      "https://www.instagram.com/jortega.jewerly?igsh=Y2pxam9oOG5leDVu",
+      "https://www.instagram.com/casateconmigo.ec?igsh=Y2pxam9oOG5leDVu",
   },
   {
-    name: "camila",
+    name: "c",
     facebook: "https://www.facebook.com/people/Joyeria-Camila/100087172031030/",
     instagram: "https://www.instagram.com/ca.camicc/",
+  },
+  {
+    name: "j",
+    facebook: "https://www.facebook.com/people/Joyeria-Camila/100087172031030/",
+    instagram:
+      "https://www.instagram.com/casate_conmigo.jf?igsh=MXF0NmZzcDA5Z2w3",
+  },
+  {
+    name: "d",
+    facebook: "https://www.facebook.com/casateconmigo.ecuador/",
+    instagram:
+      "https://www.instagram.com/casate.conmigo_so?igsh=OTZjMnZzMjhzNmk%3D&utm_source=qr",
   },
 ];
 
@@ -47,10 +59,14 @@ export default function Hero() {
   const [socialMedia, setSocialMedia] = useState(socialLinks[0]);
 
   useEffect(() => {
-    if (adviser === "juan") {
+    if (adviser === "f") {
       setSocialMedia(socialLinks[1]);
-    } else if (adviser === "camila") {
+    } else if (adviser === "c") {
       setSocialMedia(socialLinks[2]);
+    } else if (adviser === "j") {
+      setSocialMedia(socialLinks[3]);
+    } else if (adviser === "d") {
+      setSocialMedia(socialLinks[4]);
     } else {
       setSocialMedia(socialLinks[0]);
     }
