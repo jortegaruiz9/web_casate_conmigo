@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { Image } from "@nextui-org/react";
+import Image from "next/image";
 import { AdviserContext } from "../context/AdviserContext";
 import Modal from "./ModalUi";
 import Form from "./Form";
@@ -54,7 +54,6 @@ export default function Card({ product }: CardProps) {
     <div>
       <div className="w-[350px]">
         <Image
-          isZoomed
           width={1080}
           height={1080}
           src={product.image}
@@ -116,7 +115,7 @@ export default function Card({ product }: CardProps) {
                 onClick={handleOrderClick}
                 className="inline-flex overflow-hidden text-white bg-black rounded group"
               >
-                <span className="px-3.5 py-3 bg-gradient-to-br from-yellow-500 to-yellow-500 border-myZinc group-hover:from-yellow-700 group-hover:to-yellow-400 flex items-center justify-center">
+                <span className="px-3.5 py-3 bg-gradient-to-br from-yellow-700 to-yellow-400 border-myZinc group-hover:from-yellow-900 group-hover:to-yellow-400 flex items-center justify-center">
                   <span className="icon-[hugeicons--shopping-basket-done-01] text-lg" />
                 </span>
                 <span className="pl-4 pr-5 py-2.5">Comprar</span>

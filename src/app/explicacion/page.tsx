@@ -51,7 +51,7 @@ const data = [
       "La seguridad en los envíos nacionales es de suma importancia para nosotros. En colaboración con nuestro socio logístico, Servientrega, garantizamos un servicio de entrega confiable y eficiente para nuestros productos, incluyendo tus anillos. Servientrega, reconocida por su amplia experiencia y compromiso con la seguridad, implementa rigurosos protocolos para asegurar la integridad de cada paquete durante todo el proceso logístico.",
     img: "/imagenes/servientrega.png",
     alt: "foto servientrega",
-    tema: "05 | Recibe tu envio gratis?",
+    tema: "05 | Recibe tu envio gratis!",
     title: "Todos tus pedidos seguros",
     title2: "a tu puerta",
     color: "text-green-500",

@@ -6,7 +6,7 @@ import InstructionColors from "@/app/components/InstructionColors";
 const rings = [
   {
     category: "cintillo",
-    image: "/modelos/190124.jpg",
+    image: "/modelos/cintillos/aci-001.jpg",
     linkProduct:
       "https://www.instagram.com/p/C2TBmgNJYbK/?igsh=MTh4cjM1dnZ2ODMxMw==",
     alt: "imagen modelo ACI-001",
@@ -17,8 +17,8 @@ const rings = [
     garantia: true,
   },
   {
-    category: "matrimonio",
-    image: "/modelos/801242.jpg",
+    category: "cintillo",
+    image: "/modelos/cintillos/aci-002.jpg",
     linkProduct:
       "https://www.instagram.com/p/C12nqsbpLN7/?igsh=MWEwZTY1eXB6Mm1uYQ==",
     alt: "imagen modelo ACI-002",
@@ -29,8 +29,8 @@ const rings = [
     garantia: true,
   },
   {
-    category: "set",
-    image: "/modelos/290124.jpeg",
+    category: "cintillo",
+    image: "/modelos/cintillos/aci-003.jpeg",
     linkProduct:
       "https://www.instagram.com/p/C2tJPCCNEXR/?igsh=MTRlYWo2OG4xMXZ4ag==",
     alt: "imagen modelo ACI-003",
