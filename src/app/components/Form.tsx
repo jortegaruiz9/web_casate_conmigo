@@ -107,13 +107,11 @@ const Form: React.FC<FormProps> = ({
           />
           <label
             htmlFor={idSilver}
-            className={`cursor-pointer w-6 h-6 flex items-center justify-center rounded-full border-2 border-gray-200 text-xs ${
-              seleccionado === "silver"
-                ? "bg-gradient-to-br from-gray-300 to-gray-400 border-myZinc text-white"
-                : "bg-myWhite"
+            className={`cursor-pointer w-6 h-6 flex items-center justify-center rounded-lg border-2  ${
+              seleccionado === "silver" ? " border-myZinc " : "border-gray-300 "
             }`}
           >
-            P
+            <div className="w-4 h-4 rounded-md bg-gradient-to-br from-gray-300 to-gray-400 border-myZinc"></div>
           </label>
         </div>
 
@@ -129,13 +127,11 @@ const Form: React.FC<FormProps> = ({
           />
           <label
             htmlFor={idGold}
-            className={`cursor-pointer w-6 h-6 flex items-center justify-center rounded-full border-2 border-gray-200 text-xs ${
-              seleccionado === "gold"
-                ? "bg-gradient-to-br from-yellow-800 to-yellow-300 border-myZinc text-white"
-                : "bg-myWhite"
+            className={`cursor-pointer w-6 h-6 flex items-center justify-center rounded-lg border-2  ${
+              seleccionado === "gold" ? " border-myZinc " : "border-gray-300"
             }`}
           >
-            A
+            <div className="w-4 h-4 rounded-md bg-gradient-to-br from-yellow-800 to-yellow-300 border-myZinc"></div>
           </label>
         </div>
 
@@ -151,16 +147,15 @@ const Form: React.FC<FormProps> = ({
           />
           <label
             htmlFor={idGoldWhite}
-            className={`cursor-pointer w-6 h-6 flex items-center justify-center rounded-full border-2 border-gray-200 text-xs ${
+            className={`cursor-pointer w-6 h-6 flex items-center justify-center rounded-lg border-2 ${
               seleccionado === "goldWhite"
-                ? "bg-gradient-to-br from-gray-800 to-gray-300 border-myZinc text-white"
-                : "bg-myWhite"
+                ? " border-myZinc "
+                : "border-gray-300"
             }`}
           >
-            B
+            <div className="w-4 h-4 rounded-md bg-gradient-to-br from-gray-800 to-gray-300 border-myZinc"></div>
           </label>
         </div>
-
         <div className="relative">
           <input
             type="radio"
@@ -173,13 +168,18 @@ const Form: React.FC<FormProps> = ({
           />
           <label
             htmlFor={idGoldRose}
-            className={`cursor-pointer w-6 h-6 flex items-center justify-center rounded-full border-2 border-gray-200 text-xs ${
+            className={`cursor-pointer w-6 h-6 flex items-center justify-center rounded-lg border-2  ${
               seleccionado === "goldRose"
-                ? "bg-gradient-to-br from-pink-900 to-zinc-400 border-myZinc text-white"
-                : "bg-myWhite"
+                ? " border-myZinc "
+                : "border-gray-300"
             }`}
           >
-            R
+            <div className="w-4 h-4 rounded-md">
+              <img
+                className="rounded-md"
+                src="https://media.istockphoto.com/id/949916150/vector/pink-rose-gradients-collection-for-design.jpg?s=612x612&w=0&k=20&c=AcYe3JbsjsDcLsLsOcbDGGYEdxnaeqFhgaPSFdUxzkQ="
+              ></img>
+            </div>
           </label>
         </div>
       </form>
