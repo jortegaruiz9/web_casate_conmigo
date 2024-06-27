@@ -61,7 +61,7 @@ export default function Card({ product }: CardProps) {
         />
       </div>
       <div className="shopFont w-[350px] ring-1 mt-2 ring-myZinc ">
-        <div className="px-2 py-2 bg-red-200 flex flex-col items-between">
+        <div className="px-2 py-2 flex flex-col items-between">
           <div className="flex justify-between">
             <h2>Modelo: {product.model}</h2>
 
