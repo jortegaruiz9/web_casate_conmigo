@@ -46,8 +46,8 @@ export default function Card({ product }: CardProps) {
       text: "Precio incluye grabado",
     },
     { icon: "icon-[fluent--pen-off-16-filled]", text: "No incluye grabado" },
-    { icon: "icon-[mdi--shield-check]", text: "Garantia de por vida" },
-    { icon: "icon-[mynaui--one-square]", text: "Garantia por un año" },
+    { icon: "icon-[mdi--shield-check]", text: "Garantía de por vida" },
+    { icon: "icon-[mynaui--one-square]", text: "Garantía por un año" },
   ];
 
   return (
@@ -61,18 +61,19 @@ export default function Card({ product }: CardProps) {
         />
       </div>
       <div className="shopFont w-[350px] ring-1 mt-2 ring-myZinc ">
-        <div className="px-2 py-2">
+        <div className="px-2 py-2 bg-red-200 flex flex-col items-between">
           <div className="flex justify-between">
+            <h2>Modelo: {product.model}</h2>
+
             <div className="flex gap-x-2 items-center">
-              <h4>Material</h4>
               <Form
                 category={product.category}
                 grams={product.grams}
                 setPrecio={setPrecio}
                 setColorSeleccionado={setColorSeleccionado}
               />
+              <h4>Material</h4>
             </div>
-            <h2>Modelo: {product.model}</h2>
           </div>
           <div className="flex justify-between items-center">
             <div>
@@ -84,7 +85,7 @@ export default function Card({ product }: CardProps) {
               </div>
               <div>
                 <ul
-                  className="flex text-2xl gap-x-2 text-myZinc"
+                  className="flex text-2xl gap-x-1 text-myZinc"
                   onClick={() => {
                     setIsCreateModalOpen(true);
                   }}
@@ -136,24 +137,22 @@ export default function Card({ product }: CardProps) {
             Precio con Swarovski, Diamante precios extra...
           </p>
           <ul>
-            {instructivo.map((icon, index) => {
-              return (
-                <li
-                  className="flex items-center justify-center space-x-4"
-                  key={index}
-                >
-                  <span className={`${icon.icon}`} />
-                  <h2>{icon.text}</h2>
-                </li>
-              );
-            })}
+            {instructivo.map((icon, index) => (
+              <li
+                className="flex items-center justify-center space-x-4"
+                key={index}
+              >
+                <span className={`${icon.icon}`} />
+                <h2>{icon.text}</h2>
+              </li>
+            ))}
           </ul>
           <p className="text-xs text-center  text-myZinc">
             -La garantía cubre pequeños rayones y mantenimiento para dar brillo.
           </p>
           <p className="text-xs text-center  text-myZinc">
             -No incluye torceduras de ningún tipo. Tampoco nos hacemos
-            responsables por piedras minerales extraviadas durante su uso .
+            responsables por piedras minerales extraviadas durante su uso.
           </p>
           <p className="text-xs text-center text-yellow-600">
             Los anillos de plata con baño de oro requieren más cuidados por su
