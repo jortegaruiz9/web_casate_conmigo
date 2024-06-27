@@ -26,7 +26,7 @@ const products = [
     url: "./shop/set",
     category: "Set Anilllos",
     src: "foto set anillos",
-    imageUrl: "/modelos/set/as-024.jpg",
+    imageUrl: "/modelos/set/as-012.jpg",
   },
 ];
 

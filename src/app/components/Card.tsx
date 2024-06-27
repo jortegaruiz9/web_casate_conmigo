@@ -60,11 +60,11 @@ export default function Card({ product }: CardProps) {
           alt={product.alt}
         />
       </div>
-      <div className="shopFont w-[350px] ring-1 mt-2 ring-myZinc">
+      <div className="shopFont w-[350px] ring-1 mt-2 ring-myZinc ">
         <div className="px-2 py-2">
           <div className="flex justify-between">
             <div className="flex gap-x-2 items-center">
-              <h4>Opción:</h4>
+              <h4>Material</h4>
               <Form
                 category={product.category}
                 grams={product.grams}
@@ -113,7 +113,7 @@ export default function Card({ product }: CardProps) {
             <div>
               <button
                 onClick={handleOrderClick}
-                className="inline-flex overflow-hidden text-white bg-black rounded group"
+                className="inline-flex overflow-hidden text-white bg-myZinc rounded group"
               >
                 <span className="px-3.5 py-3 bg-gradient-to-br from-yellow-700 to-yellow-400 border-myZinc group-hover:from-yellow-900 group-hover:to-yellow-400 flex items-center justify-center">
                   <span className="icon-[hugeicons--shopping-basket-done-01] text-lg" />

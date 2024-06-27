@@ -53,6 +53,7 @@ export default function Shop() {
           return <Card key={index} product={model} />;
         })}
       </div>
+      <h1 className="text-zinc text-lg mt-10">Conoce nuestros cintillos</h1>
       <Button />
     </div>
   );
