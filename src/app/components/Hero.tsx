@@ -77,11 +77,11 @@ export default function Hero() {
       <div className="sm:flex">
         <div className="w-full px-10 flex flex-col py-10 gap-y-14 xl:pl-20">
           <article className="text-sm text-myZinc flex flex-col gap-y-10">
-            <div className="text-5xl font-bold lg:text-6xl">
+            <div className="text-5xl  lg:text-6xl font-bold">
               <h2>{article.title}</h2>
               <h2>
                 {article.title2}{" "}
-                <span className="text-2xl bg-clip-text text-transparent bg-gradient-to-b from-yellow-600 via-yellow-400 to-zinc-800 lg:text-4xl">
+                <span className="text-2xl bg-clip-text text-transparent bg-gradient-to-b from-yellow-600 via-yellow-400 to-zinc-800 lg:text-4xl font-bold">
                   {article.textDecoration}
                 </span>
               </h2>
@@ -97,7 +97,7 @@ export default function Hero() {
                   <span className="absolute top-0 right-0 w-5 h-5 rotate-45 translate-x-1/2 -translate-y-1/2 bg-myWhite"></span>
                 </span>
                 <span className="absolute bottom-0 left-0 w-full h-full transition-all duration-500 ease-in-out delay-200 -translate-x-full translate-y-full bg-neutral-500 rounded-2xl group-hover:mb-12 group-hover:translate-x-0"></span>
-                <span className="relative w-full text-left text-white transition-colors duration-200 ease-in-out group-hover:text-myWhite font-bold">
+                <span className="relative w-full text-left text-white transition-colors duration-200 ease-in-out group-hover:text-myWhite font-bold ">
                   {article.boton}
                 </span>
               </Link>

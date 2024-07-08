@@ -81,13 +81,18 @@ export default function Nav({ elements }: Props) {
         <div className="overflow-hidden">
           {isOpen && (
             <nav
-              className={`${isOpen ? "block" : "hidden"} md:hidden bg-myWhite`}
+              className={`${isOpen ? "block" : "hidden"} md:hidden text-myZinc`}
             >
               <ul className="flex flex-col gap-3 py-6 px-6">
                 {elements.map((element, index) => {
                   const indexHamburger = `custom_${index}`;
                   return (
-                    <li key={indexHamburger}>
+                    <li
+                      key={indexHamburger}
+                      onClick={() => {
+                        setIsOpen(false);
+                      }}
+                    >
                       <Link href={element.link}>{element.name}</Link>
                     </li>
                   );

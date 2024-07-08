@@ -204,7 +204,7 @@ const rings = [
   },
   {
     category: "matrimonio",
-    image: "/modelos/matrimonio/am-019.jpg",
+    image: "/modelos/matrimonio/am-019P.jpg",
     linkProduct:
       "https://www.instagram.com/p/C8oBApjuijn/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
     alt: "imagen modelo AM-019",
@@ -628,12 +628,12 @@ export default function compromiso() {
       <div className="mb-10">
         <InstructionColors />
       </div>
-      <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-4">
+      <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-12">
         {rings.map((model, index) => {
           return <Card key={index} product={model} />;
         })}
       </div>
-      <h1 className="text-zinc text-lg mt-10">
+      <h1 className="text-myZinc text-lg mt-10">
         Conoce nuestros anillos de boda
       </h1>
       <Button />

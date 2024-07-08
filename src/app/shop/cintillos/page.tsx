@@ -30,7 +30,7 @@ const rings = [
   },
   {
     category: "cintillo",
-    image: "/modelos/cintillos/aci-003.jpeg",
+    image: "/modelos/cintillos/aci-003P.jpg",
     linkProduct:
       "https://www.instagram.com/p/C2tJPCCNEXR/?igsh=MTRlYWo2OG4xMXZ4ag==",
     alt: "imagen modelo ACI-003",
@@ -48,12 +48,12 @@ export default function Shop() {
       <div className="mb-10">
         <InstructionColors />
       </div>
-      <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-4">
+      <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-12">
         {rings.map((model, index) => {
           return <Card key={index} product={model} />;
         })}
       </div>
-      <h1 className="text-zinc text-lg mt-10">Conoce nuestros cintillos</h1>
+      <h1 className="text-myZinc text-lg mt-10">Conoce nuestros cintillos</h1>
       <Button />
     </div>
   );

@@ -2,6 +2,7 @@ import React, { useContext, useState } from "react";
 import Image from "next/image";
 import { AdviserContext } from "../context/AdviserContext";
 import Modal from "./ModalUi";
+import { monserrat } from "../ui/fonts";
 import Form from "./Form";
 
 interface CardProps {
@@ -51,77 +52,82 @@ export default function Card({ product }: CardProps) {
   ];
 
   return (
-    <div>
+    <div className="text-myZinc">
       <div className="w-[350px]">
-        <Image
-          width={1080}
-          height={1080}
-          src={product.image}
-          alt={product.alt}
-        />
+        <Image width={350} height={350} src={product.image} alt={product.alt} />
       </div>
-      <div className="shopFont w-[350px] ring-1 mt-2 ring-myZinc ">
+      <div
+        className={`${monserrat.className} antialiased w-[350px] ring-1 mt-2 ring-zinc-400 `}
+      >
         <div className="px-2 py-2 flex flex-col items-between">
-          <div className="flex justify-between">
-            <h2>Modelo: {product.model}</h2>
-
-            <div className="flex gap-x-2 items-center">
-              <Form
-                category={product.category}
-                grams={product.grams}
-                setPrecio={setPrecio}
-                setColorSeleccionado={setColorSeleccionado}
-              />
-              <h4>Material</h4>
+          <div className="flex gap-x-2 items-center mb-2 justify-between">
+            <Form
+              category={product.category}
+              grams={product.grams}
+              setPrecio={setPrecio}
+              setColorSeleccionado={setColorSeleccionado}
+            />
+            <div>
+              <ul
+                className="flex text-2xl gap-x-1 text-gray-500 cursor-pointer"
+                onClick={() => {
+                  setIsCreateModalOpen(true);
+                }}
+              >
+                {product.grabado ? (
+                  <li>
+                    <span className="icon-[fluent--draw-text-24-filled] hover:text-myZinc" />
+                  </li>
+                ) : (
+                  <li>
+                    <span className="icon-[fluent--pen-off-16-filled] hover:text-myZinc" />
+                  </li>
+                )}
+                {colorSeleccionado === "Plata" ||
+                colorSeleccionado === "SilverYellow" ? (
+                  <li>
+                    <span className="icon-[mynaui--one-square] hover:text-myZinc" />
+                  </li>
+                ) : (
+                  <li>
+                    <span className="icon-[mdi--shield-check] hover:text-myZinc" />
+                  </li>
+                )}
+              </ul>
             </div>
           </div>
-          <div className="flex justify-between items-center">
+          <div className="flex justify-between items-start">
             <div>
-              <div className="flex">
-                <h3>Precio: $</h3>
-                <h3>
-                  {precio !== null ? `${precio.toFixed(2)}` : "No disponible"}
-                </h3>
+              <div className="flex justify-between">
+                <h2>
+                  Modelo: <span className="font-bold">{product.model}</span>
+                </h2>
               </div>
-              <div>
-                <ul
-                  className="flex text-2xl gap-x-1 text-myZinc"
-                  onClick={() => {
-                    setIsCreateModalOpen(true);
-                  }}
-                >
-                  {product.grabado ? (
-                    <li>
-                      <span className="icon-[fluent--draw-text-24-filled]" />
-                    </li>
-                  ) : (
-                    <li>
-                      <span className="icon-[fluent--pen-off-16-filled]" />
-                    </li>
-                  )}
-                  {colorSeleccionado === "Plata" || colorSeleccionado === "" ? (
-                    <li>
-                      <span className="icon-[mynaui--one-square]" />
-                    </li>
-                  ) : (
-                    <li>
-                      <span className="icon-[mdi--shield-check]" />
-                    </li>
-                  )}
-                </ul>
+              <div className="flex justify-between items-center">
+                <div>
+                  <div className="flex text-sm text-gray-600">
+                    <h3>Precio: $</h3>
+                    <h3>
+                      {precio !== null
+                        ? `${precio.toFixed(2)}`
+                        : "No disponible"}
+                    </h3>
+                  </div>
+                </div>
+                <div></div>
               </div>
             </div>
-            <div>
-              <button
-                onClick={handleOrderClick}
-                className="inline-flex overflow-hidden text-white bg-myZinc rounded group"
-              >
-                <span className="px-3.5 py-3 bg-gradient-to-br from-yellow-700 to-yellow-400 border-myZinc group-hover:from-yellow-900 group-hover:to-yellow-400 flex items-center justify-center">
-                  <span className="icon-[hugeicons--shopping-basket-done-01] text-lg" />
-                </span>
-                <span className="pl-4 pr-5 py-2.5">Comprar</span>
-              </button>
-            </div>
+            <button
+              onClick={handleOrderClick}
+              className="inline-flex overflow-hidden text-white bg-myZinc rounded group"
+            >
+              <span className="px-3.5 py-2 text-white bg-pink-200 group-hover:bg-pink-300 flex items-center justify-center">
+                <div className="w-5 h-7 flex items-center justify-center">
+                  <span className="icon-[hugeicons--shopping-basket-done-01] text-myZinc"></span>
+                </div>
+              </span>
+              <span className="pl-4 pr-5 py-2.5">Comprar</span>
+            </button>
           </div>
         </div>
       </div>
@@ -139,7 +145,7 @@ export default function Card({ product }: CardProps) {
           <ul>
             {instructivo.map((icon, index) => (
               <li
-                className="flex items-center justify-center space-x-4"
+                className="flex items-center justify-center space-x-4 text-myZinc"
                 key={index}
               >
                 <span className={`${icon.icon}`} />
@@ -147,14 +153,14 @@ export default function Card({ product }: CardProps) {
               </li>
             ))}
           </ul>
-          <p className="text-xs text-center  text-myZinc">
+          <p className="text-xs text-center text-myZinc">
             -La garantía cubre pequeños rayones y mantenimiento para dar brillo.
           </p>
-          <p className="text-xs text-center  text-myZinc">
+          <p className="text-xs text-center text-myZinc">
             -No incluye torceduras de ningún tipo. Tampoco nos hacemos
             responsables por piedras minerales extraviadas durante su uso.
           </p>
-          <p className="text-xs text-center text-yellow-600">
+          <p className="text-xs text-center text-pink-600">
             Los anillos de plata con baño de oro requieren más cuidados por su
             recubrimiento fino. No nos hacemos responsables por daños debido a
             un mal uso.

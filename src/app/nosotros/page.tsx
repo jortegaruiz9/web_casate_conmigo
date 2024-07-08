@@ -1,4 +1,9 @@
+export const metadata = {
+  title: "Nosotros",
+};
+
 import Image from "next/image";
+import { monserrat } from "../ui/fonts";
 
 const perfiles = [
   {
@@ -30,13 +35,13 @@ export default function contacto() {
             <h2 className="text-2xl font-bold sm:text-3xl lg:text-4xl xl:text-5xl">
               Nosotros
             </h2>
-            <p className="text-sm">
+            <h1 className="text-sm">
               Cásate Conmigo es una Empresa especializada en la confección y
               fabricación de Anillos de Compromiso, Aros de Matrimonio y Joyeria
               Fina. Nuestro objetivo es crear Joyas Únicas y de la más alta
               calidad utilizando materiales como Oro 18k, Diamantes Naturales
               (GIA) y Swarovski.
-            </p>
+            </h1>
           </div>
           <div className="sm:w-4/12 md:w-3/12">
             <Image
@@ -69,7 +74,9 @@ export default function contacto() {
                     />
                   </div>
                   <h4 className="mt-2 font-bold">{perfil.name}</h4>
-                  <h6 className="shopFont">{perfil.tell}</h6>
+                  <h6 className={`${monserrat.className} antialiased `}>
+                    {perfil.tell}
+                  </h6>
                 </div>
               );
             })}
