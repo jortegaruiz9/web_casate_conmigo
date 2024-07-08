@@ -1,3 +1,6 @@
+export const metadata = {
+  title: "Conoce más",
+};
 import CardInfo from "../components/CardInfo";
 
 const data = [
@@ -22,7 +25,7 @@ const data = [
     title2: "manera sencilla",
     color: "text-gray-500",
     number: 2,
-    ruta: "/video/medidaVideo.MOV",
+    ruta: "/video/tallas.MOV",
   },
   {
     content:

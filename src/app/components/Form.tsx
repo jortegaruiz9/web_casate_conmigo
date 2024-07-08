@@ -30,7 +30,7 @@ const Form: React.FC<FormProps> = ({
 
   useEffect(() => {
     obtenerPrecio();
-    actualizarColorSeleccionado(seleccionado); // Llamar a la función para actualizar color seleccionado
+    actualizarColorSeleccionado(seleccionado);
   }, [seleccionado]);
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -51,6 +51,9 @@ const Form: React.FC<FormProps> = ({
       case "goldRose":
         setColorSeleccionado("Oro rosa");
         break;
+      case "silverYellow":
+        setColorSeleccionado("SilverYellow");
+        break;
       default:
         setColorSeleccionado("");
         break;
@@ -62,6 +65,7 @@ const Form: React.FC<FormProps> = ({
 
     switch (seleccionado) {
       case "silver":
+      case "silverYellow":
         if (category === "compromiso" || category === "cintillo") {
           price = 80;
         } else if (category === "matrimonio") {
@@ -79,8 +83,6 @@ const Form: React.FC<FormProps> = ({
       case "goldRose":
         price = grams * goldRosePrice;
         break;
-      default:
-        price = 0;
     }
 
     setPrecioLocal(price);
@@ -91,10 +93,32 @@ const Form: React.FC<FormProps> = ({
   const idGold = uniqueId("material");
   const idGoldWhite = uniqueId("material");
   const idGoldRose = uniqueId("material");
+  const idSilverYellow = uniqueId("material");
 
   return (
     <div>
       <form id="formulario" className="flex gap-x-1 items-center">
+        <div className="relative">
+          <input
+            type="radio"
+            id={idSilverYellow}
+            name="material"
+            value="silverYellow"
+            checked={seleccionado === "silverYellow"}
+            onChange={handleChange}
+            className="hidden"
+          />
+          <label
+            htmlFor={idSilverYellow}
+            className={`cursor-pointer w-6 h-6 flex items-center justify-center rounded-sm border  ${
+              seleccionado === "silverYellow"
+                ? " border-myZinc "
+                : "border-gray-300 "
+            }`}
+          >
+            <div className="w-5 h-5 rounded-sm bg-gradient-to-br from-yellow-500 to-yellow-300 border-myZinc"></div>
+          </label>
+        </div>
         <div className="relative">
           <input
             type="radio"
@@ -107,11 +131,11 @@ const Form: React.FC<FormProps> = ({
           />
           <label
             htmlFor={idSilver}
-            className={`cursor-pointer w-6 h-6 flex items-center justify-center rounded-lg border-2  ${
+            className={`cursor-pointer w-6 h-6 flex items-center justify-center rounded-sm border  ${
               seleccionado === "silver" ? " border-myZinc " : "border-gray-300 "
             }`}
           >
-            <div className="w-4 h-4 rounded-md bg-gradient-to-br from-gray-300 to-gray-400 border-myZinc"></div>
+            <div className="w-5 h-5 rounded-sm bg-gradient-to-br from-gray-300 to-gray-400 border-myZinc"></div>
           </label>
         </div>
 
@@ -127,11 +151,11 @@ const Form: React.FC<FormProps> = ({
           />
           <label
             htmlFor={idGold}
-            className={`cursor-pointer w-6 h-6 flex items-center justify-center rounded-lg border-2  ${
+            className={`cursor-pointer w-6 h-6 flex items-center justify-center rounded-sm border  ${
               seleccionado === "gold" ? " border-myZinc " : "border-gray-300"
             }`}
           >
-            <div className="w-4 h-4 rounded-md bg-gradient-to-br from-yellow-800 to-yellow-300 border-myZinc"></div>
+            <div className="w-5 h-5 rounded-sm bg-gradient-to-br from-yellow-800 to-yellow-300 border-myZinc"></div>
           </label>
         </div>
 
@@ -147,13 +171,13 @@ const Form: React.FC<FormProps> = ({
           />
           <label
             htmlFor={idGoldWhite}
-            className={`cursor-pointer w-6 h-6 flex items-center justify-center rounded-lg border-2 ${
+            className={`cursor-pointer w-6 h-6 flex items-center justify-center rounded-sm border ${
               seleccionado === "goldWhite"
                 ? " border-myZinc "
                 : "border-gray-300"
             }`}
           >
-            <div className="w-4 h-4 rounded-md bg-gradient-to-br from-gray-800 to-gray-300 border-myZinc"></div>
+            <div className="w-5 h-5 rounded-sm bg-gradient-to-br from-gray-800 to-gray-300 border-myZinc"></div>
           </label>
         </div>
         <div className="relative">
@@ -168,18 +192,13 @@ const Form: React.FC<FormProps> = ({
           />
           <label
             htmlFor={idGoldRose}
-            className={`cursor-pointer w-6 h-6 flex items-center justify-center rounded-lg border-2  ${
+            className={`cursor-pointer w-6 h-6 flex items-center justify-center rounded-sm border  ${
               seleccionado === "goldRose"
                 ? " border-myZinc "
                 : "border-gray-300"
             }`}
           >
-            <div className="w-4 h-4 rounded-md">
-              <img
-                className="rounded-md"
-                src="https://media.istockphoto.com/id/949916150/vector/pink-rose-gradients-collection-for-design.jpg?s=612x612&w=0&k=20&c=AcYe3JbsjsDcLsLsOcbDGGYEdxnaeqFhgaPSFdUxzkQ="
-              ></img>
-            </div>
+            <div className="w-5 h-5 rounded-sm bg-custom-gradient "></div>
           </label>
         </div>
       </form>

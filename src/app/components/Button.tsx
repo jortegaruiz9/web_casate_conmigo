@@ -4,7 +4,7 @@ export default function Button() {
   return (
     <Link
       href="/shop"
-      className="text-start  flex items-center mt-10 gap-x-4 text-2xl text-gray-400 mb-10"
+      className="text-start  flex items-center mt-10 gap-x-4 text-2xl text-gray-400 mb-10 font-bold"
     >
       <span className="icon-[mdi--arrow-collapse-left]" />
       Menú

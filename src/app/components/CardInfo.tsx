@@ -74,9 +74,11 @@ export default function CardInfo({ info }: CardProps) {
       >
         <div className=" flex justify-center items-center w-full">
           <div className="flex flex-col gap-y-4 w-full">
-            <h3 className="font-bold">Resuelve todas tus dudas !</h3>
+            <h3 className="font-bold text-myZinc">
+              Resuelve todas tus dudas !
+            </h3>
             <hr />
-            <div className="w-12/12 h-[450px] sm:h-[550px] bg-red-200">
+            <div className="w-12/12 h-[450px] sm:h-[550px]">
               <video
                 className="w-full h-full object-cover"
                 controls
