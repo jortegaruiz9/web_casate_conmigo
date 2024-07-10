@@ -47,8 +47,8 @@ export default function contacto() {
             <Image
               src="/imagenes/nosotros.jpg"
               alt="imagen nosotros"
-              width={3000}
-              height={3000}
+              width={350}
+              height={377}
             />
           </div>
         </div>
@@ -69,8 +69,8 @@ export default function contacto() {
                       className="object-cover w-full h-full rounded-full"
                       src={perfil.image}
                       alt={perfil.alt}
-                      width={3000}
-                      height={3000}
+                      width={240}
+                      height={240}
                     />
                   </div>
                   <h4 className="mt-2 font-bold">{perfil.name}</h4>
@@ -99,8 +99,8 @@ export default function contacto() {
             <Image
               src="/imagenes/pack.jpg"
               alt="imagen asesoria"
-              width={3000}
-              height={3000}
+              width={350}
+              height={377}
             />
           </div>
         </div>

@@ -25,7 +25,7 @@ const data = [
     title2: "manera sencilla",
     color: "text-gray-500",
     number: 2,
-    ruta: "/video/tallas.MOV",
+    ruta: "/video/Tallas.mp4",
   },
   {
     content:

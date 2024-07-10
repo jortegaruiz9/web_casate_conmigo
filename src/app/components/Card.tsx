@@ -2,7 +2,7 @@ import React, { useContext, useState } from "react";
 import Image from "next/image";
 import { AdviserContext } from "../context/AdviserContext";
 import Modal from "./ModalUi";
-import { monserrat } from "../ui/fonts";
+import { raleway, monserrat } from "../ui/fonts";
 import Form from "./Form";
 
 interface CardProps {
@@ -119,14 +119,15 @@ export default function Card({ product }: CardProps) {
             </div>
             <button
               onClick={handleOrderClick}
-              className="inline-flex overflow-hidden text-white bg-myZinc rounded group"
+              type="button"
+              className="bg-white text-center w-40 rounded-md h-12 relative font-sans text-myZinc text-md font-semibold group"
             >
-              <span className="px-3.5 py-2 text-white bg-pink-200 group-hover:bg-pink-300 flex items-center justify-center">
-                <div className="w-5 h-7 flex items-center justify-center">
-                  <span className="icon-[hugeicons--shopping-basket-done-01] text-myZinc"></span>
-                </div>
-              </span>
-              <span className="pl-4 pr-5 py-2.5">Comprar</span>
+              <div className="bg-pink-200 rounded-md h-10 w-1/4 flex items-center justify-center absolute left-1 top-[4px] group-hover:w-[152px] z-10 duration-500">
+                <span className="icon-[hugeicons--shopping-basket-done-01]"></span>
+              </div>
+              <p className={`translate-x-5 ${raleway.className} antialiased`}>
+                Comprar
+              </p>
             </button>
           </div>
         </div>
