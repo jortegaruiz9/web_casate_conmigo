@@ -115,23 +115,43 @@ export default function Hero() {
               />
             </div>
             <div className="text-4xl text-myZinc">
-              <ul className="flex">
+              <ul className="flex gap-x-2 justify-center items-center">
                 <li>
                   <Link
+                    className="group relative"
                     rel="noopener noreferrer"
                     href={socialMedia.facebook}
                     target="_blank"
                   >
-                    <span className="icon-[mdi--facebook]" />
+                    <span className="icon-[mdi--facebook] group-hover:text-5xl transition-all hover:text-blue-500" />
+                    <span
+                      className="absolute -top-14 left-[100%] -translate-x-[50%] 
+                      z-20 origin-left scale-0 px-3 rounded-lg border 
+                    border-gray-300 bg-white py-2 text-sm font-bold
+                      shadow-md transition-all duration-300 ease-in-out 
+                      group-hover:scale-100"
+                    >
+                      Facebook
+                    </span>
                   </Link>
                 </li>
                 <li>
                   <Link
+                    className="group relative"
                     rel="noopener noreferrer"
                     href={socialMedia.instagram}
                     target="_blank"
                   >
-                    <span className="icon-[mdi--instagram]" />
+                    <span className="icon-[mdi--instagram] group-hover:text-5xl transition-all hover:text-red-500" />
+                    <span
+                      className="absolute -top-14 left-[80%] -translate-x-[50%] 
+                      z-20 origin-left scale-0 px-3 rounded-lg border 
+                    border-gray-300 bg-white py-2 text-sm font-bold
+                      shadow-md transition-all duration-300 ease-in-out 
+                      group-hover:scale-100"
+                    >
+                      Instagram
+                    </span>
                   </Link>
                 </li>
               </ul>
