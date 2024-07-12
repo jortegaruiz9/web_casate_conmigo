@@ -17,6 +17,21 @@ const GoogleTagManager: React.FC = () => {
           `,
         }}
       />
+      {/* Script de configuración de Google Analytics */}
+      <script
+        async
+        src="https://www.googletagmanager.com/gtag/js?id=G-ZKWNJCQD3D"
+      ></script>
+      <script
+        dangerouslySetInnerHTML={{
+          __html: `
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-ZKWNJCQD3D');
+          `,
+        }}
+      />
     </>
   );
 };
