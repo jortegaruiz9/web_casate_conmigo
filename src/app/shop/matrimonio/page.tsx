@@ -633,9 +633,7 @@ export default function compromiso() {
           return <Card key={index} product={model} />;
         })}
       </div>
-      <h1 className="text-myZinc text-lg mt-10">
-        Conoce nuestros anillos de boda
-      </h1>
+      <h1 className="text-myZinc text-lg mt-10">anillos de matrimonio</h1>
       <Button />
     </div>
   );

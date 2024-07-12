@@ -182,9 +182,7 @@ export default function compromiso() {
           return <Card key={index} product={model} />;
         })}
       </div>
-      <h1 className="text-myZinc text-lg mt-10">
-        Conoce nuestros set de anillos
-      </h1>
+      <h1 className="text-myZinc text-lg mt-10">anillos de boda en quito</h1>
       <Button />
     </div>
   );

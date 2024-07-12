@@ -24,8 +24,9 @@ const article = {
 let socialLinks = [
   {
     name: "s",
-    facebook: "https://www.facebook.com/casateconmigo.ecuador/",
-    instagram: "https://www.instagram.com/noamenciso1989?igsh=emhuaWJ0eDg4ZGlw",
+    facebook: "https://www.facebook.com/sandrajanneth.ortegaruiz?locale=es_LA",
+    instagram:
+      "https://www.instagram.com/casate_conmigo777?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==",
   },
   {
     name: "f",
@@ -109,9 +110,11 @@ export default function Hero() {
             <div className=" max-w-[200px] lg:max-w-[350px]">
               <Image
                 src="/portada-izquierda.png"
-                alt="imagen anillo diamante"
-                width={2000}
-                height={2000}
+                alt="anillos de boda"
+                title="quito"
+                width={200}
+                height={100}
+                className="w-full h-full object-cover"
               />
             </div>
             <div className="text-4xl text-myZinc">
@@ -163,10 +166,12 @@ export default function Hero() {
           <div className="flex justify-between items-start">
             <div className="max-w-[150px] sm:max-w-[100px] md:max-w-[150px] lg:max-w-[200px]">
               <Image
-                src="/portada-derecha.png"
-                alt="imagen anillo diamante"
-                width={2000}
-                height={2000}
+                src="/hero-derecha.png"
+                width={150}
+                height={375}
+                className="w-full h-full object-cover"
+                alt="anillos de compromiso"
+                title="quito"
               />
             </div>
             <Link

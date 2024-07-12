@@ -7,7 +7,7 @@ import { monserrat } from "../ui/fonts";
 
 const perfiles = [
   {
-    image: "/perfiles/Sandra-Ortega.JPEG",
+    image: "/perfiles/Sandy-Ortega.png",
     alt: "Perfil Sandra Ortega",
     name: "Sandra Ortega",
     tell: "099 500 1783",
@@ -19,7 +19,7 @@ const perfiles = [
     tell: "098 333 5393",
   },
   {
-    image: "/perfiles/Juan-Gongora.jpg",
+    image: "/perfiles/Juan-Gongora.png",
     alt: "Perfil Juan Góngora",
     name: "Juan Góngora",
     tell: "098 388 3197",
@@ -48,7 +48,7 @@ export default function contacto() {
               src="/imagenes/nosotros.jpg"
               alt="imagen nosotros"
               width={350}
-              height={377}
+              height={373}
             />
           </div>
         </div>
