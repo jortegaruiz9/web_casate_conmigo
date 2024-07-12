@@ -90,6 +90,7 @@ export default function Hero() {
             <h1 className=" xl:w-8/12 ">{article.paragraph}</h1>
             <div className="flex items-center xl:justify-start gap-4 text-sm">
               <Link
+                id="botonCatalogo"
                 href="./shop"
                 rel="noopener noreferrer"
                 className="relative inline-flex items-center justify-start px-6 py-3 overflow-hidden font-medium transition-all bg-myZinc rounded-xl group"
@@ -121,6 +122,7 @@ export default function Hero() {
               <ul className="flex gap-x-2 justify-center items-center">
                 <li>
                   <Link
+                    id="botonFacebook"
                     className="group relative"
                     rel="noopener noreferrer"
                     href={socialMedia.facebook}
@@ -140,6 +142,7 @@ export default function Hero() {
                 </li>
                 <li>
                   <Link
+                    id="botonInstagram"
                     className="group relative"
                     rel="noopener noreferrer"
                     href={socialMedia.instagram}
@@ -175,6 +178,7 @@ export default function Hero() {
               />
             </div>
             <Link
+              id="botonMaps"
               href="https://maps.app.goo.gl/NGMc6mL8N5qEDu6K9"
               rel="noopener noreferrer"
               target="_blank"
