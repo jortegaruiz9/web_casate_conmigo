@@ -3,7 +3,6 @@ import "./ui/globals.css";
 import Nav from "./components/Nav";
 import Footer from "./components/Footer";
 import AdviserContextProvider from "./context/AdviserContext";
-import Head from "next/head";
 import GoogleTagManager from "./components/GoogleTagManager";
 import { raleway } from "./ui/fonts";
 import { Metadata } from "next";
@@ -30,13 +29,21 @@ export default function RootLayout({
 }) {
   return (
     <html lang="es" className="dark">
-      <Head>
+      <head>
         <GoogleTagManager />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta charSet="UTF-8" />
-      </Head>
+      </head>
       <AdviserContextProvider>
         <body className={`${raleway.className} antialiased bg-myWhite`}>
+          <noscript>
+            <iframe
+              src="https://www.googletagmanager.com/ns.html?id=GTM-PCZR7KW9"
+              height="0"
+              width="0"
+              style={{ display: "none", visibility: "hidden" }}
+            ></iframe>
+          </noscript>
           <header>
             <title>Cásate Conmigo</title>
             <Nav elements={items} />
