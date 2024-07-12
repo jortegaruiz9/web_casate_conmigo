@@ -1,6 +1,8 @@
 "use client";
 import { useState } from "react";
 import Modal from "./ModalUi";
+import Image from "next/image";
+
 interface CardProps {
   info: {
     content: string;
@@ -34,9 +36,11 @@ export default function CardInfo({ info }: CardProps) {
           </p>
         </div>
         <div className="bg-gradient-to-b from-transparent via-transparent-300 to-myWhite absolute z-10 w-full h-[100px] sm:hidden"></div>
-        <img
+        <Image
           src={info.img}
           alt={info.alt}
+          width={750}
+          height={450}
           className="w-full h-full object-cover"
         />
       </div>

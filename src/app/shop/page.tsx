@@ -4,31 +4,36 @@ export const metadata = {
 
 import Image from "next/image";
 import Link from "next/link";
+import { title } from "process";
 
 const products = [
   {
     url: "./shop/cintillos",
     category: "Cintillo",
-    src: "foto cintillo",
+    src: "anillo de promesa quito",
     imageUrl: "/modelos/cintillos/aci-002.jpg",
+    title: "anillos de promesa",
   },
   {
     url: "./shop/compromiso",
     category: "Compromiso",
-    src: "foto compromiso",
+    src: "foto compromiso quito",
     imageUrl: "/modelos/compromiso/ac-008.jpg",
+    title: "anillos de compromiso",
   },
   {
     url: "./shop/matrimonio",
     category: "Matrimonio",
-    src: "foto matrimonio",
+    src: "anillos de matriminio quito",
     imageUrl: "/modelos/matrimonio/am-019.jpg",
+    title: "anillos de matrimonio",
   },
   {
     url: "./shop/set",
     category: "Set Anilllos",
-    src: "foto set anillos",
+    src: "joyerias quito",
     imageUrl: "/modelos/set/as-012.jpg",
+    title: "joyerias quito",
   },
 ];
 
@@ -46,6 +51,7 @@ export default function Shop() {
                 <Image
                   src={model.imageUrl}
                   alt={model.src}
+                  title={title}
                   height={350}
                   width={350}
                 />
@@ -55,9 +61,7 @@ export default function Shop() {
         })}
       </div>
       <div>
-        <h1 className="text-myZinc text-lg mb-10">
-          Conoce nuestros anillos de boda
-        </h1>
+        <h1 className="text-myZinc text-lg mb-10">anillos de boda</h1>
       </div>
     </div>
   );

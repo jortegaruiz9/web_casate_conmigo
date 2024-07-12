@@ -110,13 +110,24 @@ const Form: React.FC<FormProps> = ({
           />
           <label
             htmlFor={idSilverYellow}
-            className={`cursor-pointer w-6 h-6 flex items-center justify-center rounded-sm border  ${
+            className={`cursor-pointer w-6 h-6 flex items-center justify-center rounded-sm border group relative ${
               seleccionado === "silverYellow"
                 ? " border-myZinc "
                 : "border-gray-300 "
             }`}
           >
-            <div className="w-5 h-5 rounded-sm bg-gradient-to-br from-yellow-500 to-yellow-300 border-myZinc"></div>
+            <div className="w-5 h-5 rounded-sm bg-gradient-to-br from-yellow-500 to-yellow-300 border-myZinc">
+              {" "}
+              <span
+                className="absolute -top-80 left-[260%] -translate-x-[50%] 
+                      z-20 origin-left scale-0 px-3 rounded-lg border 
+                    border-gray-300 bg-white py-2 text-xs
+                      shadow-md transition-all duration-300 ease-in-out 
+                      group-hover:scale-100 w-[120px]"
+              >
+                Plata con baño de oro amarillo
+              </span>
+            </div>
           </label>
         </div>
         <div className="relative">
@@ -131,10 +142,19 @@ const Form: React.FC<FormProps> = ({
           />
           <label
             htmlFor={idSilver}
-            className={`cursor-pointer w-6 h-6 flex items-center justify-center rounded-sm border  ${
+            className={`cursor-pointer w-6 h-6 flex items-center justify-center rounded-sm border group relative ${
               seleccionado === "silver" ? " border-myZinc " : "border-gray-300 "
             }`}
           >
+            <span
+              className="absolute -top-80 left-[130%] -translate-x-[50%] 
+                      z-20 origin-left scale-0 px-3 rounded-lg border 
+                    border-gray-300 bg-white py-2 text-xs
+                      shadow-md transition-all duration-300 ease-in-out 
+                      group-hover:scale-100 w-[120px]"
+            >
+              Plata con baño de oro blanco
+            </span>
             <div className="w-5 h-5 rounded-sm bg-gradient-to-br from-gray-300 to-gray-400 border-myZinc"></div>
           </label>
         </div>
@@ -151,10 +171,19 @@ const Form: React.FC<FormProps> = ({
           />
           <label
             htmlFor={idGold}
-            className={`cursor-pointer w-6 h-6 flex items-center justify-center rounded-sm border  ${
+            className={`cursor-pointer w-6 h-6 flex items-center justify-center rounded-sm border group relative ${
               seleccionado === "gold" ? " border-myZinc " : "border-gray-300"
             }`}
           >
+            <span
+              className="absolute -top-80 left-[0%] -translate-x-[50%] 
+                      z-20 origin-left scale-0 px-3 rounded-lg border 
+                    border-gray-300 bg-white py-2 text-xs
+                      shadow-md transition-all duration-300 ease-in-out 
+                      group-hover:scale-100 w-[120px]"
+            >
+              Oro Amarillo 18k
+            </span>
             <div className="w-5 h-5 rounded-sm bg-gradient-to-br from-yellow-800 to-yellow-300 border-myZinc"></div>
           </label>
         </div>
@@ -171,13 +200,23 @@ const Form: React.FC<FormProps> = ({
           />
           <label
             htmlFor={idGoldWhite}
-            className={`cursor-pointer w-6 h-6 flex items-center justify-center rounded-sm border ${
+            className={`cursor-pointer w-6 h-6 flex items-center justify-center rounded-sm border group relative${
               seleccionado === "goldWhite"
                 ? " border-myZinc "
                 : "border-gray-300"
             }`}
           >
-            <div className="w-5 h-5 rounded-sm bg-gradient-to-br from-gray-800 to-gray-300 border-myZinc"></div>
+            <div className="w-5 h-5 rounded-sm bg-gradient-to-br from-gray-800 to-gray-300 border-myZinc">
+              <span
+                className="absolute -top-80 left-[-110%] -translate-x-[50%] 
+                      z-20 origin-left scale-0 px-3 rounded-lg border 
+                    border-gray-300 bg-white py-2 text-xs
+                      shadow-md transition-all duration-300 ease-in-out 
+                      group-hover:scale-100 w-[120px]"
+              >
+                Oro Blanco 18k
+              </span>
+            </div>
           </label>
         </div>
         <div className="relative">
@@ -192,12 +231,22 @@ const Form: React.FC<FormProps> = ({
           />
           <label
             htmlFor={idGoldRose}
-            className={`cursor-pointer w-6 h-6 flex items-center justify-center rounded-sm border  ${
+            className={`cursor-pointer w-6 h-6 flex items-center justify-center rounded-sm border group relative  ${
               seleccionado === "goldRose"
                 ? " border-myZinc "
                 : "border-gray-300"
             }`}
           >
+            {" "}
+            <span
+              className="absolute -top-80 left-[-250%] -translate-x-[50%] 
+                z-20 origin-left scale-0 px-3 rounded-lg border 
+              border-gray-300 bg-white py-2 text-xs
+                shadow-md transition-all duration-300 ease-in-out 
+                group-hover:scale-100 w-[120px]"
+            >
+              Oro Rosado 18k
+            </span>
             <div className="w-5 h-5 rounded-sm bg-custom-gradient "></div>
           </label>
         </div>
