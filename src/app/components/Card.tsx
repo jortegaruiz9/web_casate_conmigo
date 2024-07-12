@@ -118,6 +118,7 @@ export default function Card({ product }: CardProps) {
               </div>
             </div>
             <button
+              id="botonComprar"
               onClick={handleOrderClick}
               type="button"
               className="bg-white text-center w-40 rounded-md h-12 relative font-sans text-myZinc text-md font-semibold group"
