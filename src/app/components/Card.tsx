@@ -118,10 +118,10 @@ export default function Card({ product }: CardProps) {
               </div>
             </div>
             <button
-              id="botonComprar"
               onClick={handleOrderClick}
               type="button"
               className="bg-white text-center w-40 rounded-md h-12 relative font-sans text-myZinc text-md font-semibold group"
+              id={`buttonModel${" "}${product.model}`}
             >
               <div className="bg-pink-200 rounded-md h-10 w-1/4 flex items-center justify-center absolute left-1 top-[4px] group-hover:w-[152px] z-10 duration-500">
                 <span className="icon-[hugeicons--shopping-basket-done-01]"></span>
