@@ -24,31 +24,35 @@ const article = {
 let socialLinks = [
   {
     name: "s",
-    facebook: "https://www.facebook.com/sandrajanneth.ortegaruiz?locale=es_LA",
+    whatsapp:
+      "https://api.whatsapp.com/send/?phone=%2B593995001783&text=Me+interesa+conocer+m%C3%A1s+sobre+sus+anillos%2C+pude+revisar+su+web&type=phone_number&app_absent=0",
     instagram:
       "https://www.instagram.com/casate_conmigo777?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==",
   },
   {
     name: "f",
-    facebook:
-      "https://www.facebook.com/people/C%C3%A1sate-Conmigo/61558269571631/",
+    whatsapp:
+      "https://api.whatsapp.com/send/?phone=%2B593983883197&text=Me+interesa+conocer+m%C3%A1s+sobre+sus+anillos%2C+pude+revisar+su+web&type=phone_number&app_absent=0",
     instagram:
       "https://www.instagram.com/casateconmigo.ec?igsh=Y2pxam9oOG5leDVu",
   },
   {
     name: "c",
-    facebook: "https://www.facebook.com/people/Joyeria-Camila/100087172031030/",
+    whatsapp:
+      "https://api.whatsapp.com/send/?phone=%2B593983335393&text=Me+interesa+conocer+m%C3%A1s+sobre+sus+anillos%2C+pude+revisar+su+web&type=phone_number&app_absent=0",
     instagram: "https://www.instagram.com/ca.camicc/",
   },
   {
     name: "j",
-    facebook: "https://www.facebook.com/people/Joyeria-Camila/100087172031030/",
+    whatsapp:
+      "https://api.whatsapp.com/send/?phone=%2B593984171976&text=Me+interesa+conocer+m%C3%A1s+sobre+sus+anillos%2C+pude+revisar+su+web&type=phone_number&app_absent=0",
     instagram:
       "https://www.instagram.com/casate_conmigo.jf?igsh=MXF0NmZzcDA5Z2w3",
   },
   {
     name: "d",
-    facebook: "https://www.facebook.com/casateconmigo.ecuador/",
+    whatsapp:
+      "https://api.whatsapp.com/send/?phone=%2B593958606651&text=Me+interesa+conocer+m%C3%A1s+sobre+sus+anillos%2C+pude+revisar+su+web&type=phone_number&app_absent=0",
     instagram:
       "https://www.instagram.com/casate.conmigo_so?igsh=OTZjMnZzMjhzNmk%3D&utm_source=qr",
   },
@@ -122,33 +126,13 @@ export default function Hero() {
               <ul className="flex gap-x-2 justify-center items-center">
                 <li>
                   <Link
-                    id="botonFacebook"
-                    className="group relative"
-                    rel="noopener noreferrer"
-                    href={socialMedia.facebook}
-                    target="_blank"
-                  >
-                    <span className="icon-[mdi--facebook] group-hover:text-5xl transition-all hover:text-blue-500" />
-                    <span
-                      className="absolute -top-14 left-[100%] -translate-x-[50%] 
-                      z-20 origin-left scale-0 px-3 rounded-lg border 
-                    border-gray-300 bg-white py-2 text-sm font-bold
-                      shadow-md transition-all duration-300 ease-in-out 
-                      group-hover:scale-100"
-                    >
-                      Facebook
-                    </span>
-                  </Link>
-                </li>
-                <li>
-                  <Link
                     id="botonInstagram"
                     className="group relative"
                     rel="noopener noreferrer"
                     href={socialMedia.instagram}
                     target="_blank"
                   >
-                    <span className="icon-[mdi--instagram] group-hover:text-5xl transition-all hover:text-red-500" />
+                    <span className="icon-[radix-icons--instagram-logo] group-hover:text-5xl transition-all hover:text-red-500" />
                     <span
                       className="absolute -top-14 left-[80%] -translate-x-[50%] 
                       z-20 origin-left scale-0 px-3 rounded-lg border 
@@ -157,6 +141,26 @@ export default function Hero() {
                       group-hover:scale-100"
                     >
                       Instagram
+                    </span>
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    id="botonWhatsapp(Hero)"
+                    className="group relative "
+                    rel="noopener noreferrer"
+                    href={socialMedia.whatsapp}
+                    target="_blank"
+                  >
+                    <span className="icon-[logos--whatsapp-icon] group-hover:text-5xl transition-all hover:text-green-500 animate-pulse animate-infinite animate-infinite animate-duration-[2000ms] " />
+                    <span
+                      className="absolute -top-14 left-[100%] -translate-x-[50%] 
+                      z-20 origin-left scale-0 px-3 rounded-lg border 
+                    border-gray-300 bg-white py-2 text-sm font-bold
+                      shadow-md transition-all duration-300 ease-in-out 
+                      group-hover:scale-100"
+                    >
+                      Whatsapp
                     </span>
                   </Link>
                 </li>
