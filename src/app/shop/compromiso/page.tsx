@@ -1,7 +1,12 @@
-"use client";
 import Button from "@/app/components/Button";
 import Card from "@/app/components/Card";
 import InstructionColors from "@/app/components/InstructionColors";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Compromiso - Cásate Conmigo",
+  description: "anillos de compromiso",
+};
 
 const rings = [
   {

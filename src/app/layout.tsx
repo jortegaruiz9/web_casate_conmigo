@@ -10,7 +10,7 @@ import { Metadata } from "next";
 // Metadata para SEO
 
 export const metadata: Metadata = {
-  title: "Cásate Conmigo Ec - Anillos de Boda en Oro 18k y Plata 925",
+  title: "Cásate Conmigo - Joyería",
   description:
     "Descubre nuestros anillos de boda personalizados en oro 18k y plata 925. Compra en nuestra joyería en Quito y disfruta de envíos rápidos a todo Ecuador.",
 };

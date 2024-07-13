@@ -1,5 +1,8 @@
-export const metadata = {
-  title: "Shop",
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Shop - Cásate Conmigo",
+  description: "anillos de boda",
 };
 
 import Image from "next/image";
