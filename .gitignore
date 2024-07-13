@@ -8,7 +8,7 @@
 
 # testing
 /coverage
-
+ps
 # next.js
 /.next/
 /out/

@@ -1,0 +1,7 @@
+User-agent: *
+Disallow: /api/
+Disallow: /admin/
+Allow: /
+Sitemap: https://www.casateconmigoecu.com/sitemap.xml
+
+# Puedes agregar reglas adicionales aquí
