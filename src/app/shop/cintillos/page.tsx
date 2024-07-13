@@ -1,7 +1,12 @@
-"use client";
 import Button from "@/app/components/Button";
 import Card from "@/app/components/Card";
 import InstructionColors from "@/app/components/InstructionColors";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Cintillos - Cásate Conmigo",
+  description: "anillos de promesa",
+};
 
 const rings = [
   {
@@ -53,7 +58,7 @@ export default function Shop() {
           return <Card key={index} product={model} />;
         })}
       </div>
-      <h1 className="text-myZinc text-lg mt-10">Conoce nuestros cintillos</h1>
+      <h1 className="text-myZinc text-lg mt-10">anillos de promesa</h1>
       <Button />
     </div>
   );

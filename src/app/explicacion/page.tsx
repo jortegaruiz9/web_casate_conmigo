@@ -1,6 +1,9 @@
-export const metadata = {
-  title: "Conoce más",
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Conoce más - Cásate Conmigo",
 };
+
 import CardInfo from "../components/CardInfo";
 
 const data = [

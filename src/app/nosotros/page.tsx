@@ -1,5 +1,7 @@
-export const metadata = {
-  title: "Nosotros",
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Nosotros - Cásate Conmigo",
 };
 
 import Image from "next/image";
