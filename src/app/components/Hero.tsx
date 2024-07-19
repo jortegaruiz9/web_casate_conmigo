@@ -2,6 +2,7 @@
 import Image from "next/image";
 import { useContext, useState, useEffect } from "react";
 import { AdviserContext } from "../context/AdviserContext";
+import { sendGTMEvent } from "@next/third-parties/google";
 import Link from "next/link";
 
 const materials = [
@@ -94,7 +95,9 @@ export default function Hero() {
             <h1 className=" xl:w-8/12 ">{article.paragraph}</h1>
             <div className="flex items-center xl:justify-start gap-4 text-sm">
               <Link
-                id="botonCatalogo"
+                onClick={() =>
+                  sendGTMEvent({ event: "Ir al catalogo", value: "456" })
+                }
                 href="./shop"
                 rel="noopener noreferrer"
                 className="relative inline-flex items-center justify-start px-6 py-3 overflow-hidden font-medium transition-all bg-myZinc rounded-xl group"
@@ -125,8 +128,10 @@ export default function Hero() {
             <div className="text-4xl text-myZinc">
               <ul className="flex gap-x-2 justify-center items-center">
                 <li>
-                  <Link
-                    id="botonInstagram"
+                  <a
+                    onClick={() =>
+                      sendGTMEvent({ event: "iconInstagram", value: "345" })
+                    }
                     className="group relative"
                     rel="noopener noreferrer"
                     href={socialMedia.instagram}
@@ -142,11 +147,13 @@ export default function Hero() {
                     >
                       Instagram
                     </span>
-                  </Link>
+                  </a>
                 </li>
                 <li>
-                  <Link
-                    id="botonWhatsapp(Hero)"
+                  <a
+                    onClick={() =>
+                      sendGTMEvent({ event: "iconWhatsapp", value: "123" })
+                    }
                     className="group relative "
                     rel="noopener noreferrer"
                     href={socialMedia.whatsapp}
@@ -162,7 +169,7 @@ export default function Hero() {
                     >
                       Whatsapp
                     </span>
-                  </Link>
+                  </a>
                 </li>
               </ul>
             </div>
@@ -181,8 +188,10 @@ export default function Hero() {
                 title="quito"
               />
             </div>
-            <Link
-              id="botonMaps"
+            <a
+              onClick={() =>
+                sendGTMEvent({ event: "botonMaps", value: "2345" })
+              }
               href="https://maps.app.goo.gl/NGMc6mL8N5qEDu6K9"
               rel="noopener noreferrer"
               target="_blank"
@@ -199,7 +208,7 @@ export default function Hero() {
                 <h4>Google Maps</h4>
                 <span className="icon-[solar--map-arrow-right-bold-duotone] text-myZinc" />
               </div>
-            </Link>
+            </a>
           </div>
           <div>
             <ul className="flex text-xs justify-end gap-4 text-myWhite mr-4 sm:mt-48 md:mt-10 lg:mt-0 xl:mr-20">

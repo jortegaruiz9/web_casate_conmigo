@@ -3,6 +3,7 @@ import Image from "next/image";
 import { useState, useContext } from "react";
 import { MagicMotion } from "react-magic-motion";
 import { AdviserContext } from "../context/AdviserContext";
+import { sendGTMEvent } from "@next/third-parties/google";
 import Link from "next/link";
 
 type Props = {
@@ -34,9 +35,14 @@ export default function Nav({ elements }: Props) {
       <div className="bg-myZinc h-[55px] flex items-center justify-center text-myWhite gap-2">
         <h3>Adquiere tu anillo.</h3>
         <button
-          id="botonWhatsappIcon"
           className="flex items-center gap-1"
-          onClick={handleOrderClick}
+          onClick={() => {
+            sendGTMEvent({
+              event: "arrowWhatsapp",
+              value: "789",
+            });
+            handleOrderClick();
+          }}
         >
           Agendar una cita
           <span className="icon-[material-symbols--arrow-forward-rounded] text-3xl text-myWhite hover:scale-110 transition-all" />
@@ -67,10 +73,15 @@ export default function Nav({ elements }: Props) {
           <hr className="border-r border-gray-300 h-8" />
           <li className="flex justify-center items-center text-myWhite">
             <button
-              id="botonWhatsapp1"
               className="py-3 px-8 bg-myZinc rounded-lg hover:ring-2 hover:ring-offset-2 hover:ring-myZinc transition-all ease-out duration-300"
               rel="noopener noreferrer"
-              onClick={handleOrderClick}
+              onClick={() => {
+                sendGTMEvent({
+                  event: "NavWhatsapp",
+                  value: "5678",
+                });
+                handleOrderClick();
+              }}
             >
               Whatsapp
             </button>
@@ -103,10 +114,15 @@ export default function Nav({ elements }: Props) {
                   );
                 })}
                 <button
-                  id="botonWhatsapp"
-                  className="py-3 w-full bg-myZinc rounded-lg hover:ring-2 hover:ring-offset-2 hover:ring-myZinc transition-all ease-out duration-300 text-myWhite text-center"
+                  className="py-3 px-8 bg-myZinc rounded-lg hover:ring-2 hover:ring-offset-2 hover:ring-myZinc transition-all ease-out duration-300 text-myWhite"
                   rel="noopener noreferrer"
-                  onClick={handleOrderClick}
+                  onClick={() => {
+                    sendGTMEvent({
+                      event: "HambuWhatsapp",
+                      value: "6789",
+                    });
+                    handleOrderClick();
+                  }}
                 >
                   Whatsapp
                 </button>
