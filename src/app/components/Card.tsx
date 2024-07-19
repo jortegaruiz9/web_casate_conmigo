@@ -5,6 +5,7 @@ import { AdviserContext } from "../context/AdviserContext";
 import Modal from "./ModalUi";
 import { raleway, monserrat } from "../ui/fonts";
 import Form from "./Form";
+import { sendGTMEvent } from "@next/third-parties/google";
 
 interface CardProps {
   product: {
@@ -119,7 +120,13 @@ export default function Card({ product }: CardProps) {
               </div>
             </div>
             <button
-              onClick={handleOrderClick}
+              onClick={() => {
+                sendGTMEvent({
+                  event: "buttonComprar",
+                  value: "910",
+                });
+                handleOrderClick();
+              }}
               type="button"
               className="bg-white text-center w-40 rounded-md h-12 relative font-sans text-myZinc text-md font-semibold group"
               id={`buttonModel${" "}${product.model}`}
