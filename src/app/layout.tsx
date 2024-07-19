@@ -3,7 +3,7 @@ import "./ui/globals.css";
 import Nav from "./components/Nav";
 import Footer from "./components/Footer";
 import AdviserContextProvider from "./context/AdviserContext";
-import { GoogleTagManager } from "@next/third-parties/google";
+import { GoogleAnalytics, GoogleTagManager } from "@next/third-parties/google";
 import { raleway } from "./ui/fonts";
 import { Metadata } from "next";
 
@@ -31,6 +31,7 @@ export default function RootLayout({
     <html lang="es" className="dark">
       <head>
         <GoogleTagManager gtmId="GTM-PCZR7KW9" />
+
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta charSet="UTF-8" />
       </head>
@@ -55,6 +56,7 @@ export default function RootLayout({
             <Footer />
           </footer>
         </body>
+        <GoogleAnalytics gaId="G-ZKWNJCQD3D" />
       </AdviserContextProvider>
     </html>
   );
