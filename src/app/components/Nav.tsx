@@ -3,7 +3,7 @@ import Image from "next/image";
 import { useState, useContext } from "react";
 import { MagicMotion } from "react-magic-motion";
 import { AdviserContext } from "../context/AdviserContext";
-import { sendGTMEvent } from "@next/third-parties/google";
+import { sendGTMEvent, sendGAEvent } from "@next/third-parties/google";
 import Link from "next/link";
 
 type Props = {
@@ -37,6 +37,10 @@ export default function Nav({ elements }: Props) {
         <button
           className="flex items-center gap-1"
           onClick={() => {
+            sendGAEvent({
+              event: "A-arrowWhatsapp",
+              value: "1789",
+            });
             sendGTMEvent({
               event: "arrowWhatsapp",
               value: "789",
@@ -76,6 +80,10 @@ export default function Nav({ elements }: Props) {
               className="py-3 px-8 bg-myZinc rounded-lg hover:ring-2 hover:ring-offset-2 hover:ring-myZinc transition-all ease-out duration-300"
               rel="noopener noreferrer"
               onClick={() => {
+                sendGAEvent({
+                  event: "A-NavWhatsapp",
+                  value: "15678",
+                });
                 sendGTMEvent({
                   event: "NavWhatsapp",
                   value: "5678",
@@ -117,6 +125,10 @@ export default function Nav({ elements }: Props) {
                   className="py-3 px-8 bg-myZinc rounded-lg hover:ring-2 hover:ring-offset-2 hover:ring-myZinc transition-all ease-out duration-300 text-myWhite"
                   rel="noopener noreferrer"
                   onClick={() => {
+                    sendGAEvent({
+                      event: "A-HambuWhatsapp",
+                      value: "16789",
+                    });
                     sendGTMEvent({
                       event: "HambuWhatsapp",
                       value: "6789",

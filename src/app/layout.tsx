@@ -31,7 +31,6 @@ export default function RootLayout({
     <html lang="es" className="dark">
       <head>
         <GoogleTagManager gtmId="GTM-PCZR7KW9" />
-
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta charSet="UTF-8" />
       </head>
