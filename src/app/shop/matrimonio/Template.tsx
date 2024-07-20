@@ -4,6 +4,7 @@ import Button from "@/app/components/Button";
 import Card from "@/app/components/Card";
 import InstructionColors from "@/app/components/InstructionColors";
 import { gtmPageView } from "@/app/lib/gtm";
+import { gaPageView } from "@/app/lib/ga";
 import { useEffect } from "react";
 
 const rings = [
@@ -631,6 +632,7 @@ export default function ShopTemplate() {
       page_title: "matrimonio",
     };
     gtmPageView(props);
+    gaPageView(window.location.href);
   }, []);
 
   return (

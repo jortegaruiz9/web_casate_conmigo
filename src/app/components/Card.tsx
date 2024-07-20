@@ -5,7 +5,7 @@ import { AdviserContext } from "../context/AdviserContext";
 import Modal from "./ModalUi";
 import { raleway, monserrat } from "../ui/fonts";
 import Form from "./Form";
-import { sendGTMEvent } from "@next/third-parties/google";
+import { sendGTMEvent, sendGAEvent } from "@next/third-parties/google";
 
 interface CardProps {
   product: {
@@ -121,6 +121,10 @@ export default function Card({ product }: CardProps) {
             </div>
             <button
               onClick={() => {
+                sendGAEvent({
+                  event: "A-buttonComprar",
+                  value: "1910",
+                });
                 sendGTMEvent({
                   event: "buttonComprar",
                   value: "910",
