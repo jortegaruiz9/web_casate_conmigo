@@ -25,7 +25,7 @@ const Form: React.FC<FormProps> = ({
   setPrecio,
   setColorSeleccionado,
 }) => {
-  const [seleccionado, setSeleccionado] = useState<string>("silver");
+  const [seleccionado, setSeleccionado] = useState<string>("silverYellow");
   const [precio, setPrecioLocal] = useState<number | null>(null);
 
   useEffect(() => {
@@ -119,7 +119,7 @@ const Form: React.FC<FormProps> = ({
             <div className="w-5 h-5 rounded-sm bg-gradient-to-br from-yellow-500 to-yellow-300 border-myZinc">
               {" "}
               <span
-                className="absolute -top-80 left-[260%] -translate-x-[50%] 
+                className="absolute -top-28 left-[260%] -translate-x-[50%] 
                       z-20 origin-left scale-0 px-3 rounded-lg border 
                     border-gray-300 bg-white py-2 text-xs
                       shadow-md transition-all duration-300 ease-in-out 
@@ -147,7 +147,7 @@ const Form: React.FC<FormProps> = ({
             }`}
           >
             <span
-              className="absolute -top-80 left-[130%] -translate-x-[50%] 
+              className="absolute -top-28 left-[132%] -translate-x-[50%] 
                       z-20 origin-left scale-0 px-3 rounded-lg border 
                     border-gray-300 bg-white py-2 text-xs
                       shadow-md transition-all duration-300 ease-in-out 
@@ -176,7 +176,7 @@ const Form: React.FC<FormProps> = ({
             }`}
           >
             <span
-              className="absolute -top-80 left-[0%] -translate-x-[50%] 
+              className="absolute -top-28 left-[4%] -translate-x-[50%] 
                       z-20 origin-left scale-0 px-3 rounded-lg border 
                     border-gray-300 bg-white py-2 text-xs
                       shadow-md transition-all duration-300 ease-in-out 
@@ -187,7 +187,6 @@ const Form: React.FC<FormProps> = ({
             <div className="w-5 h-5 rounded-sm bg-gradient-to-br from-yellow-800 to-yellow-300 border-myZinc"></div>
           </label>
         </div>
-
         <div className="relative">
           <input
             type="radio"
@@ -200,23 +199,23 @@ const Form: React.FC<FormProps> = ({
           />
           <label
             htmlFor={idGoldWhite}
-            className={`cursor-pointer w-6 h-6 flex items-center justify-center rounded-sm border group relative${
+            className={`cursor-pointer w-6 h-6 flex items-center justify-center rounded-sm border group relative  ${
               seleccionado === "goldWhite"
                 ? " border-myZinc "
                 : "border-gray-300"
             }`}
           >
-            <div className="w-5 h-5 rounded-sm bg-gradient-to-br from-gray-800 to-gray-300 border-myZinc">
-              <span
-                className="absolute -top-80 left-[-120%] -translate-x-[50%] 
-                      z-20 origin-left scale-0 px-3 rounded-lg border 
-                    border-gray-300 bg-white py-2 text-xs
-                      shadow-md transition-all duration-300 ease-in-out 
-                      group-hover:scale-100 w-[120px]"
-              >
-                Oro Blanco 18k
-              </span>
-            </div>
+            {" "}
+            <span
+              className="absolute -top-28 left-[-118%] -translate-x-[50%] 
+                z-20 origin-left scale-0 px-3 rounded-lg border 
+              border-gray-300 bg-white py-2 text-xs
+                shadow-md transition-all duration-300 ease-in-out 
+                group-hover:scale-100 w-[120px]"
+            >
+              Oro Blanco 18k
+            </span>
+            <div className="w-5 h-5 rounded-sm bg-gradient-to-br from-gray-800 to-gray-300 border-myZinc"></div>
           </label>
         </div>
         <div className="relative">
@@ -239,7 +238,7 @@ const Form: React.FC<FormProps> = ({
           >
             {" "}
             <span
-              className="absolute -top-80 left-[-250%] -translate-x-[50%] 
+              className="absolute -top-28 left-[-250%] -translate-x-[50%] 
                 z-20 origin-left scale-0 px-3 rounded-lg border 
               border-gray-300 bg-white py-2 text-xs
                 shadow-md transition-all duration-300 ease-in-out 

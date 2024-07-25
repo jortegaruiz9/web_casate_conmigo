@@ -209,6 +209,8 @@ const rings = [
   {
     category: "matrimonio",
     image: "/modelos/matrimonio/am-019P.jpg",
+    imageSilver: "/modelos/matrimonio/am-019B.jpg",
+    imageRose: "/modelos/matrimonio/am-019R.jpg",
     linkProduct:
       "https://www.instagram.com/p/C8oBApjuijn/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
     alt: "imagen modelo AM-019",

@@ -1,5 +1,5 @@
 "use client";
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import Image from "next/image";
 import { AdviserContext } from "../context/AdviserContext";
 import Modal from "./ModalUi";
@@ -11,6 +11,8 @@ interface CardProps {
   product: {
     category: string;
     image: string;
+    imageSilver?: string;
+    imageRose?: string;
     linkProduct: string;
     alt: string;
     model: string;
@@ -23,6 +25,7 @@ interface CardProps {
 export default function Card({ product }: CardProps) {
   const whatsapp = useContext(AdviserContext) as any;
   const [isCreateModalOpen, setIsCreateModalOpen] = useState(false);
+  const [imgProduct, setImgProduct] = useState(product.image);
   const [precio, setPrecio] = useState<number | null>(null);
   const [colorSeleccionado, setColorSeleccionado] = useState("");
 
@@ -52,11 +55,34 @@ export default function Card({ product }: CardProps) {
     { icon: "icon-[mdi--shield-check]", text: "Garantía de por vida" },
     { icon: "icon-[mynaui--one-square]", text: "Garantía por un año" },
   ];
+  useEffect(() => {
+    switch (colorSeleccionado) {
+      case "SilverYellow":
+      case "Oro amarillo":
+        setImgProduct(product.image);
+        break;
+      case "Plata":
+      case "Oro blanco":
+        setImgProduct(product.imageSilver ?? product.image);
+        break;
+      case "Oro rosa":
+        setImgProduct(product.imageRose ?? product.image);
+        break;
+      default:
+        setImgProduct(product.image);
+        break;
+    }
+  }, [
+    colorSeleccionado,
+    product.image,
+    product.imageSilver,
+    product.imageRose,
+  ]);
 
   return (
     <div className="text-myZinc">
       <div className="w-[350px]">
-        <Image width={350} height={350} src={product.image} alt={product.alt} />
+        <Image width={350} height={350} src={imgProduct} alt={product.alt} />
       </div>
       <div
         className={`${monserrat.className} antialiased w-[350px] ring-1 mt-2 ring-zinc-400 `}
@@ -116,7 +142,6 @@ export default function Card({ product }: CardProps) {
                     </h3>
                   </div>
                 </div>
-                <div></div>
               </div>
             </div>
             <button
