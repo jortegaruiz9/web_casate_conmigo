@@ -33,6 +33,8 @@ const rings = [
   {
     category: "set",
     image: "/modelos/set/as-003P.jpg",
+    imageSilver: "/modelos/set/as-003B.jpg",
+    imageRose: "/modelos/set/as-003R.jpg",
     linkProduct:
       "https://www.instagram.com/p/C8o2XlDOgiu/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
     alt: "imagen modelo AS-003",

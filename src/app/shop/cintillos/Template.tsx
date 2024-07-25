@@ -35,6 +35,8 @@ const rings = [
   {
     category: "cintillo",
     image: "/modelos/cintillos/aci-003P.jpg",
+    imageSilver: "/modelos/cintillos/aci-003B.jpg",
+    imageRose: "/modelos/cintillos/aci-003R.jpg",
     linkProduct:
       "https://www.instagram.com/p/C2tJPCCNEXR/?igsh=MTRlYWo2OG4xMXZ4ag==",
     alt: "imagen modelo ACI-003",

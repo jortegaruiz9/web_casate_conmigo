@@ -11,6 +11,8 @@ const rings = [
   {
     category: "compromiso",
     image: "/modelos/compromiso/ac-001.jpg",
+    imageSilver: "/modelos/compromiso/ac-001B.jpg",
+    imageRose: "/modelos/compromiso/ac-001R.jpg",
     linkProduct:
       "https://www.instagram.com/p/C8nuhTyt3VL/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
     alt: "imagen modelo AC-001",
@@ -132,6 +134,8 @@ const rings = [
   {
     category: "compromiso",
     image: "/modelos/compromiso/ac-012P.jpg",
+    imageSilver: "/modelos/compromiso/ac-012B.jpg",
+    imageRose: "/modelos/compromiso/ac-012R.jpg",
     linkProduct:
       "https://www.instagram.com/p/C8nyz48NWoT/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
     alt: "imagen modelo AC-012",
