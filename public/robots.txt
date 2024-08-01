@@ -1,7 +1,9 @@
+# Allow all robots to access all content
 User-agent: *
-Disallow: /api/
-Disallow: /admin/
 Allow: /
-Sitemap: https://www.casateconmigoecu.com/sitemap.xml
 
-# Puedes agregar reglas adicionales aquí
+# Host directive (optional)
+Host: https://www.casateconmigoecu.com
+
+# Sitemap directive
+Sitemap: https://www.casateconmigoecu.com/sitemap.xml
