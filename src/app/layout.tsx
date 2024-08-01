@@ -6,6 +6,7 @@ import AdviserContextProvider from "./context/AdviserContext";
 import { GoogleAnalytics, GoogleTagManager } from "@next/third-parties/google";
 import { raleway } from "./ui/fonts";
 import { Metadata } from "next";
+import Promo from "./components/Promo";
 
 // Metadata para SEO
 
@@ -16,10 +17,12 @@ export const metadata: Metadata = {
 };
 // Elementos de navegación
 const items = [
-  { name: "Tienda", link: "/shop" },
+  { name: "Catálogo", link: "/shop" },
   { name: "Conoce más", link: "/explicacion" },
   { name: "Nosotros", link: "/nosotros" },
 ];
+// elementos que le pasamos a nuestro componente de promociones
+let promo = [{ text: "Adquiere tu anillo.", buttonText: "Agendar una cita" }];
 
 // RootLayout con optimización SEO
 export default function RootLayout({
@@ -46,7 +49,9 @@ export default function RootLayout({
           </noscript>
           <header>
             <title>Cásate Conmigo</title>
+            <Promo elements={promo} />
             <Nav elements={items} />
+            <hr className="border-gray-300" />
           </header>
           <main>
             <Providers>{children}</Providers>

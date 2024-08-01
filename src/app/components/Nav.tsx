@@ -1,149 +1,129 @@
-"use client";
+"use client"; // Añade esta línea al principio del archivo
+
 import Image from "next/image";
 import { useState, useContext } from "react";
-import { MagicMotion } from "react-magic-motion";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { AdviserContext } from "../context/AdviserContext";
 import { sendGTMEvent, sendGAEvent } from "@next/third-parties/google";
-import Link from "next/link";
+import {
+  Navbar,
+  NavbarBrand,
+  NavbarContent,
+  NavbarItem,
+  NavbarMenuToggle,
+  NavbarMenu,
+  NavbarMenuItem,
+  Button,
+  Link as NextUILink,
+} from "@nextui-org/react";
 
 type Props = {
   elements: { name: string; link: string }[];
 };
 
 export default function Nav({ elements }: Props) {
-  let [isOpen, setIsOpen] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const currentPath = usePathname();
+
   const whatsapp = useContext(AdviserContext) as any;
   const handleOrderClick = () => {
-    // Construir el enlace de WhatsApp con la información del producto y la imagen
     const whatsappMessage = `Me interesa conocer más sobre sus anillos, pude revisar su web`;
-
-    // Reemplaza '1234567890' con tu número de teléfono de WhatsApp
     const whatsappLink = `https://wa.me/+593${
       whatsapp.adviser.tel
     }?text=${encodeURIComponent(whatsappMessage)}`;
-
-    // Abrir el enlace en una nueva pestaña
     window.open(whatsappLink, "_blank");
   };
 
-  const toggle = () => {
-    setIsOpen(!isOpen);
-  };
-
   return (
-    <div>
-      <div className="bg-myZinc h-[55px] flex items-center justify-center text-myWhite gap-2">
-        <h3>Adquiere tu anillo.</h3>
-        <button
-          className="flex items-center gap-1"
-          onClick={() => {
-            sendGAEvent({
-              event: "A-arrowWhatsapp",
-              value: "1789",
-            });
-            sendGTMEvent({
-              event: "arrowWhatsapp",
-              value: "789",
-            });
-            handleOrderClick();
-          }}
-        >
-          Agendar una cita
-          <span className="icon-[material-symbols--arrow-forward-rounded] text-3xl text-myWhite hover:scale-110 transition-all" />
-        </button>
-      </div>
-
-      <nav className="bg-myWhite flex justify-between px-8 md:px-0 md:justify-around h-[80px] items-center text-myZinc">
-        <div className="max-w-[180px]">
-          <Link className="flex items-center" href="/">
+    <Navbar
+      onMenuOpenChange={setIsMenuOpen}
+      className="bg-myWhite h-[80px] text-myZinc "
+    >
+      <NavbarContent>
+        <NavbarBrand>
+          <NextUILink className="flex items-center" href="/">
             <Image
               src="/logoBlack.svg"
               priority={true}
               alt="logo de jortega"
-              width={3000}
-              height={3000}
+              width={180}
+              height={36}
             />
-          </Link>
-        </div>
-        <ul className="gap-8 items-center hidden md:flex lg:gap-12">
-          {elements.map((element, index) => {
-            const indexNav = `custom_${index}`;
-            return (
-              <li key={indexNav}>
-                <Link href={element.link}>{element.name}</Link>
-              </li>
-            );
-          })}
-          <hr className="border-r border-gray-300 h-8" />
-          <li className="flex justify-center items-center text-myWhite">
-            <button
-              className="py-3 px-8 bg-myZinc rounded-lg hover:ring-2 hover:ring-offset-2 hover:ring-myZinc transition-all ease-out duration-300"
-              rel="noopener noreferrer"
-              onClick={() => {
-                sendGAEvent({
-                  event: "A-NavWhatsapp",
-                  value: "15678",
-                });
-                sendGTMEvent({
-                  event: "NavWhatsapp",
-                  value: "5678",
-                });
-                handleOrderClick();
-              }}
-            >
-              Whatsapp
-            </button>
-          </li>
-        </ul>
-        <button className="flex items-center md:hidden" onClick={toggle}>
-          <span className="icon-[ant-design--menu-outlined] text-2xl" />
-        </button>
-      </nav>
-      <MagicMotion
-        transition={{ type: "spring", stiffness: 180, damping: 60, mass: 1.1 }}
+          </NextUILink>
+        </NavbarBrand>
+        <NavbarMenuToggle
+          aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+          className="sm:hidden"
+        />
+      </NavbarContent>
+
+      <NavbarContent
+        className="hidden md:flex gap-4 lg:gap-12"
+        justify="center"
       >
-        <div className="overflow-hidden">
-          {isOpen && (
-            <nav
-              className={`${isOpen ? "block" : "hidden"} md:hidden text-myZinc`}
+        {elements.map((element, index) => (
+          <NavbarItem
+            key={`custom_${index}`}
+            isActive={currentPath === element.link}
+          >
+            <Link
+              href={element.link}
+              className={`text-myZinc ${
+                currentPath === element.link ? "text-myZinc" : ""
+              }`}
             >
-              <ul className="flex flex-col gap-3 py-6 px-6">
-                {elements.map((element, index) => {
-                  const indexHamburger = `custom_${index}`;
-                  return (
-                    <li
-                      key={indexHamburger}
-                      onClick={() => {
-                        setIsOpen(false);
-                      }}
-                    >
-                      <Link href={element.link}>{element.name}</Link>
-                    </li>
-                  );
-                })}
-                <button
-                  className="py-3 px-8 bg-myZinc rounded-lg hover:ring-2 hover:ring-offset-2 hover:ring-myZinc transition-all ease-out duration-300 text-myWhite"
-                  rel="noopener noreferrer"
-                  onClick={() => {
-                    sendGAEvent({
-                      event: "A-HambuWhatsapp",
-                      value: "16789",
-                    });
-                    sendGTMEvent({
-                      event: "HambuWhatsapp",
-                      value: "6789",
-                    });
-                    handleOrderClick();
-                  }}
-                >
-                  Whatsapp
-                </button>
-              </ul>
-            </nav>
-          )}
-        </div>
-      </MagicMotion>
-      <hr className={`${isOpen ? "hidden" : "block"} border-gray-300`} />
-    </div>
+              {element.name}
+            </Link>
+          </NavbarItem>
+        ))}
+        <hr className="border-r border-gray-300 h-8" />
+        <NavbarItem>
+          <Button
+            className="py-6 px-10 bg-myZinc rounded-lg hover:ring-2 hover:ring-offset-2 hover:ring-myZinc transition-all ease-out duration-300 text-myWhite text-md antialiased"
+            onClick={() => {
+              sendGAEvent({ event: "A-NavWhatsapp", value: "15678" });
+              sendGTMEvent({ event: "NavWhatsapp", value: "5678" });
+              handleOrderClick();
+            }}
+          >
+            Whatsapp
+          </Button>
+        </NavbarItem>
+      </NavbarContent>
+
+      <NavbarMenu className="flex justify-center space-y-12">
+        {elements.map((element, index) => (
+          <NavbarMenuItem
+            key={`custom_${index}`}
+            isActive={currentPath === element.link}
+            className={
+              currentPath === element.link ? " text-myWhite" : "text-myWhite"
+            }
+          >
+            <NextUILink
+              href={element.link}
+              className={`text-myWhite ${
+                currentPath === element.link ? "text-pink-200" : "text-myWhite"
+              }`}
+            >
+              {element.name}
+            </NextUILink>
+          </NavbarMenuItem>
+        ))}
+        <NavbarMenuItem>
+          <Button
+            className="py-3 px-8 bg-myWhite rounded-lg  text-myZinc"
+            onClick={() => {
+              sendGAEvent({ event: "A-HambuWhatsapp", value: "16789" });
+              sendGTMEvent({ event: "HambuWhatsapp", value: "6789" });
+              handleOrderClick();
+            }}
+          >
+            Whatsapp
+          </Button>
+        </NavbarMenuItem>
+      </NavbarMenu>
+    </Navbar>
   );
 }
