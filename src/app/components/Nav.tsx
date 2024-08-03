@@ -92,19 +92,19 @@ export default function Nav({ elements }: Props) {
         </NavbarItem>
       </NavbarContent>
 
-      <NavbarMenu className="flex justify-center space-y-12">
+      <NavbarMenu className="flex justify-center space-y-12 bg-myWhite bg-opacity-80">
         {elements.map((element, index) => (
           <NavbarMenuItem
             key={`custom_${index}`}
             isActive={currentPath === element.link}
             className={
-              currentPath === element.link ? " text-myWhite" : "text-myWhite"
+              currentPath === element.link ? " text-myWhite" : "text-myZinc"
             }
           >
             <NextUILink
               href={element.link}
-              className={`text-myWhite ${
-                currentPath === element.link ? "text-pink-200" : "text-myWhite"
+              className={`text-myZinc text-lg ${
+                currentPath === element.link ? "font-bold" : "text-myZinc"
               }`}
             >
               {element.name}
@@ -113,7 +113,7 @@ export default function Nav({ elements }: Props) {
         ))}
         <NavbarMenuItem>
           <Button
-            className="py-3 px-8 bg-myWhite rounded-lg  text-myZinc"
+            className="py-6 px-6 bg-myZinc rounded-lg hover:ring-2 hover:ring-offset-2 hover:ring-myZinc transition-all ease-out duration-300 text-myWhite text-1xl antialiased"
             onClick={() => {
               sendGAEvent({ event: "A-HambuWhatsapp", value: "16789" });
               sendGTMEvent({ event: "HambuWhatsapp", value: "6789" });
