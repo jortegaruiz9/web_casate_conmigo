@@ -10,7 +10,9 @@ import { useEffect } from "react";
 const rings = [
   {
     category: "cintillo",
-    image: "/modelos/cintillos/aci-001.jpg",
+    image: "/modelos/cintillos/aci-001/amarillo.jpg",
+    imageSilver: "/modelos/cintillos/aci-001/blanco.jpg",
+    imageRose: "/modelos/cintillos/aci-001/rosado.jpg",
     linkProduct:
       "https://www.instagram.com/p/C2TBmgNJYbK/?igsh=MTh4cjM1dnZ2ODMxMw==",
     alt: "imagen modelo ACI-001",
@@ -22,7 +24,9 @@ const rings = [
   },
   {
     category: "cintillo",
-    image: "/modelos/cintillos/aci-002.jpg",
+    image: "/modelos/cintillos/aci-002/amarillo.png",
+    imageSilver: "/modelos/cintillos/aci-002/blanco.png",
+    imageRose: "/modelos/cintillos/aci-002/rosado.jpg",
     linkProduct:
       "https://www.instagram.com/p/C12nqsbpLN7/?igsh=MWEwZTY1eXB6Mm1uYQ==",
     alt: "imagen modelo ACI-002",
@@ -34,9 +38,9 @@ const rings = [
   },
   {
     category: "cintillo",
-    image: "/modelos/cintillos/aci-003P.jpg",
-    imageSilver: "/modelos/cintillos/aci-003B.jpg",
-    imageRose: "/modelos/cintillos/aci-003R.jpg",
+    image: "/modelos/cintillos/aci-003/promo.jpg",
+    imageSilver: "/modelos/cintillos/aci-003/blanco.jpg",
+    imageRose: "/modelos/cintillos/aci-003/rosado.jpg",
     linkProduct:
       "https://www.instagram.com/p/C2tJPCCNEXR/?igsh=MTRlYWo2OG4xMXZ4ag==",
     alt: "imagen modelo ACI-003",
