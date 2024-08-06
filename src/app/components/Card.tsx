@@ -1,6 +1,7 @@
-"use client";
 import React, { useContext, useState, useEffect } from "react";
 import Image from "next/image";
+import { driver } from "driver.js";
+import "driver.js/dist/driver.css";
 import { AdviserContext } from "../context/AdviserContext";
 import Modal from "./ModalUi";
 import { raleway, monserrat } from "../ui/fonts";
@@ -55,6 +56,7 @@ export default function Card({ product }: CardProps) {
     { icon: "icon-[mdi--shield-check]", text: "Garantía de por vida" },
     { icon: "icon-[mynaui--one-square]", text: "Garantía por un año" },
   ];
+
   useEffect(() => {
     switch (colorSeleccionado) {
       case "SilverYellow":
@@ -79,8 +81,71 @@ export default function Card({ product }: CardProps) {
     product.imageRose,
   ]);
 
+  const startTour = () => {
+    const driverObj = driver({
+      showProgress: true,
+      steps: [
+        {
+          element: "#card-container",
+          popover: {
+            title: "Modelos Interactivos",
+            description:
+              "En este catálogo los colores y precios cambian a tu elección",
+            side: "left",
+            align: "start",
+          },
+        },
+        {
+          element: "#form-options",
+          popover: {
+            title: "Elección de color",
+            description:
+              "Haz clic en el material y color que necesitas tus anillo/s",
+            side: "top",
+            align: "center",
+          },
+        },
+        {
+          element: "#prices-product",
+          popover: {
+            title: "Tu elección cambia el precio",
+            description: "Valida el precio según el material",
+            side: "top",
+            align: "start",
+          },
+        },
+        {
+          element: "#garantia-incluido",
+          popover: {
+            title: "Incluido y Garantía",
+            description:
+              "Da click en estos iconos y conoce que incluyen tus anillos",
+            side: "top",
+            align: "center",
+          },
+        },
+        {
+          element: "#order-button",
+          popover: {
+            title: "Botón Comprar",
+            description:
+              "Haz clic en este botón para comprar mediante un asesor de whatsapp.",
+            side: "top",
+            align: "start",
+          },
+        },
+      ],
+    });
+
+    driverObj.drive();
+  };
+
+  useEffect(() => {
+    startTour();
+  }, []);
+
   return (
-    <div className="text-myZinc">
+    <div className="text-myZinc" id="card-container">
       <div className="w-[350px]">
         <Image width={350} height={350} src={imgProduct} alt={product.alt} />
       </div>
@@ -89,13 +154,15 @@ export default function Card({ product }: CardProps) {
       >
         <div className="px-2 py-2 flex flex-col items-between">
           <div className="flex gap-x-2 items-center mb-2 justify-between">
-            <Form
-              category={product.category}
-              grams={product.grams}
-              setPrecio={setPrecio}
-              setColorSeleccionado={setColorSeleccionado}
-            />
-            <div>
+            <div id="form-options">
+              <Form
+                category={product.category}
+                grams={product.grams}
+                setPrecio={setPrecio}
+                setColorSeleccionado={setColorSeleccionado}
+              />
+            </div>
+            <div id="garantia-incluido">
               <ul
                 className="flex text-2xl gap-x-1 text-gray-500 cursor-pointer"
                 onClick={() => {
@@ -125,7 +192,7 @@ export default function Card({ product }: CardProps) {
             </div>
           </div>
           <div className="flex justify-between items-start">
-            <div>
+            <div id="prices-product">
               <div className="flex justify-between">
                 <h2>
                   Modelo: <span className="font-bold">{product.model}</span>
@@ -158,7 +225,7 @@ export default function Card({ product }: CardProps) {
               }}
               type="button"
               className="bg-white text-center w-40 rounded-md h-12 relative font-sans text-myZinc text-md font-semibold group"
-              id={`buttonModel${" "}${product.model}`}
+              id="order-button"
             >
               <div className="bg-pink-200 rounded-md h-10 w-1/4 flex items-center justify-center absolute left-1 top-[4px] group-hover:w-[152px] z-10 duration-500">
                 <span className="icon-[hugeicons--shopping-basket-done-01]"></span>

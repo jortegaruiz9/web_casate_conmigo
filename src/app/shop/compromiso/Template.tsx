@@ -10,9 +10,9 @@ import { useEffect } from "react";
 const rings = [
   {
     category: "compromiso",
-    image: "/modelos/compromiso/ac-001.jpg",
-    imageSilver: "/modelos/compromiso/ac-001B.jpg",
-    imageRose: "/modelos/compromiso/ac-001R.jpg",
+    image: "/modelos/compromiso/ac-001/amarillo.jpg",
+    imageSilver: "/modelos/compromiso/ac-001/blanco.jpg",
+    imageRose: "/modelos/compromiso/ac-001/rosado.jpg",
     linkProduct:
       "https://www.instagram.com/p/C8nuhTyt3VL/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
     alt: "imagen modelo AC-001",
@@ -23,7 +23,9 @@ const rings = [
   },
   {
     category: "compromiso",
-    image: "/modelos/compromiso/ac-002.jpg",
+    image: "/modelos/compromiso/ac-002/amarillo.jpg",
+    imageSilver: "/modelos/compromiso/ac-002/blanco.jpg",
+    imageRose: "/modelos/compromiso/ac-002/rosado.jpg",
     linkProduct:
       "https://www.instagram.com/p/C8nulGlNoOf/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
     alt: "imagen modelo AC-002",
@@ -34,7 +36,9 @@ const rings = [
   },
   {
     category: "compromiso",
-    image: "/modelos/compromiso/ac-003.jpg",
+    image: "/modelos/compromiso/ac-003/amarillo.jpg",
+    imageSilver: "/modelos/compromiso/ac-003/blanco.jpg",
+    imageRose: "/modelos/compromiso/ac-003/rosado.jpg",
     linkProduct:
       "https://www.instagram.com/p/C8nuo-MtYtm/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
     alt: "imagen modelo AC-003",
@@ -45,7 +49,9 @@ const rings = [
   },
   {
     category: "compromiso",
-    image: "/modelos/compromiso/ac-004.jpg",
+    image: "/modelos/compromiso/ac-004/amarillo.jpg",
+    imageSilver: "/modelos/compromiso/ac-004/blanco.jpg",
+    imageRose: "/modelos/compromiso/ac-004/rosado.jpg",
     linkProduct:
       "https://www.instagram.com/p/C8nutkztKzi/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
     alt: "imagen modelo AC-004",
@@ -56,7 +62,9 @@ const rings = [
   },
   {
     category: "compromiso",
-    image: "/modelos/compromiso/ac-005.jpg",
+    image: "/modelos/compromiso/ac-005/amarillo.jpg",
+    imageSilver: "/modelos/compromiso/ac-005/blanco.jpg",
+    imageRose: "/modelos/compromiso/ac-005/rosado.jpg",
     linkProduct:
       "https://www.instagram.com/p/C8nwanjt8-d/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
     alt: "imagen modelo AC-005",
@@ -67,7 +75,9 @@ const rings = [
   },
   {
     category: "compromiso",
-    image: "/modelos/compromiso/ac-006.jpg",
+    image: "/modelos/compromiso/ac-006/amarillo.jpg",
+    imageSilver: "/modelos/compromiso/ac-006/blanco.jpg",
+    imageRose: "/modelos/compromiso/ac-006/rosado.jpg",
     linkProduct:
       "https://www.instagram.com/p/C8nwfvZNn6m/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
     alt: "imagen modelo AC-006",
@@ -78,7 +88,9 @@ const rings = [
   },
   {
     category: "compromiso",
-    image: "/modelos/compromiso/ac-007.jpg",
+    image: "/modelos/compromiso/ac-007/amarillo.jpg",
+    imageSilver: "/modelos/compromiso/ac-007/blanco.jpg",
+    imageRose: "/modelos/compromiso/ac-007/rosado.jpg",
     linkProduct:
       "https://www.instagram.com/p/C8nwjD5Nk32/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
     alt: "imagen modelo AC-007",
@@ -89,7 +101,9 @@ const rings = [
   },
   {
     category: "compromiso",
-    image: "/modelos/compromiso/ac-008.jpg",
+    image: "/modelos/compromiso/ac-008/amarillo.jpg",
+    imageSilver: "/modelos/compromiso/ac-008/blanco.jpg",
+    imageRose: "/modelos/compromiso/ac-008/rosado.jpg",
     linkProduct:
       "https://www.instagram.com/p/C8nyg0tNs6d/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
     alt: "imagen modelo AC-008",
@@ -100,7 +114,9 @@ const rings = [
   },
   {
     category: "compromiso",
-    image: "/modelos/compromiso/ac-009.jpg",
+    image: "/modelos/compromiso/ac-009/amarillo.jpg",
+    imageSilver: "/modelos/compromiso/ac-009/blanco.jpg",
+    imageRose: "/modelos/compromiso/ac-009/rosado.jpg",
     linkProduct:
       "https://www.instagram.com/p/C8nylUnt_nI/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
     alt: "imagen modelo AC-009",
@@ -111,7 +127,9 @@ const rings = [
   },
   {
     category: "compromiso",
-    image: "/modelos/compromiso/ac-010.jpg",
+    image: "/modelos/compromiso/ac-010/amarillo.jpg",
+    imageSilver: "/modelos/compromiso/ac-010/blanco.jpg",
+    imageRose: "/modelos/compromiso/ac-010/rosado.jpg",
     linkProduct:
       "https://www.instagram.com/p/C8nyrXcNntS/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
     alt: "imagen modelo AC-010",
@@ -122,7 +140,9 @@ const rings = [
   },
   {
     category: "compromiso",
-    image: "/modelos/compromiso/ac-011.jpg",
+    image: "/modelos/compromiso/ac-011/amarillo.jpg",
+    imageSilver: "/modelos/compromiso/ac-011/blanco.jpg",
+    imageRose: "/modelos/compromiso/ac-011/rosado.jpg",
     linkProduct:
       "https://www.instagram.com/p/C8nywy8t1Ea/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
     alt: "imagen modelo AC-011",
@@ -133,9 +153,9 @@ const rings = [
   },
   {
     category: "compromiso",
-    image: "/modelos/compromiso/ac-012P.jpg",
-    imageSilver: "/modelos/compromiso/ac-012B.jpg",
-    imageRose: "/modelos/compromiso/ac-012R.jpg",
+    image: "/modelos/compromiso/ac-012/promo.jpg",
+    imageSilver: "/modelos/compromiso/ac-012/blanco.jpg",
+    imageRose: "/modelos/compromiso/ac-012/rosado.jpg",
     linkProduct:
       "https://www.instagram.com/p/C8nyz48NWoT/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
     alt: "imagen modelo AC-012",
@@ -146,7 +166,9 @@ const rings = [
   },
   {
     category: "compromiso",
-    image: "/modelos/compromiso/ac-013.jpg",
+    image: "/modelos/compromiso/ac-013/amarillo.jpg",
+    imageSilver: "/modelos/compromiso/ac-013/blanco.jpg",
+    imageRose: "/modelos/compromiso/ac-013/rosado.jpg",
     linkProduct:
       "https://www.instagram.com/p/C8ny2i0N9Vz/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
     alt: "imagen modelo AC-013",
@@ -157,7 +179,9 @@ const rings = [
   },
   {
     category: "compromiso",
-    image: "/modelos/compromiso/ac-014.jpg",
+    image: "/modelos/compromiso/ac-014/amarillo.jpg",
+    imageSilver: "/modelos/compromiso/ac-014/blanco.jpg",
+    imageRose: "/modelos/compromiso/ac-014/rosado.jpg",
     linkProduct:
       "https://www.instagram.com/p/C8n2vqwtfkC/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
     alt: "imagen modelo AC-014",
@@ -168,7 +192,9 @@ const rings = [
   },
   {
     category: "compromiso",
-    image: "/modelos/compromiso/ac-015.jpg",
+    image: "/modelos/compromiso/ac-015/amarillo.jpg",
+    imageSilver: "/modelos/compromiso/ac-015/blanco.jpg",
+    imageRose: "/modelos/compromiso/ac-015/rosado.jpg",
     linkProduct:
       "https://www.instagram.com/p/C8n2023t903/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
     alt: "imagen modelo AC-015",
@@ -179,7 +205,9 @@ const rings = [
   },
   {
     category: "compromiso",
-    image: "/modelos/compromiso/ac-016.jpg",
+    image: "/modelos/compromiso/ac-016/amarillo.jpg",
+    imageSilver: "/modelos/compromiso/ac-016/blanco.jpg",
+    imageRose: "/modelos/compromiso/ac-016/rosado.jpg",
     linkProduct:
       "https://www.instagram.com/p/C8n240GtSWQ/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
     alt: "imagen modelo AC-016",
@@ -190,7 +218,9 @@ const rings = [
   },
   {
     category: "compromiso",
-    image: "/modelos/compromiso/ac-017.jpg",
+    image: "/modelos/compromiso/ac-017/amarillo.jpg",
+    imageSilver: "/modelos/compromiso/ac-017/blanco.jpg",
+    imageRose: "/modelos/compromiso/ac-017/rosado.jpg",
     linkProduct:
       "https://www.instagram.com/p/C8n3CJlNT3G/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
     alt: "imagen modelo AC-017",
@@ -201,7 +231,9 @@ const rings = [
   },
   {
     category: "compromiso",
-    image: "/modelos/compromiso/ac-018.jpg",
+    image: "/modelos/compromiso/ac-018/amarillo.jpg",
+    imageSilver: "/modelos/compromiso/ac-018/blanco.jpg",
+    imageRose: "/modelos/compromiso/ac-018/rosado.jpg",
     linkProduct:
       "https://www.instagram.com/p/C8n3HQatgOf/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
     alt: "imagen modelo AC-018",
@@ -212,7 +244,9 @@ const rings = [
   },
   {
     category: "compromiso",
-    image: "/modelos/compromiso/ac-019.jpg",
+    image: "/modelos/compromiso/ac-019/amarillo.jpg",
+    imageSilver: "/modelos/compromiso/ac-019/blanco.jpg",
+    imageRose: "/modelos/compromiso/ac-019/rosado.jpg",
     linkProduct:
       "https://www.instagram.com/p/C8n3QTjtu_Z/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
     alt: "imagen modelo AC-019",
@@ -223,7 +257,9 @@ const rings = [
   },
   {
     category: "compromiso",
-    image: "/modelos/compromiso/ac-020.jpg",
+    image: "/modelos/compromiso/ac-020/amarillo.jpg",
+    imageSilver: "/modelos/compromiso/ac-020/blanco.jpg",
+    imageRose: "/modelos/compromiso/ac-020/rosado.jpg",
     linkProduct:
       "https://www.instagram.com/p/C8n6SC7NqDF/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
     alt: "imagen modelo AC-020",

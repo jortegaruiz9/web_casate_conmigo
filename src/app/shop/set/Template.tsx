@@ -10,7 +10,9 @@ import { useEffect } from "react";
 const rings = [
   {
     category: "set",
-    image: "/modelos/set/as-001.jpg",
+    image: "/modelos/set/as-001/amarillo.jpg",
+    imageSilver: "/modelos/set/as-001/blanco.jpg",
+    imageRose: "/modelos/set/as-001/rosado.jpg",
     linkProduct:
       "https://www.instagram.com/p/C8n-Y2Ptx7b/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
     alt: "imagen modelo AS-001",
@@ -21,7 +23,9 @@ const rings = [
   },
   {
     category: "set",
-    image: "/modelos/set/as-002.jpg",
+    image: "/modelos/set/as-002/amarillo.jpg",
+    imageSilver: "/modelos/set/as-002/blanco.jpg",
+    imageRose: "/modelos/set/as-002/rosado.jpg",
     linkProduct:
       "https://www.instagram.com/p/C8o2LUfOGWH/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
     alt: "imagen modelo AS-002",
@@ -32,9 +36,9 @@ const rings = [
   },
   {
     category: "set",
-    image: "/modelos/set/as-003P.jpg",
-    imageSilver: "/modelos/set/as-003B.jpg",
-    imageRose: "/modelos/set/as-003R.jpg",
+    image: "/modelos/set/as-003/promo.jpg",
+    imageSilver: "/modelos/set/as-003/blanco.jpg",
+    imageRose: "/modelos/set/as-003/rosado.jpg",
     linkProduct:
       "https://www.instagram.com/p/C8o2XlDOgiu/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
     alt: "imagen modelo AS-003",
@@ -45,7 +49,9 @@ const rings = [
   },
   {
     category: "set",
-    image: "/modelos/set/as-004.jpg",
+    image: "/modelos/set/as-004/amarillo.jpg",
+    imageSilver: "/modelos/set/as-004/blanco.jpg",
+    imageRose: "/modelos/set/as-004/rosado.jpg",
     linkProduct:
       "https://www.instagram.com/p/C8o2bJauOQr/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
     alt: "imagen modelo AS-004",
@@ -56,7 +62,9 @@ const rings = [
   },
   {
     category: "set",
-    image: "/modelos/set/as-005.jpg",
+    image: "/modelos/set/as-005/amarillo.jpg",
+    imageSilver: "/modelos/set/as-005/blanco.jpg",
+    imageRose: "/modelos/set/as-005/rosado.jpg",
     linkProduct:
       "https://www.instagram.com/p/C8pNabqOaur/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
     alt: "imagen modelo AS-005",
@@ -67,7 +75,9 @@ const rings = [
   },
   {
     category: "set",
-    image: "/modelos/set/as-006.jpg",
+    image: "/modelos/set/as-006/amarillo.jpg",
+    imageSilver: "/modelos/set/as-006/blanco.jpg",
+    imageRose: "/modelos/set/as-006/rosado.jpg",
     linkProduct:
       "https://www.instagram.com/p/C8pNdX9ON1L/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
     alt: "imagen modelo AS-006",
@@ -78,7 +88,9 @@ const rings = [
   },
   {
     category: "set",
-    image: "/modelos/set/as-007.jpg",
+    image: "/modelos/set/as-007/amarillo.jpg",
+    imageSilver: "/modelos/set/as-007/blanco.jpg",
+    imageRose: "/modelos/set/as-007/rosado.jpg",
     linkProduct:
       "https://www.instagram.com/p/C8pNf68uvE4/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
     alt: "imagen modelo AS-007",
@@ -89,7 +101,9 @@ const rings = [
   },
   {
     category: "set",
-    image: "/modelos/set/as-008.jpg",
+    image: "/modelos/set/as-008/amarillo.jpg",
+    imageSilver: "/modelos/set/as-008/blanco.jpg",
+    imageRose: "/modelos/set/as-008/rosado.jpg",
     linkProduct:
       "https://www.instagram.com/p/C8rsDATOg57/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
     alt: "imagen modelo AS-008",
@@ -100,7 +114,9 @@ const rings = [
   },
   {
     category: "set",
-    image: "/modelos/set/as-009.jpg",
+    image: "/modelos/set/as-009/amarillo.jpg",
+    imageSilver: "/modelos/set/as-009/blanco.jpg",
+    imageRose: "/modelos/set/as-009/rosado.jpg",
     linkProduct:
       "https://www.instagram.com/p/C8rtfobO8nU/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
     alt: "imagen modelo AS-009",
@@ -111,7 +127,9 @@ const rings = [
   },
   {
     category: "set",
-    image: "/modelos/set/as-010.jpg",
+    image: "/modelos/set/as-010/amarillo.jpg",
+    imageSilver: "/modelos/set/as-010/blanco.jpg",
+    imageRose: "/modelos/set/as-010/rosado.jpg",
     linkProduct:
       "https://www.instagram.com/p/C8rtlJ1uCJq/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
     alt: "imagen modelo AS-010",
@@ -122,7 +140,9 @@ const rings = [
   },
   {
     category: "set",
-    image: "/modelos/set/as-011.jpg",
+    image: "/modelos/set/as-011/amarillo.jpg",
+    imageSilver: "/modelos/set/as-011/blanco.jpg",
+    imageRose: "/modelos/set/as-011/rosado.jpg",
     linkProduct:
       "https://www.instagram.com/p/C8r9Cqyutgj/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
     alt: "imagen modelo AS-011",
@@ -133,7 +153,9 @@ const rings = [
   },
   {
     category: "set",
-    image: "/modelos/set/as-012.jpg",
+    image: "/modelos/set/as-012/amarillo.jpg",
+    imageSilver: "/modelos/set/as-012/blanco.jpg",
+    imageRose: "/modelos/set/as-012/rosado.jpg",
     linkProduct:
       "https://www.instagram.com/p/C8r9HyBuwsk/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
     alt: "imagen modelo AS-012",
@@ -144,7 +166,9 @@ const rings = [
   },
   {
     category: "set",
-    image: "/modelos/set/as-013.jpg",
+    image: "/modelos/set/as-013/amarillo.jpg",
+    imageSilver: "/modelos/set/as-013/blanco.jpg",
+    imageRose: "/modelos/set/as-013/rosado.jpg",
     linkProduct:
       "https://www.instagram.com/p/C8sA0c4ur-Y/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
     alt: "imagen modelo AS-013",
@@ -155,7 +179,9 @@ const rings = [
   },
   {
     category: "set",
-    image: "/modelos/set/as-014.jpg",
+    image: "/modelos/set/as-014/amarillo.jpg",
+    imageSilver: "/modelos/set/as-014/blanco.jpg",
+    imageRose: "/modelos/set/as-014/rosado.jpg",
     linkProduct:
       "https://www.instagram.com/p/C8sIgzJPLD8/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
     alt: "imagen modelo AS-014",
@@ -166,7 +192,9 @@ const rings = [
   },
   {
     category: "set",
-    image: "/modelos/set/as-015.jpg",
+    image: "/modelos/set/as-015/amarillo.jpg",
+    imageSilver: "/modelos/set/as-015/blanco.jpg",
+    imageRose: "/modelos/set/as-015/rosado.jpg",
     linkProduct:
       "https://www.instagram.com/p/C8sIjC9vZBy/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
     alt: "imagen modelo AS-015",

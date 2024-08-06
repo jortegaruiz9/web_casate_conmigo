@@ -10,7 +10,9 @@ import { useEffect } from "react";
 const rings = [
   {
     category: "matrimonio",
-    image: "/modelos/matrimonio/am-001.jpg",
+    image: "/modelos/matrimonio/am-001/amarillo.jpg",
+    imageSilver: "/modelos/matrimonio/am-001/blanco.jpg",
+    imageRose: "/modelos/matrimonio/am-001/rosado.jpg",
     linkProduct:
       "https://www.instagram.com/p/C8nz9k6NA6_/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
     alt: "imagen modelo AM-001",
@@ -21,18 +23,9 @@ const rings = [
   },
   {
     category: "matrimonio",
-    image: "/modelos/matrimonio/am-002.jpg",
-    linkProduct:
-      "https://www.instagram.com/p/C8n0AUYNAKs/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
-    alt: "imagen modelo AM-002",
-    model: "AM-002",
-    color: "blanco",
-    grabado: true,
-    grams: 4,
-  },
-  {
-    category: "matrimonio",
-    image: "/modelos/matrimonio/am-003.jpg",
+    image: "/modelos/matrimonio/am-003/amarillo.jpg",
+    imageSilver: "/modelos/matrimonio/am-003/blanco.jpg",
+    imageRose: "/modelos/matrimonio/am-003/rosado.jpg",
     linkProduct:
       "https://www.instagram.com/p/C8n0CJmtyYk/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
     alt: "imagen modelo AM-003",
@@ -43,29 +36,9 @@ const rings = [
   },
   {
     category: "matrimonio",
-    image: "/modelos/matrimonio/am-004.jpg",
-    linkProduct:
-      "https://www.instagram.com/p/C8n0XNttKIA/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
-    alt: "imagen modelo AM-004",
-    model: "AM-004",
-    color: "blanco",
-    grabado: true,
-    grams: 4,
-  },
-  {
-    category: "matrimonio",
-    image: "/modelos/matrimonio/am-005.jpg",
-    linkProduct:
-      "https://www.instagram.com/p/C8n0Z8Ltiwt/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
-    alt: "imagen modelo AM-005",
-    model: "AM-005",
-    color: "amarillo",
-    grabado: true,
-    grams: 4,
-  },
-  {
-    category: "matrimonio",
-    image: "/modelos/matrimonio/am-006.jpg",
+    image: "/modelos/matrimonio/am-006/amarillo.jpg",
+    imageSilver: "/modelos/matrimonio/am-006/blanco.jpg",
+    imageRose: "/modelos/matrimonio/am-006/rosado.jpg",
     linkProduct:
       "https://www.instagram.com/p/C8n0cuvtL6b/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
     alt: "imagen modelo AM-006",
@@ -76,7 +49,9 @@ const rings = [
   },
   {
     category: "matrimonio",
-    image: "/modelos/matrimonio/am-007.jpg",
+    image: "/modelos/matrimonio/am-007/amarillo.jpg",
+    imageSilver: "/modelos/matrimonio/am-007/blanco.jpg",
+    imageRose: "/modelos/matrimonio/am-007/rosado.jpg",
     linkProduct:
       "https://www.instagram.com/p/C8n6Xdstnoo/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
     alt: "imagen modelo AM-007",
@@ -87,7 +62,9 @@ const rings = [
   },
   {
     category: "matrimonio",
-    image: "/modelos/matrimonio/am-008.jpg",
+    image: "/modelos/matrimonio/am-008/amarillo.jpg",
+    imageSilver: "/modelos/matrimonio/am-008/blanco.jpg",
+    imageRose: "/modelos/matrimonio/am-008/rosado.jpg",
     linkProduct:
       "https://www.instagram.com/p/C8n6dTut_5x/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
     alt: "imagen modelo AM-008",
@@ -98,7 +75,9 @@ const rings = [
   },
   {
     category: "matrimonio",
-    image: "/modelos/matrimonio/am-009.jpg",
+    image: "/modelos/matrimonio/am-009/amarillo.jpg",
+    imageSilver: "/modelos/matrimonio/am-009/blanco.jpg",
+    imageRose: "/modelos/matrimonio/am-009/rosado.jpg",
     linkProduct:
       "https://www.instagram.com/p/C8n692bt3e1/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
     alt: "imagen modelo AM-009",
@@ -109,7 +88,9 @@ const rings = [
   },
   {
     category: "matrimonio",
-    image: "/modelos/matrimonio/am-010.jpg",
+    image: "/modelos/matrimonio/am-010/amarillo.jpg",
+    imageSilver: "/modelos/matrimonio/am-010/blanco.jpg",
+    imageRose: "/modelos/matrimonio/am-010/rosado.jpg",
     linkProduct:
       "https://www.instagram.com/p/C8n7BwKNoAC/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
     alt: "imagen modelo AM-010",
@@ -120,18 +101,9 @@ const rings = [
   },
   {
     category: "matrimonio",
-    image: "/modelos/matrimonio/am-011.jpg",
-    linkProduct:
-      "https://www.instagram.com/p/C8n7GUetA5L/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
-    alt: "imagen modelo AM-011",
-    model: "AM-011",
-    color: "rosado",
-    grabado: true,
-    grams: 6,
-  },
-  {
-    category: "matrimonio",
-    image: "/modelos/matrimonio/am-012.jpg",
+    image: "/modelos/matrimonio/am-012/amarillo.jpg",
+    imageSilver: "/modelos/matrimonio/am-012/blanco.jpg",
+    imageRose: "/modelos/matrimonio/am-012/rosado.jpg",
     linkProduct:
       "https://www.instagram.com/p/C8n7IxWNGka/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
     alt: "imagen modelo AM-012",
@@ -142,7 +114,9 @@ const rings = [
   },
   {
     category: "matrimonio",
-    image: "/modelos/matrimonio/am-013.jpg",
+    image: "/modelos/matrimonio/am-013/amarillo.jpg",
+    imageSilver: "/modelos/matrimonio/am-013/blanco.jpg",
+    imageRose: "/modelos/matrimonio/am-013/rosado.jpg",
     linkProduct:
       "https://www.instagram.com/p/C8n8V5ht6mF/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
     alt: "imagen modelo AM-013",
@@ -153,7 +127,9 @@ const rings = [
   },
   {
     category: "matrimonio",
-    image: "/modelos/matrimonio/am-014.jpg",
+    image: "/modelos/matrimonio/am-014/amarillo.jpg",
+    imageSilver: "/modelos/matrimonio/am-014/blanco.jpg",
+    imageRose: "/modelos/matrimonio/am-014/rosado.jpg",
     linkProduct:
       "https://www.instagram.com/p/C8n-d_rtJws/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
     alt: "imagen modelo AM-014",
@@ -164,7 +140,9 @@ const rings = [
   },
   {
     category: "matrimonio",
-    image: "/modelos/matrimonio/am-015.jpg",
+    image: "/modelos/matrimonio/am-015/amarillo.jpg",
+    imageSilver: "/modelos/matrimonio/am-015/blanco.jpg",
+    imageRose: "/modelos/matrimonio/am-015/rosado.jpg",
     linkProduct:
       "https://www.instagram.com/p/C8n-iUuNlk3/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
     alt: "imagen modelo AM-015",
@@ -175,7 +153,9 @@ const rings = [
   },
   {
     category: "matrimonio",
-    image: "/modelos/matrimonio/am-016.jpg",
+    image: "/modelos/matrimonio/am-016/amarillo.jpg",
+    imageSilver: "/modelos/matrimonio/am-016/blanco.jpg",
+    imageRose: "/modelos/matrimonio/am-016/rosado.jpg",
     linkProduct:
       "https://www.instagram.com/p/C8n-pFft0LW/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
     alt: "imagen modelo AM-016",
@@ -186,7 +166,9 @@ const rings = [
   },
   {
     category: "matrimonio",
-    image: "/modelos/matrimonio/am-017.jpg",
+    image: "/modelos/matrimonio/am-017/amarillo.jpg",
+    imageSilver: "/modelos/matrimonio/am-017/blanco.jpg",
+    imageRose: "/modelos/matrimonio/am-017/rosado.jpg",
     linkProduct:
       "https://www.instagram.com/p/C8n-s5Bt5X0/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
     alt: "imagen modelo AM-017",
@@ -197,7 +179,9 @@ const rings = [
   },
   {
     category: "matrimonio",
-    image: "/modelos/matrimonio/am-018.jpg",
+    image: "/modelos/matrimonio/am-018/amarillo.jpg",
+    imageSilver: "/modelos/matrimonio/am-018/blanco.jpg",
+    imageRose: "/modelos/matrimonio/am-018/rosado.jpg",
     linkProduct:
       "https://www.instagram.com/p/C8n-wfkOyWJ/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
     alt: "imagen modelo AM-018",
@@ -208,9 +192,9 @@ const rings = [
   },
   {
     category: "matrimonio",
-    image: "/modelos/matrimonio/am-019P.jpg",
-    imageSilver: "/modelos/matrimonio/am-019B.jpg",
-    imageRose: "/modelos/matrimonio/am-019R.jpg",
+    image: "/modelos/matrimonio/am-019/promo.jpg",
+    imageSilver: "/modelos/matrimonio/am-019/blanco-2.jpg",
+    imageRose: "/modelos/matrimonio/am-019/rosado.jpg",
     linkProduct:
       "https://www.instagram.com/p/C8oBApjuijn/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
     alt: "imagen modelo AM-019",
@@ -221,18 +205,9 @@ const rings = [
   },
   {
     category: "matrimonio",
-    image: "/modelos/matrimonio/am-020.jpg",
-    linkProduct:
-      "https://www.instagram.com/p/C8oBGERunyA/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
-    alt: "imagen modelo AM-020",
-    model: "AM-020",
-    color: "rosado",
-    grabado: true,
-    grams: 10,
-  },
-  {
-    category: "matrimonio",
-    image: "/modelos/matrimonio/am-021.jpg",
+    image: "/modelos/matrimonio/am-021/amarillo.jpg",
+    imageSilver: "/modelos/matrimonio/am-021/blanco.jpg",
+    imageRose: "/modelos/matrimonio/am-021/rosado.jpg",
     linkProduct:
       "https://www.instagram.com/p/C8oBI5COumF/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
     alt: "imagen modelo AM-021",
@@ -243,7 +218,9 @@ const rings = [
   },
   {
     category: "matrimonio",
-    image: "/modelos/matrimonio/am-022.jpg",
+    image: "/modelos/matrimonio/am-022/amarillo.jpg",
+    imageSilver: "/modelos/matrimonio/am-022/blanco.jpg",
+    imageRose: "/modelos/matrimonio/am-022/rosado.jpg",
     linkProduct:
       "https://www.instagram.com/p/C8oBOmpOOYm/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
     alt: "imagen modelo AM-022",
@@ -254,7 +231,9 @@ const rings = [
   },
   {
     category: "matrimonio",
-    image: "/modelos/matrimonio/am-023.jpg",
+    image: "/modelos/matrimonio/am-023/amarillo.jpg",
+    imageSilver: "/modelos/matrimonio/am-023/blanco.jpg",
+    imageRose: "/modelos/matrimonio/am-023/rosado.jpg",
     linkProduct:
       "https://www.instagram.com/p/C8oBVNHu1Xa/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
     alt: "imagen modelo AM-023",
@@ -265,7 +244,9 @@ const rings = [
   },
   {
     category: "matrimonio",
-    image: "/modelos/matrimonio/am-024.jpg",
+    image: "/modelos/matrimonio/am-024/amarillo.jpg",
+    imageSilver: "/modelos/matrimonio/am-024/blanco.jpg",
+    imageRose: "/modelos/matrimonio/am-024/rosado.jpg",
     linkProduct:
       "https://www.instagram.com/p/C8oBYJHu8aF/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
     alt: "imagen modelo AM-024",
@@ -276,7 +257,9 @@ const rings = [
   },
   {
     category: "matrimonio",
-    image: "/modelos/matrimonio/am-025.jpg",
+    image: "/modelos/matrimonio/am-025/amarillo.jpg",
+    imageSilver: "/modelos/matrimonio/am-025/blanco.jpg",
+    imageRose: "/modelos/matrimonio/am-025/rosado.jpg",
     linkProduct:
       "https://www.instagram.com/p/C8oCWH0uiXJ/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
     alt: "imagen modelo AM-025",
@@ -287,7 +270,9 @@ const rings = [
   },
   {
     category: "matrimonio",
-    image: "/modelos/matrimonio/am-026.jpg",
+    image: "/modelos/matrimonio/am-026/amarillo.jpg",
+    imageSilver: "/modelos/matrimonio/am-026/blanco-2.jpg",
+    imageRose: "/modelos/matrimonio/am-026/rosado.jpg",
     linkProduct:
       "https://www.instagram.com/p/C8oBca_OESk/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
     alt: "imagen modelo AM-026",
@@ -298,18 +283,9 @@ const rings = [
   },
   {
     category: "matrimonio",
-    image: "/modelos/matrimonio/am-027.jpg",
-    linkProduct:
-      "https://www.instagram.com/p/C8oBgt4uiqL/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
-    alt: "imagen modelo AM-027",
-    model: "AM-027",
-    color: "blanco",
-    grabado: true,
-    grams: 10,
-  },
-  {
-    category: "matrimonio",
-    image: "/modelos/matrimonio/am-028.jpg",
+    image: "/modelos/matrimonio/am-028/amarillo.jpg",
+    imageSilver: "/modelos/matrimonio/am-028/blanco.jpg",
+    imageRose: "/modelos/matrimonio/am-028/rosado.jpg",
     linkProduct:
       "https://www.instagram.com/p/C8oBkxtuSlz/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
     alt: "imagen modelo AM-028",
@@ -320,7 +296,9 @@ const rings = [
   },
   {
     category: "matrimonio",
-    image: "/modelos/matrimonio/am-029.jpg",
+    image: "/modelos/matrimonio/am-029/amarillo.jpg",
+    imageSilver: "/modelos/matrimonio/am-029/blanco.jpg",
+    imageRose: "/modelos/matrimonio/am-029/rosado.jpg",
     linkProduct:
       "https://www.instagram.com/p/C8o0WVquc80/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
     alt: "imagen modelo AM-029",
@@ -331,7 +309,9 @@ const rings = [
   },
   {
     category: "matrimonio",
-    image: "/modelos/matrimonio/am-030.jpg",
+    image: "/modelos/matrimonio/am-030/amarillo.jpg",
+    imageSilver: "/modelos/matrimonio/am-030/blanco.jpg",
+    imageRose: "/modelos/matrimonio/am-030/rosado.jpg",
     linkProduct:
       "https://www.instagram.com/p/C8o0Z5vOwAr/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
     alt: "imagen modelo AM-030",
@@ -342,7 +322,9 @@ const rings = [
   },
   {
     category: "matrimonio",
-    image: "/modelos/matrimonio/am-031.jpg",
+    image: "/modelos/matrimonio/am-031/amarillo-2.jpg",
+    imageSilver: "/modelos/matrimonio/am-031/blanco.jpg",
+    imageRose: "/modelos/matrimonio/am-031/rosado-2.jpg",
     linkProduct:
       "https://www.instagram.com/p/C8o0dYvuoT7/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
     alt: "imagen modelo AM-031",
@@ -353,18 +335,9 @@ const rings = [
   },
   {
     category: "matrimonio",
-    image: "/modelos/matrimonio/am-032.jpg",
-    linkProduct:
-      "https://www.instagram.com/p/C8o0hEsOZcL/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
-    alt: "imagen modelo AM-032",
-    model: "AM-032",
-    color: "amarillo",
-    grabado: true,
-    grams: 12,
-  },
-  {
-    category: "matrimonio",
-    image: "/modelos/matrimonio/am-033.jpg",
+    image: "/modelos/matrimonio/am-033/amarillo.jpg",
+    imageSilver: "/modelos/matrimonio/am-033/blanco.jpg",
+    imageRose: "/modelos/matrimonio/am-033/rosado.jpg",
     linkProduct:
       "https://www.instagram.com/p/C8o0q5XOS9C/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
     alt: "imagen modelo AM-033",
@@ -375,7 +348,9 @@ const rings = [
   },
   {
     category: "matrimonio",
-    image: "/modelos/matrimonio/am-034.jpg",
+    image: "/modelos/matrimonio/am-034/amarillo.jpg",
+    imageSilver: "/modelos/matrimonio/am-034/blanco.jpg",
+    imageRose: "/modelos/matrimonio/am-034/rosado.jpg",
     linkProduct:
       "https://www.instagram.com/p/C8o03t0OlES/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
     alt: "imagen modelo AM-034",
@@ -386,7 +361,9 @@ const rings = [
   },
   {
     category: "matrimonio",
-    image: "/modelos/matrimonio/am-035.jpg",
+    image: "/modelos/matrimonio/am-035/amarillo.jpg",
+    imageSilver: "/modelos/matrimonio/am-035/blanco.jpg",
+    imageRose: "/modelos/matrimonio/am-035/rosado.jpg",
     linkProduct:
       "https://www.instagram.com/p/C8o06tgucwo/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
     alt: "imagen modelo AM-035",
@@ -397,7 +374,9 @@ const rings = [
   },
   {
     category: "matrimonio",
-    image: "/modelos/matrimonio/am-036.jpg",
+    image: "/modelos/matrimonio/am-036/amarillo.jpg",
+    imageSilver: "/modelos/matrimonio/am-036/blanco.jpg",
+    imageRose: "/modelos/matrimonio/am-036/rosado.jpg",
     linkProduct:
       "https://www.instagram.com/p/C8o1Cf2uuys/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
     alt: "imagen modelo AM-036",
@@ -408,7 +387,9 @@ const rings = [
   },
   {
     category: "matrimonio",
-    image: "/modelos/matrimonio/am-037.jpg",
+    image: "/modelos/matrimonio/am-037/amarillo.jpg",
+    imageSilver: "/modelos/matrimonio/am-037/blanco.jpg",
+    imageRose: "/modelos/matrimonio/am-037/rosado.jpg",
     linkProduct:
       "https://www.instagram.com/p/C8o1GA-u4z_/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
     alt: "imagen modelo AM-037",
@@ -419,7 +400,9 @@ const rings = [
   },
   {
     category: "matrimonio",
-    image: "/modelos/matrimonio/am-038.jpg",
+    image: "/modelos/matrimonio/am-038/amarillo.jpg",
+    imageSilver: "/modelos/matrimonio/am-038/blanco.jpg",
+    imageRose: "/modelos/matrimonio/am-038/rosado.jpg",
     linkProduct:
       "https://www.instagram.com/p/C8o1I7Auh9M/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
     alt: "imagen modelo AM-038",
@@ -430,7 +413,9 @@ const rings = [
   },
   {
     category: "matrimonio",
-    image: "/modelos/matrimonio/am-039.jpg",
+    image: "/modelos/matrimonio/am-039/amarillo.jpg",
+    imageSilver: "/modelos/matrimonio/am-039/blanco.jpg",
+    imageRose: "/modelos/matrimonio/am-039/rosado.jpg",
     linkProduct:
       "https://www.instagram.com/p/C8o1NVRurKX/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
     alt: "imagen modelo AM-039",
@@ -441,7 +426,9 @@ const rings = [
   },
   {
     category: "matrimonio",
-    image: "/modelos/matrimonio/am-040.jpg",
+    image: "/modelos/matrimonio/am-040/amarillo.jpg",
+    imageSilver: "/modelos/matrimonio/am-040/blanco.jpg",
+    imageRose: "/modelos/matrimonio/am-040/rosado.jpg",
     linkProduct:
       "https://www.instagram.com/p/C8o1XBKOQqW/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
     alt: "imagen modelo AM-040",
@@ -452,7 +439,9 @@ const rings = [
   },
   {
     category: "matrimonio",
-    image: "/modelos/matrimonio/am-041.jpg",
+    image: "/modelos/matrimonio/am-041/amarillo.jpg",
+    imageSilver: "/modelos/matrimonio/am-041/blanco.jpg",
+    imageRose: "/modelos/matrimonio/am-041/rosado.jpg",
     linkProduct:
       "https://www.instagram.com/p/C8o12AlO7uu/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
     alt: "imagen modelo AM-041",
@@ -463,7 +452,9 @@ const rings = [
   },
   {
     category: "matrimonio",
-    image: "/modelos/matrimonio/am-042.jpg",
+    image: "/modelos/matrimonio/am-042/amarillo.jpg",
+    imageSilver: "/modelos/matrimonio/am-042/blanco.jpg",
+    imageRose: "/modelos/matrimonio/am-042/rosado.jpg",
     linkProduct:
       "https://www.instagram.com/p/C8o15QkuTtC/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
     alt: "imagen modelo AM-042",
@@ -474,7 +465,9 @@ const rings = [
   },
   {
     category: "matrimonio",
-    image: "/modelos/matrimonio/am-043.jpg",
+    image: "/modelos/matrimonio/am-043/amarillo.jpg",
+    imageSilver: "/modelos/matrimonio/am-043/blanco.jpg",
+    imageRose: "/modelos/matrimonio/am-043/rosado.jpg",
     linkProduct:
       "https://www.instagram.com/p/C8o1_ahO-FV/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
     alt: "imagen modelo AM-043",
@@ -485,7 +478,9 @@ const rings = [
   },
   {
     category: "matrimonio",
-    image: "/modelos/matrimonio/am-044.jpg",
+    image: "/modelos/matrimonio/am-044/amarillo.jpg",
+    imageSilver: "/modelos/matrimonio/am-044/blanco.jpg",
+    imageRose: "/modelos/matrimonio/am-044/rosado.jpg",
     linkProduct:
       "https://www.instagram.com/p/C8o2EBkuHeH/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
     alt: "imagen modelo AM-044",
@@ -496,7 +491,9 @@ const rings = [
   },
   {
     category: "matrimonio",
-    image: "/modelos/matrimonio/am-045.jpg",
+    image: "/modelos/matrimonio/am-045/amarillo.jpg",
+    imageSilver: "/modelos/matrimonio/am-045/blanco.jpg",
+    imageRose: "/modelos/matrimonio/am-045/rosado.jpg",
     linkProduct:
       "https://www.instagram.com/p/C8pNB4nuxF0/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
     alt: "imagen modelo AM-045",
@@ -507,7 +504,9 @@ const rings = [
   },
   {
     category: "matrimonio",
-    image: "/modelos/matrimonio/am-046.jpg",
+    image: "/modelos/matrimonio/am-046/amarillo.jpg",
+    imageSilver: "/modelos/matrimonio/am-046/blanco.jpg",
+    imageRose: "/modelos/matrimonio/am-046/rosado.jpg",
     linkProduct:
       "https://www.instagram.com/p/C8pNEqruzQE/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
     alt: "imagen modelo AM-046",
@@ -518,7 +517,9 @@ const rings = [
   },
   {
     category: "matrimonio",
-    image: "/modelos/matrimonio/am-047.jpg",
+    image: "/modelos/matrimonio/am-047/amarillo.jpg",
+    imageSilver: "/modelos/matrimonio/am-047/blanco.jpg",
+    imageRose: "/modelos/matrimonio/am-047/rosado.jpg",
     linkProduct:
       "https://www.instagram.com/p/C8pNJxCu0Op/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
     alt: "imagen modelo AM-047",
@@ -529,7 +530,9 @@ const rings = [
   },
   {
     category: "matrimonio",
-    image: "/modelos/matrimonio/am-048.jpg",
+    image: "/modelos/matrimonio/am-048/amarillo.jpg",
+    imageSilver: "/modelos/matrimonio/am-048/blanco.jpg",
+    imageRose: "/modelos/matrimonio/am-048/rosado.jpg",
     linkProduct:
       "https://www.instagram.com/p/C8pNM6cuEa4/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
     alt: "imagen modelo AM-048",
@@ -540,7 +543,9 @@ const rings = [
   },
   {
     category: "matrimonio",
-    image: "/modelos/matrimonio/am-049.jpg",
+    image: "/modelos/matrimonio/am-049/amarillo.jpg",
+    imageSilver: "/modelos/matrimonio/am-049/blanco.jpg",
+    imageRose: "/modelos/matrimonio/am-049/rosado.jpg",
     linkProduct:
       "https://www.instagram.com/p/C8pNPz_Ox1m/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
     alt: "imagen modelo AM-049",
@@ -551,7 +556,9 @@ const rings = [
   },
   {
     category: "matrimonio",
-    image: "/modelos/matrimonio/am-050.jpg",
+    image: "/modelos/matrimonio/am-050/amarillo.jpg",
+    imageSilver: "/modelos/matrimonio/am-050/blanco.jpg",
+    imageRose: "/modelos/matrimonio/am-050/rosado.jpg",
     linkProduct:
       "https://www.instagram.com/p/C8pNTN5urUY/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
     alt: "imagen modelo AM-050",
@@ -562,7 +569,9 @@ const rings = [
   },
   {
     category: "matrimonio",
-    image: "/modelos/matrimonio/am-051.jpg",
+    image: "/modelos/matrimonio/am-051/amarillo.jpg",
+    imageSilver: "/modelos/matrimonio/am-051/blanco.jpg",
+    imageRose: "/modelos/matrimonio/am-051/rosado.jpg",
     linkProduct:
       "https://www.instagram.com/p/C8rtYX5utMf/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
     alt: "imagen modelo AM-051",
@@ -573,7 +582,9 @@ const rings = [
   },
   {
     category: "matrimonio",
-    image: "/modelos/matrimonio/am-052.jpg",
+    image: "/modelos/matrimonio/am-052/amarillo.jpg",
+    imageSilver: "/modelos/matrimonio/am-052/blanco.jpg",
+    imageRose: "/modelos/matrimonio/am-052/rosado.jpg",
     linkProduct:
       "https://www.instagram.com/p/C8r87cTuNU5/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
     alt: "imagen modelo AM-052",
@@ -584,7 +595,9 @@ const rings = [
   },
   {
     category: "matrimonio",
-    image: "/modelos/matrimonio/am-053.jpg",
+    image: "/modelos/matrimonio/am-053/amarillo.jpg",
+    imageSilver: "/modelos/matrimonio/am-053/blanco.jpg",
+    imageRose: "/modelos/matrimonio/am-053/rosado.jpg",
     linkProduct:
       "https://www.instagram.com/p/C8r89b6u_SN/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
     alt: "imagen modelo AM-053",
@@ -595,7 +608,9 @@ const rings = [
   },
   {
     category: "matrimonio",
-    image: "/modelos/matrimonio/am-054.jpg",
+    image: "/modelos/matrimonio/am-054/amarillo.jpg",
+    imageSilver: "/modelos/matrimonio/am-054/blanco.jpg",
+    imageRose: "/modelos/matrimonio/am-054/rosado.jpg",
     linkProduct:
       "https://www.instagram.com/p/C8sAgtVOgEI/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
     alt: "imagen modelo AM-054",
@@ -606,7 +621,9 @@ const rings = [
   },
   {
     category: "matrimonio",
-    image: "/modelos/matrimonio/am-055.jpg",
+    image: "/modelos/matrimonio/am-055/amarillo.jpg",
+    imageSilver: "/modelos/matrimonio/am-055/blanco.jpg",
+    imageRose: "/modelos/matrimonio/am-055/rosado.jpg",
     linkProduct:
       "https://www.instagram.com/p/C8sAmEkuMZZ/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
     alt: "imagen modelo AM-055",
@@ -617,7 +634,9 @@ const rings = [
   },
   {
     category: "matrimonio",
-    image: "/modelos/matrimonio/am-056.jpg",
+    image: "/modelos/matrimonio/am-056/amarillo.jpg",
+    imageSilver: "/modelos/matrimonio/am-056/blanco.jpg",
+    imageRose: "/modelos/matrimonio/am-056/rosado.jpg",
     linkProduct:
       "https://www.instagram.com/p/C8sAt6OurNU/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
     alt: "imagen modelo AM-056",
