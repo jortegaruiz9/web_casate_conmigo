@@ -117,7 +117,22 @@ export default function Hero() {
                   {article.boton}
                 </span>
               </Link>
-              <h3>{article.detail}</h3>
+              <Link
+                href="./shop"
+                rel="noopener noreferrer"
+                onClick={() => {
+                  sendGAEvent({
+                    event: "A-h3 ir al catalogo",
+                    value: "2205",
+                  });
+                  sendGTMEvent({
+                    event: "h3 ir al catalogo",
+                    value: "0309",
+                  });
+                }}
+              >
+                <h3>{article.detail}</h3>
+              </Link>
             </div>
           </article>
 

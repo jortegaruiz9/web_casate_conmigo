@@ -257,8 +257,9 @@ const rings = [
   },
   {
     category: "compromiso",
-    image: "/modelos/compromiso/ac-020/blanco.jpg",
+    image: "/modelos/compromiso/ac-020/amarillo.jpg",
     imageSilver: "/modelos/compromiso/ac-020/blanco.jpg",
+    imageRose: "/modelos/compromiso/ac-020/rosado.jpg",
     linkProduct:
       "https://www.instagram.com/p/C8n6SC7NqDF/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
     alt: "imagen modelo AC-020",
