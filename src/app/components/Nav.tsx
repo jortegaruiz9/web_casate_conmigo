@@ -1,8 +1,8 @@
-"use client"; // Añade esta línea al principio del archivo
+"use client";
 
 import Image from "next/image";
 import { useState, useContext } from "react";
-import Link from "next/link";
+import NextLink from "next/link";
 import { usePathname } from "next/navigation";
 import { AdviserContext } from "../context/AdviserContext";
 import { sendGTMEvent, sendGAEvent } from "@next/third-parties/google";
@@ -15,7 +15,7 @@ import {
   NavbarMenu,
   NavbarMenuItem,
   Button,
-  Link as NextUILink,
+  Link,
 } from "@nextui-org/react";
 
 type Props = {
@@ -25,8 +25,8 @@ type Props = {
 export default function Nav({ elements }: Props) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const currentPath = usePathname();
-
   const whatsapp = useContext(AdviserContext) as any;
+
   const handleOrderClick = () => {
     const whatsappMessage = `Me interesa conocer más sobre sus anillos, pude revisar su web`;
     const whatsappLink = `https://wa.me/+593${
@@ -35,14 +35,24 @@ export default function Nav({ elements }: Props) {
     window.open(whatsappLink, "_blank");
   };
 
+  const handleMenuToggle = (isOpen: boolean) => {
+    setIsMenuOpen(isOpen);
+  };
+
   return (
     <Navbar
-      onMenuOpenChange={setIsMenuOpen}
+      isMenuOpen={isMenuOpen}
+      onMenuOpenChange={handleMenuToggle}
       className="bg-myWhite h-[80px] text-myZinc "
     >
       <NavbarContent>
         <NavbarBrand>
-          <NextUILink className="flex items-center" href="/">
+          <Link
+            className="flex items-center"
+            href="/"
+            as={NextLink}
+            onClick={() => setIsMenuOpen(false)}
+          >
             <Image
               src="/logoBlack.svg"
               priority={true}
@@ -50,11 +60,12 @@ export default function Nav({ elements }: Props) {
               width={180}
               height={36}
             />
-          </NextUILink>
+          </Link>
         </NavbarBrand>
         <NavbarMenuToggle
           aria-label={isMenuOpen ? "Close menu" : "Open menu"}
           className="sm:hidden"
+          onChange={handleMenuToggle}
         />
       </NavbarContent>
 
@@ -68,10 +79,12 @@ export default function Nav({ elements }: Props) {
             isActive={currentPath === element.link}
           >
             <Link
+              as={NextLink}
               href={element.link}
               className={`text-myZinc ${
                 currentPath === element.link ? "text-myZinc" : ""
               }`}
+              onClick={() => setIsMenuOpen(false)} // Close menu on click
             >
               {element.name}
             </Link>
@@ -102,14 +115,16 @@ export default function Nav({ elements }: Props) {
                 currentPath === element.link ? " text-myWhite" : "text-myZinc"
               }
             >
-              <NextUILink
+              <Link
+                as={NextLink}
                 href={element.link}
                 className={`text-myZinc text-lg ${
                   currentPath === element.link ? "font-bold" : "text-myZinc"
                 }`}
+                onClick={() => setIsMenuOpen(false)} // Close menu on click
               >
                 {element.name}
-              </NextUILink>
+              </Link>
             </NavbarMenuItem>
           ))}
           <NavbarMenuItem>
