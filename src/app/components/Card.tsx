@@ -107,8 +107,8 @@ export default function Card({ product }: CardProps) {
             title: "Modelos Interactivos",
             description:
               "En este catálogo los colores y precios cambian a tu elección",
-            side: "left",
-            align: "center",
+            side: "bottom",
+            align: "end",
           },
         },
         {
