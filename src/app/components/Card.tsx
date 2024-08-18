@@ -29,8 +29,21 @@ export default function Card({ product }: CardProps) {
   const [imgProduct, setImgProduct] = useState(product.image);
   const [precio, setPrecio] = useState<number | null>(null);
   const [colorSeleccionado, setColorSeleccionado] = useState("");
+  const [audio, setAudio] = useState<HTMLAudioElement | null>(null);
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      // Crear instancia de Audio solo en el cliente
+      const audioInstance = new Audio("/sound.MP3");
+      setAudio(audioInstance);
+    }
+  }, []);
 
   const handleOrderClick = () => {
+    if (audio) {
+      audio.play();
+    }
+
     const whatsappMessage = `¡Hola! Me gustaría ordenar el modelo ${
       product.model
     } en el color ${colorSeleccionado}. Precio: ${
@@ -83,6 +96,9 @@ export default function Card({ product }: CardProps) {
 
   const startTour = () => {
     const driverObj = driver({
+      nextBtnText: "Siguiente",
+      prevBtnText: "Atrás",
+      doneBtnText: "Salir",
       showProgress: true,
       steps: [
         {
@@ -92,7 +108,7 @@ export default function Card({ product }: CardProps) {
             description:
               "En este catálogo los colores y precios cambian a tu elección",
             side: "left",
-            align: "start",
+            align: "center",
           },
         },
         {
