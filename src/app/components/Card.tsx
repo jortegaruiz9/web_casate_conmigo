@@ -29,9 +29,21 @@ export default function Card({ product }: CardProps) {
   const [imgProduct, setImgProduct] = useState(product.image);
   const [precio, setPrecio] = useState<number | null>(null);
   const [colorSeleccionado, setColorSeleccionado] = useState("");
+  const [audio, setAudio] = useState<HTMLAudioElement | null>(null);
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      // Crear instancia de Audio solo en el cliente
+      const audioInstance = new Audio("/sound.MP3");
+      setAudio(audioInstance);
+    }
+  }, []);
 
   const handleOrderClick = () => {
-    audio.play();
+    if (audio) {
+      audio.play();
+    }
+
     const whatsappMessage = `¡Hola! Me gustaría ordenar el modelo ${
       product.model
     } en el color ${colorSeleccionado}. Precio: ${
@@ -57,8 +69,6 @@ export default function Card({ product }: CardProps) {
     { icon: "icon-[mdi--shield-check]", text: "Garantía de por vida" },
     { icon: "icon-[mynaui--one-square]", text: "Garantía por un año" },
   ];
-
-  const audio = new Audio("/sound.MP3");
 
   useEffect(() => {
     switch (colorSeleccionado) {
@@ -86,9 +96,9 @@ export default function Card({ product }: CardProps) {
 
   const startTour = () => {
     const driverObj = driver({
-      nextBtnText: "Siguiente", // Cambia el texto del botón de siguiente
-      prevBtnText: "Atrás", // Cambia el texto del botón de anterior
-      doneBtnText: "Salir", // Cambia el texto del botón de salir
+      nextBtnText: "Siguiente",
+      prevBtnText: "Atrás",
+      doneBtnText: "Salir",
       showProgress: true,
       steps: [
         {
@@ -145,6 +155,7 @@ export default function Card({ product }: CardProps) {
 
     driverObj.drive();
   };
+
   useEffect(() => {
     startTour();
   }, []);
