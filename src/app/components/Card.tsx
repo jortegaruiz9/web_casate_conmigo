@@ -102,16 +102,6 @@ export default function Card({ product }: CardProps) {
       showProgress: true,
       steps: [
         {
-          element: "#card-container",
-          popover: {
-            title: "Modelos Interactivos",
-            description:
-              "En este catálogo los colores y precios cambian a tu elección",
-            side: "bottom",
-            align: "end",
-          },
-        },
-        {
           element: "#form-options",
           popover: {
             title: "Elección de color",
@@ -161,7 +151,7 @@ export default function Card({ product }: CardProps) {
   }, []);
 
   return (
-    <div className="text-myZinc" id="card-container">
+    <div className="text-myZinc">
       <div className="w-[350px]">
         <Image width={350} height={350} src={imgProduct} alt={product.alt} />
       </div>
