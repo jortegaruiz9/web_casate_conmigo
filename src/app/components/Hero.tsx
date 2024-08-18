@@ -87,7 +87,7 @@ export default function Hero() {
               <h2>{article.title}</h2>
               <h2>
                 {article.title2}{" "}
-                <span className="text-2xl bg-clip-text text-transparent bg-gradient-to-b from-yellow-600 via-yellow-400 to-zinc-800 lg:text-4xl font-bold">
+                <span className="text-2xl bg-clip-text text-transparent bg-gradient-to-b from-yellow-600 via-yellow-400 to-yellow-600 lg:text-4xl font-bold">
                   {article.textDecoration}
                 </span>
               </h2>
@@ -216,7 +216,7 @@ export default function Hero() {
           <div className="flex justify-between items-start">
             <div className="max-w-[150px] sm:max-w-[100px] md:max-w-[150px] lg:max-w-[200px]">
               <Image
-                src="/hero-derecha.png"
+                src="/anilloDerecha.png"
                 width={150}
                 height={375}
                 className="w-full h-full object-cover"
