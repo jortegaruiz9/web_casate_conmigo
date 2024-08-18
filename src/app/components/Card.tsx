@@ -56,8 +56,6 @@ export default function Card({ product }: CardProps) {
     }?text=${encodeURIComponent(whatsappMessage)}&media=${encodeURIComponent(
       whatsappImage
     )}`;
-
-    window.open(whatsappLink, "_blank");
   };
 
   const instructivo = [
