@@ -57,7 +57,11 @@ export default function Shop() {
       <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-12 my-10">
         {products.map((model, index) => {
           return (
-            <Link href={model.url} key={index} className=" shadow-md py-6 px-6">
+            <Link
+              href={model.url}
+              key={index}
+              className=" md:shadow-md md:py-6 md:px-6"
+            >
               <div className="w-[350px]">
                 <Image
                   src={model.imageUrl}
@@ -70,7 +74,7 @@ export default function Shop() {
                   <h2 className=" text-xl font-bold ">{model.category}</h2>
                   <div className="flex gap-x-4">
                     <div>
-                      <p className="text-sm">{model.leyend}</p>
+                      <h3 className="text-sm">{model.leyend}</h3>
                     </div>
                     <div className="bg-myZinc flex justify-center items-center rounded-md px-2">
                       <span className="icon-[material-symbols--arrow-forward] text-myWhite text-2xl" />
@@ -81,9 +85,6 @@ export default function Shop() {
             </Link>
           );
         })}
-      </div>
-      <div>
-        <h1 className="text-myZinc text-lg mb-10">Anillos de boda</h1>
       </div>
     </div>
   );
