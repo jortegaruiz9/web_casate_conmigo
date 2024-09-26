@@ -151,12 +151,12 @@ export default function Card({ product }: CardProps) {
   }, []);
 
   return (
-    <div className="text-myZinc px-6 ">
-      <div className="w-[350px]">
-        <Image width={350} height={350} src={imgProduct} alt={product.alt} />
+    <div className="text-myZinc md:px-6 ">
+      <div className="w-[340px]">
+        <Image width={340} height={340} src={imgProduct} alt={product.alt} />
       </div>
       <div
-        className={`${monserrat.className} antialiased w-[350px] ring-1 mt-2 ring-zinc-400 `}
+        className={`${monserrat.className} antialiased w-[340px] ring-1 mt-2 ring-zinc-400 `}
       >
         <div className="px-2 py-2 flex flex-col items-between">
           <div className="flex gap-x-2 items-center mb-2 justify-between">

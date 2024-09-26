@@ -80,9 +80,9 @@ export default function Hero() {
       <div className="sm:flex">
         <div className="w-full px-10 flex flex-col py-10 gap-y-14 xl:pl-20">
           <article className="text-sm text-myZinc flex flex-col gap-y-10">
-            <h1 className="text-4xl w-[85%] lg:text-6xl font-bold xl:w-[65%]">
+            <h1 className="text-5xl w-[100%] lg:text-6xl font-bold xl:w-[65%]">
               Anillos de boda{" "}
-              <span className="bg-clip-text text-transparent bg-gradient-to-b from-yellow-600 via-yellow-400 to-yellow-600 font-bold">
+              <span className="bg-clip-text text-transparent bg-gradient-to-b from-yellow-600 via-yellow-400 to-yellow-600 font-bold text-4xl lg:text-5xl">
                 Ecuador
               </span>
             </h1>
