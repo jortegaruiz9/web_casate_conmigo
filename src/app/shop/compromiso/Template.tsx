@@ -289,7 +289,7 @@ export default function ShopTemplate() {
           return <Card key={index} product={model} />;
         })}
       </div>
-      <h1 className="text-myZinc text-lg mt-10">anillos de compromiso</h1>
+      <h1 className="text-myZinc text-lg mt-10">Anillos de compromiso</h1>
       <Button />
     </div>
   );

@@ -24,6 +24,10 @@
     "react-magic-motion": "^1.1.1"
   },
   "devDependencies": {
+    "@iconify-json/fluent": "^1.2.1",
+    "@iconify-json/hugeicons": "^1.2.0",
+    "@iconify-json/material-symbols": "^1.2.1",
+    "@iconify-json/mdi": "^1.2.0",
     "@iconify/json": "^2.2.221",
     "@iconify/tailwind": "^0.1.4",
     "@types/canvas-confetti": "^1.6.4",

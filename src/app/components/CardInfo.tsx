@@ -49,7 +49,7 @@ export default function CardInfo({ info }: CardProps) {
           {info.number}
         </h4>
         <div className="px-8 flex flex-col gap-y-2 absolute z-10 lg:px-14 xl:px-32 text-myZinc">
-          <h4>{info.tema}</h4>
+          <h3>{info.tema}</h3>
           <h2 className="text-2xl font-bold sm:text-3xl lg:text-4xl xl:text-5xl">
             {info.title} <span className={`${info.color}`}>{info.title2}</span>
           </h2>
@@ -64,10 +64,10 @@ export default function CardInfo({ info }: CardProps) {
               Video Explicativo
             </button>
           </p>
-          <h4 className="hidden sm:flex">
+          <p className="hidden sm:flex">
             Todo lo que debes saber{" "}
             <span className="icon-[material-symbols--arrow-forward-rounded] text-2xl text-myZinc" />
-          </h4>
+          </p>
         </div>
       </div>
       <Modal
