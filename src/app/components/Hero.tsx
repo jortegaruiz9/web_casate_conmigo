@@ -13,13 +13,10 @@ const materials = [
 ];
 
 const article = {
-  title: "El anillo",
-  title2: "perfecto",
-  textDecoration: "Oro18k",
   paragraph:
     "Cásate Conmigo es una joyería ecuatoriana especializada en la confección de anillos de boda personalizados en oro 18k y plata 925. Realiza tus compras en nuestra tienda en Quito y disfruta de envíos rápidos a todo Ecuador.",
   boton: "Ir al Catálogo",
-  detail: "Anillos de boda / Precios",
+  detail: "Modelos / Precios",
 };
 
 let socialLinks = [
@@ -83,15 +80,12 @@ export default function Hero() {
       <div className="sm:flex">
         <div className="w-full px-10 flex flex-col py-10 gap-y-14 xl:pl-20">
           <article className="text-sm text-myZinc flex flex-col gap-y-10">
-            <div className="text-5xl  lg:text-6xl font-bold">
-              <h2>{article.title}</h2>
-              <h2>
-                {article.title2}{" "}
-                <span className="text-2xl bg-clip-text text-transparent bg-gradient-to-b from-yellow-600 via-yellow-400 to-yellow-600 lg:text-4xl font-bold">
-                  {article.textDecoration}
-                </span>
-              </h2>
-            </div>
+            <h1 className="text-5xl w-[100%] lg:text-6xl font-bold xl:w-[65%]">
+              Anillos de boda{" "}
+              <span className="bg-clip-text text-transparent bg-gradient-to-b from-yellow-600 via-yellow-400 to-yellow-600 font-bold text-4xl lg:text-5xl">
+                Ecuador
+              </span>
+            </h1>
             <h2 className=" xl:w-8/12 ">{article.paragraph}</h2>
             <div className="flex items-center xl:justify-start gap-4 text-sm">
               <Link
@@ -131,7 +125,7 @@ export default function Hero() {
                   });
                 }}
               >
-                <h1>{article.detail}</h1>
+                <h4>{article.detail}</h4>
               </Link>
             </div>
           </article>
