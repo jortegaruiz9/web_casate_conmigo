@@ -151,7 +151,7 @@ export default function Card({ product }: CardProps) {
   }, []);
 
   return (
-    <div className="text-myZinc">
+    <div className="text-myZinc px-6 ">
       <div className="w-[350px]">
         <Image width={350} height={350} src={imgProduct} alt={product.alt} />
       </div>

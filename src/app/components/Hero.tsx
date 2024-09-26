@@ -19,7 +19,7 @@ const article = {
   paragraph:
     "Cásate Conmigo es una joyería ecuatoriana especializada en la confección de anillos de boda personalizados en oro 18k y plata 925. Realiza tus compras en nuestra tienda en Quito y disfruta de envíos rápidos a todo Ecuador.",
   boton: "Ir al Catálogo",
-  detail: "Modelos / Precios",
+  detail: "Anillos de boda / Precios",
 };
 
 let socialLinks = [
@@ -92,7 +92,7 @@ export default function Hero() {
                 </span>
               </h2>
             </div>
-            <h1 className=" xl:w-8/12 ">{article.paragraph}</h1>
+            <h2 className=" xl:w-8/12 ">{article.paragraph}</h2>
             <div className="flex items-center xl:justify-start gap-4 text-sm">
               <Link
                 onClick={() => {
@@ -131,7 +131,7 @@ export default function Hero() {
                   });
                 }}
               >
-                <h3>{article.detail}</h3>
+                <h1>{article.detail}</h1>
               </Link>
             </div>
           </article>
@@ -259,10 +259,10 @@ export default function Hero() {
                 const indexMaterials = `custom_${index}`;
                 return (
                   <li key={indexMaterials}>
-                    <h6 className="text-md lg:text-xl">{obj.name}</h6>
-                    <p className="text-xs text-neutral-500 lg:text-md">
+                    <h2 className="text-md lg:text-xl">{obj.name}</h2>
+                    <h3 className="text-xs text-neutral-500 lg:text-md">
                       {obj.detail}
-                    </p>
+                    </h3>
                   </li>
                 );
               })}
