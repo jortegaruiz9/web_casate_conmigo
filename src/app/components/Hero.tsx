@@ -14,7 +14,7 @@ const materials = [
 
 const article = {
   paragraph:
-    "Cásate Conmigo es una joyería ecuatoriana especializada en la confección de anillos de boda personalizados en oro 18k y plata 925. Realiza tus compras en nuestra tienda en Quito y disfruta de envíos rápidos a todo Ecuador.",
+    "Cásate Conmigo es una joyería ecuatoriana especializada en la confección de anillos de boda personalizados en oro 18k y plata 925. Realiza tus compras en nuestra tienda web y disfruta de envíos rápidos a todo Ecuador.",
   boton: "Ir al Catálogo",
   detail: "Modelos / Precios",
 };
@@ -62,16 +62,21 @@ export default function Hero() {
   const [socialMedia, setSocialMedia] = useState(socialLinks[0]);
 
   useEffect(() => {
-    if (adviser === "f") {
-      setSocialMedia(socialLinks[1]);
-    } else if (adviser === "c") {
-      setSocialMedia(socialLinks[2]);
-    } else if (adviser === "j") {
-      setSocialMedia(socialLinks[3]);
-    } else if (adviser === "d") {
-      setSocialMedia(socialLinks[4]);
-    } else {
-      setSocialMedia(socialLinks[0]);
+    switch (adviser) {
+      case "f":
+        setSocialMedia(socialLinks[1]);
+        break;
+      case "c":
+        setSocialMedia(socialLinks[2]);
+        break;
+      case "j":
+        setSocialMedia(socialLinks[3]);
+        break;
+      case "d":
+        setSocialMedia(socialLinks[4]);
+        break;
+      default:
+        setSocialMedia(socialLinks[0]);
     }
   }, [adviser]);
   return (
