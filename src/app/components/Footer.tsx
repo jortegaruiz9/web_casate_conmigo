@@ -108,46 +108,42 @@ export default function Footer() {
   return (
     <div className="bg-gradient-to-b from-myZinc via-neutral-800 to-neutral-900 w-full">
       <div className="flex flex-col items-center gap-y-2 py-8 md:py-12 w-full">
-        <div className="flex flex-row justify-around  w-full text-xs md:text-medium text-neutral-400">
+        <div className="flex flex-row justify-around w-full text-xs md:text-medium text-neutral-400">
           <ul className="hidden lg:block space-y-4">
-            {nav.map((e, index) => {
-              return (
-                <li
-                  key={e.title + index}
-                  className={
-                    index !== 0
-                      ? "text-zinc-400 hover:text-zinc-200 transition-all"
-                      : "text-myWhite"
-                  }
-                >
-                  {e.direction ? (
-                    <Link href={e.direction}>{e.title}</Link>
-                  ) : (
-                    e.title
-                  )}
-                </li>
-              );
-            })}
+            {nav.map((e, index) => (
+              <li
+                key={e.title} // Cambiar a solo `e.title` si es único
+                className={
+                  index !== 0
+                    ? "text-zinc-400 hover:text-zinc-200 transition-all"
+                    : "text-myWhite"
+                }
+              >
+                {e.direction ? (
+                  <Link href={e.direction}>{e.title}</Link>
+                ) : (
+                  e.title
+                )}
+              </li>
+            ))}
           </ul>
           <ul className="space-y-4">
-            {typesOfRings.map((e, index) => {
-              return (
-                <li
-                  key={index}
-                  className={
-                    index !== 0
-                      ? "text-zinc-400 hover:text-zinc-200 transition-all"
-                      : "text-myWhite"
-                  }
-                >
-                  {e.direction ? (
-                    <Link href={e.direction}>{e.title}</Link>
-                  ) : (
-                    e.title
-                  )}
-                </li>
-              );
-            })}
+            {typesOfRings.map((e) => (
+              <li
+                key={e.title} // Cambiar a `e.title` si es único
+                className={
+                  e.direction
+                    ? "text-zinc-400 hover:text-zinc-200 transition-all"
+                    : "text-myWhite"
+                }
+              >
+                {e.direction ? (
+                  <Link href={e.direction}>{e.title}</Link>
+                ) : (
+                  e.title
+                )}
+              </li>
+            ))}
           </ul>
           <ul className="space-y-4">
             <li className="font-bold text-myWhite">Dirección</li>
@@ -164,20 +160,19 @@ export default function Footer() {
             </li>
           </ul>
           <ul className="hidden space-y-4 lg:block">
-            {pay.map((e, index) => {
-              return (
-                <li
-                  className={
-                    index !== 0
-                      ? "text-zinc-400 hover:text-zinc-200 transition-all"
-                      : "text-myWhite"
-                  }
-                >
-                  {e.title}
-                  <span className={`${e.icon} text-2xl`} key={index}></span>
-                </li>
-              );
-            })}
+            {pay.map((e, index) => (
+              <li
+                key={e.icon} // Usar `e.icon` o algo único
+                className={
+                  index !== 0
+                    ? "text-zinc-400 hover:text-zinc-200 transition-all"
+                    : "text-myWhite"
+                }
+              >
+                {e.title}
+                <span className={`${e.icon} text-2xl`}></span>
+              </li>
+            ))}
           </ul>
         </div>
       </div>
@@ -192,17 +187,22 @@ export default function Footer() {
         <ul className="flex gap-x-4 md:gap-x-8 mt-4 text-2xl text-myWhite">
           {(Object.keys(socialMedia) as Array<keyof typeof socialMedia>)
             .filter((key) => key !== "name" && key !== "tel")
-            .map((key, index) => {
-              const icons: Record<keyof typeof socialMedia, string> = {
+            .map((key) => {
+              const icons: Record<
+                "whatsapp" | "facebook" | "instagram",
+                string
+              > = {
                 whatsapp: "icon-[bi--whatsapp]",
                 facebook: "icon-[basil--facebook-solid]",
                 instagram: "icon-[radix-icons--instagram-logo]",
-                name: "",
-                tel: "",
               };
               return (
-                <li key={index} className="hover:scale-110 transition-all">
-                  <a href={socialMedia[key]} target="_blank">
+                <li key={key} className="hover:scale-110 transition-all">
+                  <a
+                    href={socialMedia[key]}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     <span className={icons[key]} />
                   </a>
                 </li>
