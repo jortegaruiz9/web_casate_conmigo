@@ -1,5 +1,5 @@
 import type { Config } from "tailwindcss";
-const { addDynamicIconSelectors } = require('@iconify/tailwind')
+const { addDynamicIconSelectors } = require('@iconify/tailwind');
 const { nextui } = require("@nextui-org/react");
 
 const config: Config = {
@@ -8,17 +8,28 @@ const config: Config = {
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
     "./node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}",
+    "./src/app/ui/globals.css"  // Make sure this path is correct
   ],
   theme: {
-    extend: { colors: {
-      myWhite: "#f4efe9",
-      myZinc: "#3D3C3B",
-    },
+    extend: { 
+      colors: {
+        myWhite: "#f4efe9",
+        myZinc: "#3D3C3B",
+      },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
+      animation: {
+        'infinite-scroll': 'infinite-scroll 25s linear infinite',
+      },
+      keyframes: {
+        'infinite-scroll': {
+          from: { transform: 'translateX(0)' },
+          to: { transform: 'translateX(-100%)' },
+        }   
+      }
     },
   },
   darkMode: "class",
@@ -27,4 +38,5 @@ const config: Config = {
     nextui()
   ]
 };
+
 export default config;

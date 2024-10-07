@@ -165,7 +165,7 @@ export default function Hero() {
                     href={socialMedia.instagram}
                     target="_blank"
                   >
-                    <span className="icon-[radix-icons--instagram-logo] group-hover:text-5xl transition-all hover:text-red-500" />
+                    <span className="icon-[radix-icons--instagram-logo] group-hover:text-5xl transition-all" />
                     <span
                       className="absolute -top-14 left-[80%] -translate-x-[50%] 
                       z-20 origin-left scale-0 px-3 rounded-lg border 
@@ -259,7 +259,7 @@ export default function Hero() {
                 return (
                   <li key={indexMaterials}>
                     <h2 className="text-md lg:text-xl">{obj.name}</h2>
-                    <h3 className="text-xs text-neutral-500 lg:text-md">
+                    <h3 className="text-xs text-zinc-400 lg:text-md">
                       {obj.detail}
                     </h3>
                   </li>

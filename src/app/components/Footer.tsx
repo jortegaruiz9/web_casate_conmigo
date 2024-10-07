@@ -4,6 +4,7 @@ import { useContext, useState, useEffect } from "react";
 import { AdviserContext } from "../context/AdviserContext";
 import Link from "next/link";
 import { monserrat } from "../ui/fonts";
+import BrandCarousel from "./BrandCarousel";
 
 let socialLinks = [
   {
@@ -105,18 +106,24 @@ export default function Footer() {
     { icon: "icon-[fontisto--visa]" },
   ];
 
+  const address = [
+    "Quito - Ecuador",
+    "Nuñez de vela y corea",
+    "Edf. Korea plaza local 4",
+    socialMedia.tel,
+  ];
   return (
-    <div className="bg-gradient-to-b from-myZinc via-neutral-800 to-neutral-900 w-full">
+    <div className="bg-myZinc w-full">
       <div className="flex flex-col items-center gap-y-2 py-8 md:py-12 w-full">
-        <div className="flex flex-row justify-around w-full text-xs md:text-medium text-neutral-400">
+        <div className="flex flex-row justify-around items-start w-full text-xs md:text-medium text-neutral-400">
           <ul className="hidden lg:block space-y-4">
             {nav.map((e, index) => (
               <li
-                key={e.title} // Cambiar a solo `e.title` si es único
+                key={e.title}
                 className={
                   index !== 0
                     ? "text-zinc-400 hover:text-zinc-200 transition-all"
-                    : "text-myWhite"
+                    : "text-myWhite font-bold"
                 }
               >
                 {e.direction ? (
@@ -127,14 +134,15 @@ export default function Footer() {
               </li>
             ))}
           </ul>
+
           <ul className="space-y-4">
             {typesOfRings.map((e) => (
               <li
-                key={e.title} // Cambiar a `e.title` si es único
+                key={e.title}
                 className={
                   e.direction
                     ? "text-zinc-400 hover:text-zinc-200 transition-all"
-                    : "text-myWhite"
+                    : "text-myWhite font-bold"
                 }
               >
                 {e.direction ? (
@@ -145,46 +153,44 @@ export default function Footer() {
               </li>
             ))}
           </ul>
+
           <ul className="space-y-4">
             <li className="font-bold text-myWhite">Dirección</li>
-            <li>Quito - Ecuador</li>
-            <li>Nuñez de vela y corea</li>
-            <li>
-              Edf. Korea plaza{" "}
-              <span className={`${monserrat.className} antialiased font-bold`}>
-                local 4
-              </span>
-            </li>
-            <li className={`${monserrat.className} antialiased`}>
-              {socialMedia.tel}
-            </li>
-          </ul>
-          <ul className="hidden space-y-4 lg:block">
-            {pay.map((e, index) => (
+            {address.map((line, index) => (
               <li
-                key={e.icon} // Usar `e.icon` o algo único
+                key={`${line}-${index}`}
                 className={
-                  index !== 0
-                    ? "text-zinc-400 hover:text-zinc-200 transition-all"
-                    : "text-myWhite"
+                  index === address.length - 1
+                    ? `${monserrat.className} antialiased hover:text-zinc-200 transition all`
+                    : "hover:text-zinc-200 transition all"
                 }
               >
+                {line}
+              </li>
+            ))}
+          </ul>
+          <ul className="hidden space-y-4 lg:block h-full">
+            {pay.map((e, index) => (
+              <li
+                key={`${e.title}-${index}`}
+                className="text-zinc-400 hover:text-zinc-200 transition-all"
+              >
                 {e.title}
-                <span className={`${e.icon} text-2xl`}></span>
+                <span className={`${e.icon} text-2xl`} />
               </li>
             ))}
           </ul>
         </div>
       </div>
-      <div className="flex flex-col items-center bg-neutral-900 w-full py-6">
+      <BrandCarousel />
+      <div className="flex flex-col items-center bg-myWhite w-full py-6">
         <Image
           alt="Cásate Conmigo Logo"
-          src="/logoWhite.svg"
+          src="/logoBlack.svg"
           width={208}
           height={42}
         />
-
-        <ul className="flex gap-x-4 md:gap-x-8 mt-4 text-2xl text-myWhite">
+        <ul className="flex gap-x-4 md:gap-x-8 text-2xl text-myZinc">
           {(Object.keys(socialMedia) as Array<keyof typeof socialMedia>)
             .filter((key) => key !== "name" && key !== "tel")
             .map((key) => {
@@ -209,8 +215,7 @@ export default function Footer() {
               );
             })}
         </ul>
-
-        <div className="text-xs lg:text-sm text-myWhite">
+        <div className="text-xs lg:text-sm text-myZinc">
           <h6>
             ©{" "}
             <span className={`${monserrat.className} antialiased`}>{age}</span>{" "}
