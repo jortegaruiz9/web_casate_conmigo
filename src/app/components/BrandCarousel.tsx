@@ -46,14 +46,14 @@ let brands = [
 export default function Home() {
   return (
     <main>
-      <div className="wrapper w-11/12 lg:w-8/12 m-auto relative h-[100px] mt-[5rem]">
+      <div className="wrapper w-11/12 lg:w-8/12 m-auto relative h-[80px]">
         {brands.map((brand, index) => {
           return (
             <div
               key={index}
               className={`item item${
                 index + 1
-              } flex items-center justify-center w-[180px] h-[100px] absolute object-cover`}
+              } flex items-center justify-center w-[180px] h-[80px] absolute object-cover`}
             >
               <Image
                 src={brand.brand}
