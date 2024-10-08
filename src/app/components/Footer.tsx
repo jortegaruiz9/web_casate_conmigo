@@ -182,7 +182,9 @@ export default function Footer() {
           </ul>
         </div>
       </div>
-      <BrandCarousel />
+      <div className="bg-myWhite">
+        <BrandCarousel />
+      </div>
       <div className="flex flex-col items-center bg-myWhite w-full py-6">
         <Image
           alt="Cásate Conmigo Logo"
