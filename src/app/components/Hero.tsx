@@ -82,8 +82,8 @@ export default function Hero() {
   return (
     <div>
       {/* div padre*/}
-      <div className="sm:flex">
-        <div className="w-full px-10 flex flex-col py-10 gap-y-14 xl:pl-20">
+      <div className="sm:flex sm:w-full">
+        <div className="sm:w-6/12 px-10 flex flex-col py-10 gap-y-14 xl:pl-20">
           <article className="text-sm text-myZinc flex flex-col gap-y-10">
             <h1 className="text-5xl w-[100%] lg:text-6xl font-bold xl:w-[65%]">
               Anillos de boda{" "}
@@ -134,9 +134,8 @@ export default function Hero() {
               </Link>
             </div>
           </article>
-
           <div className="flex items-end justify-between">
-            <div className=" max-w-[200px] lg:max-w-[350px]">
+            <div className="max-w-[200px] lg:max-w-[350px]">
               <Image
                 src="/portada-izquierda.png"
                 alt="anillos de boda"
@@ -211,7 +210,7 @@ export default function Hero() {
           </div>
         </div>
         {/* lado derecho */}
-        <div className=" py-10 w-full bg-gradient-to-b from-myZinc via-myZinc to-neutral-800">
+        <div className=" py-10 sm:w-6/12 bg-gradient-to-b from-myZinc via-myZinc to-neutral-800">
           <div className="flex justify-between items-start">
             <div className="max-w-[150px] sm:max-w-[100px] md:max-w-[150px] lg:max-w-[200px]">
               <Image
