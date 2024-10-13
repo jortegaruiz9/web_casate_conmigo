@@ -1,7 +1,7 @@
 "use client";
 
 import Button from "@/app/components/Button";
-import Card from "@/app/components/Card";
+import Card from "@/app/components/card/Card";
 import InstructionColors from "@/app/components/InstructionColors";
 import { gtmPageView } from "@/app/lib/gtm";
 import { gaPageView } from "@/app/lib/ga";

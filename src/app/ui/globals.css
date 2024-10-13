@@ -58,3 +58,21 @@
 .item9 {
   animation-delay: calc(50s / 9 * (9 - 9) * -1);
 }
+
+@keyframes reveal {
+  from {
+    opacity: 0;
+    translate: 0 100px;
+  }
+
+  to {
+    opacity: 1;
+    translate: 0 0;
+  }
+}
+
+.aReveal {
+  animation: reveal both;
+  animation-timeline: view();
+  animation-range: entry 20% cover 30%;
+}
