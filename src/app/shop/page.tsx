@@ -62,7 +62,7 @@ export default function Shop() {
               key={index}
               className=" md:shadow-md md:py-6 md:px-6"
             >
-              <div className="w-[340px]">
+              <div className="w-[340px] aReveal">
                 <Image
                   src={model.imageUrl}
                   alt={model.src}

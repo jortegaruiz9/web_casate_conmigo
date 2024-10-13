@@ -186,12 +186,14 @@ export default function Footer() {
         <BrandCarousel />
       </div>
       <div className="flex flex-col items-center bg-myWhite w-full py-6">
-        <Image
-          alt="Cásate Conmigo Logo"
-          src="/logoBlack.svg"
-          width={208}
-          height={42}
-        />
+        <Link href="/">
+          <Image
+            alt="Cásate Conmigo Logo"
+            src="/logoBlack.svg"
+            width={208}
+            height={42}
+          />
+        </Link>
         <ul className="flex gap-x-4 md:gap-x-8 text-2xl text-myZinc">
           {(Object.keys(socialMedia) as Array<keyof typeof socialMedia>)
             .filter((key) => key !== "name" && key !== "tel")
