@@ -11,21 +11,21 @@ const reviews = [
   {
     importantText: "Excelentes Anillos",
     review:
-      "Estamos muy felices. Compré el set de anillos, 100% responsables y recomendables con los envíos. ¡Saludos desde Guayaquil!",
+      "Estamos muy felices. Compré el set de anillos, 100% responsables y recomendables con los envíos. Saludos desde Guayaquil!",
     name: "Jafet Baldeon",
     date: "Julio / 2024",
   },
   {
     importantText: "Espléndido trabajo",
     review:
-      "Encantada con mi anillo de boda. Atención muy cordial, ¡muy recomendado!",
+      "Encantada con mi anillo de boda. Atención muy cordial, muy recomendado!",
     name: "Tatiana Rosero",
     date: "Abril / 2024",
   },
   {
     importantText: "La mejor joyería de Ecuador",
     review:
-      "En atención, experiencia, precios y recomendación, los mejores anillos 🙌🏼🙌🏼🙌🏼. ¡No se equivoquen!",
+      "En atención, experiencia, precios y recomendación, los mejores anillos 🙌🏼🙌🏼🙌🏼. No se equivoquen!",
     name: "Otoniel Moreno",
     date: "Junio / 2024",
   },
@@ -39,21 +39,21 @@ const reviews = [
   {
     importantText: "Una gran experiencia",
     review:
-      "Con Cásate Conmigo, estoy muy satisfecho de la compra, ¡los recomiendo mucho!",
+      "Con Cásate Conmigo, estoy muy satisfecho de la compra, los recomiendo mucho!",
     name: "Ibania Jaramillo",
     date: "Junio / 2024",
   },
   {
     importantText: "Confianza a primera vista",
     review:
-      "Cuando fui a retirar los anillos, no sabía que ahí los hacían, por eso la entrega fue de un día para otro. ¡Muy agradecido y satisfecho!",
+      "Cuando fui a retirar los anillos, no sabía que ahí los hacían, por eso la entrega fue de un día para otro. Muy agradecido y satisfecho!",
     name: "Active XavPatECU",
     date: "Diciembre / 2021",
   },
   {
     importantText: "Sobrepasaron mis expectativas",
     review:
-      "Quiero agradecer a Cásate Conmigo. ¡Qué calidad de trabajo! Me encantaron mis aros y las cadenas de mis hijos, todo espectacular.",
+      "Quiero agradecer a Cásate Conmigo. Qué calidad de trabajo! Me encantaron mis aros y las cadenas de mis hijos, todo espectacular.",
     name: "Leslie Mosquera",
     date: "Febrero / 2023",
   },
@@ -67,7 +67,7 @@ const reviews = [
   {
     importantText: "El lugar perfecto",
     review:
-      "La señora Sandra fue muy amable y nos ayudó a elegir nuestros anillos de boda. ¡Tuvo mucha paciencia! ✨💍",
+      "La señora Sandra fue muy amable y nos ayudó a elegir nuestros anillos de boda. Tuvo mucha paciencia! ✨💍",
     name: "Andrés Amaguaya",
     date: "Noviembre / 2022",
   },
@@ -75,7 +75,7 @@ const reviews = [
     importantText: "Tiempo récord",
     review:
       "La atención es maravillosa, me entregaron los anillos en tiempo récord y eso que los mandé a personalizar ❤️.",
-    name: "Angi García",
+    name: "Anig García",
     date: "Diciembre / 2021",
   },
   {
@@ -109,14 +109,14 @@ const reviews = [
   {
     importantText: "Compra online segura",
     review:
-      "Realicé la compra 100% en línea. El asesor me ofreció hacer una videollamada y me mostró todos los anillos disponibles. ¡Recomendado!",
+      "Realicé la compra 100% en línea. El asesor me ofreció hacer una videollamada y me mostró todos los anillos disponibles. Recomendado!",
     name: "Ernesto Guevara",
     date: "Agosto / 2023",
   },
   {
     importantText: "Entrega increíble",
     review:
-      "No tenía los anillos en el registro civil, ellos me ofrecieron unos temporales y los llevaron al lugar. ¡Muy agradecido!",
+      "No tenía los anillos en el registro civil, ellos me ofrecieron unos temporales y los llevaron al lugar. Muy agradecido!",
     name: "Abel Ramos",
     date: "Septiembre / 2023",
   },
