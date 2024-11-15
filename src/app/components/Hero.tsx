@@ -85,15 +85,15 @@ export default function Hero() {
       <div className="sm:flex sm:w-full">
         <div className="sm:w-6/12 px-10 flex flex-col py-10 xl:py-20 gap-y-14 xl:pl-20">
           <article className="text-sm text-myZinc flex flex-col gap-y-10">
-            <div className="w-full xl:w-8/12">
-              <h1 className="font-bold text-wrap text-4xl md:text-5xl xl:text-6xl">
+            <div className="w-full md:w-7/12 xl:w-7/12">
+              <h1 className="font-bold text-wrap text-4xl md:text-5xl">
                 Anillos de boda{" "}
                 <span className="bg-clip-text text-transparent bg-gradient-to-b from-yellow-600 via-yellow-400 to-yellow-600">
                   Ecuador
                 </span>
               </h1>
             </div>
-            <h2 className=" xl:w-8/12 ">{article.paragraph}</h2>
+            <h2 className="md: xl:w-8/12 ">{article.paragraph}</h2>
             <div className="flex items-center xl:justify-start gap-4 text-sm">
               <Link
                 onClick={() => {
