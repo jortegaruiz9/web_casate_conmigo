@@ -83,14 +83,22 @@ export default function Hero() {
     <div>
       {/* div padre*/}
       <div className="sm:flex sm:w-full">
-        <div className="sm:w-6/12 px-10 flex flex-col py-10 gap-y-14 xl:pl-20">
+        <div className="sm:w-6/12 px-10 flex flex-col py-10 xl:py-20 gap-y-14 xl:pl-20">
           <article className="text-sm text-myZinc flex flex-col gap-y-10">
-            <h1 className="text-5xl w-[100%] lg:text-6xl font-bold xl:w-[65%]">
+            {/* <h1 className="text-5xl flex-wrap w-[100%] lg:text-6xl font-bold xl:w-[65%]">
               Anillos de boda{" "}
               <span className="bg-clip-text text-transparent bg-gradient-to-b from-yellow-600 via-yellow-400 to-yellow-600 font-bold text-4xl lg:text-5xl">
                 Ecuador
               </span>
-            </h1>
+            </h1> */}
+            <div className="w-full xl:w-8/12">
+              <h1 className="font-bold text-wrap text-4xl md:text-5xl xl:text-6xl">
+                Anillos de boda{" "}
+                <span className="bg-clip-text text-transparent bg-gradient-to-b from-yellow-600 via-yellow-400 to-yellow-600">
+                  Ecuador
+                </span>
+              </h1>
+            </div>
             <h2 className=" xl:w-8/12 ">{article.paragraph}</h2>
             <div className="flex items-center xl:justify-start gap-4 text-sm">
               <Link
@@ -210,7 +218,7 @@ export default function Hero() {
           </div>
         </div>
         {/* lado derecho */}
-        <div className=" py-10 sm:w-6/12 bg-gradient-to-b from-myZinc via-myZinc to-neutral-800">
+        <div className=" py-10 sm:w-6/12 bg-gradient-to-b from-myZinc via-myZinc to-neutral-800 xl:py-20">
           <div className="flex justify-between items-start">
             <div className="max-w-[150px] sm:max-w-[100px] md:max-w-[150px] lg:max-w-[200px]">
               <Image
