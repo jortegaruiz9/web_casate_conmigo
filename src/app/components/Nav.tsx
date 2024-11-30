@@ -93,7 +93,7 @@ export default function Nav({ elements }: Props) {
         <hr className="border-r border-gray-300 h-8" />
         <NavbarItem>
           <Button
-            className="py-6 px-10 bg-myZinc rounded-lg hover:ring-2 hover:ring-offset-2 hover:ring-myZinc transition-all ease-out duration-300 text-myWhite text-md antialiased"
+            className="py-6 px-10  bg-[#aa2230] rounded-lg hover:ring-2 hover:ring-offset-2 hover:ring-myZinc transition-all ease-out duration-300 text-myWhite text-md antialiased"
             onClick={() => {
               sendGAEvent({ event: "A-NavWhatsapp", value: "15678" });
               sendGTMEvent({ event: "NavWhatsapp", value: "5678" });

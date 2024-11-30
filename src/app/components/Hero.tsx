@@ -88,7 +88,7 @@ export default function Hero() {
             <div className="w-full md:w-7/12 xl:w-7/12">
               <h1 className="font-bold text-wrap text-4xl md:text-5xl">
                 Anillos de boda{" "}
-                <span className="bg-clip-text text-transparent bg-gradient-to-b from-yellow-600 via-yellow-400 to-yellow-600">
+                <span className="bg-clip-text text-transparent bg-gradient-to-b from-[#4e6346] via-[#4e6346] to-[#4e6346]">
                   Ecuador
                 </span>
               </h1>
@@ -108,12 +108,12 @@ export default function Hero() {
                 }}
                 href="./shop"
                 rel="noopener noreferrer"
-                className="relative inline-flex items-center justify-start px-6 py-3 overflow-hidden font-medium transition-all bg-myZinc rounded-xl group"
+                className="relative inline-flex items-center justify-start px-6 py-3 overflow-hidden font-medium transition-all bg-[#aa2230] rounded-xl group"
               >
-                <span className="absolute top-0 right-0 inline-block w-4 h-4 transition-all duration-500 ease-in-out bg-neutral-600 rounded group-hover:-mr-4 group-hover:-mt-4">
+                <span className="absolute top-0 right-0 inline-block w-4 h-4 transition-all duration-500 ease-in-out bg-[#69171f] rounded group-hover:-mr-4 group-hover:-mt-4">
                   <span className="absolute top-0 right-0 w-5 h-5 rotate-45 translate-x-1/2 -translate-y-1/2 bg-myWhite"></span>
                 </span>
-                <span className="absolute bottom-0 left-0 w-full h-full transition-all duration-500 ease-in-out delay-200 -translate-x-full translate-y-full bg-neutral-500 rounded-2xl group-hover:mb-12 group-hover:translate-x-0"></span>
+                <span className="absolute bottom-0 left-0 w-full h-full transition-all duration-500 ease-in-out delay-200 -translate-x-full translate-y-full bg-[#69171f] rounded-2xl group-hover:mb-12 group-hover:translate-x-0"></span>
                 <span className="relative w-full text-left text-white transition-colors duration-200 ease-in-out group-hover:text-myWhite font-bold ">
                   {article.boton}
                 </span>
@@ -212,11 +212,11 @@ export default function Hero() {
           </div>
         </div>
         {/* lado derecho */}
-        <div className=" py-10 sm:w-6/12 bg-gradient-to-b from-myZinc via-myZinc to-neutral-800 xl:py-20">
+        <div className=" py-10 sm:w-6/12 bg-gradient-to-b from-[#4e6346] via-[#475b3f] to-[#32412d] xl:py-20">
           <div className="flex justify-between items-start">
             <div className="max-w-[150px] sm:max-w-[100px] md:max-w-[150px] lg:max-w-[200px]">
               <Image
-                src="/anilloDerecha.png"
+                src="/navidad/navidadHero.png"
                 width={150}
                 height={375}
                 className="w-full h-full object-cover"

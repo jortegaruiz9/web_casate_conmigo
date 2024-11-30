@@ -76,7 +76,7 @@ export default function Shop() {
                     <div>
                       <h3 className="text-sm">{model.leyend}</h3>
                     </div>
-                    <div className="bg-myZinc flex justify-center items-center rounded-md px-2">
+                    <div className="bg-[#4e6346] flex justify-center items-center rounded-md px-2">
                       <span className="icon-[material-symbols--arrow-forward] text-myWhite text-2xl" />
                     </div>
                   </div>
