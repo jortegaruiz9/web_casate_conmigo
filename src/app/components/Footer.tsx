@@ -3,7 +3,7 @@ import Image from "next/image";
 import { useContext, useState, useEffect } from "react";
 import { AdviserContext } from "../context/AdviserContext";
 import Link from "next/link";
-import { monserrat } from "../ui/fonts";
+import { montserrat } from "../ui/fonts";
 import BrandCarousel from "./BrandCarousel";
 
 let socialLinks = [
@@ -161,7 +161,7 @@ export default function Footer() {
                 key={`${line}-${index}`}
                 className={
                   index === address.length - 1
-                    ? `${monserrat.className} antialiased hover:text-zinc-200 transition all`
+                    ? `${montserrat.className} antialiased hover:text-zinc-200 transition all`
                     : "hover:text-zinc-200 transition all"
                 }
               >
@@ -222,7 +222,7 @@ export default function Footer() {
         <div className="text-xs lg:text-sm text-myZinc">
           <h6>
             ©{" "}
-            <span className={`${monserrat.className} antialiased`}>{age}</span>{" "}
+            <span className={`${montserrat.className} antialiased`}>{age}</span>{" "}
             Cásate Conmigo, todos los derechos reservados.
           </h6>
         </div>

@@ -1,7 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
 import Image from "next/image";
-import { monserrat, raleway } from "@/app/ui/fonts";
+import { montserrat, raleway } from "@/app/ui/fonts";
 import ColorForm from "./ColorForm";
 import WhatsAppButton from "./WhatsAppButton";
 import Adviser from "./Adviser";
@@ -99,7 +99,7 @@ export default function Card({ product }: CardProps) {
         <Image width={340} height={340} src={imgProduct} alt={product.alt} />
       </div>
       <div
-        className={`${monserrat.className} antialiased w-[340px] ring-1 mt-2 ring-zinc-400`}
+        className={`${montserrat.className} antialiased w-[340px] ring-1 mt-2 ring-zinc-400`}
       >
         <div className="px-2 py-2 flex flex-col items-between">
           <div className="flex gap-x-2 items-center mb-2 justify-between">

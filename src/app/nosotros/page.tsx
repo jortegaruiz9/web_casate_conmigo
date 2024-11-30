@@ -5,47 +5,61 @@ export const metadata: Metadata = {
 };
 
 import Image from "next/image";
-import { monserrat } from "../ui/fonts";
+import CardAdviser from "../components/CardAdviser";
+import ReviewCarousel from "../components/ReviewsCarousel";
 
 const perfiles = [
   {
-    image: "/perfiles/Sandy-Ortega.png",
+    image: "/perfiles/sandra_ortega.jpg",
     alt: "Perfil Sandra Ortega",
     name: "Sandra Ortega",
-    tell: "099 500 1783",
+    job: "CEO & Asesora",
+    whatsapp:
+      "https://api.whatsapp.com/send/?phone=%2B593995001783&text=Me+interesa+conocer+m%C3%A1s+sobre+sus+anillos%2C+pude+revisar+su+web&type=phone_number&app_absent=0",
+    linkedin: "https://www.linkedin.com/in/sandra-ortega-a5063098",
   },
   {
-    image: "/perfiles/Camila-Amacoria.jpg",
-    alt: "Perfil Camila Amacoria",
-    name: "Camila Amacoria",
-    tell: "098 333 5393",
+    image: "/perfiles/kennyn_amacoria.jpg",
+    name: "Kennyn Amacoria",
+    job: "Asesor comercial",
+    whatsapp:
+      "https://api.whatsapp.com/send/?phone=%2B593984171976&text=Me+interesa+conocer+m%C3%A1s+sobre+sus+anillos%2C+pude+revisar+su+web&type=phone_number&app_absent=0",
+    linkedin: "#",
   },
   {
-    image: "/perfiles/Juan-Gongora.png",
-    alt: "Perfil Juan Góngora",
+    image: "/perfiles/juan_gongora.jpg",
     name: "Juan Góngora",
-    tell: "098 388 3197",
+    job: "Programador Frontend",
+    whatsapp:
+      "https://api.whatsapp.com/send/?phone=%2B593983883197&text=Me+interesa+conocer+m%C3%A1s+sobre+sus+anillos%2C+pude+revisar+su+web&type=phone_number&app_absent=0",
+    linkedin: "https://www.linkedin.com/in/francisco-góngora-ortega",
+  },
+  {
+    image: "/perfiles/josebeth_amacoria.jpg",
+    name: "Camila Amacoria",
+    job: "Asesora comercial",
+    whatsapp:
+      "https://api.whatsapp.com/send/?phone=%2B593983335393&text=Me+interesa+conocer+m%C3%A1s+sobre+sus+anillos%2C+pude+revisar+su+web&type=phone_number&app_absent=0",
+    linkedin: "https://www.linkedin.com/in/josebeth-amacoria-5b7275252/",
   },
 ];
 
 export default function contacto() {
   return (
-    <div className="flex flex-col gap-y-10 py-10">
-      <div className=" w-full flex flex-col  gap-y-10">
-        <div className="flex flex-col gap-y-4 sm:flex-row sm:justify-center px-8 sm:gap-x-32 md:gap-x-20 lg:gap-x-40 xl:gap-x-60">
-          <div className="flex flex-col gap-y-4 sm:w-6/12 sm:justify-center text-myZinc">
-            <h2 className="text-2xl font-bold sm:text-3xl lg:text-4xl xl:text-5xl">
-              Nosotros
-            </h2>
-            <h1 className="text-sm">
+    <div>
+      <div className="mt-10 mb-10 flex flex-col gap-y-10 md:gap-y-20 w-full items-center">
+        <section className="text-myZinc flex flex-col items-center gap-y-4 md:flex-row md:justify-between md:w-10/12">
+          <div className="w-10/12 flex flex-col gap-y-4 md:w-6/12 ">
+            <h1 className="font-bold text-2xl md:text-5xl">Nosotros</h1>
+            <p className="text-sm">
               Cásate Conmigo es una Empresa especializada en la confección y
               fabricación de Anillos de Compromiso, Aros de Matrimonio y Joyeria
               Fina. Nuestro objetivo es crear Joyas Únicas y de la más alta
               calidad utilizando materiales como Oro 18k, Diamantes Naturales
               (GIA) y Swarovski.
-            </h1>
+            </p>
           </div>
-          <div className="sm:w-4/12 md:w-3/12">
+          <div className="w-10/12 md:w-3/12 md:flex md:place-content-end">
             <Image
               src="/imagenes/nosotros.jpg"
               alt="imagen nosotros"
@@ -53,40 +67,27 @@ export default function contacto() {
               height={373}
             />
           </div>
-        </div>
-        <div className="bg-myZinc flex flex-col py-6 text-myWhite">
-          <h2 className="text-center  sm:text-2xl font-bold">Nuestro Equipo</h2>
-          <p className="text-xs text-center mt-2 sm:mt-4 sm:text-sm">
-            Verifica que el nombre de tu asesor y número sean oficiales
-          </p>
-          <div className="flex justify-around text-xs mt-3 sm:mt-4">
-            {perfiles.map((perfil, index) => {
-              return (
-                <div
-                  className="flex flex-col justify-center items-center"
-                  key={index}
-                >
-                  <div className="w-24 rounded-full h-24 md:w-60 md:h-60">
-                    <Image
-                      className="object-cover w-full h-full rounded-full"
-                      src={perfil.image}
-                      alt={perfil.alt}
-                      width={240}
-                      height={240}
-                    />
-                  </div>
-                  <h4 className="mt-2 font-bold">{perfil.name}</h4>
-                  <h6 className={`${monserrat.className} antialiased `}>
-                    {perfil.tell}
-                  </h6>
-                </div>
-              );
-            })}
+        </section>
+        <section className="flex justify-center w-10/12">
+          <div className="w-full md:space-y-8">
+            <div className="hidden md:flex md:flex-col text-myZinc gap-y-4 md:items-end">
+              <h2 className="font-bold text-2xl md:text-5xl">Nuestro Equipo</h2>
+              <p className="text-sm">
+                Confirma que el asesor con el que estas hablando coordiné con la
+                descripción indicada
+              </p>
+            </div>
+            <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-1 md:gap-4">
+              <CardAdviser adviser={perfiles[0]} />
+              <CardAdviser adviser={perfiles[1]} />
+              <CardAdviser adviser={perfiles[2]} />
+              <CardAdviser adviser={perfiles[3]} />
+            </div>
           </div>
-        </div>
-        <div className="flex flex-col gap-y-4 sm:flex-row sm:justify-center px-8 sm:gap-x-32 md:gap-x-20 lg:gap-x-40 xl:gap-x-60 text-myZinc">
-          <div className="flex flex-col gap-y-4 sm:w-6/12 sm:justify-center">
-            <h2 className="text-2xl font-bold sm:text-3xl lg:text-4xl xl:text-5xl">
+        </section>
+        <section className="text-myZinc flex flex-col items-center gap-y-4 md:flex-row md:justify-between md:w-10/12">
+          <div className="w-10/12 flex flex-col gap-y-4 md:w-6/12 ">
+            <h2 className="font-bold text-2xl md:text-5xl">
               Asesoría Personalizada
             </h2>
             <p className="text-sm">
@@ -97,7 +98,7 @@ export default function contacto() {
               Escribenos a Whatsapp
             </p>
           </div>
-          <div className="sm:w-4/12 md:w-3/12">
+          <div className="w-10/12 md:w-3/12 md:flex md:place-content-end">
             <Image
               src="/imagenes/pack.jpg"
               alt="imagen asesoria"
@@ -105,7 +106,7 @@ export default function contacto() {
               height={377}
             />
           </div>
-        </div>
+        </section>
       </div>
     </div>
   );
