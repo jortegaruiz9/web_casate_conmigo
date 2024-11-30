@@ -113,17 +113,17 @@ export default function Footer() {
     socialMedia.tel,
   ];
   return (
-    <div className="bg-myZinc w-full">
+    <div className="bg-[#aa2230] w-full">
       <div className="flex flex-col items-center gap-y-2 py-8 md:py-12 w-full">
-        <div className="flex flex-row justify-around items-start w-full text-xs md:text-medium text-neutral-400">
+        <div className="flex flex-row justify-around items-start w-full text-xs md:text-medium text-white">
           <ul className="hidden lg:block space-y-4">
             {nav.map((e, index) => (
               <li
                 key={e.title}
                 className={
                   index !== 0
-                    ? "text-zinc-400 hover:text-zinc-200 transition-all"
-                    : "text-myWhite font-bold"
+                    ? "text-white hover:text-zinc-200 transition-all"
+                    : "text-zinc-200 font-bold"
                 }
               >
                 {e.direction ? (
@@ -141,8 +141,8 @@ export default function Footer() {
                 key={e.title}
                 className={
                   e.direction
-                    ? "text-zinc-400 hover:text-zinc-200 transition-all"
-                    : "text-myWhite font-bold"
+                    ? "text-white hover:text-zinc-200 transition-all"
+                    : "text-zinc-200 font-bold"
                 }
               >
                 {e.direction ? (
@@ -155,13 +155,13 @@ export default function Footer() {
           </ul>
 
           <ul className="space-y-4">
-            <li className="font-bold text-myWhite">Dirección</li>
+            <li className="font-bold text-white">Dirección</li>
             {address.map((line, index) => (
               <li
                 key={`${line}-${index}`}
                 className={
                   index === address.length - 1
-                    ? `${montserrat.className} antialiased hover:text-zinc-200 transition all`
+                    ? `${montserrat.className} antialiased text-white transition all`
                     : "hover:text-zinc-200 transition all"
                 }
               >
@@ -173,7 +173,7 @@ export default function Footer() {
             {pay.map((e, index) => (
               <li
                 key={`${e.title}-${index}`}
-                className="text-zinc-400 hover:text-zinc-200 transition-all"
+                className="text-white hover:text-zinc-200 transition-all"
               >
                 {e.title}
                 <span className={`${e.icon} text-2xl`} />

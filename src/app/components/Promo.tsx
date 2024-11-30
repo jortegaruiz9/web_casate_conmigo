@@ -24,7 +24,7 @@ export default function Promo({ elements }: Props) {
 
   return (
     <div>
-      <div className="bg-myZinc h-[55px] flex items-center justify-center text-myWhite gap-2">
+      <div className="bg-[#aa2230] h-[55px] flex items-center justify-center text-myWhite gap-2">
         <h3>Adquiere tu anillo.</h3>
         <button
           className="flex items-center gap-1"

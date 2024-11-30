@@ -6,6 +6,7 @@ import InstructionColors from "@/app/components/InstructionColors";
 import { gtmPageView } from "@/app/lib/gtm";
 import { gaPageView } from "@/app/lib/ga";
 import { useEffect } from "react";
+import Image from "next/image";
 
 const rings = [
   {
@@ -226,6 +227,14 @@ export default function ShopTemplate() {
         })}
       </div>
       <h1 className="text-myZinc text-lg mt-10">Anillos de boda</h1>
+      <div>
+        <Image
+          src="/navidad/arbol.png"
+          alt="navidad muñecos"
+          width={300}
+          height={300}
+        />
+      </div>
       <Button />
     </div>
   );
