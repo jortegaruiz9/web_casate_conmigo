@@ -9,7 +9,7 @@ const materials = [
   { name: "Oro Amarillo", detail: "18 Kilates" },
   { name: "Oro Blanco", detail: "18 Kilates" },
   { name: "Oro Rosa", detail: "18 Kilates" },
-  { name: "Diamond", detail: "Gia" },
+  { name: "Diamante", detail: "Gia" },
 ];
 
 const article = {
@@ -110,11 +110,11 @@ export default function Hero() {
                 rel="noopener noreferrer"
                 className="relative inline-flex items-center justify-start px-6 py-3 overflow-hidden font-medium transition-all bg-[#aa2230] rounded-xl group"
               >
-                <span className="absolute top-0 right-0 inline-block w-4 h-4 transition-all duration-500 ease-in-out bg-[#69171f] rounded group-hover:-mr-4 group-hover:-mt-4">
+                <span className="absolute top-0 right-0 inline-block w-4 h-4 transition-all duration-500 ease-in-out bg-[#69171f] rounded md:group-hover:-mr-4 md:group-hover:-mt-4">
                   <span className="absolute top-0 right-0 w-5 h-5 rotate-45 translate-x-1/2 -translate-y-1/2 bg-myWhite"></span>
                 </span>
-                <span className="absolute bottom-0 left-0 w-full h-full transition-all duration-500 ease-in-out delay-200 -translate-x-full translate-y-full bg-[#69171f] rounded-2xl group-hover:mb-12 group-hover:translate-x-0"></span>
-                <span className="relative w-full text-left text-white transition-colors duration-200 ease-in-out group-hover:text-myWhite font-bold ">
+                <span className="absolute bottom-0 left-0 w-full h-full transition-all duration-500 ease-in-out delay-200 -translate-x-full translate-y-full bg-[#69171f] rounded-2xl md:group-hover:mb-12 md:group-hover:translate-x-0"></span>
+                <span className="relative w-full text-left text-white transition-colors duration-200 ease-in-out md:group-hover:text-myWhite font-bold ">
                   {article.boton}
                 </span>
               </Link>
@@ -166,13 +166,13 @@ export default function Hero() {
                     href={socialMedia.instagram}
                     target="_blank"
                   >
-                    <span className="icon-[radix-icons--instagram-logo] group-hover:text-5xl transition-all" />
+                    <span className="icon-[radix-icons--instagram-logo] md:group-hover:text-5xl transition-all" />
                     <span
                       className="absolute -top-14 left-[80%] -translate-x-[50%] 
                       z-20 origin-left scale-0 px-3 rounded-lg border 
                     border-gray-300 bg-white py-2 text-sm font-bold
                       shadow-md transition-all duration-300 ease-in-out 
-                      group-hover:scale-100"
+                      md:group-hover:scale-100"
                     >
                       Instagram
                     </span>
@@ -195,13 +195,13 @@ export default function Hero() {
                     href={socialMedia.whatsapp}
                     target="_blank"
                   >
-                    <span className="icon-[logos--whatsapp-icon] group-hover:text-5xl transition-all hover:text-green-500 animate-pulse animate-infinite animate-infinite animate-duration-[2000ms] " />
+                    <span className="icon-[logos--whatsapp-icon] md:group-hover:text-5xl transition-all md:hover:text-green-500 animate-pulse animate-infinite animate-infinite animate-duration-[2000ms] " />
                     <span
                       className="absolute -top-14 left-[100%] -translate-x-[50%] 
                       z-20 origin-left scale-0 px-3 rounded-lg border 
                     border-gray-300 bg-white py-2 text-sm font-bold
                       shadow-md transition-all duration-300 ease-in-out 
-                      group-hover:scale-100"
+                      md:group-hover:scale-100"
                     >
                       Whatsapp
                     </span>
