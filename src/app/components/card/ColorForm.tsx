@@ -64,11 +64,11 @@ const ColorForm: React.FC<ColorFormProps> = ({
       case "silver":
       case "silverYellow":
         if (category === "compromiso" || category === "cintillo") {
-          price = 60;
+          price = 80;
         } else if (category === "matrimonio") {
-          price = 130;
+          price = 150;
         } else {
-          price = 180;
+          price = 200;
         }
         break;
       case "gold":
