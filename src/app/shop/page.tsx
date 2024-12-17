@@ -22,7 +22,7 @@ const products = [
     url: "./shop/compromiso",
     category: "Compromiso",
     src: "foto compromiso quito",
-    imageUrl: "/modelos/compromiso/ac-012/amarillo.jpg",
+    imageUrl: "/modelos/compromiso/ac-018/amarillo.jpg",
     title: "anillos de compromiso",
     leyend:
       "Encuentra el anillo de compromiso que iniciará tu historia de amor. ",
