@@ -152,19 +152,19 @@ const rings = [
     grabado: false,
     grams: 4,
   },
-  {
-    category: "compromiso",
-    image: "/modelos/compromiso/ac-012/promo.jpg",
-    imageSilver: "/modelos/compromiso/ac-012/blanco.jpg",
-    imageRose: "/modelos/compromiso/ac-012/rosado.jpg",
-    linkProduct:
-      "https://www.instagram.com/p/C8nyz48NWoT/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
-    alt: "imagen modelo AC-012",
-    model: "AC-012",
-    color: "amarillo",
-    grabado: false,
-    grams: 4,
-  },
+  // {
+  //   category: "compromiso",
+  //   image: "/modelos/compromiso/ac-012/promo.jpg",
+  //   imageSilver: "/modelos/compromiso/ac-012/blanco.jpg",
+  //   imageRose: "/modelos/compromiso/ac-012/rosado.jpg",
+  //   linkProduct:
+  //     "https://www.instagram.com/p/C8nyz48NWoT/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
+  //   alt: "imagen modelo AC-012",
+  //   model: "AC-012",
+  //   color: "amarillo",
+  //   grabado: false,
+  //   grams: 4,
+  // },
   {
     category: "compromiso",
     image: "/modelos/compromiso/ac-013/amarillo.jpg",
@@ -232,7 +232,7 @@ const rings = [
   },
   {
     category: "compromiso",
-    image: "/modelos/compromiso/ac-018/amarillo.jpg",
+    image: "/modelos/compromiso/ac-018/promo.jpg",
     imageSilver: "/modelos/compromiso/ac-018/blanco.jpg",
     imageRose: "/modelos/compromiso/ac-018/rosado.jpg",
     linkProduct:

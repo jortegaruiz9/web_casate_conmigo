@@ -438,19 +438,19 @@ const rings = [
     grabado: true,
     grams: 12,
   },
-  {
-    category: "matrimonio",
-    image: "/modelos/matrimonio/am-041/amarillo.jpg",
-    imageSilver: "/modelos/matrimonio/am-041/blanco.jpg",
-    imageRose: "/modelos/matrimonio/am-041/rosado.jpg",
-    linkProduct:
-      "https://www.instagram.com/p/C8o12AlO7uu/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
-    alt: "imagen modelo AM-041",
-    model: "AM-041",
-    color: "rosado",
-    grabado: true,
-    grams: 12,
-  },
+  // {
+  //   category: "matrimonio",
+  //   image: "/modelos/matrimonio/am-041/amarillo.jpg",
+  //   imageSilver: "/modelos/matrimonio/am-041/blanco.jpg",
+  //   imageRose: "/modelos/matrimonio/am-041/rosado.jpg",
+  //   linkProduct:
+  //     "https://www.instagram.com/p/C8o12AlO7uu/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
+  //   alt: "imagen modelo AM-041",
+  //   model: "AM-041",
+  //   color: "rosado",
+  //   grabado: true,
+  //   grams: 12,
+  // },
   {
     category: "matrimonio",
     image: "/modelos/matrimonio/am-042/amarillo.jpg",
