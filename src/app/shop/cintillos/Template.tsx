@@ -72,14 +72,6 @@ export default function ShopTemplate() {
         })}
       </div>
       <h1 className="text-myZinc text-lg mt-10">Anillos de promesa</h1>
-      <div>
-        <Image
-          src="/navidad/munecos.png"
-          alt="navidad muñecos"
-          width={300}
-          height={300}
-        />
-      </div>
       <Button />
     </div>
   );

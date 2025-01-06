@@ -88,8 +88,8 @@ export default function Hero() {
             <div className="w-full md:w-7/12 xl:w-7/12">
               <h1 className="font-bold text-wrap text-4xl md:text-5xl">
                 Anillos de boda{" "}
-                <span className="bg-clip-text text-transparent bg-gradient-to-b from-[#4e6346] via-[#4e6346] to-[#4e6346]">
-                  Ecuador
+                <span className="bg-clip-text text-transparent bg-gradient-to-b from-[#ac2b2f] via-[#ac2b2f] to-[#ac2b2f]">
+                  San Valentín
                 </span>
               </h1>
             </div>
@@ -108,12 +108,12 @@ export default function Hero() {
                 }}
                 href="./shop"
                 rel="noopener noreferrer"
-                className="relative inline-flex items-center justify-start px-6 py-3 overflow-hidden font-medium transition-all bg-[#aa2230] rounded-xl group"
+                className="relative inline-flex items-center justify-start px-6 py-3 overflow-hidden font-medium transition-all bg-[#e1b0ac] rounded-xl group"
               >
-                <span className="absolute top-0 right-0 inline-block w-4 h-4 transition-all duration-500 ease-in-out bg-[#69171f] rounded md:group-hover:-mr-4 md:group-hover:-mt-4">
+                <span className="absolute top-0 right-0 inline-block w-4 h-4 transition-all duration-500 ease-in-out bg-[#e0a39d] rounded md:group-hover:-mr-4 md:group-hover:-mt-4">
                   <span className="absolute top-0 right-0 w-5 h-5 rotate-45 translate-x-1/2 -translate-y-1/2 bg-myWhite"></span>
                 </span>
-                <span className="absolute bottom-0 left-0 w-full h-full transition-all duration-500 ease-in-out delay-200 -translate-x-full translate-y-full bg-[#69171f] rounded-2xl md:group-hover:mb-12 md:group-hover:translate-x-0"></span>
+                <span className="absolute bottom-0 left-0 w-full h-full transition-all duration-500 ease-in-out delay-200 -translate-x-full translate-y-full bg-[#e0a39d] rounded-2xl md:group-hover:mb-12 md:group-hover:translate-x-0"></span>
                 <span className="relative w-full text-left text-white transition-colors duration-200 ease-in-out md:group-hover:text-myWhite font-bold ">
                   {article.boton}
                 </span>
@@ -212,11 +212,11 @@ export default function Hero() {
           </div>
         </div>
         {/* lado derecho */}
-        <div className=" py-10 sm:w-6/12 bg-gradient-to-b from-[#4e6346] via-[#475b3f] to-[#32412d] xl:py-20">
+        <div className=" py-10 sm:w-6/12 bg-gradient-to-b from-[#e1b0ac] via-[#e1b0ac] to-[#e1b0ac] xl:py-20">
           <div className="flex justify-between items-start">
             <div className="max-w-[150px] sm:max-w-[100px] md:max-w-[150px] lg:max-w-[200px]">
               <Image
-                src="/navidad/navidadHero.png"
+                src="/sanValentin/sanValentin-hero.png"
                 width={150}
                 height={375}
                 className="w-full h-full object-cover"
@@ -254,13 +254,13 @@ export default function Hero() {
             </a>
           </div>
           <div>
-            <ul className="flex text-xs justify-end gap-4 text-myWhite mr-4 sm:mt-48 md:mt-10 lg:mt-0 xl:mr-20">
+            <ul className="flex text-xs justify-end gap-4 text-myWhite font-bold mr-4 sm:mt-48 md:mt-10 lg:mt-0 xl:mr-20">
               {materials.map((obj, index) => {
                 const indexMaterials = `custom_${index}`;
                 return (
                   <li key={indexMaterials}>
                     <h2 className="text-md lg:text-xl">{obj.name}</h2>
-                    <h3 className="text-xs text-zinc-400 lg:text-md">
+                    <h3 className="text-xs text-myZinc lg:text-md">
                       {obj.detail}
                     </h3>
                   </li>

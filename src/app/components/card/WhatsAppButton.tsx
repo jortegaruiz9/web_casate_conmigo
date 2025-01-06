@@ -58,7 +58,7 @@ const WhatsAppButton: React.FC<WhatsAppButtonProps> = ({
       className="bg-white text-center w-40 rounded-md h-12 relative font-sans text-myZinc text-md font-semibold group"
       id="order-button"
     >
-      <div className="bg-[#cd2838] text-white rounded-md h-10 w-1/4 flex items-center justify-center absolute left-1 top-[4px] md:group-hover:w-[152px] z-10 duration-500">
+      <div className="bg-[#e1b0ac] text-white rounded-md h-10 w-1/4 flex items-center justify-center absolute left-1 top-[4px] md:group-hover:w-[152px] z-10 duration-500">
         <span className="icon-[hugeicons--shopping-basket-done-01]"></span>
       </div>
       <p className={`translate-x-5 ${raleway.className} antialiased`}>
