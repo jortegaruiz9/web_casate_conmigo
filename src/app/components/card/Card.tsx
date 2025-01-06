@@ -90,9 +90,9 @@ export default function Card({ product }: CardProps) {
         className="absolute flex top-4 right-4 md:right-8 lg:right-10 z-10 bg-myWhite rounded-full p-2 shadow-md"
       >
         {isLiked ? (
-          <span className="icon-[noto--wrapped-gift] text-2xl" />
+          <span className="icon-[mdi--heart] text-[#ac2b2f] text-2xl" />
         ) : (
-          <span className="icon-[bxs--gift] text-gray-500 text-2xl" />
+          <span className="icon-[mynaui--heart] text-gray-500 text-2xl" />
         )}
       </button>
       <div className="w-[340px]">

@@ -113,7 +113,7 @@ export default function Footer() {
     socialMedia.tel,
   ];
   return (
-    <div className="bg-[#aa2230] w-full">
+    <div className="bg-[#e1b0ac] w-full">
       <div className="flex flex-col items-center gap-y-2 py-8 md:py-12 w-full">
         <div className="flex flex-row justify-around items-start w-full text-xs md:text-medium text-white">
           <ul className="hidden lg:block space-y-4">
@@ -123,7 +123,7 @@ export default function Footer() {
                 className={
                   index !== 0
                     ? "text-white hover:text-zinc-200 transition-all"
-                    : "text-zinc-200 font-bold"
+                    : "text-[#ac2b2f] font-bold"
                 }
               >
                 {e.direction ? (
@@ -142,7 +142,7 @@ export default function Footer() {
                 className={
                   e.direction
                     ? "text-white hover:text-zinc-200 transition-all"
-                    : "text-zinc-200 font-bold"
+                    : "text-[#ac2b2f] font-bold"
                 }
               >
                 {e.direction ? (
@@ -155,7 +155,7 @@ export default function Footer() {
           </ul>
 
           <ul className="space-y-4">
-            <li className="font-bold text-white">Dirección</li>
+            <li className="font-bold text-[#ac2b2f]">Dirección</li>
             {address.map((line, index) => (
               <li
                 key={`${line}-${index}`}
@@ -173,7 +173,7 @@ export default function Footer() {
             {pay.map((e, index) => (
               <li
                 key={`${e.title}-${index}`}
-                className="text-white hover:text-zinc-200 transition-all"
+                className="text-myZinc hover:text-zinc-200 transition-all"
               >
                 {e.title}
                 <span className={`${e.icon} text-2xl`} />
