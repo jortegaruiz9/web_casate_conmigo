@@ -167,6 +167,20 @@ const rings = [
   // },
   {
     category: "compromiso",
+    image: "/modelos/compromiso/ac-018/infinito-promo.jpg",
+    imageSilver: "/modelos/compromiso/ac-018/infinito-white.jpg",
+    imageRose: "/modelos/compromiso/ac-018/infinito-rose.jpg",
+    linkProduct:
+      "https://www.instagram.com/p/DE6kN7NO_VB/?igsh=MTR1ZnUybjg3emVrbA==",
+    alt: "imagen modelo AC-01",
+    model: "AC-012",
+    color: "rosado",
+    grabado: false,
+    grams: 4,
+  },
+  //   se puso el 18 en la posicion 12 debido a que no se puede hacer el 12 de momento
+  {
+    category: "compromiso",
     image: "/modelos/compromiso/ac-013/amarillo.jpg",
     imageSilver: "/modelos/compromiso/ac-013/blanco.jpg",
     imageRose: "/modelos/compromiso/ac-013/rosado.jpg",
@@ -230,19 +244,7 @@ const rings = [
     grabado: false,
     grams: 5,
   },
-  {
-    category: "compromiso",
-    image: "/modelos/compromiso/ac-018/promo.jpg",
-    imageSilver: "/modelos/compromiso/ac-018/blanco.jpg",
-    imageRose: "/modelos/compromiso/ac-018/rosado.jpg",
-    linkProduct:
-      "https://www.instagram.com/p/C8n3HQatgOf/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
-    alt: "imagen modelo AC-018",
-    model: "AC-018",
-    color: "rosado",
-    grabado: false,
-    grams: 5,
-  },
+
   {
     category: "compromiso",
     image: "/modelos/compromiso/ac-019/amarillo.jpg",
