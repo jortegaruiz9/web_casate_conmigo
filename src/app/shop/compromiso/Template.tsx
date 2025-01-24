@@ -167,9 +167,9 @@ const rings = [
   // },
   {
     category: "compromiso",
-    image: "/modelos/compromiso/ac-018/infinito-promo.jpg",
-    imageSilver: "/modelos/compromiso/ac-018/infinito-white.jpg",
-    imageRose: "/modelos/compromiso/ac-018/infinito-rose.jpg",
+    image: "/modelos/compromiso/ac-018/promo.png",
+    imageSilver: "/modelos/compromiso/ac-018/blanco.png",
+    imageRose: "/modelos/compromiso/ac-018/rosado.png",
     linkProduct:
       "https://www.instagram.com/p/DE6kN7NO_VB/?igsh=MTR1ZnUybjg3emVrbA==",
     alt: "imagen modelo AC-01",
