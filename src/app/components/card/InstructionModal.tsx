@@ -16,8 +16,8 @@ const InstructionModal: React.FC<InstructionModalProps> = ({
       text: "Precio incluye grabado",
     },
     { icon: "icon-[fluent--pen-off-16-filled]", text: "No incluye grabado" },
-    { icon: "icon-[mdi--shield-check]", text: "Garantía de por vida" },
     { icon: "icon-[mynaui--one-square]", text: "Garantía por un año" },
+    { icon: "icon-[bi--6-square]", text: "Garantía por seis meses" },
   ];
 
   return (
