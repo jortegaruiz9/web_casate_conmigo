@@ -128,7 +128,7 @@ export default function Card({ product }: CardProps) {
                 {colorSeleccionado === "Plata" ||
                 colorSeleccionado === "SilverYellow" ? (
                   <li>
-                    <span className="icon-[mynaui--one-square] hover:text-myZinc" />
+                    <span className="icon-[mynaui--six-square] hover:text-myZinc" />
                   </li>
                 ) : (
                   <li>
