@@ -12,7 +12,7 @@ type Props = {
 
 export default function CardAdviser({ adviser }: Props) {
   return (
-    <div className="w-[100%] h-[200px] lg:h-[280px] flex items-end relative shadow-lg">
+    <div className="w-[100%] h-[200px] lg:h-[280px] flex items-end relative shadow-lg text-myWhite">
       <Image
         className="object-cover w-full h-full"
         src={adviser.image}
@@ -23,7 +23,7 @@ export default function CardAdviser({ adviser }: Props) {
       <div
         className={`${inter.className} antialiased flex flex-col absolute text-[10px] gap-y-1 lg:gap-y-2 pl-3 pb-3`}
       >
-        <div>
+        <div className="">
           <h2 className="font-bold lg:text-[16px]">{adviser.name}</h2>
           <p className="text-[9px] lg:text-[12px]">{adviser.job}</p>
         </div>

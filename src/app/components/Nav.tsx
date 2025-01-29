@@ -34,10 +34,21 @@ export default function Nav({ elements }: Props) {
     window.open(whatsappLink, "_blank");
   };
 
+  const toggleMenu = () => {
+    const newMenuState = !isMenuOpen;
+    setIsMenuOpen(newMenuState);
+
+    // Emitir evento de cambio de menú
+    const event = new CustomEvent("menuStateChange", {
+      detail: { isOpen: newMenuState },
+    });
+    window.dispatchEvent(event);
+  };
+
   return (
     <nav
-      className={`bg-myWhite text-myZinc w-full transition-all duration-300 ${
-        isScrolled ? "fixed top-0 shadow-md z-50" : "relative"
+      className={`bg-myWhite text-myZinc w-full transition-all duration-500 ${
+        isScrolled ? "fixed top-0 shadow-sm z-50 bg-myWhite/95" : "relative"
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -83,7 +94,7 @@ export default function Nav({ elements }: Props) {
           {/* Mobile menu button */}
           <div className="sm:hidden">
             <button
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              onClick={toggleMenu}
               className="inline-flex items-center justify-center p-2 rounded-md text-myZinc hover:text-myZinc/80 hover:bg-gray-100 transition-colors"
             >
               {isMenuOpen ? (

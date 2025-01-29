@@ -5,6 +5,11 @@ import { inter } from "@/app/ui/fonts";
 import { useState, useEffect } from "react";
 import ColorForm from "@/app/components/card/ColorForm";
 import Card from "@/app/components/card/Card";
+import SizeModal from "@/app/components/SizeModal";
+import WhatsAppButton, {
+  WhatsAppButtonProps,
+} from "@/app/components/card/WhatsAppButton";
+import RelatedProducts from "@/app/components/card/RelatedProducts";
 
 // Importar los arrays de productos
 import { rings as compromiseRings } from "@/app/shop/compromiso/Template";
@@ -32,6 +37,34 @@ export default function ProductPage({ params }: PageProps) {
   const [product, setProduct] = useState<any>(null);
   const [relatedProducts, setRelatedProducts] = useState<any[]>([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [showSizes, setShowSizes] = useState(false);
+  const [selectedSize, setSelectedSize] = useState<number | null>(null);
+  const [selectedSizeWoman, setSelectedSizeWoman] = useState<number | null>(
+    null
+  );
+  const [selectedCity, setSelectedCity] = useState<string>("");
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  // Escuchar cambios en el menú
+  useEffect(() => {
+    if (isMenuOpen) {
+      setShowSizes(false);
+    }
+  }, [isMenuOpen]);
+
+  // Suscribirse a eventos personalizados del menú
+  useEffect(() => {
+    const handleMenuChange = (e: CustomEvent) => {
+      if (e.detail.isOpen) {
+        setShowSizes(false);
+      }
+    };
+
+    window.addEventListener("menuStateChange" as any, handleMenuChange);
+    return () => {
+      window.removeEventListener("menuStateChange" as any, handleMenuChange);
+    };
+  }, []);
 
   useEffect(() => {
     const findProduct = () => {
@@ -92,56 +125,58 @@ export default function ProductPage({ params }: PageProps) {
   }
 
   return (
-    <div className={`${inter.className}`}>
-      <div className="flex flex-col text-myZinc gap-y-4">
-        <div className="flex text-xs text-zinc-500 px-4 gap-x-2 mt-4 uppercase">
-          <span>Catálogo</span>
-          <span>/</span>
-          <span>{product.category}</span>
-          <span>/</span>
-          <span>{product.model}</span>
-        </div>
-        <div className="bg-[#eae5df] relative w-11/12">
-          {product.bestSeller && (
-            <div className="absolute top-0 left-3 bg-myZinc z-20 w-24 h-[18px] flex justify-center items-center">
-              <p className="text-myWhite text-[10px]">Más Vendido</p>
-            </div>
-          )}
-          <Image
-            src={imgProduct}
-            alt={product.alt}
-            width={430}
-            height={560}
-            className="w-full object-cover"
-          />
-        </div>
-      </div>
-      {/* codigo anterior */}
-      <main className="min-h-screen flex-col items-center p-4 md:p-24 text-myZinc hidden">
-        <div className={`${inter.className} w-full max-w-6xl`}>
-          {/* Breadcrumb */}
-          <div className="flex gap-2 text-sm text-zinc-500 mb-6">
-            <span>Catálogo</span>
-            <span>/</span>
-            <span>{product.category}</span>
-            <span>/</span>
-            <span>{product.model}</span>
-          </div>
-
-          {/* Producto principal */}
+    <div className={`text-myZinc ${inter.className}`}>
+      <div className="container mx-auto px-4 py-8">
+        <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {/* Imagen del producto */}
+            {/* Columna izquierda - Imagen */}
+            <div>
+              <div className="relative aspect-square bg-[#eae5df]">
+                <Image
+                  src={imgProduct}
+                  alt={product?.alt || ""}
+                  fill
+                  className="object-cover"
+                />
+              </div>
+            </div>
 
-            {/* Información del producto */}
-            <div className="flex flex-col gap-6">
-              <h1 className="text-3xl font-bold">Modelo: {product.model}</h1>
+            {/* Columna derecha - Información */}
+            <div className="text-myZinc">
+              <h1 className="text-2xl font-medium mb-4">{product?.model}</h1>
 
-              {/* Selector de color */}
-              <div className="mt-4">
+              {/* Precios */}
+              <div className="space-y-2 mb-6">
+                <div className="flex justify-between items-center">
+                  <h4 className="text-sm">
+                    {tipoPlata
+                      ? `Plata 925 & Baño ${tipoPlata}`
+                      : "No disponible en plata"}
+                  </h4>
+                  <p>
+                    {precioPlata !== null
+                      ? `$${precioPlata.toFixed(2)}`
+                      : "No disponible"}
+                  </p>
+                </div>
+                <div className="flex justify-between items-center">
+                  <h4 className="text-sm">Oro 18k {tipoOro}</h4>
+                  <p>
+                    $
+                    {precioOro !== null
+                      ? `${precioOro.toFixed(2)}`
+                      : "No disponible"}
+                  </p>
+                </div>
+              </div>
+
+              {/* Color selector */}
+              <div className="mb-6">
                 <h3 className="text-sm mb-2">Color:</h3>
                 <ColorForm
-                  category={product.category}
-                  grams={product.grams}
+                  product={product}
+                  category={product?.category || "compromiso"}
+                  grams={product?.grams || 0}
                   setPrecioPlata={setPrecioPlata}
                   setPrecioOro={setPrecioOro}
                   setTipoPlata={setTipoPlata}
@@ -149,50 +184,169 @@ export default function ProductPage({ params }: PageProps) {
                 />
               </div>
 
-              {/* Precios */}
-              <div className="mt-4">
-                <div className="flex justify-between items-center py-2 border-b">
-                  <span>Plata 925 & Baño {tipoPlata}</span>
-                  <span className="font-bold">
-                    {precioPlata !== null
-                      ? `$${precioPlata.toFixed(2)}`
-                      : "No disponible"}
+              {/* Talla selector */}
+              <div className="mb-6">
+                <h3 className="text-sm mb-2">Talla:</h3>
+                <button
+                  onClick={() => setShowSizes(!showSizes)}
+                  className="w-full py-3 px-4 bg-myWhite border rounded-md flex justify-between items-center text-zinc-600 hover:bg-gray-50 focus:border-[#f2beba] focus:outline-none"
+                >
+                  <span>
+                    {product.category === "set" ||
+                    product.category === "matrimonio"
+                      ? selectedSize && selectedSizeWoman
+                        ? `Talla él: ${selectedSize} / Talla ella: ${selectedSizeWoman}`
+                        : "No conozco mi talla"
+                      : selectedSize
+                      ? `Talla ${selectedSize}`
+                      : "No conozco mi talla"}
                   </span>
-                </div>
-                <div className="flex justify-between items-center py-2 border-b">
-                  <span>Oro 18k {tipoOro}</span>
-                  <span className="font-bold">
-                    $
-                    {precioOro !== null
-                      ? `${precioOro.toFixed(2)}`
-                      : "No disponible"}
-                  </span>
+                  <span className="icon-[material-symbols--keyboard-arrow-down-rounded] text-xl" />
+                </button>
+
+                <SizeModal
+                  showSizes={showSizes}
+                  setShowSizes={setShowSizes}
+                  selectedSize={selectedSize}
+                  setSelectedSize={setSelectedSize}
+                  category={product.category}
+                  selectedSizeWoman={selectedSizeWoman}
+                  setSelectedSizeWoman={setSelectedSizeWoman}
+                />
+              </div>
+
+              {/* Ciudad selector */}
+              <div className="mb-6">
+                <h3 className="text-sm mb-2">Ciudad:</h3>
+                <div className="relative">
+                  <select
+                    className="w-full py-3 px-4 bg-myWhite border rounded-md text-zinc-600 appearance-none hover:bg-gray-50 focus:border-[#f2beba] focus:outline-none"
+                    onChange={(e) => setSelectedCity(e.target.value)}
+                    value={selectedCity}
+                  >
+                    <option value="">Selecciona tu ciudad</option>
+                    <optgroup label="Sierra">
+                      <option value="Quito">Quito</option>
+                      <option value="Cuenca">Cuenca</option>
+                      <option value="Ambato">Ambato</option>
+                      <option value="Loja">Loja</option>
+                      <option value="Riobamba">Riobamba</option>
+                      <option value="Ibarra">Ibarra</option>
+                      <option value="Latacunga">Latacunga</option>
+                      <option value="Tulcán">Tulcán</option>
+                      <option value="Guaranda">Guaranda</option>
+                      <option value="Azogues">Azogues</option>
+                    </optgroup>
+                    <optgroup label="Costa">
+                      <option value="Guayaquil">Guayaquil</option>
+                      <option value="Manta">Manta</option>
+                      <option value="Portoviejo">Portoviejo</option>
+                      <option value="Machala">Machala</option>
+                      <option value="Esmeraldas">Esmeraldas</option>
+                      <option value="Santo Domingo">Santo Domingo</option>
+                      <option value="Babahoyo">Babahoyo</option>
+                      <option value="Santa Elena">Santa Elena</option>
+                      <option value="Salinas">Salinas</option>
+                      <option value="Daule">Daule</option>
+                      <option value="Durán">Durán</option>
+                      <option value="Milagro">Milagro</option>
+                      <option value="Quevedo">Quevedo</option>
+                    </optgroup>
+                    <optgroup label="Oriente">
+                      <option value="Tena">Tena</option>
+                      <option value="Puyo">Puyo</option>
+                      <option value="Macas">Macas</option>
+                      <option value="Zamora">Zamora</option>
+                      <option value="Nueva Loja">
+                        Nueva Loja (Lago Agrio)
+                      </option>
+                      <option value="El Coca">El Coca</option>
+                    </optgroup>
+                    <optgroup label="Galápagos">
+                      <option value="Puerto Baquerizo Moreno">
+                        Puerto Baquerizo Moreno
+                      </option>
+                      <option value="Puerto Ayora">Puerto Ayora</option>
+                    </optgroup>
+                  </select>
+                  <span className="absolute right-4 top-1/2 -translate-y-1/2 icon-[material-symbols--keyboard-arrow-down-rounded] text-xl text-zinc-600 pointer-events-none" />
                 </div>
               </div>
 
-              {/* Botones de acción */}
-              <div className="flex gap-4 mt-6">
-                <button className="flex-1 bg-myZinc text-white py-3 px-6">
-                  Place Bid
-                </button>
-                <button className="flex-1 bg-green-700 text-white py-3 px-6">
-                  Buy Now
-                </button>
-              </div>
-            </div>
-          </div>
+              {/* WhatsApp button */}
+              <WhatsAppButton
+                model={product?.model || ""}
+                selectedSize={selectedSize}
+                selectedCity={selectedCity}
+                tipoOro={tipoOro}
+                tipoPlata={tipoPlata}
+                precioOro={precioOro}
+                precioPlata={precioPlata}
+              />
 
-          {/* Productos relacionados */}
-          <div className="mt-16">
-            <h2 className="text-2xl font-bold mb-8">Productos Relacionados</h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6">
-              {relatedProducts.map((product, index) => (
-                <Card key={index} product={product} />
-              ))}
+              {/* Información del producto */}
+              <div className="mt-6 space-y-4">
+                <div className="flex flex-col gap-y-3">
+                  {product?.category === "matrimonio" ? (
+                    <div className="flex items-center gap-2">
+                      <span className="icon-[fluent--draw-text-24-filled] text-myZinc" />
+                      <p className="text-sm">Modelo incluye grabado</p>
+                    </div>
+                  ) : (
+                    <div className="flex items-center gap-2">
+                      <span className="icon-[fluent--pen-off-16-filled] text-myZinc" />
+                      <p className="text-sm">No incluye grabado</p>
+                    </div>
+                  )}
+                  <div className="flex items-center gap-2">
+                    <span className="icon-[mdi--leaf] text-myZinc" />
+                    <p className="text-sm underline">Hecho artesanalmente</p>
+                  </div>
+
+                  <div className="flex items-center gap-2">
+                    <span className="icon-[mdi--shield-check] text-myZinc" />
+                    <p className="text-sm underline">
+                      En Oro 18k, Garantía por un año
+                    </p>
+                  </div>
+
+                  <div className="flex items-center gap-2">
+                    <span className="icon-[material-symbols--calendar-month] text-myZinc" />
+                    <p className="text-sm underline">
+                      Al aprobar el diseño, ya no hay cambios
+                    </p>
+                  </div>
+                </div>
+
+                <div className="space-y-2 text-xs text-zinc-600 mt-4">
+                  <p>
+                    -La garantía cubre pequeños rayones y mantenimiento para dar
+                    brillo.
+                  </p>
+                  <p>
+                    -No incluye torceduras de ningún tipo. Tampoco nos hacemos
+                    responsables por piedras minerales extraviadas durante su
+                    uso.
+                  </p>
+                  <p className="font-semibold">
+                    Los anillos de plata con baño de oro requieren más cuidados
+                    por su recubrimiento fino. No nos hacemos responsables por
+                    daños debido a un mal uso.
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-      </main>
+
+        {/* Related products */}
+        <div className="mt-16">
+          <RelatedProducts
+            currentModel={product?.model || ""}
+            category={product?.category || "compromiso"}
+          />
+        </div>
+      </div>
     </div>
   );
 }

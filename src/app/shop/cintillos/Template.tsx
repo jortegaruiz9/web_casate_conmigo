@@ -6,10 +6,11 @@ import { gtmPageView } from "@/app/lib/gtm";
 import { gaPageView } from "@/app/lib/ga";
 import { useEffect } from "react";
 import Image from "next/image";
+import { CategoryType } from "@/app/types/category";
 
 export const rings = [
   {
-    category: "cintillo",
+    category: "cintillos" as CategoryType,
     image: "/modelos/cintillos/aci-001/1.jpg",
     imageSilver: "/modelos/cintillos/aci-001/2.jpg",
     imageRose: "/modelos/cintillos/aci-001/3.jpg",
@@ -23,7 +24,7 @@ export const rings = [
     garantia: true,
   },
   {
-    category: "cintillo",
+    category: "cintillos" as CategoryType,
     image: "/modelos/cintillos/aci-002/1.jpg",
     imageSilver: "/modelos/cintillos/aci-002/2.jpg",
     imageRose: "/modelos/cintillos/aci-002/3.jpg",
@@ -37,7 +38,7 @@ export const rings = [
     garantia: true,
   },
   {
-    category: "cintillo",
+    category: "cintillos" as CategoryType,
     image: "/modelos/cintillos/aci-003/1.jpg",
     imageSilver: "/modelos/cintillos/aci-003/2.jpg",
     imageRose: "/modelos/cintillos/aci-003/3.jpg",

@@ -1,9 +1,9 @@
-# Allow all robots to access all content
+# *
 User-agent: *
 Allow: /
 
-# Host directive (optional)
+# Host
 Host: https://www.casateconmigoecu.com
 
-# Sitemap directive
+# Sitemaps
 Sitemap: https://www.casateconmigoecu.com/sitemap.xml

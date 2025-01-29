@@ -123,7 +123,7 @@ export default function Footer() {
                 className={
                   index !== 0
                     ? "text-white hover:text-zinc-200 transition-all"
-                    : "text-[#ac2b2f] font-bold"
+                    : "text-myZinc font-bold"
                 }
               >
                 {e.direction ? (
@@ -142,7 +142,7 @@ export default function Footer() {
                 className={
                   e.direction
                     ? "text-white hover:text-zinc-200 transition-all"
-                    : "text-[#ac2b2f] font-bold"
+                    : "text-myZinc font-bold"
                 }
               >
                 {e.direction ? (
@@ -155,7 +155,7 @@ export default function Footer() {
           </ul>
 
           <ul className="space-y-4">
-            <li className="font-bold text-[#ac2b2f]">Dirección</li>
+            <li className="font-bold text-myZinc">Dirección</li>
             {address.map((line, index) => (
               <li
                 key={`${line}-${index}`}

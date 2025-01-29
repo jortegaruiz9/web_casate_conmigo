@@ -1,25 +1,69 @@
 /** @type {import('next-sitemap').IConfig} */
 module.exports = {
   siteUrl: "https://www.casateconmigoecu.com",
-  generateRobotsTxt: true, // Opcional, para generar robots.txt
-  sitemapSize: 5000, // Tamaño del sitemap antes de dividirlo
-  exclude: [], // Lista de rutas a excluir, si es necesario
+  generateRobotsTxt: true,
+  sitemapSize: 5000,
+  exclude: ["/api/*", "/admin/*", "/_next/*"],
   additionalPaths: async (config) => [
-    { loc: "/" },
-    { loc: "/shop" },
-    { loc: "/explicacion" },
-    { loc: "/nosotros" },
-    { loc: "/shop/cintillos" },
-    { loc: "/shop/compromiso" },
-    { loc: "/shop/matrimonio" },
-    { loc: "/shop/set" },
+    {
+      loc: "/",
+      priority: 1.0,
+      changefreq: "daily",
+    },
+    {
+      loc: "/shop",
+      priority: 0.9,
+      changefreq: "daily",
+    },
+    {
+      loc: "/shop/cintillos",
+      priority: 0.8,
+      changefreq: "daily",
+    },
+    {
+      loc: "/shop/compromiso",
+      priority: 0.8,
+      changefreq: "daily",
+    },
+    {
+      loc: "/shop/matrimonio",
+      priority: 0.8,
+      changefreq: "daily",
+    },
+    {
+      loc: "/shop/set",
+      priority: 0.8,
+      changefreq: "daily",
+    },
+    {
+      loc: "/explicacion",
+      priority: 0.7,
+      changefreq: "weekly",
+    },
+    {
+      loc: "/nosotros",
+      priority: 0.7,
+      changefreq: "weekly",
+    },
   ],
   transform: async (config, path) => {
+    // Prioridades personalizadas basadas en la ruta
+    let priority = 0.7;
+    let changefreq = "daily";
+
+    if (path === "/") priority = 1.0;
+    if (path.startsWith("/shop")) priority = 0.8;
+    if (path.includes("nosotros") || path.includes("explicacion")) {
+      priority = 0.7;
+      changefreq = "weekly";
+    }
+
     return {
-      loc: path, // La URL completa
-      changefreq: "daily", // Frecuencia de cambio
-      priority: 0.7, // Prioridad en el sitemap
-      lastmod: new Date().toISOString(), // Fecha de la última modificación
+      loc: path,
+      changefreq: changefreq,
+      priority: priority,
+      lastmod: new Date().toISOString(),
+      alternateRefs: [],
     };
   },
 };

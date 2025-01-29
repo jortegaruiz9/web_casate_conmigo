@@ -2,58 +2,64 @@ import React, { useContext } from "react";
 import { AdviserContext } from "@/app/context/AdviserContext";
 import { raleway } from "@/app/ui/fonts";
 import { sendGTMEvent, sendGAEvent } from "@next/third-parties/google";
+import { CategoryType } from "@/app/types/category";
 
-interface WhatsAppButtonProps {
-  product: {
-    model: string;
-    linkProduct: string;
-  };
-  colorSeleccionado: string;
-  precio: number | null;
-  audio: HTMLAudioElement | null;
+export interface WhatsAppButtonProps {
+  model: string;
+  selectedSize: number | null;
+  selectedCity: string;
+  tipoOro: "Amarillo" | "Blanco" | "Rosa";
+  tipoPlata: "Amarillo" | "Blanco" | "Rosa";
+  precioOro: number | null;
+  precioPlata: number | null;
 }
 
 const WhatsAppButton: React.FC<WhatsAppButtonProps> = ({
-  product,
-  colorSeleccionado,
-  precio,
-  audio,
+  model,
+  selectedSize,
+  selectedCity,
+  tipoOro,
+  tipoPlata,
+  precioOro,
+  precioPlata,
 }) => {
   const whatsapp = useContext(AdviserContext) as any;
 
   const handleOrderClick = () => {
-    if (audio) {
-      audio.play();
-    }
+    const getTallaMessage = () => {
+      if (selectedSize === null) return "• Necesito asesoría para mi talla";
+      return `• Talla: ${selectedSize}`;
+    };
 
-    const whatsappMessage = `¡Hola! Me gustaría ordenar el modelo ${
-      product.model
-    } en el color ${colorSeleccionado}. Precio: ${
-      precio ? precio.toFixed(2) : "No disponible"
-    }. Más detalles del producto aquí: ${product.linkProduct}`;
-    const whatsappImage = product.linkProduct;
+    const whatsappMessage = `¡Hola! Me interesa el modelo ${model}
+
+• Color: ${tipoOro}
+${getTallaMessage()}
+${
+  selectedCity
+    ? `• Ciudad de entrega: ${selectedCity}`
+    : "• Aún no he seleccionado mi ciudad"
+}
+
+➡️ Ver producto: ${precioOro || precioPlata}`;
 
     const whatsappLink = `https://wa.me/+593${
       whatsapp.adviser.tel
-    }?text=${encodeURIComponent(whatsappMessage)}&media=${encodeURIComponent(
-      whatsappImage
-    )}`;
+    }?text=${encodeURIComponent(whatsappMessage)}`;
 
-    sendGAEvent({
-      event: "A-buttonComprar",
-      value: "1910",
-    });
-    sendGTMEvent({
-      event: "buttonComprar",
-      value: "910",
-    });
+    sendGAEvent({ event: "A-buttonComprar", value: "1910" });
+    sendGTMEvent({ event: "buttonComprar", value: "910" });
 
     window.open(whatsappLink, "_blank");
   };
 
   return (
-    <button onClick={handleOrderClick} type="button" id="order-button">
-      <span className="icon-[hugeicons--shopping-basket-done-01] text-xl"></span>
+    <button
+      onClick={handleOrderClick}
+      className="w-full py-3 px-4 bg-[#f2beba] text-white rounded-md flex items-center justify-center gap-2 hover:bg-[#e1b0ac] transition-colors mt-6"
+    >
+      <span className="icon-[ri--whatsapp-fill] text-xl" />
+      <span>Comprar por WhatsApp</span>
     </button>
   );
 };
