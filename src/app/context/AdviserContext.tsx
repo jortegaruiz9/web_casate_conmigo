@@ -6,8 +6,16 @@ interface Adviser {
   tel: number;
 }
 
+// Mejorar la definición del contexto con tipos
+interface AdviserContextType {
+  adviser: Adviser;
+  setAdviser: React.Dispatch<React.SetStateAction<Adviser>>;
+}
+
 // Define el contexto con el tipo de Adviser
-export const AdviserContext = React.createContext({});
+export const AdviserContext = React.createContext<AdviserContextType>(
+  {} as AdviserContextType
+);
 
 const adviserDetails: Adviser[] = [
   { name: "s", tel: 995001783 },
@@ -17,24 +25,34 @@ const adviserDetails: Adviser[] = [
   { name: "d", tel: 958606651 },
 ];
 
-export default function AdviserContextProvider({ children }: any) {
+// Función auxiliar para manejar localStorage de forma segura
+const getStoredAdviser = (): Adviser | null => {
+  try {
+    if (typeof window === "undefined") return null;
+    const stored = localStorage.getItem("adviser");
+    return stored ? JSON.parse(stored) : null;
+  } catch (error) {
+    return null;
+  }
+};
+
+export default function AdviserContextProvider({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   const [adviser, setAdviser] = useState<Adviser>(() => {
-    // Verificar si estamos en el navegador antes de acceder a localStorage
-    if (typeof window !== "undefined" && typeof localStorage !== "undefined") {
-      const storedAdviser = localStorage.getItem("adviser");
-      return storedAdviser ? JSON.parse(storedAdviser) : adviserDetails[0];
-    } else {
-      console.error("El navegador no soporta localStorage.");
-      return adviserDetails[0]; // Usa el primer asesor por defecto
-    }
+    const stored = getStoredAdviser();
+    return stored || adviserDetails[0];
   });
 
   useEffect(() => {
-    // Verificar si estamos en el navegador antes de acceder a localStorage
-    if (typeof window !== "undefined") {
-      let urlParams = new URLSearchParams(window.location.search);
-      let ad = urlParams.get("ad");
-      let adviserSelect = adviserDetails.find((a) => a.name === ad);
+    if (typeof window === "undefined") return;
+
+    const urlParams = new URLSearchParams(window.location.search);
+    const ad = urlParams.get("ad");
+    if (ad) {
+      const adviserSelect = adviserDetails.find((a) => a.name === ad);
       if (adviserSelect) {
         setAdviser(adviserSelect);
       }
@@ -42,13 +60,12 @@ export default function AdviserContextProvider({ children }: any) {
   }, []);
 
   useEffect(() => {
-    // Verificar si estamos en el navegador antes de acceder a localStorage
-    if (typeof window !== "undefined" && typeof localStorage !== "undefined") {
-      localStorage.setItem("adviser", JSON.stringify(adviser));
-    } else {
-      console.error(
-        "El navegador no soporta localStorage. No se pudo guardar el asesor en el almacenamiento local."
-      );
+    try {
+      if (typeof window !== "undefined") {
+        localStorage.setItem("adviser", JSON.stringify(adviser));
+      }
+    } catch (error) {
+      // Manejar el error silenciosamente
     }
   }, [adviser]);
 

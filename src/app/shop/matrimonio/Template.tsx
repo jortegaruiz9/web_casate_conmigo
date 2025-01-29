@@ -7,10 +7,11 @@ import { gtmPageView } from "@/app/lib/gtm";
 import { gaPageView } from "@/app/lib/ga";
 import { useEffect } from "react";
 import Image from "next/image";
+import { CategoryType } from "@/app/types/category";
 
-const rings = [
+export const rings = [
   {
-    category: "matrimonio",
+    category: "matrimonio" as CategoryType,
     image: "/modelos/matrimonio/am-001/amarillo.jpg",
     imageSilver: "/modelos/matrimonio/am-001/blanco.jpg",
     imageRose: "/modelos/matrimonio/am-001/rosado.jpg",
@@ -23,7 +24,7 @@ const rings = [
     grams: 4,
   },
   {
-    category: "matrimonio",
+    category: "matrimonio" as CategoryType,
     image: "/modelos/matrimonio/am-003/amarillo.jpg",
     imageSilver: "/modelos/matrimonio/am-003/blanco.jpg",
     imageRose: "/modelos/matrimonio/am-003/rosado.jpg",
@@ -36,7 +37,7 @@ const rings = [
     grams: 4,
   },
   {
-    category: "matrimonio",
+    category: "matrimonio" as CategoryType,
     image: "/modelos/matrimonio/am-006/amarillo.jpg",
     imageSilver: "/modelos/matrimonio/am-006/blanco.jpg",
     imageRose: "/modelos/matrimonio/am-006/rosado.jpg",
@@ -49,7 +50,7 @@ const rings = [
     grams: 4,
   },
   {
-    category: "matrimonio",
+    category: "matrimonio" as CategoryType,
     image: "/modelos/matrimonio/am-007/amarillo.jpg",
     imageSilver: "/modelos/matrimonio/am-007/blanco.jpg",
     imageRose: "/modelos/matrimonio/am-007/rosado.jpg",
@@ -62,7 +63,7 @@ const rings = [
     grams: 6,
   },
   {
-    category: "matrimonio",
+    category: "matrimonio" as CategoryType,
     image: "/modelos/matrimonio/am-008/amarillo.jpg",
     imageSilver: "/modelos/matrimonio/am-008/blanco.jpg",
     imageRose: "/modelos/matrimonio/am-008/rosado.jpg",
@@ -75,7 +76,7 @@ const rings = [
     grams: 6,
   },
   {
-    category: "matrimonio",
+    category: "matrimonio" as CategoryType,
     image: "/modelos/matrimonio/am-009/amarillo.jpg",
     imageSilver: "/modelos/matrimonio/am-009/blanco.jpg",
     imageRose: "/modelos/matrimonio/am-009/rosado.jpg",
@@ -88,7 +89,7 @@ const rings = [
     grams: 6,
   },
   {
-    category: "matrimonio",
+    category: "matrimonio" as CategoryType,
     image: "/modelos/matrimonio/am-010/amarillo.jpg",
     imageSilver: "/modelos/matrimonio/am-010/blanco.jpg",
     imageRose: "/modelos/matrimonio/am-010/rosado.jpg",
@@ -101,7 +102,7 @@ const rings = [
     grams: 6,
   },
   {
-    category: "matrimonio",
+    category: "matrimonio" as CategoryType,
     image: "/modelos/matrimonio/am-012/amarillo.jpg",
     imageSilver: "/modelos/matrimonio/am-012/blanco.jpg",
     imageRose: "/modelos/matrimonio/am-012/rosado.jpg",
@@ -114,7 +115,7 @@ const rings = [
     grams: 6,
   },
   {
-    category: "matrimonio",
+    category: "matrimonio" as CategoryType,
     image: "/modelos/matrimonio/am-013/amarillo.jpg",
     imageSilver: "/modelos/matrimonio/am-013/blanco.jpg",
     imageRose: "/modelos/matrimonio/am-013/rosado.jpg",
@@ -127,7 +128,7 @@ const rings = [
     grams: 7,
   },
   {
-    category: "matrimonio",
+    category: "matrimonio" as CategoryType,
     image: "/modelos/matrimonio/am-014/amarillo.jpg",
     imageSilver: "/modelos/matrimonio/am-014/blanco.jpg",
     imageRose: "/modelos/matrimonio/am-014/rosado.jpg",
@@ -140,7 +141,7 @@ const rings = [
     grams: 8,
   },
   {
-    category: "matrimonio",
+    category: "matrimonio" as CategoryType,
     image: "/modelos/matrimonio/am-015/amarillo.jpg",
     imageSilver: "/modelos/matrimonio/am-015/blanco.jpg",
     imageRose: "/modelos/matrimonio/am-015/rosado.jpg",
@@ -153,7 +154,7 @@ const rings = [
     grams: 8,
   },
   {
-    category: "matrimonio",
+    category: "matrimonio" as CategoryType,
     image: "/modelos/matrimonio/am-016/amarillo.jpg",
     imageSilver: "/modelos/matrimonio/am-016/blanco.jpg",
     imageRose: "/modelos/matrimonio/am-016/rosado.jpg",
@@ -166,7 +167,7 @@ const rings = [
     grams: 8,
   },
   {
-    category: "matrimonio",
+    category: "matrimonio" as CategoryType,
     image: "/modelos/matrimonio/am-017/amarillo.jpg",
     imageSilver: "/modelos/matrimonio/am-017/blanco.jpg",
     imageRose: "/modelos/matrimonio/am-017/rosado.jpg",
@@ -179,7 +180,7 @@ const rings = [
     grams: 8,
   },
   {
-    category: "matrimonio",
+    category: "matrimonio" as CategoryType,
     image: "/modelos/matrimonio/am-018/amarillo.jpg",
     imageSilver: "/modelos/matrimonio/am-018/blanco.jpg",
     imageRose: "/modelos/matrimonio/am-018/rosado.jpg",
@@ -192,7 +193,7 @@ const rings = [
     grams: 8,
   },
   {
-    category: "matrimonio",
+    category: "matrimonio" as CategoryType,
     image: "/modelos/matrimonio/am-019/promo.jpg",
     imageSilver: "/modelos/matrimonio/am-019/blanco-2.jpg",
     imageRose: "/modelos/matrimonio/am-019/rosado.jpg",
@@ -205,7 +206,7 @@ const rings = [
     grams: 10,
   },
   {
-    category: "matrimonio",
+    category: "matrimonio" as CategoryType,
     image: "/modelos/matrimonio/am-021/amarillo.jpg",
     imageSilver: "/modelos/matrimonio/am-021/blanco.jpg",
     imageRose: "/modelos/matrimonio/am-021/rosado.jpg",
@@ -218,7 +219,7 @@ const rings = [
     grams: 10,
   },
   {
-    category: "matrimonio",
+    category: "matrimonio" as CategoryType,
     image: "/modelos/matrimonio/am-022/amarillo.jpg",
     imageSilver: "/modelos/matrimonio/am-022/blanco.jpg",
     imageRose: "/modelos/matrimonio/am-022/rosado.jpg",
@@ -231,7 +232,7 @@ const rings = [
     grams: 10,
   },
   {
-    category: "matrimonio",
+    category: "matrimonio" as CategoryType,
     image: "/modelos/matrimonio/am-023/amarillo.jpg",
     imageSilver: "/modelos/matrimonio/am-023/blanco.jpg",
     imageRose: "/modelos/matrimonio/am-023/rosado.jpg",
@@ -244,7 +245,7 @@ const rings = [
     grams: 10,
   },
   {
-    category: "matrimonio",
+    category: "matrimonio" as CategoryType,
     image: "/modelos/matrimonio/am-024/amarillo.jpg",
     imageSilver: "/modelos/matrimonio/am-024/blanco.jpg",
     imageRose: "/modelos/matrimonio/am-024/rosado.jpg",
@@ -257,7 +258,7 @@ const rings = [
     grams: 10,
   },
   {
-    category: "matrimonio",
+    category: "matrimonio" as CategoryType,
     image: "/modelos/matrimonio/am-025/amarillo.jpg",
     imageSilver: "/modelos/matrimonio/am-025/blanco.jpg",
     imageRose: "/modelos/matrimonio/am-025/rosado.jpg",
@@ -270,7 +271,7 @@ const rings = [
     grams: 10,
   },
   {
-    category: "matrimonio",
+    category: "matrimonio" as CategoryType,
     image: "/modelos/matrimonio/am-026/amarillo.jpg",
     imageSilver: "/modelos/matrimonio/am-026/blanco-2.jpg",
     imageRose: "/modelos/matrimonio/am-026/rosado.jpg",
@@ -283,7 +284,7 @@ const rings = [
     grams: 10,
   },
   {
-    category: "matrimonio",
+    category: "matrimonio" as CategoryType,
     image: "/modelos/matrimonio/am-028/amarillo.jpg",
     imageSilver: "/modelos/matrimonio/am-028/blanco.jpg",
     imageRose: "/modelos/matrimonio/am-028/rosado.jpg",
@@ -296,7 +297,7 @@ const rings = [
     grams: 12,
   },
   {
-    category: "matrimonio",
+    category: "matrimonio" as CategoryType,
     image: "/modelos/matrimonio/am-029/amarillo.jpg",
     imageSilver: "/modelos/matrimonio/am-029/blanco.jpg",
     imageRose: "/modelos/matrimonio/am-029/rosado.jpg",
@@ -309,7 +310,7 @@ const rings = [
     grams: 12,
   },
   {
-    category: "matrimonio",
+    category: "matrimonio" as CategoryType,
     image: "/modelos/matrimonio/am-030/amarillo.jpg",
     imageSilver: "/modelos/matrimonio/am-030/blanco.jpg",
     imageRose: "/modelos/matrimonio/am-030/rosado.jpg",
@@ -322,7 +323,7 @@ const rings = [
     grams: 12,
   },
   {
-    category: "matrimonio",
+    category: "matrimonio" as CategoryType,
     image: "/modelos/matrimonio/am-031/amarillo-2.jpg",
     imageSilver: "/modelos/matrimonio/am-031/blanco.jpg",
     imageRose: "/modelos/matrimonio/am-031/rosado-2.jpg",
@@ -335,7 +336,7 @@ const rings = [
     grams: 12,
   },
   {
-    category: "matrimonio",
+    category: "matrimonio" as CategoryType,
     image: "/modelos/matrimonio/am-033/amarillo.jpg",
     imageSilver: "/modelos/matrimonio/am-033/blanco.jpg",
     imageRose: "/modelos/matrimonio/am-033/rosado.jpg",
@@ -348,7 +349,7 @@ const rings = [
     grams: 12,
   },
   {
-    category: "matrimonio",
+    category: "matrimonio" as CategoryType,
     image: "/modelos/matrimonio/am-034/amarillo.jpg",
     imageSilver: "/modelos/matrimonio/am-034/blanco.jpg",
     imageRose: "/modelos/matrimonio/am-034/rosado.jpg",
@@ -361,7 +362,7 @@ const rings = [
     grams: 12,
   },
   {
-    category: "matrimonio",
+    category: "matrimonio" as CategoryType,
     image: "/modelos/matrimonio/am-035/amarillo.jpg",
     imageSilver: "/modelos/matrimonio/am-035/blanco.jpg",
     imageRose: "/modelos/matrimonio/am-035/rosado.jpg",
@@ -374,7 +375,7 @@ const rings = [
     grams: 12,
   },
   {
-    category: "matrimonio",
+    category: "matrimonio" as CategoryType,
     image: "/modelos/matrimonio/am-036/amarillo.jpg",
     imageSilver: "/modelos/matrimonio/am-036/blanco.jpg",
     imageRose: "/modelos/matrimonio/am-036/rosado.jpg",
@@ -387,7 +388,7 @@ const rings = [
     grams: 12,
   },
   {
-    category: "matrimonio",
+    category: "matrimonio" as CategoryType,
     image: "/modelos/matrimonio/am-037/amarillo.jpg",
     imageSilver: "/modelos/matrimonio/am-037/blanco.jpg",
     imageRose: "/modelos/matrimonio/am-037/rosado.jpg",
@@ -400,7 +401,7 @@ const rings = [
     grams: 12,
   },
   {
-    category: "matrimonio",
+    category: "matrimonio" as CategoryType,
     image: "/modelos/matrimonio/am-038/amarillo.jpg",
     imageSilver: "/modelos/matrimonio/am-038/blanco.jpg",
     imageRose: "/modelos/matrimonio/am-038/rosado.jpg",
@@ -413,7 +414,7 @@ const rings = [
     grams: 12,
   },
   {
-    category: "matrimonio",
+    category: "matrimonio" as CategoryType,
     image: "/modelos/matrimonio/am-039/amarillo.jpg",
     imageSilver: "/modelos/matrimonio/am-039/blanco.jpg",
     imageRose: "/modelos/matrimonio/am-039/rosado.jpg",
@@ -426,7 +427,7 @@ const rings = [
     grams: 12,
   },
   {
-    category: "matrimonio",
+    category: "matrimonio" as CategoryType,
     image: "/modelos/matrimonio/am-040/amarillo.jpg",
     imageSilver: "/modelos/matrimonio/am-040/blanco.jpg",
     imageRose: "/modelos/matrimonio/am-040/rosado.jpg",
@@ -452,7 +453,7 @@ const rings = [
   //   grams: 12,
   // },
   {
-    category: "matrimonio",
+    category: "matrimonio" as CategoryType,
     image: "/modelos/matrimonio/am-042/amarillo.jpg",
     imageSilver: "/modelos/matrimonio/am-042/blanco.jpg",
     imageRose: "/modelos/matrimonio/am-042/rosado.jpg",
@@ -465,7 +466,7 @@ const rings = [
     grams: 12,
   },
   {
-    category: "matrimonio",
+    category: "matrimonio" as CategoryType,
     image: "/modelos/matrimonio/am-043/amarillo.jpg",
     imageSilver: "/modelos/matrimonio/am-043/blanco.jpg",
     imageRose: "/modelos/matrimonio/am-043/rosado.jpg",
@@ -478,7 +479,7 @@ const rings = [
     grams: 12,
   },
   {
-    category: "matrimonio",
+    category: "matrimonio" as CategoryType,
     image: "/modelos/matrimonio/am-044/amarillo.jpg",
     imageSilver: "/modelos/matrimonio/am-044/blanco.jpg",
     imageRose: "/modelos/matrimonio/am-044/rosado.jpg",
@@ -491,7 +492,7 @@ const rings = [
     grams: 12,
   },
   {
-    category: "matrimonio",
+    category: "matrimonio" as CategoryType,
     image: "/modelos/matrimonio/am-045/amarillo.jpg",
     imageSilver: "/modelos/matrimonio/am-045/blanco.jpg",
     imageRose: "/modelos/matrimonio/am-045/rosado.jpg",
@@ -504,7 +505,7 @@ const rings = [
     grams: 14,
   },
   {
-    category: "matrimonio",
+    category: "matrimonio" as CategoryType,
     image: "/modelos/matrimonio/am-046/amarillo.jpg",
     imageSilver: "/modelos/matrimonio/am-046/blanco.jpg",
     imageRose: "/modelos/matrimonio/am-046/rosado.jpg",
@@ -517,7 +518,7 @@ const rings = [
     grams: 14,
   },
   {
-    category: "matrimonio",
+    category: "matrimonio" as CategoryType,
     image: "/modelos/matrimonio/am-047/amarillo.jpg",
     imageSilver: "/modelos/matrimonio/am-047/blanco.jpg",
     imageRose: "/modelos/matrimonio/am-047/rosado.jpg",
@@ -530,7 +531,7 @@ const rings = [
     grams: 14,
   },
   {
-    category: "matrimonio",
+    category: "matrimonio" as CategoryType,
     image: "/modelos/matrimonio/am-048/amarillo.jpg",
     imageSilver: "/modelos/matrimonio/am-048/blanco.jpg",
     imageRose: "/modelos/matrimonio/am-048/rosado.jpg",
@@ -543,7 +544,7 @@ const rings = [
     grams: 14,
   },
   {
-    category: "matrimonio",
+    category: "matrimonio" as CategoryType,
     image: "/modelos/matrimonio/am-049/amarillo.jpg",
     imageSilver: "/modelos/matrimonio/am-049/blanco.jpg",
     imageRose: "/modelos/matrimonio/am-049/rosado.jpg",
@@ -556,7 +557,7 @@ const rings = [
     grams: 14,
   },
   {
-    category: "matrimonio",
+    category: "matrimonio" as CategoryType,
     image: "/modelos/matrimonio/am-050/amarillo.jpg",
     imageSilver: "/modelos/matrimonio/am-050/blanco.jpg",
     imageRose: "/modelos/matrimonio/am-050/rosado.jpg",
@@ -569,7 +570,7 @@ const rings = [
     grams: 14,
   },
   {
-    category: "matrimonio",
+    category: "matrimonio" as CategoryType,
     image: "/modelos/matrimonio/am-051/amarillo.jpg",
     imageSilver: "/modelos/matrimonio/am-051/blanco.jpg",
     imageRose: "/modelos/matrimonio/am-051/rosado.jpg",
@@ -582,7 +583,7 @@ const rings = [
     grams: 16,
   },
   {
-    category: "matrimonio",
+    category: "matrimonio" as CategoryType,
     image: "/modelos/matrimonio/am-052/amarillo.jpg",
     imageSilver: "/modelos/matrimonio/am-052/blanco.jpg",
     imageRose: "/modelos/matrimonio/am-052/rosado.jpg",
@@ -595,7 +596,7 @@ const rings = [
     grams: 18,
   },
   {
-    category: "matrimonio",
+    category: "matrimonio" as CategoryType,
     image: "/modelos/matrimonio/am-053/amarillo.jpg",
     imageSilver: "/modelos/matrimonio/am-053/blanco.jpg",
     imageRose: "/modelos/matrimonio/am-053/rosado.jpg",
@@ -608,7 +609,7 @@ const rings = [
     grams: 18,
   },
   {
-    category: "matrimonio",
+    category: "matrimonio" as CategoryType,
     image: "/modelos/matrimonio/am-054/amarillo.jpg",
     imageSilver: "/modelos/matrimonio/am-054/blanco.jpg",
     imageRose: "/modelos/matrimonio/am-054/rosado.jpg",
@@ -621,7 +622,7 @@ const rings = [
     grams: 20,
   },
   {
-    category: "matrimonio",
+    category: "matrimonio" as CategoryType,
     image: "/modelos/matrimonio/am-055/amarillo.jpg",
     imageSilver: "/modelos/matrimonio/am-055/blanco.jpg",
     imageRose: "/modelos/matrimonio/am-055/rosado.jpg",
@@ -634,7 +635,7 @@ const rings = [
     grams: 20,
   },
   {
-    category: "matrimonio",
+    category: "matrimonio" as CategoryType,
     image: "/modelos/matrimonio/am-056/amarillo.jpg",
     imageSilver: "/modelos/matrimonio/am-056/blanco.jpg",
     imageRose: "/modelos/matrimonio/am-056/rosado.jpg",
@@ -660,15 +661,12 @@ export default function ShopTemplate() {
   return (
     <div className="flex flex-col items-center justify-center">
       <Button />
-      <div className="mb-10">
-        <InstructionColors />
-      </div>
+      <h1 className="text-myZinc text-lg mb-10">Anillos de matrimonio</h1>
       <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-12">
         {rings.map((model, index) => {
           return <Card key={index} product={model} />;
         })}
       </div>
-      <h1 className="text-myZinc text-lg mt-10">Anillos de matrimonio</h1>
 
       <Button />
     </div>

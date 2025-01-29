@@ -1,5 +1,9 @@
-import { Raleway, Montserrat, Inter } from 'next/font/google';
+import { Raleway, Montserrat, Inter, Roboto_Mono } from 'next/font/google';
 
 export const raleway = Raleway({ subsets: ['latin'], weight: ['400'] });
 export const montserrat = Montserrat({ subsets: ['latin'] });
-export const inter = Inter({ subsets: ['latin'], weight: ['400','500','700'] }); 
+export const inter = Inter({
+  subsets: ['latin'],
+  display: 'swap',
+});
+export const roboto_mono = Roboto_Mono({ subsets: ['latin'], weight: ['400'] }); 

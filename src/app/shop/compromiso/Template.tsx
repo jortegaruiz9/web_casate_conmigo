@@ -7,10 +7,12 @@ import { gtmPageView } from "@/app/lib/gtm";
 import { gaPageView } from "@/app/lib/ga";
 import { useEffect } from "react";
 import Image from "next/image";
+import { ProductType } from "../../types/product";
+import { CategoryType } from "@/app/types/category";
 
-const rings = [
+export const rings = [
   {
-    category: "compromiso",
+    category: "compromiso" as CategoryType,
     image: "/modelos/compromiso/ac-001/amarillo.jpg",
     imageSilver: "/modelos/compromiso/ac-001/blanco.jpg",
     imageRose: "/modelos/compromiso/ac-001/rosado.jpg",
@@ -23,7 +25,7 @@ const rings = [
     grams: 2,
   },
   {
-    category: "compromiso",
+    category: "compromiso" as CategoryType,
     image: "/modelos/compromiso/ac-002/amarillo.jpg",
     imageSilver: "/modelos/compromiso/ac-002/blanco.jpg",
     imageRose: "/modelos/compromiso/ac-002/rosado.jpg",
@@ -36,7 +38,7 @@ const rings = [
     grams: 2,
   },
   {
-    category: "compromiso",
+    category: "compromiso" as CategoryType,
     image: "/modelos/compromiso/ac-003/amarillo.jpg",
     imageSilver: "/modelos/compromiso/ac-003/blanco.jpg",
     imageRose: "/modelos/compromiso/ac-003/rosado.jpg",
@@ -49,7 +51,7 @@ const rings = [
     grams: 2,
   },
   {
-    category: "compromiso",
+    category: "compromiso" as CategoryType,
     image: "/modelos/compromiso/ac-004/amarillo.jpg",
     imageSilver: "/modelos/compromiso/ac-004/blanco.jpg",
     imageRose: "/modelos/compromiso/ac-004/rosado.jpg",
@@ -62,7 +64,7 @@ const rings = [
     grams: 2,
   },
   {
-    category: "compromiso",
+    category: "compromiso" as CategoryType,
     image: "/modelos/compromiso/ac-005/amarillo.jpg",
     imageSilver: "/modelos/compromiso/ac-005/blanco.jpg",
     imageRose: "/modelos/compromiso/ac-005/rosado.jpg",
@@ -75,7 +77,7 @@ const rings = [
     grams: 3,
   },
   {
-    category: "compromiso",
+    category: "compromiso" as CategoryType,
     image: "/modelos/compromiso/ac-006/amarillo.jpg",
     imageSilver: "/modelos/compromiso/ac-006/blanco.jpg",
     imageRose: "/modelos/compromiso/ac-006/rosado.jpg",
@@ -88,7 +90,7 @@ const rings = [
     grams: 3,
   },
   {
-    category: "compromiso",
+    category: "compromiso" as CategoryType,
     image: "/modelos/compromiso/ac-007/amarillo.jpg",
     imageSilver: "/modelos/compromiso/ac-007/blanco.jpg",
     imageRose: "/modelos/compromiso/ac-007/rosado.jpg",
@@ -101,7 +103,7 @@ const rings = [
     grams: 3,
   },
   {
-    category: "compromiso",
+    category: "compromiso" as CategoryType,
     image: "/modelos/compromiso/ac-008/amarillo.jpg",
     imageSilver: "/modelos/compromiso/ac-008/blanco.jpg",
     imageRose: "/modelos/compromiso/ac-008/rosado.jpg",
@@ -114,7 +116,7 @@ const rings = [
     grams: 4,
   },
   {
-    category: "compromiso",
+    category: "compromiso" as CategoryType,
     image: "/modelos/compromiso/ac-009/amarillo.jpg",
     imageSilver: "/modelos/compromiso/ac-009/blanco.jpg",
     imageRose: "/modelos/compromiso/ac-009/rosado.jpg",
@@ -127,7 +129,7 @@ const rings = [
     grams: 4,
   },
   {
-    category: "compromiso",
+    category: "compromiso" as CategoryType,
     image: "/modelos/compromiso/ac-010/amarillo.jpg",
     imageSilver: "/modelos/compromiso/ac-010/blanco.jpg",
     imageRose: "/modelos/compromiso/ac-010/rosado.jpg",
@@ -140,7 +142,7 @@ const rings = [
     grams: 4,
   },
   {
-    category: "compromiso",
+    category: "compromiso" as CategoryType,
     image: "/modelos/compromiso/ac-011/amarillo.jpg",
     imageSilver: "/modelos/compromiso/ac-011/blanco.jpg",
     imageRose: "/modelos/compromiso/ac-011/rosado.jpg",
@@ -166,7 +168,7 @@ const rings = [
   //   grams: 4,
   // },
   {
-    category: "compromiso",
+    category: "compromiso" as CategoryType,
     image: "/modelos/compromiso/ac-018/promo.png",
     imageSilver: "/modelos/compromiso/ac-018/blanco.png",
     imageRose: "/modelos/compromiso/ac-018/rosado.png",
@@ -180,7 +182,7 @@ const rings = [
   },
   //   se puso el 18 en la posicion 12 debido a que no se puede hacer el 12 de momento
   {
-    category: "compromiso",
+    category: "compromiso" as CategoryType,
     image: "/modelos/compromiso/ac-013/amarillo.jpg",
     imageSilver: "/modelos/compromiso/ac-013/blanco.jpg",
     imageRose: "/modelos/compromiso/ac-013/rosado.jpg",
@@ -193,7 +195,7 @@ const rings = [
     grams: 4,
   },
   {
-    category: "compromiso",
+    category: "compromiso" as CategoryType,
     image: "/modelos/compromiso/ac-014/amarillo.jpg",
     imageSilver: "/modelos/compromiso/ac-014/blanco.jpg",
     imageRose: "/modelos/compromiso/ac-014/rosado.jpg",
@@ -206,7 +208,7 @@ const rings = [
     grams: 5,
   },
   {
-    category: "compromiso",
+    category: "compromiso" as CategoryType,
     image: "/modelos/compromiso/ac-015/amarillo.jpg",
     imageSilver: "/modelos/compromiso/ac-015/blanco.jpg",
     imageRose: "/modelos/compromiso/ac-015/rosado.jpg",
@@ -219,7 +221,7 @@ const rings = [
     grams: 5,
   },
   {
-    category: "compromiso",
+    category: "compromiso" as CategoryType,
     image: "/modelos/compromiso/ac-016/amarillo.jpg",
     imageSilver: "/modelos/compromiso/ac-016/blanco.jpg",
     imageRose: "/modelos/compromiso/ac-016/rosado.jpg",
@@ -232,7 +234,7 @@ const rings = [
     grams: 5,
   },
   {
-    category: "compromiso",
+    category: "compromiso" as CategoryType,
     image: "/modelos/compromiso/ac-017/amarillo.jpg",
     imageSilver: "/modelos/compromiso/ac-017/blanco.jpg",
     imageRose: "/modelos/compromiso/ac-017/rosado.jpg",
@@ -246,7 +248,7 @@ const rings = [
   },
 
   {
-    category: "compromiso",
+    category: "compromiso" as CategoryType,
     image: "/modelos/compromiso/ac-019/amarillo.jpg",
     imageSilver: "/modelos/compromiso/ac-019/blanco.jpg",
     imageRose: "/modelos/compromiso/ac-019/rosado.jpg",
@@ -259,7 +261,7 @@ const rings = [
     grams: 5,
   },
   {
-    category: "compromiso",
+    category: "compromiso" as CategoryType,
     image: "/modelos/compromiso/ac-020/amarillo.jpg",
     imageSilver: "/modelos/compromiso/ac-020/blanco.jpg",
     imageRose: "/modelos/compromiso/ac-020/rosado.jpg",
@@ -272,6 +274,7 @@ const rings = [
     grams: 6,
   },
 ];
+
 export default function ShopTemplate() {
   useEffect(() => {
     const props = {
@@ -284,15 +287,13 @@ export default function ShopTemplate() {
   return (
     <div className="flex flex-col items-center justify-center">
       <Button />
-      <div className="mb-10">
-        <InstructionColors />
-      </div>
+      <h1 className="text-myZinc text-lg mb-10">Anillos de compromiso</h1>
       <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-12">
         {rings.map((model, index) => {
-          return <Card key={index} product={model} />;
+          return <Card key={index} product={model as ProductType} />;
         })}
       </div>
-      <h1 className="text-myZinc text-lg mt-10">Anillos de compromiso</h1>
+
       <Button />
     </div>
   );

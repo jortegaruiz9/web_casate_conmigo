@@ -7,10 +7,11 @@ import { gtmPageView } from "@/app/lib/gtm";
 import { gaPageView } from "@/app/lib/ga";
 import { useEffect } from "react";
 import Image from "next/image";
+import { CategoryType } from "@/app/types/category";
 
-const rings = [
+export const rings = [
   {
-    category: "set",
+    category: "set" as CategoryType,
     image: "/modelos/set/as-001/amarillo.jpg",
     imageSilver: "/modelos/set/as-001/blanco.jpg",
     imageRose: "/modelos/set/as-001/rosado.jpg",
@@ -23,7 +24,7 @@ const rings = [
     grams: 6,
   },
   {
-    category: "set",
+    category: "set" as CategoryType,
     image: "/modelos/set/as-002/amarillo.jpg",
     imageSilver: "/modelos/set/as-002/blanco.jpg",
     imageRose: "/modelos/set/as-002/rosado.jpg",
@@ -36,7 +37,7 @@ const rings = [
     grams: 12,
   },
   {
-    category: "set",
+    category: "set" as CategoryType,
     image: "/modelos/set/as-003/promo.jpg",
     imageSilver: "/modelos/set/as-003/blanco.jpg",
     imageRose: "/modelos/set/as-003/rosado.jpg",
@@ -49,7 +50,7 @@ const rings = [
     grams: 12,
   },
   {
-    category: "set",
+    category: "set" as CategoryType,
     image: "/modelos/set/as-004/amarillo.jpg",
     imageSilver: "/modelos/set/as-004/blanco.jpg",
     imageRose: "/modelos/set/as-004/rosado.jpg",
@@ -62,7 +63,7 @@ const rings = [
     grams: 12,
   },
   {
-    category: "set",
+    category: "set" as CategoryType,
     image: "/modelos/set/as-005/amarillo.jpg",
     imageSilver: "/modelos/set/as-005/blanco.jpg",
     imageRose: "/modelos/set/as-005/rosado.jpg",
@@ -75,7 +76,7 @@ const rings = [
     grams: 14,
   },
   {
-    category: "set",
+    category: "set" as CategoryType,
     image: "/modelos/set/as-006/amarillo.jpg",
     imageSilver: "/modelos/set/as-006/blanco.jpg",
     imageRose: "/modelos/set/as-006/rosado.jpg",
@@ -88,7 +89,7 @@ const rings = [
     grams: 14,
   },
   {
-    category: "set",
+    category: "set" as CategoryType,
     image: "/modelos/set/as-007/amarillo.jpg",
     imageSilver: "/modelos/set/as-007/blanco.jpg",
     imageRose: "/modelos/set/as-007/rosado.jpg",
@@ -101,7 +102,7 @@ const rings = [
     grams: 14,
   },
   {
-    category: "set",
+    category: "set" as CategoryType,
     image: "/modelos/set/as-008/amarillo.jpg",
     imageSilver: "/modelos/set/as-008/blanco.jpg",
     imageRose: "/modelos/set/as-008/rosado.jpg",
@@ -114,7 +115,7 @@ const rings = [
     grams: 15,
   },
   {
-    category: "set",
+    category: "set" as CategoryType,
     image: "/modelos/set/as-009/amarillo.jpg",
     imageSilver: "/modelos/set/as-009/blanco.jpg",
     imageRose: "/modelos/set/as-009/rosado.jpg",
@@ -127,7 +128,7 @@ const rings = [
     grams: 16,
   },
   {
-    category: "set",
+    category: "set" as CategoryType,
     image: "/modelos/set/as-010/amarillo.jpg",
     imageSilver: "/modelos/set/as-010/blanco.jpg",
     imageRose: "/modelos/set/as-010/rosado.jpg",
@@ -140,7 +141,7 @@ const rings = [
     grams: 16,
   },
   {
-    category: "set",
+    category: "set" as CategoryType,
     image: "/modelos/set/as-011/amarillo.jpg",
     imageSilver: "/modelos/set/as-011/blanco.jpg",
     imageRose: "/modelos/set/as-011/rosado.jpg",
@@ -153,7 +154,7 @@ const rings = [
     grams: 18,
   },
   {
-    category: "set",
+    category: "set" as CategoryType,
     image: "/modelos/set/as-012/amarillo.jpg",
     imageSilver: "/modelos/set/as-012/blanco.jpg",
     imageRose: "/modelos/set/as-012/rosado.jpg",
@@ -166,7 +167,7 @@ const rings = [
     grams: 18,
   },
   {
-    category: "set",
+    category: "set" as CategoryType,
     image: "/modelos/set/as-013/amarillo.jpg",
     imageSilver: "/modelos/set/as-013/blanco.jpg",
     imageRose: "/modelos/set/as-013/rosado.jpg",
@@ -179,7 +180,7 @@ const rings = [
     grams: 20,
   },
   {
-    category: "set",
+    category: "set" as CategoryType,
     image: "/modelos/set/as-014/amarillo.jpg",
     imageSilver: "/modelos/set/as-014/blanco.jpg",
     imageRose: "/modelos/set/as-014/rosado.jpg",
@@ -192,7 +193,7 @@ const rings = [
     grams: 22,
   },
   {
-    category: "set",
+    category: "set" as CategoryType,
     image: "/modelos/set/as-015/amarillo.jpg",
     imageSilver: "/modelos/set/as-015/blanco.jpg",
     imageRose: "/modelos/set/as-015/rosado.jpg",
@@ -218,15 +219,13 @@ export default function ShopTemplate() {
   return (
     <div className="flex flex-col items-center justify-center">
       <Button />
-      <div className="mb-10">
-        <InstructionColors />
-      </div>
+      <h1 className="text-myZinc text-lg mb-10">Anillos de boda</h1>
       <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-12">
         {rings.map((model, index) => {
           return <Card key={index} product={model} />;
         })}
       </div>
-      <h1 className="text-myZinc text-lg mt-10">Anillos de boda</h1>
+
       <Button />
     </div>
   );

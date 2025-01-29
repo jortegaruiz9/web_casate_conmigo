@@ -6,13 +6,14 @@ import { gtmPageView } from "@/app/lib/gtm";
 import { gaPageView } from "@/app/lib/ga";
 import { useEffect } from "react";
 import Image from "next/image";
+import { CategoryType } from "@/app/types/category";
 
-const rings = [
+export const rings = [
   {
-    category: "cintillo",
-    image: "/modelos/cintillos/aci-001/amarillo.jpg",
-    imageSilver: "/modelos/cintillos/aci-001/blanco.jpg",
-    imageRose: "/modelos/cintillos/aci-001/rosado.jpg",
+    category: "cintillos" as CategoryType,
+    image: "/modelos/cintillos/aci-001/1.jpg",
+    imageSilver: "/modelos/cintillos/aci-001/2.jpg",
+    imageRose: "/modelos/cintillos/aci-001/3.jpg",
     linkProduct:
       "https://www.instagram.com/p/C2TBmgNJYbK/?igsh=MTh4cjM1dnZ2ODMxMw==",
     alt: "imagen modelo ACI-001",
@@ -23,10 +24,10 @@ const rings = [
     garantia: true,
   },
   {
-    category: "cintillo",
-    image: "/modelos/cintillos/aci-002/amarillo.png",
-    imageSilver: "/modelos/cintillos/aci-002/blanco.png",
-    imageRose: "/modelos/cintillos/aci-002/rosado.jpg",
+    category: "cintillos" as CategoryType,
+    image: "/modelos/cintillos/aci-002/1.jpg",
+    imageSilver: "/modelos/cintillos/aci-002/2.jpg",
+    imageRose: "/modelos/cintillos/aci-002/3.jpg",
     linkProduct:
       "https://www.instagram.com/p/C12nqsbpLN7/?igsh=MWEwZTY1eXB6Mm1uYQ==",
     alt: "imagen modelo ACI-002",
@@ -37,10 +38,10 @@ const rings = [
     garantia: true,
   },
   {
-    category: "cintillo",
-    image: "/modelos/cintillos/aci-003/promo.jpg",
-    imageSilver: "/modelos/cintillos/aci-003/blanco.jpg",
-    imageRose: "/modelos/cintillos/aci-003/rosado.jpg",
+    category: "cintillos" as CategoryType,
+    image: "/modelos/cintillos/aci-003/1.jpg",
+    imageSilver: "/modelos/cintillos/aci-003/2.jpg",
+    imageRose: "/modelos/cintillos/aci-003/3.jpg",
     linkProduct:
       "https://www.instagram.com/p/C2tJPCCNEXR/?igsh=MTRlYWo2OG4xMXZ4ag==",
     alt: "imagen modelo ACI-003",
@@ -49,8 +50,10 @@ const rings = [
     grabado: true,
     grams: 4,
     garantia: true,
+    bestSeller: true,
   },
 ];
+
 export default function ShopTemplate() {
   useEffect(() => {
     const props = {
@@ -63,15 +66,15 @@ export default function ShopTemplate() {
   return (
     <div className="flex flex-col items-center justify-center">
       <Button />
-      <div className="mb-10">
-        <InstructionColors />
-      </div>
+      <h1 className="text-myZinc text-lg mb-10 font-bold">
+        Anillos de promesa
+      </h1>
       <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-12">
         {rings.map((model, index) => {
           return <Card key={index} product={model} />;
         })}
       </div>
-      <h1 className="text-myZinc text-lg mt-10">Anillos de promesa</h1>
+
       <Button />
     </div>
   );
