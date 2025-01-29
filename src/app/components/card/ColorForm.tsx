@@ -13,76 +13,80 @@ function uniqueId(prefix = "id") {
 interface ColorFormProps {
   category: string;
   grams: number;
-  setPrecio: (precio: number) => void;
-  setColorSeleccionado: (color: string) => void;
+  setPrecioPlata: (precio: number | null) => void;
+  setPrecioOro: (precio: number | null) => void;
+  setTipoPlata: (tipo: "Amarillo" | "Blanco" | "Rosa") => void;
+  setTipoOro: (tipo: "Amarillo" | "Blanco" | "Rosa") => void;
 }
 
 const ColorForm: React.FC<ColorFormProps> = ({
   category,
   grams,
-  setPrecio,
-  setColorSeleccionado,
+  setPrecioPlata,
+  setPrecioOro,
+  setTipoPlata,
+  setTipoOro,
 }) => {
-  const [seleccionado, setSeleccionado] = useState<string>("silverYellow");
+  const [seleccionado, setSeleccionado] = useState<string>("BañoAmarillo");
 
   useEffect(() => {
-    obtenerPrecio();
-    actualizarColorSeleccionado(seleccionado);
+    obtenerPrecios();
+    actualizarTipos(seleccionado);
   }, [seleccionado]);
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSeleccionado(event.target.value);
   };
 
-  const actualizarColorSeleccionado = (value: string) => {
-    switch (value) {
-      case "silver":
-        setColorSeleccionado("Plata");
+  const obtenerPrecios = () => {
+    // Precio plata
+    let precioPlata = 0;
+    if (seleccionado === "BañoRosa") {
+      setPrecioPlata(null); // No disponible en plata
+    } else if (category === "compromiso" || category === "cintillo") {
+      precioPlata = 80;
+      setPrecioPlata(precioPlata);
+    } else if (category === "matrimonio") {
+      precioPlata = 150;
+      setPrecioPlata(precioPlata);
+    } else {
+      precioPlata = 200;
+      setPrecioPlata(precioPlata);
+    }
+
+    // Precio oro
+    let precioOro: number | null = 0;
+    switch (seleccionado) {
+      case "BañoAmarillo":
+        precioOro = grams * goldPrice;
         break;
-      case "gold":
-        setColorSeleccionado("Oro amarillo");
+      case "BañoBlanco":
+        precioOro = grams * goldWhitePrice;
         break;
-      case "goldWhite":
-        setColorSeleccionado("Oro blanco");
-        break;
-      case "goldRose":
-        setColorSeleccionado("Oro rosa");
-        break;
-      case "silverYellow":
-        setColorSeleccionado("SilverYellow");
+      case "BañoRosa":
+        precioOro = grams * goldRosePrice; // Ahora sí mostrará el precio en oro rosa
         break;
       default:
-        setColorSeleccionado("");
-        break;
+        precioOro = grams * goldPrice;
     }
+    setPrecioOro(precioOro);
   };
 
-  const obtenerPrecio = () => {
-    let price = 0;
-
-    switch (seleccionado) {
-      case "silver":
-      case "silverYellow":
-        if (category === "compromiso" || category === "cintillo") {
-          price = 80;
-        } else if (category === "matrimonio") {
-          price = 150;
-        } else {
-          price = 200;
-        }
+  const actualizarTipos = (value: string) => {
+    switch (value) {
+      case "BañoAmarillo":
+        setTipoPlata("Amarillo");
+        setTipoOro("Amarillo");
         break;
-      case "gold":
-        price = grams * goldPrice;
+      case "BañoBlanco":
+        setTipoPlata("Blanco");
+        setTipoOro("Blanco");
         break;
-      case "goldWhite":
-        price = grams * goldWhitePrice;
-        break;
-      case "goldRose":
-        price = grams * goldRosePrice;
+      case "BañoRosa":
+        setTipoPlata("Rosa");
+        setTipoOro("Rosa");
         break;
     }
-
-    setPrecio(price);
   };
 
   const idSilver = uniqueId("material");
@@ -93,123 +97,69 @@ const ColorForm: React.FC<ColorFormProps> = ({
 
   return (
     <div>
-      <form id="formulario" className="flex gap-x-1 items-center">
-        {/* Silver Yellow */}
+      <form id="formulario" className="flex gap-x-2 items-center">
+        {/* Baño Amarillo */}
         <div className="relative">
           <input
             type="radio"
             id={idSilverYellow}
             name="material"
-            value="silverYellow"
-            checked={seleccionado === "silverYellow"}
+            value="BañoAmarillo"
+            checked={seleccionado === "BañoAmarillo"}
             onChange={handleChange}
             className="hidden"
           />
           <label
             htmlFor={idSilverYellow}
-            className={`cursor-pointer w-6 h-6 flex items-center justify-center rounded-sm border group relative ${
-              seleccionado === "silverYellow"
+            className={`cursor-pointer w-5 h-5 flex items-center justify-center rounded-full border ${
+              seleccionado === "BañoAmarillo"
                 ? "border-myZinc"
-                : "border-gray-300"
+                : "border-[#eae5df]"
             }`}
           >
-            <div className="w-5 h-5 rounded-sm bg-gradient-to-br from-yellow-500 to-yellow-300 border-myZinc">
-              <span className="absolute -top-28 left-[260%] -translate-x-[50%] z-20 origin-left scale-0 px-3 rounded-lg border border-gray-300 bg-white py-2 text-xs shadow-md transition-all duration-300 ease-in-out group-hover:scale-100 w-[120px]">
-                Plata con baño de oro amarillo
-              </span>
-            </div>
+            <div className="w-4 h-4 rounded-full bg-gradient-to-br from-yellow-800 to-yellow-300 border-myZinc"></div>
           </label>
         </div>
-        {/* Silver */}
+        {/* Baño Blanco */}
         <div className="relative">
           <input
             type="radio"
             id={idSilver}
             name="material"
-            value="silver"
-            checked={seleccionado === "silver"}
+            value="BañoBlanco"
+            checked={seleccionado === "BañoBlanco"}
             onChange={handleChange}
             className="hidden"
           />
           <label
             htmlFor={idSilver}
-            className={`cursor-pointer w-6 h-6 flex items-center justify-center rounded-sm border group relative ${
-              seleccionado === "silver" ? "border-myZinc" : "border-gray-300"
+            className={`cursor-pointer w-5 h-5 flex items-center justify-center rounded-full border ${
+              seleccionado === "BañoBlanco"
+                ? "border-myZinc"
+                : "border-[#eae5df]"
             }`}
           >
-            <span className="absolute -top-28 left-[132%] -translate-x-[50%] z-20 origin-left scale-0 px-3 rounded-lg border border-gray-300 bg-white py-2 text-xs shadow-md transition-all duration-300 ease-in-out group-hover:scale-100 w-[120px]">
-              Plata con baño de oro blanco
-            </span>
-            <div className="w-5 h-5 rounded-sm bg-gradient-to-br from-gray-300 to-gray-400 border-myZinc"></div>
+            <div className="w-4 h-4 rounded-full bg-gradient-to-br from-gray-300 to-gray-400 border-myZinc"></div>
           </label>
         </div>
-        {/* Gold */}
-        <div className="relative">
-          <input
-            type="radio"
-            id={idGold}
-            name="material"
-            value="gold"
-            checked={seleccionado === "gold"}
-            onChange={handleChange}
-            className="hidden"
-          />
-          <label
-            htmlFor={idGold}
-            className={`cursor-pointer w-6 h-6 flex items-center justify-center rounded-sm border group relative ${
-              seleccionado === "gold" ? "border-myZinc" : "border-gray-300"
-            }`}
-          >
-            <span className="absolute -top-28 left-[4%] -translate-x-[50%] z-20 origin-left scale-0 px-3 rounded-lg border border-gray-300 bg-white py-2 text-xs shadow-md transition-all duration-300 ease-in-out group-hover:scale-100 w-[120px]">
-              Oro Amarillo 18k
-            </span>
-            <div className="w-5 h-5 rounded-sm bg-gradient-to-br from-yellow-800 to-yellow-300 border-myZinc"></div>
-          </label>
-        </div>
-        {/* Gold White */}
-        <div className="relative">
-          <input
-            type="radio"
-            id={idGoldWhite}
-            name="material"
-            value="goldWhite"
-            checked={seleccionado === "goldWhite"}
-            onChange={handleChange}
-            className="hidden"
-          />
-          <label
-            htmlFor={idGoldWhite}
-            className={`cursor-pointer w-6 h-6 flex items-center justify-center rounded-sm border group relative ${
-              seleccionado === "goldWhite" ? "border-myZinc" : "border-gray-300"
-            }`}
-          >
-            <span className="absolute -top-28 left-[-118%] -translate-x-[50%] z-20 origin-left scale-0 px-3 rounded-lg border border-gray-300 bg-white py-2 text-xs shadow-md transition-all duration-300 ease-in-out group-hover:scale-100 w-[120px]">
-              Oro Blanco 18k
-            </span>
-            <div className="w-5 h-5 rounded-sm bg-gradient-to-br from-gray-800 to-gray-300 border-myZinc"></div>
-          </label>
-        </div>
-        {/* Gold Rose */}
+        {/* Baño Rosa */}
         <div className="relative">
           <input
             type="radio"
             id={idGoldRose}
             name="material"
-            value="goldRose"
-            checked={seleccionado === "goldRose"}
+            value="BañoRosa"
+            checked={seleccionado === "BañoRosa"}
             onChange={handleChange}
             className="hidden"
           />
           <label
             htmlFor={idGoldRose}
-            className={`cursor-pointer w-6 h-6 flex items-center justify-center rounded-sm border group relative ${
-              seleccionado === "goldRose" ? "border-myZinc" : "border-gray-300"
+            className={`cursor-pointer w-5 h-5 flex items-center justify-center rounded-full border ${
+              seleccionado === "BañoRosa" ? "border-myZinc" : "border-[#eae5df]"
             }`}
           >
-            <span className="absolute -top-28 left-[-250%] -translate-x-[50%] z-20 origin-left scale-0 px-3 rounded-lg border border-gray-300 bg-white py-2 text-xs shadow-md transition-all duration-300 ease-in-out group-hover:scale-100 w-[120px]">
-              Oro Rosado 18k
-            </span>
-            <div className="w-5 h-5 rounded-sm bg-custom-gradient"></div>
+            <div className="w-4 h-4 rounded-full bg-custom-gradient"></div>
           </label>
         </div>
       </form>

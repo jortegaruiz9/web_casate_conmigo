@@ -5,6 +5,7 @@ import Footer from "./components/Footer";
 import AdviserContextProvider from "./context/AdviserContext";
 import { GoogleAnalytics, GoogleTagManager } from "@next/third-parties/google";
 import { raleway } from "./ui/fonts";
+
 import { Metadata } from "next";
 import Promo from "./components/Promo";
 
@@ -47,16 +48,20 @@ export default function RootLayout({
               style={{ display: "none", visibility: "hidden" }}
             ></iframe>
           </noscript>
-          <header>
+          <header className="relative">
             <title>Cásate Conmigo</title>
-            <Promo elements={promo} />
-            <Nav elements={items} />
+            <div className="relative z-50">
+              <Promo elements={promo} />
+            </div>
+            <div className="relative z-40">
+              <Nav elements={items} />
+            </div>
             <hr className="border-gray-300" />
           </header>
-          <main>
+          <main className="relative z-30">
             <Providers>{children}</Providers>
           </main>
-          <footer>
+          <footer className="relative z-30">
             <Footer />
           </footer>
         </body>

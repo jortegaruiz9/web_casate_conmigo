@@ -23,7 +23,7 @@ export default function Promo({ elements }: Props) {
   };
 
   return (
-    <div>
+    <div className="relative z-50">
       <div className="bg-[#e1b0ac] h-[55px] flex items-center justify-center text-myZinc gap-2">
         <h3>Adquiere tu anillo.</h3>
         <button

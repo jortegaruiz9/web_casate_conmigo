@@ -14,7 +14,7 @@ const products = [
     url: "./shop/cintillos",
     category: "Cintillo",
     src: "anillo de promesa quito",
-    imageUrl: "/modelos/cintillos/aci-003/amarillo.jpg",
+    imageUrl: "/modelos/cintillos/aci-003/portada.jpg",
     title: "anillos de promesa",
     leyend: "Descubre el anillo de cintillo, un símbolo de amor verdadero. ",
   },
@@ -43,6 +43,7 @@ const products = [
     title: "joyerias quito",
     leyend:
       "El Set de anillos, una hermosa fusión de compromiso y alianzas eternas. ",
+    bestSeller: true,
   },
 ];
 

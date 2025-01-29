@@ -6,6 +6,10 @@ import ColorForm from "./ColorForm";
 import WhatsAppButton from "./WhatsAppButton";
 import Adviser from "./Adviser";
 import InstructionModal from "./InstructionModal";
+import { Inter } from "next/font/google";
+import { useRouter } from "next/navigation";
+
+const inter = Inter({ subsets: ["latin"] });
 
 interface CardProps {
   product: {
@@ -19,16 +23,24 @@ interface CardProps {
     color: string;
     grams: number;
     grabado?: boolean;
+    bestSeller?: boolean;
   };
 }
 
 export default function Card({ product }: CardProps) {
   const [isCreateModalOpen, setIsCreateModalOpen] = useState(false);
   const [imgProduct, setImgProduct] = useState(product.image);
-  const [precio, setPrecio] = useState<number | null>(null);
-  const [colorSeleccionado, setColorSeleccionado] = useState("");
+  const [precioPlata, setPrecioPlata] = useState<number | null>(null);
+  const [precioOro, setPrecioOro] = useState<number | null>(null);
+  const [tipoPlata, setTipoPlata] = useState<"Amarillo" | "Blanco" | "Rosa">(
+    "Amarillo"
+  );
+  const [tipoOro, setTipoOro] = useState<"Amarillo" | "Blanco" | "Rosa">(
+    "Amarillo"
+  );
   const [audio, setAudio] = useState<HTMLAudioElement | null>(null);
   const [isLiked, setIsLiked] = useState(false);
+  const router = useRouter();
 
   useEffect(() => {
     if (typeof window !== "undefined") {
@@ -44,28 +56,21 @@ export default function Card({ product }: CardProps) {
   }, [product.model]);
 
   useEffect(() => {
-    switch (colorSeleccionado) {
-      case "SilverYellow":
-      case "Oro amarillo":
+    switch (tipoOro) {
+      case "Amarillo":
         setImgProduct(product.image);
         break;
-      case "Plata":
-      case "Oro blanco":
+      case "Blanco":
         setImgProduct(product.imageSilver ?? product.image);
         break;
-      case "Oro rosa":
+      case "Rosa":
         setImgProduct(product.imageRose ?? product.image);
         break;
       default:
         setImgProduct(product.image);
         break;
     }
-  }, [
-    colorSeleccionado,
-    product.image,
-    product.imageSilver,
-    product.imageRose,
-  ]);
+  }, [tipoOro, product.image, product.imageSilver, product.imageRose]);
 
   const handleLike = () => {
     const likedProducts = JSON.parse(
@@ -83,9 +88,80 @@ export default function Card({ product }: CardProps) {
     setIsLiked(!isLiked);
   };
 
+  const handleNavigateToProduct = () => {
+    router.push(`/shop/${product.model}`);
+  };
+
   return (
     <div className="text-myZinc md:px-6 relative aReveal">
-      <button
+      <div>
+        {/* Parte de arriba */}
+        <div className="relative">
+          {product.bestSeller && (
+            <div className="absolute top-0 left-3 bg-myZinc z-20 w-3/12 h-[18px] flex justify-center items-center">
+              <p className="text-myWhite text-[10px]">Más Vendido</p>
+            </div>
+          )}
+          <div className="absolute top-3 right-3 w-5 h-5">
+            <button onClick={handleLike}>
+              {isLiked ? (
+                <span className="icon-[mdi--heart] text-myZinc text-xl" />
+              ) : (
+                <span className="icon-[mynaui--heart] text-myZinc text-xl" />
+              )}
+            </button>
+          </div>
+          <div className="w-[280px] h-[365px] bg-[#eae5df]">
+            <Image
+              width={280}
+              height={365}
+              src={imgProduct}
+              alt={product.alt}
+              className="object-cover"
+            />
+          </div>
+        </div>
+        {/* Parte de abajo */}
+        <div
+          className={`${inter.className} antialiased px-3 pt-3 text-myZinc text-sm flex flex-col gap-y-2`}
+        >
+          <h2>{product.model}</h2>
+          <div className="flex justify-between items-center">
+            <h4 className="text-xs text-zinc-600">
+              {tipoPlata
+                ? `Plata 925 & Baño ${tipoPlata}`
+                : "No disponible en plata"}
+            </h4>
+            <p>
+              {precioPlata !== null
+                ? `$${precioPlata.toFixed(2)}`
+                : "No disponible"}
+            </p>
+          </div>
+          <div className="flex justify-between items-center">
+            <h4 className="text-xs text-zinc-600">Oro 18k {tipoOro}</h4>
+            <p>
+              $
+              {precioOro !== null ? `${precioOro.toFixed(2)}` : "No disponible"}
+            </p>
+          </div>
+          <div className="flex justify-between items-center mt-2">
+            <ColorForm
+              category={product.category}
+              grams={product.grams}
+              setPrecioPlata={setPrecioPlata}
+              setPrecioOro={setPrecioOro}
+              setTipoPlata={setTipoPlata}
+              setTipoOro={setTipoOro}
+            />
+            <button onClick={handleNavigateToProduct}>
+              <span className="icon-[hugeicons--shopping-basket-done-01] text-xl" />
+            </button>
+          </div>
+        </div>
+      </div>
+
+      {/* <button
         onClick={handleLike}
         className="absolute flex top-4 right-4 md:right-8 lg:right-10 z-10 bg-myWhite rounded-full p-2 shadow-md"
       >
@@ -173,7 +249,7 @@ export default function Card({ product }: CardProps) {
         closeModal={() => setIsCreateModalOpen(false)}
       />
 
-      <Adviser />
+      <Adviser /> */}
     </div>
   );
 }

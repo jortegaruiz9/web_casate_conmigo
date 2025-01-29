@@ -8,7 +8,7 @@ import { gaPageView } from "@/app/lib/ga";
 import { useEffect } from "react";
 import Image from "next/image";
 
-const rings = [
+export const rings = [
   {
     category: "compromiso",
     image: "/modelos/compromiso/ac-001/amarillo.jpg",
@@ -272,6 +272,7 @@ const rings = [
     grams: 6,
   },
 ];
+
 export default function ShopTemplate() {
   useEffect(() => {
     const props = {

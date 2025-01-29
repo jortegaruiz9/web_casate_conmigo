@@ -1,20 +1,18 @@
 import type { Config } from "tailwindcss";
-const { addDynamicIconSelectors } = require('@iconify/tailwind');
-const { nextui } = require("@nextui-org/react");
+import { addDynamicIconSelectors } from "@iconify/tailwind";
 
 const config: Config = {
   content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
-    "./node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}",
     "./src/app/ui/globals.css" 
   ],
   theme: {
     extend: { 
       colors: {
-        myWhite: "#f4efe9",
-        myZinc: "#3D3C3B",
+        myZinc: "#2e302e",
+        myWhite: "#f0e9dd",
       },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
@@ -25,8 +23,7 @@ const config: Config = {
   },
   darkMode: "class",
   plugins: [
-    addDynamicIconSelectors(),
-    nextui()
+    addDynamicIconSelectors()
   ]
 };
 

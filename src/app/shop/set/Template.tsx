@@ -8,7 +8,7 @@ import { gaPageView } from "@/app/lib/ga";
 import { useEffect } from "react";
 import Image from "next/image";
 
-const rings = [
+export const rings = [
   {
     category: "set",
     image: "/modelos/set/as-001/amarillo.jpg",
