@@ -6,26 +6,22 @@ import Image from "next/image";
 
 export default function NewHero() {
   const [isVideoEnabled, setIsVideoEnabled] = useState(false);
+  const [isMobileVideoError, setIsMobileVideoError] = useState(false);
 
   useEffect(() => {
     if (typeof window !== "undefined") {
       const loadVideos = async () => {
         try {
-          // Verificar si los videos existen
-          const desktopResponse = await fetch("/videos/desktop.mp4", {
-            method: "HEAD",
-          });
-          const mobileResponse = await fetch("/videos/mobile.mp4", {
-            method: "HEAD",
-          });
+          // Intentar precargar los videos usando la clase Video
+          const desktopVideo = new Video("/videos/desktop1.mp4");
+          const mobileVideo = new Video("/videos/mobile1.mp4");
 
-          if (desktopResponse.ok && mobileResponse.ok) {
-            setIsVideoEnabled(true);
-          } else {
-            console.warn("Videos not found, using fallback image");
-          }
+          await Promise.all([desktopVideo.load(), mobileVideo.load()]);
+
+          setIsVideoEnabled(true);
         } catch (error) {
-          console.warn("Error loading videos:", error);
+          console.warn("Error al cargar los videos:", error);
+          setIsVideoEnabled(false);
         }
       };
 
@@ -35,19 +31,6 @@ export default function NewHero() {
 
   return (
     <div className="relative w-full h-[502px] md:h-[459px]">
-      {/* Imagen de fondo estática - siempre visible */}
-      <div className="absolute inset-0">
-        <Image
-          src="/images/hero-fallback.jpg"
-          alt="Fondo"
-          fill
-          priority
-          sizes="100vw"
-          quality={90}
-          className="object-cover"
-        />
-      </div>
-
       {/* Videos solo si están habilitados y verificados */}
       {isVideoEnabled && (
         <>
@@ -56,10 +39,11 @@ export default function NewHero() {
             loop
             muted
             playsInline
-            preload="metadata"
+            preload="auto"
             className="absolute top-0 left-0 w-full h-[459px] object-cover hidden md:block"
           >
-            <source src="/videos/desktop.mp4" type="video/mp4" />
+            <source src="/videos/desktop1.mp4" type="video/mp4" />
+            Tu navegador no soporta el elemento video.
           </video>
 
           <video
@@ -67,12 +51,30 @@ export default function NewHero() {
             loop
             muted
             playsInline
-            preload="metadata"
-            className="absolute top-0 left-0 w-full h-[502px] object-cover md:hidden"
+            preload="auto"
+            onError={() => setIsMobileVideoError(true)}
+            className={`absolute top-0 left-0 w-full h-[502px] object-cover md:hidden ${
+              isMobileVideoError ? "hidden" : ""
+            }`}
           >
-            <source src="/videos/mobile.mp4" type="video/mp4" />
+            <source src="/videos/mobile1.mp4" type="video/mp4" />
+            Tu navegador no soporta el elemento video.
           </video>
         </>
+      )}
+
+      {/* Imagen de fallback para móvil */}
+      {(!isVideoEnabled || isMobileVideoError) && (
+        <div className="md:hidden">
+          <Image
+            src="/videos/imagen-video.jpg"
+            alt="Hero imagen"
+            fill
+            priority
+            className="object-cover"
+            sizes="100vw"
+          />
+        </div>
       )}
 
       {/* Overlay con gradiente */}
