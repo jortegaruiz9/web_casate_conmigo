@@ -49,43 +49,48 @@ const products = [
 
 export default function Shop() {
   return (
-    <div className="flex flex-col justify-center items-center">
+    <div className="flex flex-col justify-center items-center w-full max-w-[1440px] mx-auto px-4">
       <div>
         <h1 className="text-myZinc mt-12 text-2xl font-bold">
           Selecciona la categoría
         </h1>
       </div>
-      <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-12 my-10">
-        {products.map((model, index) => {
-          return (
-            <Link
-              href={model.url}
-              key={index}
-              className=" md:shadow-md md:py-6 md:px-6"
-            >
-              <div className="w-[340px] aReveal">
-                <Image
-                  src={model.imageUrl}
-                  alt={model.src}
-                  title={title}
-                  height={340}
-                  width={340}
-                />
-                <div className="mt-2 text-myZinc py-2">
-                  <h2 className=" text-xl font-bold ">{model.category}</h2>
-                  <div className="flex gap-x-4">
-                    <div>
-                      <h3 className="text-sm">{model.leyend}</h3>
-                    </div>
-                    <div className="bg-[#e1b0ac] flex justify-center items-center rounded-md px-2">
-                      <span className="icon-[material-symbols--arrow-forward] text-myWhite text-2xl" />
-                    </div>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-20 my-10 justify-items-center">
+        {products.map((model, index) => (
+          <Link href={model.url} key={index}>
+            <div className="text-myZinc relative aReveal">
+              <div>
+                {/* Parte de arriba */}
+                <div className="relative">
+                  <div className="w-[280px] h-[365px] bg-[#eae5df] relative">
+                    <Image
+                      src={model.imageUrl}
+                      alt={model.src}
+                      title={model.title}
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
+                </div>
+                {/* Parte de abajo */}
+                <div className="px-3 pt-3 text-myZinc text-sm flex flex-col gap-y-2 w-[280px]">
+                  <h2 className="text-xl font-bold truncate">
+                    {model.category}
+                  </h2>
+                  <p className="text-xs text-zinc-600 line-clamp-2 h-10">
+                    {model.leyend}
+                  </p>
+                  <div className="flex justify-between items-center mt-2">
+                    <button className="bg-myZinc text-myWhite px-4 py-2 rounded-md hover:bg-zinc-200 transition-colors text-sm">
+                      Ver modelos
+                    </button>
+                    <span className="icon-[material-symbols--arrow-forward] text-myZinc text-xl bg-[#eae5df] p-2 rounded-md hover:bg-zinc-200 transition-colors" />
                   </div>
                 </div>
               </div>
-            </Link>
-          );
-        })}
+            </div>
+          </Link>
+        ))}
       </div>
     </div>
   );

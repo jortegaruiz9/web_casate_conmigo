@@ -6,10 +6,9 @@ import { useState, useEffect } from "react";
 import ColorForm from "@/app/components/card/ColorForm";
 import Card from "@/app/components/card/Card";
 import SizeModal from "@/app/components/SizeModal";
-import WhatsAppButton, {
-  WhatsAppButtonProps,
-} from "@/app/components/card/WhatsAppButton";
+import WhatsAppButton from "@/app/components/card/WhatsAppButton";
 import RelatedProducts from "@/app/components/card/RelatedProducts";
+import Link from "next/link";
 
 // Importar los arrays de productos
 import { rings as compromiseRings } from "@/app/shop/compromiso/Template";
@@ -17,14 +16,85 @@ import { rings as marriageRings } from "@/app/shop/matrimonio/Template";
 import { rings as cintilloRings } from "@/app/shop/cintillos/Template";
 import { rings as setRings } from "@/app/shop/set/Template";
 
+// Definir tipos
 interface PageProps {
   params: {
     slug: string;
   };
 }
 
+// Mapeo de nombres de categorías para el breadcrumb
+const categoryNames: { [key: string]: string } = {
+  compromiso: "Anillos de Compromiso",
+  matrimonio: "Anillos de Matrimonio",
+  cintillos: "Cintillos",
+  set: "Set de Anillos",
+};
+
+// Componente de información del producto
+const ProductInfo = ({
+  product,
+  grabado,
+}: {
+  product: any;
+  grabado: boolean;
+}) => {
+  const infoItems = [
+    {
+      icon: grabado
+        ? "fluent--draw-text-24-filled"
+        : "fluent--pen-off-16-filled",
+      text: grabado ? "Modelo incluye grabado" : "No incluye grabado",
+    },
+    {
+      icon: "mdi--leaf",
+      text: "Hecho artesanalmente",
+      underline: true,
+    },
+    {
+      icon: "mdi--shield-check",
+      text: "En Oro 18k, Garantía por un año",
+      underline: true,
+    },
+    {
+      icon: "material-symbols--calendar-month",
+      text: "Al aprobar el diseño, ya no hay cambios",
+      underline: true,
+    },
+  ];
+
+  const disclaimers = [
+    "La garantía cubre pequeños rayones y mantenimiento para dar brillo.",
+    "No incluye torceduras de ningún tipo. Tampoco nos hacemos responsables por piedras minerales extraviadas durante su uso.",
+    "Los anillos de plata con baño de oro requieren más cuidados por su recubrimiento fino. No nos hacemos responsables por daños debido a un mal uso.",
+  ];
+
+  return (
+    <div className="mt-6 space-y-4">
+      <div className="flex flex-col gap-y-3">
+        {infoItems.map((item, index) => (
+          <div key={index} className="flex items-center gap-2">
+            <span className={`icon-[${item.icon}] text-myZinc`} />
+            <p className={`text-sm ${item.underline ? "underline" : ""}`}>
+              {item.text}
+            </p>
+          </div>
+        ))}
+      </div>
+      <div className="space-y-2 text-xs text-zinc-600 mt-4">
+        {disclaimers.map((text, index) => (
+          <p key={index} className={index === 2 ? "font-semibold" : ""}>
+            {text}
+          </p>
+        ))}
+      </div>
+    </div>
+  );
+};
+
+// Componente principal
 export default function ProductPage({ params }: PageProps) {
-  const { slug } = params;
+  // Estados
   const [imgProduct, setImgProduct] = useState("");
   const [precioPlata, setPrecioPlata] = useState<number | null>(null);
   const [precioOro, setPrecioOro] = useState<number | null>(null);
@@ -45,27 +115,22 @@ export default function ProductPage({ params }: PageProps) {
   const [selectedCity, setSelectedCity] = useState<string>("");
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  // Escuchar cambios en el menú
+  // Efectos
   useEffect(() => {
-    if (isMenuOpen) {
-      setShowSizes(false);
-    }
+    if (isMenuOpen) setShowSizes(false);
   }, [isMenuOpen]);
 
-  // Suscribirse a eventos personalizados del menú
   useEffect(() => {
     const handleMenuChange = (e: CustomEvent) => {
-      if (e.detail.isOpen) {
-        setShowSizes(false);
-      }
+      if (e.detail.isOpen) setShowSizes(false);
     };
 
     window.addEventListener("menuStateChange" as any, handleMenuChange);
-    return () => {
+    return () =>
       window.removeEventListener("menuStateChange" as any, handleMenuChange);
-    };
   }, []);
 
+  // Efecto para buscar el producto y productos relacionados
   useEffect(() => {
     const findProduct = () => {
       const allProducts = [
@@ -74,64 +139,92 @@ export default function ProductPage({ params }: PageProps) {
         ...cintilloRings,
         ...setRings,
       ];
-
-      console.log("Slug buscado:", slug);
-      console.log("Todos los productos:", allProducts);
-
-      const found = allProducts.find((p) => p.model === slug);
-      console.log("Producto encontrado:", found);
+      const found = allProducts.find((p) => p.model === params.slug);
 
       if (found) {
         setProduct(found);
         setImgProduct(found.image);
-
-        const related = allProducts
-          .filter((p) => p.category === found.category && p.model !== slug)
-          .slice(0, 5);
-        console.log("Productos relacionados:", related);
-        setRelatedProducts(related);
+        setRelatedProducts(
+          allProducts
+            .filter(
+              (p) => p.category === found.category && p.model !== params.slug
+            )
+            .slice(0, 5)
+        );
       } else {
-        console.log("No se encontró el producto");
         notFound();
       }
       setIsLoading(false);
     };
 
     findProduct();
-  }, [slug]);
+  }, [params.slug]);
 
+  // Efecto para actualizar la imagen según el tipo de oro
   useEffect(() => {
     if (product) {
-      switch (tipoOro) {
-        case "Amarillo":
-          setImgProduct(product.image);
-          break;
-        case "Blanco":
-          setImgProduct(product.imageSilver ?? product.image);
-          break;
-        case "Rosa":
-          setImgProduct(product.imageRose ?? product.image);
-          break;
-      }
+      const imageMap = {
+        Amarillo: product.image,
+        Blanco: product.imageSilver ?? product.image,
+        Rosa: product.imageRose ?? product.image,
+      };
+      setImgProduct(imageMap[tipoOro]);
     }
   }, [tipoOro, product]);
 
-  if (isLoading) {
-    return <div>Cargando...</div>;
-  }
+  // Función para obtener el breadcrumb
+  const getBreadcrumbPath = () => {
+    if (!product) return [];
+    return [
+      { name: "Catálogo", path: "/shop" },
+      {
+        name: categoryNames[product.category],
+        path: `/shop/${product.category}`,
+      },
+      { name: product.model, path: `/shop/${product.model}` },
+    ];
+  };
 
-  if (!product) {
-    return notFound();
-  }
+  if (isLoading) return <div>Cargando...</div>;
+  if (!product) return notFound();
 
+  // Renderizado
   return (
     <div className={`text-myZinc ${inter.className}`}>
       <div className="container mx-auto px-4 py-8">
         <div className="max-w-7xl mx-auto">
+          {/* Breadcrumb navigation */}
+          <nav className="mb-6">
+            <ol className="flex items-center space-x-2 text-sm">
+              {getBreadcrumbPath().map((item, index, array) => (
+                <li key={item.path} className="flex items-center">
+                  {index < array.length - 1 ? (
+                    <>
+                      <Link
+                        href={item.path}
+                        className="text-zinc-600 hover:text-zinc-900"
+                      >
+                        {item.name}
+                      </Link>
+                      <span className="mx-2 text-zinc-400">/</span>
+                    </>
+                  ) : (
+                    <span className="text-zinc-900">{item.name}</span>
+                  )}
+                </li>
+              ))}
+            </ol>
+          </nav>
+
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {/* Columna izquierda - Imagen */}
-            <div>
-              <div className="relative aspect-square bg-[#eae5df]">
+            {/* Imagen del producto */}
+            <div className="w-full flex justify-center">
+              <div className="w-[280px] h-[365px] md:w-full md:h-[600px] relative bg-[#eae5df]">
+                {product.bestSeller && (
+                  <div className="absolute top-0 left-3 bg-myZinc z-20 w-3/12 lg:w-2/12 h-[18px] flex justify-center items-center">
+                    <p className="text-myWhite text-[10px]">Más Vendido</p>
+                  </div>
+                )}
                 <Image
                   src={imgProduct}
                   alt={product?.alt || ""}
@@ -141,8 +234,8 @@ export default function ProductPage({ params }: PageProps) {
               </div>
             </div>
 
-            {/* Columna derecha - Información */}
-            <div className="text-myZinc">
+            {/* Información del producto */}
+            <div className="text-myZinc w-full max-w-[600px]">
               <h1 className="text-2xl font-medium mb-4">{product?.model}</h1>
 
               {/* Precios */}
@@ -170,13 +263,13 @@ export default function ProductPage({ params }: PageProps) {
                 </div>
               </div>
 
-              {/* Color selector */}
+              {/* Selector de color */}
               <div className="mb-6">
                 <h3 className="text-sm mb-2">Color:</h3>
                 <ColorForm
                   product={product}
-                  category={product?.category || "compromiso"}
-                  grams={product?.grams || 0}
+                  category={product?.category}
+                  grams={product?.grams}
                   setPrecioPlata={setPrecioPlata}
                   setPrecioOro={setPrecioOro}
                   setTipoPlata={setTipoPlata}
@@ -184,12 +277,12 @@ export default function ProductPage({ params }: PageProps) {
                 />
               </div>
 
-              {/* Talla selector */}
+              {/* Selector de talla */}
               <div className="mb-6">
                 <h3 className="text-sm mb-2">Talla:</h3>
                 <button
                   onClick={() => setShowSizes(!showSizes)}
-                  className="w-full py-3 px-4 bg-myWhite border rounded-md flex justify-between items-center text-zinc-600 hover:bg-gray-50 focus:border-[#f2beba] focus:outline-none"
+                  className="w-full py-3 px-4 bg-myWhite border flex justify-between items-center text-zinc-600 hover:bg-gray-100 focus:border-[#c7c2b8] focus:outline-none "
                 >
                   <span>
                     {product.category === "set" ||
@@ -215,12 +308,12 @@ export default function ProductPage({ params }: PageProps) {
                 />
               </div>
 
-              {/* Ciudad selector */}
+              {/* Selector de ciudad */}
               <div className="mb-6">
                 <h3 className="text-sm mb-2">Ciudad:</h3>
                 <div className="relative">
                   <select
-                    className="w-full py-3 px-4 bg-myWhite border rounded-md text-zinc-600 appearance-none hover:bg-gray-50 focus:border-[#f2beba] focus:outline-none"
+                    className="w-full py-3 px-4 bg-myWhite border text-zinc-600 appearance-none hover:bg-gray-100 focus:border-[#c7c2b8] focus:outline-none "
                     onChange={(e) => setSelectedCity(e.target.value)}
                     value={selectedCity}
                   >
@@ -273,7 +366,7 @@ export default function ProductPage({ params }: PageProps) {
                 </div>
               </div>
 
-              {/* WhatsApp button */}
+              {/* Botón de WhatsApp */}
               <WhatsAppButton
                 model={product?.model || ""}
                 selectedSize={selectedSize}
@@ -282,64 +375,19 @@ export default function ProductPage({ params }: PageProps) {
                 tipoPlata={tipoPlata}
                 precioOro={precioOro}
                 precioPlata={precioPlata}
+                linkProduct={product?.linkProduct}
               />
 
-              {/* Información del producto */}
-              <div className="mt-6 space-y-4">
-                <div className="flex flex-col gap-y-3">
-                  {product?.category === "matrimonio" ? (
-                    <div className="flex items-center gap-2">
-                      <span className="icon-[fluent--draw-text-24-filled] text-myZinc" />
-                      <p className="text-sm">Modelo incluye grabado</p>
-                    </div>
-                  ) : (
-                    <div className="flex items-center gap-2">
-                      <span className="icon-[fluent--pen-off-16-filled] text-myZinc" />
-                      <p className="text-sm">No incluye grabado</p>
-                    </div>
-                  )}
-                  <div className="flex items-center gap-2">
-                    <span className="icon-[mdi--leaf] text-myZinc" />
-                    <p className="text-sm underline">Hecho artesanalmente</p>
-                  </div>
-
-                  <div className="flex items-center gap-2">
-                    <span className="icon-[mdi--shield-check] text-myZinc" />
-                    <p className="text-sm underline">
-                      En Oro 18k, Garantía por un año
-                    </p>
-                  </div>
-
-                  <div className="flex items-center gap-2">
-                    <span className="icon-[material-symbols--calendar-month] text-myZinc" />
-                    <p className="text-sm underline">
-                      Al aprobar el diseño, ya no hay cambios
-                    </p>
-                  </div>
-                </div>
-
-                <div className="space-y-2 text-xs text-zinc-600 mt-4">
-                  <p>
-                    -La garantía cubre pequeños rayones y mantenimiento para dar
-                    brillo.
-                  </p>
-                  <p>
-                    -No incluye torceduras de ningún tipo. Tampoco nos hacemos
-                    responsables por piedras minerales extraviadas durante su
-                    uso.
-                  </p>
-                  <p className="font-semibold">
-                    Los anillos de plata con baño de oro requieren más cuidados
-                    por su recubrimiento fino. No nos hacemos responsables por
-                    daños debido a un mal uso.
-                  </p>
-                </div>
-              </div>
+              {/* Información adicional del producto */}
+              <ProductInfo
+                product={product}
+                grabado={product.category === "matrimonio"}
+              />
             </div>
           </div>
         </div>
 
-        {/* Related products */}
+        {/* Productos relacionados */}
         <div className="mt-16">
           <RelatedProducts
             currentModel={product?.model || ""}

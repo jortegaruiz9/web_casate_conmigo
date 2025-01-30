@@ -4,7 +4,7 @@ export const PRECIOS = {
   ORO_ROSA: 142,
   PLATA_COMPROMISO: 80,
   PLATA_MATRIMONIO: 150,
-  PLATA_OTROS: 200
+  PLATA_SET: 200
 };
 
 export const TIPOS_MATERIAL = {

@@ -31,11 +31,18 @@ const ColorForm: React.FC<ColorFormProps> = ({
 
   // Inicializar precios al montar el componente
   useEffect(() => {
-    // Precio plata inicial
-    const precioPlataInicial =
-      category === "matrimonio"
-        ? PRECIOS.PLATA_MATRIMONIO
-        : PRECIOS.PLATA_COMPROMISO;
+    // Precio plata inicial según la categoría
+    let precioPlataInicial;
+    switch (category) {
+      case "matrimonio":
+        precioPlataInicial = PRECIOS.PLATA_MATRIMONIO;
+        break;
+      case "set":
+        precioPlataInicial = PRECIOS.PLATA_SET;
+        break;
+      default:
+        precioPlataInicial = PRECIOS.PLATA_COMPROMISO;
+    }
     setPrecioPlata(precioPlataInicial);
 
     // Precio oro inicial
@@ -43,16 +50,28 @@ const ColorForm: React.FC<ColorFormProps> = ({
     setPrecioOro(precioOroInicial);
   }, []); // Solo se ejecuta al montar el componente
 
-  // Precalcular precios
+  // Precalcular precios según la categoría
   const preciosPlata = {
-    BañoAmarillo:
-      category === "matrimonio"
-        ? PRECIOS.PLATA_MATRIMONIO
-        : PRECIOS.PLATA_COMPROMISO,
-    BañoBlanco:
-      category === "matrimonio"
-        ? PRECIOS.PLATA_MATRIMONIO
-        : PRECIOS.PLATA_COMPROMISO,
+    BañoAmarillo: (() => {
+      switch (category) {
+        case "matrimonio":
+          return PRECIOS.PLATA_MATRIMONIO;
+        case "set":
+          return PRECIOS.PLATA_SET;
+        default:
+          return PRECIOS.PLATA_COMPROMISO;
+      }
+    })(),
+    BañoBlanco: (() => {
+      switch (category) {
+        case "matrimonio":
+          return PRECIOS.PLATA_MATRIMONIO;
+        case "set":
+          return PRECIOS.PLATA_SET;
+        default:
+          return PRECIOS.PLATA_COMPROMISO;
+      }
+    })(),
     BañoRosa: null,
   };
 

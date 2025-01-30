@@ -24,7 +24,7 @@ export default function Promo({ elements }: Props) {
 
   return (
     <div className="relative z-50">
-      <div className="bg-[#e1b0ac] h-[55px] flex items-center justify-center text-myZinc gap-2">
+      <div className="bg-myZinc h-[40px] flex items-center justify-center text-white gap-2">
         <h3>Adquiere tu anillo.</h3>
         <button
           className="flex items-center gap-1"
@@ -41,7 +41,7 @@ export default function Promo({ elements }: Props) {
           }}
         >
           Agendar una cita
-          <span className="icon-[material-symbols--arrow-forward-rounded] text-3xl text-myZinc hover:scale-110 transition-all" />
+          <span className="icon-[material-symbols--arrow-forward-rounded] text-3xl text-white hover:scale-110 transition-all" />
         </button>
       </div>
     </div>

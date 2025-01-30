@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState, useContext, useEffect } from "react";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { AdviserContext } from "../context/AdviserContext";
 import { sendGTMEvent, sendGAEvent } from "@next/third-parties/google";
 
@@ -15,7 +15,28 @@ export default function Nav({ elements }: Props) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const currentPath = usePathname();
+  const router = useRouter();
   const whatsapp = useContext(AdviserContext) as any;
+
+  const menuItems = [
+    {
+      category: "Productos",
+      items: [
+        { name: "Cintillos", link: "/shop/cintillos" },
+        { name: "Compromiso", link: "/shop/compromiso" },
+        { name: "Matrimonio", link: "/shop/matrimonio" },
+        { name: "Set Anillos", link: "/shop/set" },
+      ],
+    },
+    {
+      category: "Información",
+      items: [
+        { name: "Catálogo", link: "/shop" },
+        { name: "Conoce más", link: "/explicacion" },
+        { name: "Nosotros", link: "/nosotros" },
+      ],
+    },
+  ];
 
   useEffect(() => {
     const handleScroll = () => {
@@ -85,24 +106,30 @@ export default function Nav({ elements }: Props) {
                 sendGTMEvent({ event: "NavWhatsapp", value: "5678" });
                 handleOrderClick();
               }}
-              className="py-3 px-6 bg-myZinc text-myWhite rounded-lg hover:ring-2 hover:ring-offset-2 hover:ring-myZinc transition-all ease-out duration-300"
+              className="py-3 px-6 bg-myZinc text-myWhite  hover:ring-2 hover:ring-offset-2 hover:ring-myZinc transition-all ease-out duration-300"
             >
               Whatsapp
             </button>
           </div>
 
           {/* Mobile menu button */}
-          <div className="sm:hidden">
+          <div className="sm:hidden relative z-[60]">
             <button
               onClick={toggleMenu}
               className="inline-flex items-center justify-center p-2 rounded-md text-myZinc hover:text-myZinc/80 hover:bg-gray-100 transition-colors"
+              aria-expanded={isMenuOpen}
             >
+              <span className="sr-only">
+                {isMenuOpen ? "Cerrar menú" : "Abrir menú"}
+              </span>
               {isMenuOpen ? (
                 <svg
                   className="h-6 w-6"
+                  xmlns="http://www.w3.org/2000/svg"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
+                  aria-hidden="true"
                 >
                   <path
                     strokeLinecap="round"
@@ -114,9 +141,11 @@ export default function Nav({ elements }: Props) {
               ) : (
                 <svg
                   className="h-6 w-6"
+                  xmlns="http://www.w3.org/2000/svg"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
+                  aria-hidden="true"
                 >
                   <path
                     strokeLinecap="round"
@@ -131,33 +160,57 @@ export default function Nav({ elements }: Props) {
         </div>
       </div>
 
-      {/* Mobile menu */}
+      {/* Mobile menu, show/hide based on menu state */}
       {isMenuOpen && (
-        <div className="sm:hidden bg-myWhite bg-opacity-95 fixed inset-0 top-20 z-50">
-          <div className="px-4 pt-2 pb-3 space-y-6">
-            {elements.map((element, index) => (
-              <Link
-                key={index}
-                href={element.link}
-                onClick={() => setIsMenuOpen(false)}
-                className={`block text-xl py-2 text-myZinc hover:text-myZinc/80 transition-colors ${
-                  currentPath === element.link ? "font-bold" : ""
-                }`}
-              >
-                {element.name}
-              </Link>
-            ))}
-            <button
-              onClick={() => {
-                sendGAEvent({ event: "A-HambuWhatsapp", value: "16789" });
-                sendGTMEvent({ event: "HambuWhatsapp", value: "6789" });
-                handleOrderClick();
-                setIsMenuOpen(false);
-              }}
-              className="w-full py-4 px-6 bg-myZinc text-myWhite rounded-lg hover:ring-2 hover:ring-offset-2 hover:ring-myZinc transition-all ease-out duration-300 text-xl"
-            >
-              Whatsapp
-            </button>
+        <div className="sm:hidden">
+          <div className="fixed inset-0 z-50">
+            {/* Background overlay */}
+            <div className="fixed inset-0 bg-myWhite" aria-hidden="true" />
+
+            {/* Menu content */}
+            <div className="fixed inset-0 top-20 z-50 overflow-y-auto bg-myWhite">
+              <div className="flex min-h-full items-start justify-center p-4 text-center">
+                <div className="w-full max-w-md transform overflow-hidden transition-all">
+                  <div className="space-y-6">
+                    {menuItems.map((section, idx) => (
+                      <div key={idx} className="space-y-3">
+                        <h3 className="text-sm font-medium text-[#9e8e73] border-b border-[#9e8e73]/20 pb-2">
+                          {section.category}
+                        </h3>
+                        <div className="space-y-2">
+                          {section.items.map((item, index) => (
+                            <Link
+                              key={index}
+                              href={item.link}
+                              onClick={() => setIsMenuOpen(false)}
+                              className={`block text-base py-1.5 text-myZinc hover:text-myZinc/80 transition-colors ${
+                                currentPath === item.link ? "font-medium" : ""
+                              }`}
+                            >
+                              {item.name}
+                            </Link>
+                          ))}
+                        </div>
+                      </div>
+                    ))}
+                    <button
+                      onClick={() => {
+                        sendGAEvent({
+                          event: "A-HambuWhatsapp",
+                          value: "16789",
+                        });
+                        sendGTMEvent({ event: "HambuWhatsapp", value: "6789" });
+                        handleOrderClick();
+                        setIsMenuOpen(false);
+                      }}
+                      className="w-full py-3 px-6 bg-myZinc text-myWhite hover:ring-2 hover:ring-offset-2 hover:ring-myZinc transition-all ease-out duration-300 text-base mt-4"
+                    >
+                      Whatsapp
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       )}

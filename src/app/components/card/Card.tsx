@@ -67,22 +67,7 @@ export default function Card({ product }: CardProps) {
   const [tipoOro, setTipoOro] = useState<"Amarillo" | "Blanco" | "Rosa">(
     "Amarillo"
   );
-  const [audio, setAudio] = useState<HTMLAudioElement | null>(null);
-  const [isLiked, setIsLiked] = useState(false);
   const router = useRouter();
-
-  useEffect(() => {
-    if (typeof window !== "undefined") {
-      const audioInstance = new Audio("/sound.MP3");
-      setAudio(audioInstance);
-
-      // Check if this product is liked
-      const likedProducts = JSON.parse(
-        localStorage.getItem("likedProducts") || "[]"
-      );
-      setIsLiked(likedProducts.includes(product.model));
-    }
-  }, [product.model]);
 
   useEffect(() => {
     switch (tipoOro) {
@@ -101,22 +86,6 @@ export default function Card({ product }: CardProps) {
     }
   }, [tipoOro, product.image, product.imageSilver, product.imageRose]);
 
-  const handleLike = () => {
-    const likedProducts = JSON.parse(
-      localStorage.getItem("likedProducts") || "[]"
-    );
-    if (isLiked) {
-      const updatedLikes = likedProducts.filter(
-        (model: string) => model !== product.model
-      );
-      localStorage.setItem("likedProducts", JSON.stringify(updatedLikes));
-    } else {
-      likedProducts.push(product.model);
-      localStorage.setItem("likedProducts", JSON.stringify(likedProducts));
-    }
-    setIsLiked(!isLiked);
-  };
-
   const handleNavigateToProduct = () => {
     router.push(`/shop/${product.model}`);
   };
@@ -130,7 +99,7 @@ export default function Card({ product }: CardProps) {
   };
 
   return (
-    <div className="text-myZinc md:px-6 relative aReveal">
+    <div className="text-myZinc relative aReveal w-[280px]">
       <div>
         {/* Parte de arriba */}
         <div className="relative">
@@ -139,15 +108,6 @@ export default function Card({ product }: CardProps) {
               <p className="text-myWhite text-[10px]">Más Vendido</p>
             </div>
           )}
-          <div className="absolute top-3 right-3 w-5 h-5">
-            <button onClick={handleLike}>
-              {isLiked ? (
-                <span className="icon-[mdi--heart] text-myZinc text-xl" />
-              ) : (
-                <span className="icon-[mynaui--heart] text-myZinc text-xl" />
-              )}
-            </button>
-          </div>
           <div className="w-[280px] h-[365px] bg-[#eae5df] relative">
             <OptimizedImage
               src={imgProduct}

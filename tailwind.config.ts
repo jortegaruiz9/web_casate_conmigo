@@ -12,7 +12,7 @@ const config: Config = {
   	extend: {
   		colors: {
   			myZinc: '#2e302e',
-  			myWhite: '#f0e9dd',
+  			myWhite: '#ffffff',
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',
   			card: {
@@ -66,7 +66,7 @@ const config: Config = {
   		textColor: {
   			DEFAULT: '#2e302e',
   			myZinc: '#2e302e',
-  			myWhite: '#f0e9dd',
+  			myWhite: '#ffffff',
   		}
   	}
   },

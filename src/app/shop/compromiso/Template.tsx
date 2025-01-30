@@ -169,7 +169,7 @@ export const rings = [
   // },
   {
     category: "compromiso" as CategoryType,
-    image: "/modelos/compromiso/ac-018/promo.png",
+    image: "/modelos/compromiso/ac-018/amarillo.png",
     imageSilver: "/modelos/compromiso/ac-018/blanco.png",
     imageRose: "/modelos/compromiso/ac-018/rosado.png",
     linkProduct:
@@ -179,6 +179,7 @@ export const rings = [
     color: "rosado",
     grabado: false,
     grams: 4,
+    bestSeller: true,
   },
   //   se puso el 18 en la posicion 12 debido a que no se puede hacer el 12 de momento
   {

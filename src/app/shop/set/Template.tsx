@@ -38,7 +38,7 @@ export const rings = [
   },
   {
     category: "set" as CategoryType,
-    image: "/modelos/set/as-003/promo.jpg",
+    image: "/modelos/set/as-003/amarillo.jpg",
     imageSilver: "/modelos/set/as-003/blanco.jpg",
     imageRose: "/modelos/set/as-003/rosado.jpg",
     linkProduct:
@@ -48,6 +48,7 @@ export const rings = [
     color: "amarillo",
     grabado: true,
     grams: 12,
+    bestSeller: true,
   },
   {
     category: "set" as CategoryType,
