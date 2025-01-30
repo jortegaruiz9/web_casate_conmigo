@@ -194,7 +194,7 @@ export const rings = [
   },
   {
     category: "matrimonio" as CategoryType,
-    image: "/modelos/matrimonio/am-019/promo.jpg",
+    image: "/modelos/matrimonio/am-019/amarillo.jpg",
     imageSilver: "/modelos/matrimonio/am-019/blanco-2.jpg",
     imageRose: "/modelos/matrimonio/am-019/rosado.jpg",
     linkProduct:
@@ -204,6 +204,7 @@ export const rings = [
     color: "amarillo",
     grabado: true,
     grams: 10,
+    bestSeller: true,
   },
   {
     category: "matrimonio" as CategoryType,

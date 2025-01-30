@@ -113,7 +113,7 @@ export default function Footer() {
     socialMedia.tel,
   ];
   return (
-    <div className="bg-[#e1b0ac] w-full">
+    <div className="bg-myZinc w-full">
       <div className="flex flex-col items-center gap-y-2 py-8 md:py-12 w-full">
         <div className="flex flex-row justify-around items-start w-full text-xs md:text-medium text-white">
           <ul className="hidden lg:block space-y-4">
@@ -123,7 +123,7 @@ export default function Footer() {
                 className={
                   index !== 0
                     ? "text-white hover:text-zinc-200 transition-all"
-                    : "text-myZinc font-bold"
+                    : "text-white font-semibold"
                 }
               >
                 {e.direction ? (
@@ -142,7 +142,7 @@ export default function Footer() {
                 className={
                   e.direction
                     ? "text-white hover:text-zinc-200 transition-all"
-                    : "text-myZinc font-bold"
+                    : "text-white font-semibold"
                 }
               >
                 {e.direction ? (
@@ -155,14 +155,14 @@ export default function Footer() {
           </ul>
 
           <ul className="space-y-4">
-            <li className="font-bold text-myZinc">Dirección</li>
+            <li className="font-semibold text-white">Dirección</li>
             {address.map((line, index) => (
               <li
                 key={`${line}-${index}`}
                 className={
                   index === address.length - 1
                     ? `${montserrat.className} antialiased text-white transition all`
-                    : "hover:text-zinc-200 transition all"
+                    : "text-white hover:text-zinc-200 transition all"
                 }
               >
                 {line}
@@ -173,7 +173,7 @@ export default function Footer() {
             {pay.map((e, index) => (
               <li
                 key={`${e.title}-${index}`}
-                className="text-myZinc hover:text-zinc-200 transition-all"
+                className="text-white hover:text-zinc-200 transition-all"
               >
                 {e.title}
                 <span className={`${e.icon} text-2xl`} />

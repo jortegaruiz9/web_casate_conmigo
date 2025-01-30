@@ -75,7 +75,7 @@ export default function RelatedProducts({
                     src={product.image}
                     alt={product.alt}
                     fill
-                    className="object-cover rounded-md"
+                    className="object-cover"
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   />
                 </div>
@@ -84,8 +84,8 @@ export default function RelatedProducts({
             </CarouselItem>
           ))}
         </CarouselContent>
-        <CarouselPrevious className="left-0 bg-myWhite hover:bg-myWhite/90 text-myZinc" />
-        <CarouselNext className="right-0 bg-myWhite hover:bg-myWhite/90 text-myZinc" />
+        <CarouselPrevious className="left-4 bg-myWhite hover:bg-myWhite/90 text-myZinc" />
+        <CarouselNext className="right-4 bg-myWhite hover:bg-myWhite/90 text-myZinc" />
       </Carousel>
     </div>
   );

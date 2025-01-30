@@ -32,7 +32,7 @@ export default function SizeModal({
       style={{ zIndex: 99999 }}
     >
       <div
-        className={`${inter.className} bg-myWhite p-4 rounded-lg w-full max-w-sm relative flex flex-col shadow-lg`}
+        className={`${inter.className} bg-myWhite p-4 w-full max-w-sm relative flex flex-col shadow-lg max-h-[90vh] overflow-y-auto`}
       >
         <div className="flex justify-between items-center mb-3">
           <h4 className="font-bold text-base">Selecciona tu talla</h4>
@@ -42,26 +42,38 @@ export default function SizeModal({
         </div>
 
         {isDoubleRing ? (
-          <div className="space-y-4">
+          <div className="space-y-3 sm:space-y-4">
             <div>
-              <h5 className="font-medium text-sm mb-2">Talla para él</h5>
-              <div className="grid grid-cols-5 gap-1">
+              <h5 className="font-medium text-sm mb-1.5 sm:mb-2">
+                Talla para él
+              </h5>
+              <div className="grid grid-cols-6 sm:grid-cols-5 gap-0.5 sm:gap-1">
                 {[
-                  { us: 6, eu: 52 },
-                  { us: 7, eu: 54 },
-                  { us: 8, eu: 56 },
-                  { us: 9, eu: 58 },
-                  { us: 10, eu: 60 },
-                  { us: 11, eu: 62 },
-                  { us: 12, eu: 64 },
-                  { us: 13, eu: 66 },
-                  { us: 14, eu: 68 },
+                  { us: 5, mm: 16.5 },
+                  { us: 5.5, mm: 16.9 },
+                  { us: 6, mm: 17.3 },
+                  { us: 6.5, mm: 17.7 },
+                  { us: 7, mm: 18.1 },
+                  { us: 7.5, mm: 18.5 },
+                  { us: 8, mm: 18.9 },
+                  { us: 8.5, mm: 19.3 },
+                  { us: 9, mm: 19.8 },
+                  { us: 9.5, mm: 20.2 },
+                  { us: 10, mm: 20.6 },
+                  { us: 10.5, mm: 21.0 },
+                  { us: 11, mm: 21.4 },
+                  { us: 11.5, mm: 21.8 },
+                  { us: 12, mm: 22.2 },
+                  { us: 12.5, mm: 22.6 },
+                  { us: 13, mm: 23.0 },
+                  { us: 13.5, mm: 23.4 },
+                  { us: 14, mm: 23.9 },
                 ].map((size) => (
                   <button
                     key={size.us}
-                    className={`border border-gray-300 rounded-md py-1.5 hover:bg-gray-100 flex flex-col items-center ${
+                    className={`border border-[#c7c2b8] py-1 sm:py-1.5 hover:bg-gray-100 flex flex-col items-center ${
                       selectedSize === size.us
-                        ? "bg-gray-100 border-gray-400"
+                        ? "bg-[#c7c2b8] border-[#c7c2b8]"
                         : ""
                     }`}
                     onClick={() => {
@@ -72,35 +84,46 @@ export default function SizeModal({
                       }
                     }}
                   >
-                    <span className="text-sm">{size.us}</span>
-                    <span className="text-green-600 text-xs">{size.eu}</span>
+                    <span className="text-xs sm:text-sm">{size.us}</span>
+                    <span className="text-[#9e8e73] text-[10px] sm:text-xs">
+                      {size.mm}mm
+                    </span>
                   </button>
                 ))}
               </div>
             </div>
 
             <div>
-              <h5 className="font-medium text-sm mb-2">Talla para ella</h5>
-              <div className="grid grid-cols-5 gap-1">
+              <h5 className="font-medium text-sm mb-1.5 sm:mb-2">
+                Talla para ella
+              </h5>
+              <div className="grid grid-cols-6 sm:grid-cols-5 gap-0.5 sm:gap-1">
                 {[
-                  { us: 3, eu: 44 },
-                  { us: 4, eu: 47 },
-                  { us: 5, eu: 50 },
-                  { us: 6, eu: 52 },
-                  { us: 7, eu: 54 },
-                  { us: 8, eu: 56 },
-                  { us: 9, eu: 58 },
-                  { us: 10, eu: 60 },
-                  { us: 11, eu: 62 },
-                  { us: 12, eu: 64 },
-                  { us: 13, eu: 66 },
-                  { us: 14, eu: 68 },
+                  { us: 3, mm: 14.8 },
+                  { us: 3.5, mm: 15.2 },
+                  { us: 4, mm: 15.6 },
+                  { us: 4.5, mm: 16.0 },
+                  { us: 5, mm: 16.5 },
+                  { us: 5.5, mm: 16.9 },
+                  { us: 6, mm: 17.3 },
+                  { us: 6.5, mm: 17.7 },
+                  { us: 7, mm: 18.1 },
+                  { us: 7.5, mm: 18.5 },
+                  { us: 8, mm: 18.9 },
+                  { us: 8.5, mm: 19.3 },
+                  { us: 9, mm: 19.8 },
+                  { us: 9.5, mm: 20.2 },
+                  { us: 10, mm: 20.6 },
+                  { us: 10.5, mm: 21.0 },
+                  { us: 11, mm: 21.4 },
+                  { us: 11.5, mm: 21.8 },
+                  { us: 12, mm: 22.2 },
                 ].map((size) => (
                   <button
                     key={size.us}
-                    className={`border border-gray-300 rounded-md py-1.5 hover:bg-gray-100 flex flex-col items-center ${
+                    className={`border border-[#c7c2b8] py-1 sm:py-1.5 hover:bg-gray-100 flex flex-col items-center ${
                       selectedSizeWoman === size.us
-                        ? "bg-gray-100 border-gray-400"
+                        ? "bg-[#c7c2b8] border-[#c7c2b8]"
                         : ""
                     }`}
                     onClick={() => {
@@ -111,8 +134,10 @@ export default function SizeModal({
                       }
                     }}
                   >
-                    <span className="text-sm">{size.us}</span>
-                    <span className="text-green-600 text-xs">{size.eu}</span>
+                    <span className="text-xs sm:text-sm">{size.us}</span>
+                    <span className="text-[#9e8e73] text-[10px] sm:text-xs">
+                      {size.mm}mm
+                    </span>
                   </button>
                 ))}
               </div>
@@ -122,28 +147,35 @@ export default function SizeModal({
           <div className="mb-4">
             <div className="flex gap-2 mb-3">
               <h5 className="font-medium text-sm">Tallas US</h5>
-              <h5 className="font-medium text-green-600 text-sm">/ EU</h5>
+              <h5 className="font-medium text-[#9e8e73] text-sm">/ mm</h5>
             </div>
             <div className="grid grid-cols-5 gap-1">
               {[
-                { us: 3, eu: 44 },
-                { us: 4, eu: 47 },
-                { us: 5, eu: 50 },
-                { us: 6, eu: 52 },
-                { us: 7, eu: 54 },
-                { us: 8, eu: 56 },
-                { us: 9, eu: 58 },
-                { us: 10, eu: 60 },
-                { us: 11, eu: 62 },
-                { us: 12, eu: 64 },
-                { us: 13, eu: 66 },
-                { us: 14, eu: 68 },
+                { us: 3, mm: 14.8 },
+                { us: 3.5, mm: 15.2 },
+                { us: 4, mm: 15.6 },
+                { us: 4.5, mm: 16.0 },
+                { us: 5, mm: 16.5 },
+                { us: 5.5, mm: 16.9 },
+                { us: 6, mm: 17.3 },
+                { us: 6.5, mm: 17.7 },
+                { us: 7, mm: 18.1 },
+                { us: 7.5, mm: 18.5 },
+                { us: 8, mm: 18.9 },
+                { us: 8.5, mm: 19.3 },
+                { us: 9, mm: 19.8 },
+                { us: 9.5, mm: 20.2 },
+                { us: 10, mm: 20.6 },
+                { us: 10.5, mm: 21.0 },
+                { us: 11, mm: 21.4 },
+                { us: 11.5, mm: 21.8 },
+                { us: 12, mm: 22.2 },
               ].map((size) => (
                 <button
                   key={size.us}
-                  className={`border rounded-md py-1.5 hover:bg-gray-100 flex flex-col items-center ${
+                  className={`border border-[#c7c2b8]  py-1.5 hover:bg-gray-100 flex flex-col items-center ${
                     selectedSize === size.us
-                      ? "bg-gray-100 border-gray-400"
+                      ? "bg-[#c7c2b8] border-[#c7c2b8]"
                       : ""
                   }`}
                   onClick={() => {
@@ -156,7 +188,7 @@ export default function SizeModal({
                   }}
                 >
                   <span className="text-sm">{size.us}</span>
-                  <span className="text-green-600 text-xs">{size.eu}</span>
+                  <span className="text-[#9e8e73] text-xs">{size.mm}mm</span>
                 </button>
               ))}
             </div>
@@ -165,7 +197,7 @@ export default function SizeModal({
 
         <div className="mt-auto pt-3">
           <button
-            className="w-full py-2.5 px-4 bg-gray-100 rounded-md text-center hover:bg-gray-200 transition-colors flex items-center justify-center gap-2 text-sm"
+            className="w-full py-2.5 px-4 bg-myZinc text-white  text-center hover:bg-zinc-700 transition-colors flex items-center justify-center gap-2 text-sm"
             onClick={() => {
               if (!selectedSize && (!selectedSizeWoman || !isDoubleRing)) {
                 setSelectedSize(null);

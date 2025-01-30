@@ -1,11 +1,14 @@
 "use client";
 import { useState, useEffect } from "react";
+import * as React from "react";
 import {
   Carousel,
   CarouselContent,
-  CarouselNavigation,
   CarouselItem,
-} from "./core/Carousel";
+  CarouselPrevious,
+  CarouselNext,
+  type CarouselApi,
+} from "@/components/ui/carousel";
 
 const reviews = [
   {
@@ -131,47 +134,69 @@ const reviews = [
 
 const ReviewCarousel: React.FC = () => {
   const [shuffledReviews, setShuffledReviews] = useState(reviews);
+  const [api, setApi] = React.useState<CarouselApi>();
 
   useEffect(() => {
-    // Mezclar reseñas aleatoriamente cada vez que se renderiza el componente
     setShuffledReviews([...reviews].sort(() => Math.random() - 0.5));
   }, []);
 
   return (
-    <div>
-      <div className="relative w-full px-4">
-        <Carousel>
-          <CarouselContent className="-ml-4 md:-ml-12">
-            {shuffledReviews.map((r, index) => (
-              <CarouselItem className="pl-4 md:pl-12" key={index}>
-                <div className="flex h-44 md:h-64 lg:h-48 xl:h-44 text-myZinc">
-                  <div className="flex flex-col place-content-start text-sm px-4 md:px-0">
-                    <div className="text-lg text-yellow-400">
-                      <span className="icon-[material-symbols--star]" />
-                      <span className="icon-[material-symbols--star]" />
-                      <span className="icon-[material-symbols--star]" />
-                      <span className="icon-[material-symbols--star]" />
-                      <span className="icon-[material-symbols--star]" />
-                    </div>
-                    <div className="flex flex-col place-content-start">
-                      <h3 className="font-bold">{r.importantText}</h3>
-                      <p>{r.review}</p>
-                    </div>
-                    <div className="mt-auto">
-                      <h5 className="font-bold">{r.name}</h5>
-                      <h6>{r.date}</h6>
-                    </div>
+    <div className="w-full overflow-hidden">
+      <Carousel
+        setApi={setApi}
+        opts={{
+          align: "start",
+          loop: true,
+          slidesToScroll: 1,
+          containScroll: false,
+          breakpoints: {
+            "(min-width: 1024px)": {
+              slidesToScroll: 4,
+            },
+          },
+        }}
+        className="relative"
+      >
+        <div className="flex justify-end mb-4 px-6">
+          <div className="hidden lg:flex gap-2">
+            <button
+              onClick={() => api?.scrollPrev()}
+              className="icon-[hugeicons--greater-than] rotate-180 h-5 w-5 text-zinc-600 hover:text-myZinc"
+            />
+            <button
+              onClick={() => api?.scrollNext()}
+              className="icon-[hugeicons--greater-than] h-5 w-5 text-zinc-600 hover:text-myZinc"
+            />
+          </div>
+        </div>
+        <CarouselContent className="-ml-0">
+          {shuffledReviews.map((r, index) => (
+            <CarouselItem
+              key={index}
+              className="basis-[85%] md:basis-1/2 lg:basis-1/4 pl-0"
+            >
+              <div className="p-6 h-full border-y border-l first:border-l lg:[&:nth-child(4n)]:border-r border-myZinc">
+                <div className="flex flex-col gap-4">
+                  <div>
+                    <p className="text-myZinc mb-2 text-sm">{r.review}</p>
+                  </div>
+                  <div className="mt-auto">
+                    <p className=" text-gray-800 text-xs font-semibold">
+                      {r.name}
+                    </p>
+                    <p className="text-sm text-zinc-600">{r.date}</p>
+                  </div>
+                  <div className="flex text-myZinc">
+                    {[...Array(5)].map((_, i) => (
+                      <span key={i} className="icon-[material-symbols--star]" />
+                    ))}
                   </div>
                 </div>
-              </CarouselItem>
-            ))}
-          </CarouselContent>
-          <CarouselNavigation
-            classNameButton="text-myZinc bg-myWhite"
-            alwaysShow
-          />
-        </Carousel>
-      </div>
+              </div>
+            </CarouselItem>
+          ))}
+        </CarouselContent>
+      </Carousel>
     </div>
   );
 };

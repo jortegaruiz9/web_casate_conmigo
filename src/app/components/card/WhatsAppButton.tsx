@@ -12,6 +12,7 @@ export interface WhatsAppButtonProps {
   tipoPlata: "Amarillo" | "Blanco" | "Rosa";
   precioOro: number | null;
   precioPlata: number | null;
+  linkProduct?: string;
 }
 
 const WhatsAppButton: React.FC<WhatsAppButtonProps> = ({
@@ -22,6 +23,7 @@ const WhatsAppButton: React.FC<WhatsAppButtonProps> = ({
   tipoPlata,
   precioOro,
   precioPlata,
+  linkProduct,
 }) => {
   const whatsapp = useContext(AdviserContext) as any;
 
@@ -41,7 +43,7 @@ ${
     : "• Aún no he seleccionado mi ciudad"
 }
 
-➡️ Ver producto: ${precioOro || precioPlata}`;
+➡️ Ver producto: ${linkProduct || "No disponible"}`;
 
     const whatsappLink = `https://wa.me/+593${
       whatsapp.adviser.tel
@@ -56,7 +58,7 @@ ${
   return (
     <button
       onClick={handleOrderClick}
-      className="w-full py-3 px-4 bg-[#f2beba] text-white rounded-md flex items-center justify-center gap-2 hover:bg-[#e1b0ac] transition-colors mt-6"
+      className="w-full py-3 px-4 bg-myZinc text-white flex items-center justify-center gap-2 hover:bg-zinc-700 transition-colors mt-6"
     >
       <span className="icon-[ri--whatsapp-fill] text-xl" />
       <span>Comprar por WhatsApp</span>
