@@ -6,6 +6,7 @@ import Image from "next/image";
 
 export default function NewHero() {
   const [isVideoEnabled, setIsVideoEnabled] = useState(false);
+  const [isMobileVideoError, setIsMobileVideoError] = useState(false);
 
   useEffect(() => {
     if (typeof window !== "undefined") {
@@ -51,12 +52,29 @@ export default function NewHero() {
             muted
             playsInline
             preload="auto"
-            className="absolute top-0 left-0 w-full h-[502px] object-cover md:hidden"
+            onError={() => setIsMobileVideoError(true)}
+            className={`absolute top-0 left-0 w-full h-[502px] object-cover md:hidden ${
+              isMobileVideoError ? "hidden" : ""
+            }`}
           >
             <source src="/videos/mobile1.mp4" type="video/mp4" />
             Tu navegador no soporta el elemento video.
           </video>
         </>
+      )}
+
+      {/* Imagen de fallback para móvil */}
+      {(!isVideoEnabled || isMobileVideoError) && (
+        <div className="md:hidden">
+          <Image
+            src="/videos/imagen-video.jpg"
+            alt="Hero imagen"
+            fill
+            priority
+            className="object-cover"
+            sizes="100vw"
+          />
+        </div>
       )}
 
       {/* Overlay con gradiente */}
