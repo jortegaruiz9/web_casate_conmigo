@@ -5,78 +5,62 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 
 export default function NewHero() {
-  const [isVideoEnabled, setIsVideoEnabled] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+  const [isImageLoaded, setIsImageLoaded] = useState(false);
 
   useEffect(() => {
-    if (typeof window !== "undefined") {
-      const loadVideos = async () => {
-        try {
-          // Verificar si los videos existen
-          const desktopResponse = await fetch("/videos/desktop.mp4", {
-            method: "HEAD",
-          });
-          const mobileResponse = await fetch("/videos/mobile.mp4", {
-            method: "HEAD",
-          });
+    // Detectar si es un dispositivo móvil real
+    const checkMobile = () => {
+      const userAgent = navigator.userAgent || navigator.vendor;
+      const isMobileDevice =
+        /android|webos|iphone|ipad|ipod|blackberry|iemobile|opera mini/i.test(
+          userAgent.toLowerCase()
+        );
+      setIsMobile(isMobileDevice);
+    };
 
-          if (desktopResponse.ok && mobileResponse.ok) {
-            setIsVideoEnabled(true);
-          } else {
-            console.warn("Videos not found, using fallback image");
-          }
-        } catch (error) {
-          console.warn("Error loading videos:", error);
-        }
-      };
-
-      loadVideos();
-    }
+    checkMobile();
   }, []);
 
   return (
-    <div className="relative w-full h-[502px] md:h-[459px]">
-      {/* Imagen de fondo estática - siempre visible */}
+    <div className="relative w-full h-[502px] md:h-[459px] bg-[#eae5df] overflow-hidden">
+      {/* Imagen de fondo siempre presente */}
       <div className="absolute inset-0">
         <Image
           src="/images/hero-fallback.jpg"
-          alt="Fondo"
+          alt="Anillos de compromiso y matrimonio"
           fill
           priority
           sizes="100vw"
           quality={90}
-          className="object-cover"
+          className={`object-cover transition-opacity duration-300 ${
+            isImageLoaded ? "opacity-100" : "opacity-0"
+          }`}
+          onLoadingComplete={() => setIsImageLoaded(true)}
         />
       </div>
 
-      {/* Videos solo si están habilitados y verificados */}
-      {isVideoEnabled && (
-        <>
+      {/* Video solo si NO es un dispositivo móvil real */}
+      {!isMobile && (
+        <div className="absolute inset-0">
           <video
             autoPlay
             loop
             muted
             playsInline
-            preload="metadata"
-            className="absolute top-0 left-0 w-full h-[459px] object-cover hidden md:block"
+            className="w-full h-full object-cover"
+            poster="/images/hero-fallback.jpg"
           >
             <source src="/videos/desktop.mp4" type="video/mp4" />
           </video>
-
-          <video
-            autoPlay
-            loop
-            muted
-            playsInline
-            preload="metadata"
-            className="absolute top-0 left-0 w-full h-[502px] object-cover md:hidden"
-          >
-            <source src="/videos/mobile.mp4" type="video/mp4" />
-          </video>
-        </>
+        </div>
       )}
 
       {/* Overlay con gradiente */}
-      <div className="absolute inset-0" />
+      <div
+        className="absolute inset-0 bg-gradient-to-b from-black/20 to-black/40"
+        aria-hidden="true"
+      />
 
       {/* Contenido */}
       <div className="relative z-10 flex flex-col items-center justify-end pb-20 h-full">
