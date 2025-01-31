@@ -20,20 +20,20 @@ export default function Nav({ elements }: Props) {
 
   const menuItems = [
     {
-      category: "Productos",
+      category: "Páginas de interés",
+      items: [
+        { name: "Catálogo", link: "/shop" },
+        { name: "Conoce más", link: "/explicacion" },
+        { name: "Nosotros", link: "/nosotros" },
+      ],
+    },
+    {
+      category: "Anillos",
       items: [
         { name: "Cintillos", link: "/shop/cintillos" },
         { name: "Compromiso", link: "/shop/compromiso" },
         { name: "Matrimonio", link: "/shop/matrimonio" },
         { name: "Set Anillos", link: "/shop/set" },
-      ],
-    },
-    {
-      category: "Información",
-      items: [
-        { name: "Catálogo", link: "/shop" },
-        { name: "Conoce más", link: "/explicacion" },
-        { name: "Nosotros", link: "/nosotros" },
       ],
     },
   ];
@@ -106,7 +106,7 @@ export default function Nav({ elements }: Props) {
                 sendGTMEvent({ event: "NavWhatsapp", value: "5678" });
                 handleOrderClick();
               }}
-              className="py-3 px-6 bg-myZinc text-myWhite  hover:ring-2 hover:ring-offset-2 hover:ring-myZinc transition-all ease-out duration-300"
+              className="py-3 px-6 bg-myZinc text-myWhite hover:bg-zinc-700"
             >
               Whatsapp
             </button>

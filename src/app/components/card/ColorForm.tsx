@@ -1,6 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useId } from "react";
 import { PRECIOS } from "@/app/config/constants";
-import { generateUniqueId } from "@/app/utils/uniqueId";
 import { BañoType } from "@/app/types/forms";
 import { CategoryType } from "@/app/types/category";
 
@@ -101,11 +100,12 @@ const ColorForm: React.FC<ColorFormProps> = ({
     }
   };
 
-  const idSilver = generateUniqueId("material");
-  const idGold = generateUniqueId("material");
-  const idGoldWhite = generateUniqueId("material");
-  const idGoldRose = generateUniqueId("material");
-  const idSilverYellow = generateUniqueId("material");
+  const baseId = useId();
+  const idSilver = `silver-${baseId}`;
+  const idGold = `gold-${baseId}`;
+  const idGoldWhite = `gold-white-${baseId}`;
+  const idGoldRose = `gold-rose-${baseId}`;
+  const idSilverYellow = `silver-yellow-${baseId}`;
 
   return (
     <div role="group" aria-labelledby="color-selection">

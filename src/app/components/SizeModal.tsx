@@ -71,10 +71,10 @@ export default function SizeModal({
                 ].map((size) => (
                   <button
                     key={size.us}
-                    className={`border border-[#c7c2b8] py-1 sm:py-1.5 hover:bg-gray-100 flex flex-col items-center ${
+                    className={`border border-[#c7c2b8] py-1 sm:py-1.5 flex flex-col items-center ${
                       selectedSize === size.us
-                        ? "bg-[#c7c2b8] border-[#c7c2b8]"
-                        : ""
+                        ? "bg-gray-300"
+                        : "hover:bg-gray-100"
                     }`}
                     onClick={() => {
                       if (selectedSize === size.us) {
@@ -121,10 +121,10 @@ export default function SizeModal({
                 ].map((size) => (
                   <button
                     key={size.us}
-                    className={`border border-[#c7c2b8] py-1 sm:py-1.5 hover:bg-gray-100 flex flex-col items-center ${
+                    className={`border border-[#c7c2b8] py-1 sm:py-1.5 flex flex-col items-center ${
                       selectedSizeWoman === size.us
-                        ? "bg-[#c7c2b8] border-[#c7c2b8]"
-                        : ""
+                        ? "bg-gray-300"
+                        : "hover:bg-gray-100"
                     }`}
                     onClick={() => {
                       if (selectedSizeWoman === size.us) {
@@ -173,10 +173,10 @@ export default function SizeModal({
               ].map((size) => (
                 <button
                   key={size.us}
-                  className={`border border-[#c7c2b8]  py-1.5 hover:bg-gray-100 flex flex-col items-center ${
+                  className={`border border-[#c7c2b8] py-1 sm:py-1.5 flex flex-col items-center ${
                     selectedSize === size.us
-                      ? "bg-[#c7c2b8] border-[#c7c2b8]"
-                      : ""
+                      ? "bg-gray-300"
+                      : "hover:bg-gray-100"
                   }`}
                   onClick={() => {
                     if (selectedSize === size.us) {

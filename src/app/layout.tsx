@@ -12,18 +12,18 @@ import Script from "next/script";
 
 // Metadata para SEO
 export const metadata: Metadata = {
-  metadataBase: new URL("https://www.casateconmigoecu.com"),
+  metadataBase: new URL("https://www.casateconmigo.ec"),
   title: {
     default: "Cásate Conmigo - Anillos de Compromiso y Matrimonio",
     template: "%s | Cásate Conmigo",
   },
   description:
-    "Encuentra el anillo perfecto para tu compromiso o matrimonio. Amplia colección de anillos en oro y plata.",
+    "Encuentra los anillos de boda para tu compromiso o matrimonio. Amplia colección de anillos en oro y plata.",
   keywords: ["anillos", "compromiso", "matrimonio", "joyas", "oro", "plata"],
   openGraph: {
-    title: "Cásate Conmigo - Anillos de Compromiso y Matrimonio",
+    title: "Cásate Conmigo - Anillos de boda",
     description: "Encuentra el anillo perfecto para tu compromiso o matrimonio",
-    url: "https://www.casateconmigoecu.com",
+    url: "https://www.casateconmigo.ec",
     siteName: "Cásate Conmigo",
     locale: "es_ES",
     type: "website",

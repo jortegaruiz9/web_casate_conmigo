@@ -1,6 +1,6 @@
 /** @type {import('next-sitemap').IConfig} */
 module.exports = {
-  siteUrl: "https://www.casateconmigoecu.com",
+  siteUrl: "https://casateconmigo.ec",
   generateRobotsTxt: true,
   sitemapSize: 5000,
   exclude: ["/api/*", "/admin/*", "/_next/*"],
