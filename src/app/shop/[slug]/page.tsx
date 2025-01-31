@@ -39,54 +39,57 @@ const ProductInfo = ({
   product: any;
   grabado: boolean;
 }) => {
-  const infoItems = [
-    {
-      icon: grabado
-        ? "fluent--draw-text-24-filled"
-        : "fluent--pen-off-16-filled",
-      text: grabado ? "Modelo incluye grabado" : "No incluye grabado",
-    },
-    {
-      icon: "mdi--leaf",
-      text: "Hecho artesanalmente",
-      underline: true,
-    },
-    {
-      icon: "mdi--shield-check",
-      text: "En Oro 18k, Garantía por un año",
-      underline: true,
-    },
-    {
-      icon: "material-symbols--calendar-month",
-      text: "Al aprobar el diseño, ya no hay cambios",
-      underline: true,
-    },
-  ];
-
-  const disclaimers = [
-    "La garantía cubre pequeños rayones y mantenimiento para dar brillo.",
-    "No incluye torceduras de ningún tipo. Tampoco nos hacemos responsables por piedras minerales extraviadas durante su uso.",
-    "Los anillos de plata con baño de oro requieren más cuidados por su recubrimiento fino. No nos hacemos responsables por daños debido a un mal uso.",
-  ];
-
   return (
     <div className="mt-6 space-y-4">
       <div className="flex flex-col gap-y-3">
-        {infoItems.map((item, index) => (
-          <div key={index} className="flex items-center gap-2">
-            <span className={`icon-[${item.icon}] text-myZinc`} />
-            <p className={`text-sm ${item.underline ? "underline" : ""}`}>
-              {item.text}
-            </p>
-          </div>
-        ))}
-      </div>
-      <div className="space-y-2 text-xs text-zinc-600 mt-4">
-        {disclaimers.map((text, index) => (
-          <p key={index} className={index === 2 ? "font-semibold" : ""}>
-            {text}
+        {/* Primer ítem - Grabado */}
+        <div className="flex items-center gap-2">
+          <span
+            className={`icon-[${
+              grabado
+                ? "fluent--draw-text-24-filled"
+                : "fluent--pen-off-16-filled"
+            }] text-myZinc`}
+          />
+          <p className="text-sm">
+            {grabado ? "Modelo incluye grabado" : "No incluye grabado"}
           </p>
-        ))}
+        </div>
+
+        {/* Segundo ítem - Artesanal */}
+        <div className="flex items-center gap-2">
+          <span className="icon-[mdi--leaf] text-myZinc" />
+          <p className="text-sm underline">Hecho artesanalmente</p>
+        </div>
+
+        {/* Tercer ítem - Garantía */}
+        <div className="flex items-center gap-2">
+          <span className="icon-[mdi--shield-check] text-myZinc" />
+          <p className="text-sm underline">En Oro 18k, Garantía por un año</p>
+        </div>
+
+        {/* Cuarto ítem - Calendario */}
+        <div className="flex items-center gap-2">
+          <span className="icon-[maki--caution] text-myZinc" />
+          <p className="text-sm underline">
+            Al salir de la tienda, ya no hay devoluciones.
+          </p>
+        </div>
+      </div>
+
+      <div className="space-y-2 text-xs text-zinc-600 mt-4">
+        <p>
+          La garantía cubre pequeños rayones y mantenimiento para dar brillo.
+        </p>
+        <p>
+          No incluye torceduras de ningún tipo. Tampoco nos hacemos responsables
+          por piedras minerales extraviadas durante su uso.
+        </p>
+        <p className="font-semibold">
+          Los anillos de plata con baño de oro requieren más cuidados por su
+          recubrimiento fino. No nos hacemos responsables por daños debido a un
+          mal uso.
+        </p>
       </div>
     </div>
   );
