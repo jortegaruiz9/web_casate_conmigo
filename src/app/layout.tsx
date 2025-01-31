@@ -17,16 +17,29 @@ export const metadata: Metadata = {
     default: "Cásate Conmigo - Anillos de Compromiso y Matrimonio",
     template: "%s | Cásate Conmigo",
   },
-  description:
-    "Encuentra los anillos de boda para tu compromiso o matrimonio. Amplia colección de anillos en oro y plata.",
+  description: "Encuentra el anillo perfecto para tu momento especial",
   keywords: ["anillos", "compromiso", "matrimonio", "joyas", "oro", "plata"],
   openGraph: {
-    title: "Cásate Conmigo - Anillos de boda",
-    description: "Encuentra el anillo perfecto para tu compromiso o matrimonio",
+    title: "Cásate Conmigo - Anillos de Compromiso y Matrimonio",
+    description: "Encuentra el anillo perfecto para tu momento especial",
     url: "https://www.casateconmigo.ec",
     siteName: "Cásate Conmigo",
-    locale: "es_ES",
+    images: [
+      {
+        url: "/og-image.jpg", // Esta imagen debe estar en la carpeta public
+        width: 1200,
+        height: 630,
+        alt: "Cásate Conmigo - Anillos",
+      },
+    ],
+    locale: "es_EC",
     type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Cásate Conmigo - Anillos de Compromiso y Matrimonio",
+    description: "Encuentra el anillo perfecto para tu momento especial",
+    images: ["/og-image.jpg"],
   },
   robots: {
     index: true,
