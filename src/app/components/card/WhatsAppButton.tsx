@@ -1,42 +1,59 @@
 import React, { useContext } from "react";
 import { AdviserContext } from "@/app/context/AdviserContext";
-import { raleway } from "@/app/ui/fonts";
 import { sendGTMEvent, sendGAEvent } from "@next/third-parties/google";
 import { CategoryType } from "@/app/types/category";
 
 export interface WhatsAppButtonProps {
   model: string;
   selectedSize: number | null;
+  selectedSizeWoman?: number | null;
   selectedCity: string;
   tipoOro: "Amarillo" | "Blanco" | "Rosa";
   tipoPlata: "Amarillo" | "Blanco" | "Rosa";
   precioOro: number | null;
   precioPlata: number | null;
   linkProduct?: string;
+  category: CategoryType;
 }
 
 const WhatsAppButton: React.FC<WhatsAppButtonProps> = ({
   model,
   selectedSize,
+  selectedSizeWoman,
   selectedCity,
   tipoOro,
   tipoPlata,
   precioOro,
   precioPlata,
   linkProduct,
+  category,
 }) => {
   const whatsapp = useContext(AdviserContext) as any;
 
   const handleOrderClick = () => {
-    const getTallaMessage = () => {
-      if (selectedSize === null) return "• Necesito asesoría para mi talla";
-      return `• Talla: ${selectedSize}`;
-    };
+    // Debug logs
+    console.log("Debug Info:", {
+      category,
+      isDoubleRing: category === "matrimonio" || category === "set",
+      selectedSize,
+      selectedSizeWoman,
+    });
+
+    const isDoubleRing = category === "matrimonio" || category === "set";
+
+    let tallaMessage = "";
+    if (isDoubleRing) {
+      tallaMessage = `• Tallas:
+    - Talla él: ${selectedSize || "Necesito asesoría"}
+    - Talla ella: ${selectedSizeWoman || "Necesito asesoría"}`;
+    } else {
+      tallaMessage = `• Talla: ${selectedSize || "Necesito asesoría"}`;
+    }
 
     const whatsappMessage = `¡Hola! Me interesa el modelo ${model}
 
 • Color: ${tipoOro}
-${getTallaMessage()}
+${tallaMessage}
 ${
   selectedCity
     ? `• Ciudad de entrega: ${selectedCity}`
@@ -44,6 +61,8 @@ ${
 }
 
 ➡️ Ver producto: ${linkProduct || "No disponible"}`;
+
+    console.log("Mensaje final:", whatsappMessage);
 
     const whatsappLink = `https://wa.me/+593${
       whatsapp.adviser.tel

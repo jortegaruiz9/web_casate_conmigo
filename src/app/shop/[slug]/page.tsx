@@ -373,12 +373,14 @@ export default function ProductPage({ params }: PageProps) {
               <WhatsAppButton
                 model={product?.model || ""}
                 selectedSize={selectedSize}
+                selectedSizeWoman={selectedSizeWoman}
                 selectedCity={selectedCity}
                 tipoOro={tipoOro}
                 tipoPlata={tipoPlata}
                 precioOro={precioOro}
                 precioPlata={precioPlata}
                 linkProduct={product?.linkProduct}
+                category={product?.category}
               />
 
               {/* Información adicional del producto */}
