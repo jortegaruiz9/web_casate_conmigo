@@ -3,18 +3,7 @@ User-agent: *
 Allow: /
 
 # Host
-Host: https://www.casateconmigo.ec
+Host: https://casateconmigo.ec
 
 # Sitemaps
-Sitemap: https://www.casateconmigo.ec/sitemap.xml
-
-# Allow all directories
-Allow: /shop/
-Allow: /explicacion/
-Allow: /nosotros/
-
-# Allow specific product categories
-Allow: /shop/cintillos/
-Allow: /shop/compromiso/
-Allow: /shop/matrimonio/
-Allow: /shop/set/
+Sitemap: https://casateconmigo.ec/sitemap.xml
