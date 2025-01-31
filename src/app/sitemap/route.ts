@@ -1,6 +1,6 @@
 import { MetadataRoute } from 'next'
 
-export async function GET(): Promise<MetadataRoute.Sitemap> {
+export async function GET(): Promise<Response> {
   const baseUrl = 'https://casateconmigo.ec'
   
   // Importaciones dinámicas
@@ -39,5 +39,11 @@ export async function GET(): Promise<MetadataRoute.Sitemap> {
     priority: 0.6,
   }))
 
-  return [...routes, ...productPages]
+  const sitemap = [...routes, ...productPages]
+
+  return new Response(JSON.stringify(sitemap), {
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  })
 } 
