@@ -71,11 +71,11 @@ export default function RingsCarousel({ category, title }: RingsCarouselProps) {
         }}
         className="w-full"
       >
-        <CarouselContent className="gap-3 md:gap-0">
+        <CarouselContent>
           {rings.slice(0, 8).map((ring, index) => (
             <CarouselItem
               key={index}
-              className="basis-[280px] md:basis-1/3 lg:basis-1/4"
+              className="basis-[300px] md:basis-1/3 lg:basis-1/4"
             >
               <Card product={ring} />
             </CarouselItem>
