@@ -6,6 +6,7 @@ import { useState, useContext, useEffect } from "react";
 import { usePathname, useRouter } from "next/navigation";
 import { AdviserContext } from "../context/AdviserContext";
 import { sendGTMEvent, sendGAEvent } from "@next/third-parties/google";
+import { Button } from "@/components/ui/button";
 
 type Props = {
   elements: { name: string; link: string }[];
@@ -100,16 +101,17 @@ export default function Nav({ elements }: Props) {
                 {element.name}
               </Link>
             ))}
-            <button
+            <Button
+              variant="outline"
+              size="lg"
               onClick={() => {
                 sendGAEvent({ event: "A-NavWhatsapp", value: "15678" });
                 sendGTMEvent({ event: "NavWhatsapp", value: "5678" });
                 handleOrderClick();
               }}
-              className="py-3 px-6 bg-myZinc text-myWhite hover:bg-zinc-700"
             >
               Whatsapp
-            </button>
+            </Button>
           </div>
 
           {/* Mobile menu button */}

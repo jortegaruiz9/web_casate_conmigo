@@ -64,9 +64,6 @@ const items = [
   { name: "Nosotros", link: "/nosotros" },
 ];
 
-// elementos que le pasamos a nuestro componente de promociones
-const promo = [{ text: "Adquiere tu anillo.", buttonText: "Agendar una cita" }];
-
 // RootLayout con optimización SEO
 export default function RootLayout({
   children,
@@ -155,7 +152,7 @@ export default function RootLayout({
           <header className="relative">
             <title>Cásate Conmigo</title>
             <div className="relative z-50">
-              <Promo elements={promo} />
+              <Promo />
             </div>
             <div className="relative z-40">
               <Nav elements={items} />

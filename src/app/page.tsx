@@ -1,15 +1,11 @@
+"use client";
 import NewHero from "./components/NewHero";
-import { Metadata } from "next";
 import ReviewCarousel from "./components/ReviewsCarousel";
 import RingsCarousel from "./components/RingsCarousel";
 import { inter } from "./ui/fonts";
-
-export const metadata: Metadata = {
-  title:
-    "Anillos de Compromiso y Matrimonio en Oro y Plata | Cásate Conmigo Ecuador",
-  description:
-    "Joyería especializada en anillos personalizados de compromiso y matrimonio en oro 18k y plata 925. Diseños únicos fabricados en Ecuador. Envíos a todo el país.",
-};
+import { Button } from "@/components/ui/button";
+import { AdviserContext } from "./context/AdviserContext";
+import { useContext } from "react";
 
 const features = [
   {
@@ -59,8 +55,28 @@ const categories = [
 ] as const;
 
 export default function Home() {
+  const whatsapp = useContext(AdviserContext) as any;
+
+  const handleOrderClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+    const whatsappMessage = `Me interesa conocer más sobre sus anillos, pude revisar su web`;
+    const whatsappLink = `https://wa.me/+593${
+      whatsapp.adviser.tel
+    }?text=${encodeURIComponent(whatsappMessage)}`;
+    window.open(whatsappLink, "_blank");
+  };
+
   return (
     <main className={inter.className}>
+      <div className="fixed bottom-4 right-6 sm:right-14 md:right-32 lg:right-14 z-50  ">
+        <Button
+          variant="whatsapp"
+          size="rounded"
+          className="animate-bounce shadow-md"
+          onClick={handleOrderClick}
+        >
+          <span className="icon-[bi--whatsapp] text-2xl" />
+        </Button>
+      </div>
       <NewHero />
       <div className="flex flex-col place-content-center items-center overflow-hidden">
         <div className="w-11/12 max-w-7xl">

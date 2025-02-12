@@ -1,3 +1,4 @@
+import { Button } from "@/components/ui/button";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -77,14 +78,11 @@ export default function Shop() {
                   <h2 className="text-xl font-bold truncate">
                     {model.category}
                   </h2>
-                  <p className="text-xs text-zinc-600 line-clamp-2 h-10">
-                    {model.leyend}
-                  </p>
-                  <div className="flex justify-between items-center mt-2">
-                    <button className="bg-myZinc text-myWhite px-4 py-2 rounded-md hover:bg-zinc-200 transition-colors text-sm">
-                      Ver modelos
-                    </button>
-                    <span className="icon-[material-symbols--arrow-forward] text-myZinc text-xl bg-[#eae5df] p-2 rounded-md hover:bg-zinc-200 transition-colors" />
+                  <div className="flex justify-between items-center space-x-2">
+                    <p className="text-xs text-zinc-600 ">{model.leyend}</p>
+                    <Button variant="models">
+                      <span className="icon-[ic--baseline-collections] text-lg" />
+                    </Button>
                   </div>
                 </div>
               </div>

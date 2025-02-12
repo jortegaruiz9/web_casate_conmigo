@@ -1,48 +1,10 @@
 "use client";
-import { useContext } from "react";
-import { AdviserContext } from "../context/AdviserContext";
-import { sendGTMEvent, sendGAEvent } from "@next/third-parties/google";
-
-type Props = {
-  elements: { text: string; buttonText: string }[];
-};
-
-export default function Promo({ elements }: Props) {
-  const whatsapp = useContext(AdviserContext) as any;
-  const handleOrderClick = () => {
-    // Construir el enlace de WhatsApp con la información del producto y la imagen
-    const whatsappMessage = `Me interesa conocer más sobre sus anillos, pude revisar su web`;
-
-    // Reemplaza '1234567890' con tu número de teléfono de WhatsApp
-    const whatsappLink = `https://wa.me/+593${
-      whatsapp.adviser.tel
-    }?text=${encodeURIComponent(whatsappMessage)}`;
-
-    // Abrir el enlace en una nueva pestaña
-    window.open(whatsappLink, "_blank");
-  };
-
+import { inter } from "@/app/ui/fonts";
+export default function Promo() {
   return (
-    <div className="relative z-50">
-      <div className="bg-myZinc h-[40px] flex items-center justify-center text-white gap-2">
-        <h3>Adquiere tu anillo.</h3>
-        <button
-          className="flex items-center gap-1"
-          onClick={() => {
-            sendGAEvent({
-              event: "A-arrowWhatsapp",
-              value: "1789",
-            });
-            sendGTMEvent({
-              event: "arrowWhatsapp",
-              value: "789",
-            });
-            handleOrderClick();
-          }}
-        >
-          Agendar una cita
-          <span className="icon-[material-symbols--arrow-forward-rounded] text-3xl text-white hover:scale-110 transition-all" />
-        </button>
+    <div className={`relative z-50 ${inter.className}`}>
+      <div className="bg-myZinc h-[40px] flex items-center justify-center text-white">
+        <h2 className="text-sm">20% de descuento x San Valentin</h2>
       </div>
     </div>
   );
