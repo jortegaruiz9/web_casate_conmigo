@@ -95,7 +95,7 @@ export const rings = [
     grabado: true,
     grams: 4,
     garantia: true,
-    bestSeller: true,
+    bestSeller: false,
   },
   {
     category: "cintillos" as CategoryType,
@@ -125,7 +125,7 @@ export const rings = [
     grabado: true,
     grams: 4,
     garantia: true,
-    bestSeller: false,
+    bestSeller: true,
   },
   {
     category: "cintillos" as CategoryType,

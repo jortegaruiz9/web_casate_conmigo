@@ -50,7 +50,7 @@ export const rings = [
     grabado: true,
     grams: 2,
     garantia: true,
-    bestSeller: false,
+    bestSeller: true,
   },
   {
     category: "promesa" as CategoryType,
@@ -95,7 +95,7 @@ export const rings = [
     grabado: true,
     grams: 2,
     garantia: true,
-    bestSeller: true,
+    bestSeller: false,
   },
   {
     category: "promesa" as CategoryType,

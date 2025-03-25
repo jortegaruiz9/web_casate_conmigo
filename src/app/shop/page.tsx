@@ -15,7 +15,7 @@ const products = [
     url: "./shop/cintillos",
     category: "Cintillo - Churumbelas",
     src: "churumbelas en Quito",
-    imageUrl: "/modelos/cintillos/aci-003/portada.jpg",
+    imageUrl: "/modelos/cintillos/aci-001/amarillo.jpg",
     title: "Cintillos - Churumbelas",
     leyend: "Descubre el anillo de cintillo, un símbolo de amor verdadero. ",
   },
