@@ -288,7 +288,9 @@ export default function ShopTemplate() {
   return (
     <div className="flex flex-col items-center justify-center">
       <Button />
-      <h1 className="text-myZinc text-lg mb-10">Anillos de compromiso</h1>
+      <h1 className="text-myZinc text-lg mb-10 font-bold">
+        Anillos de Compromiso
+      </h1>
       <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-12">
         {rings.map((model, index) => {
           return <Card key={index} product={model as ProductType} />;

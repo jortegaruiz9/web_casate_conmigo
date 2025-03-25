@@ -13,11 +13,20 @@ import { title } from "process";
 const products = [
   {
     url: "./shop/cintillos",
-    category: "Cintillo",
-    src: "anillo de promesa quito",
+    category: "Cintillo - Churumbelas",
+    src: "churumbelas en Quito",
     imageUrl: "/modelos/cintillos/aci-003/portada.jpg",
-    title: "anillos de promesa",
+    title: "Cintillos - Churumbelas",
     leyend: "Descubre el anillo de cintillo, un símbolo de amor verdadero. ",
+  },
+  {
+    url: "./shop/promesa",
+    category: "Promesa",
+    src: "anillo de promesa en Quito",
+    imageUrl: "/modelos/promesa/ap-003/amarillo.jpg",
+    title: "Cintillos - Churumbelas",
+    leyend:
+      "Sorprende a tu pareja con un anillo de promesa, marcando un amor verdadero. ",
   },
   {
     url: "./shop/compromiso",
@@ -31,7 +40,7 @@ const products = [
   {
     url: "./shop/matrimonio",
     category: "Matrimonio",
-    src: "anillos de matriminio quito",
+    src: "anillos de matriminio Quito",
     imageUrl: "/modelos/matrimonio/am-019/amarillo.jpg",
     title: "anillos de matrimonio",
     leyend: "Los anillos de matrimonio, el lazo que une corazones.",
@@ -39,11 +48,21 @@ const products = [
   {
     url: "./shop/set",
     category: "Set Anillos",
-    src: "joyerias quito",
+    src: "joyerias en Quito",
     imageUrl: "/modelos/set/as-012/amarillo.jpg",
     title: "joyerias quito",
     leyend:
       "El Set de anillos, una hermosa fusión de compromiso y alianzas eternas. ",
+    bestSeller: true,
+  },
+  {
+    url: "./shop/grado",
+    category: "Grado",
+    src: "joyerias en Quito",
+    imageUrl: "/modelos/grado/ag-014/amarillo.jpg",
+    title: "joyerias quito",
+    leyend:
+      "Anillos de grado para cualquier ocación que conlleve celebración. ",
     bestSeller: true,
   },
 ];

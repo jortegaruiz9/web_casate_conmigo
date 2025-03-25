@@ -4,7 +4,7 @@ import ShopTemplate from "./Template";
 
 export const metadata: Metadata = {
   title: "Cintillos - Cásate Conmigo",
-  description: "anillos de promesa",
+  description: "Anillos cintillos - churumbelas",
 };
 
 export default function Shop() {

@@ -14,6 +14,8 @@ import Link from "next/link";
 import { rings as compromiseRings } from "@/app/shop/compromiso/Template";
 import { rings as marriageRings } from "@/app/shop/matrimonio/Template";
 import { rings as cintilloRings } from "@/app/shop/cintillos/Template";
+import { rings as promesaRings } from "@/app/shop/promesa/Template";
+import { rings as gradoRings } from "@/app/shop/grado/Template";
 import { rings as setRings } from "@/app/shop/set/Template";
 
 // Definir tipos
@@ -26,9 +28,11 @@ interface PageProps {
 // Mapeo de nombres de categorías para el breadcrumb
 const categoryNames: { [key: string]: string } = {
   compromiso: "Anillos de Compromiso",
+  promesa: "Anillos de promesa",
   matrimonio: "Anillos de Matrimonio",
   cintillos: "Cintillos",
   set: "Set de Anillos",
+  grado: "Anillos de grado",
 };
 
 // Componente de información del producto
@@ -140,6 +144,8 @@ export default function ProductPage({ params }: PageProps) {
         ...compromiseRings,
         ...marriageRings,
         ...cintilloRings,
+        ...promesaRings,
+        ...gradoRings,
         ...setRings,
       ];
       const found = allProducts.find((p) => p.model === params.slug);
