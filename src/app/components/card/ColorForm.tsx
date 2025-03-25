@@ -33,6 +33,9 @@ const ColorForm: React.FC<ColorFormProps> = ({
     // Precio plata inicial según la categoría
     let precioPlataInicial;
     switch (category) {
+      case "grado":
+        precioPlataInicial = PRECIOS.PLATA_GRADO;
+        break;
       case "matrimonio":
         precioPlataInicial = PRECIOS.PLATA_MATRIMONIO;
         break;
@@ -53,6 +56,8 @@ const ColorForm: React.FC<ColorFormProps> = ({
   const preciosPlata = {
     BañoAmarillo: (() => {
       switch (category) {
+        case "grado":
+          return PRECIOS.PLATA_GRADO;
         case "matrimonio":
           return PRECIOS.PLATA_MATRIMONIO;
         case "set":
@@ -63,6 +68,8 @@ const ColorForm: React.FC<ColorFormProps> = ({
     })(),
     BañoBlanco: (() => {
       switch (category) {
+        case "grado":
+          return PRECIOS.PLATA_GRADO;
         case "matrimonio":
           return PRECIOS.PLATA_MATRIMONIO;
         case "set":

@@ -33,6 +33,16 @@ module.exports = {
       changefreq: "daily",
     },
     {
+      loc: "/shop/promesa",
+      priority: 0.8,
+      changefreq: "daily",
+    },
+    {
+      loc: "/shop/grado",
+      priority: 0.8,
+      changefreq: "daily",
+    },
+    {
       loc: "/shop/set",
       priority: 0.8,
       changefreq: "daily",
@@ -49,7 +59,17 @@ module.exports = {
       changefreq: "weekly",
     },
     // Cintillos dinámicos
-    ...["ACI-001", "ACI-002", "ACI-003"].map((model) => ({
+    ...[
+      "ACI-001",
+      "ACI-002",
+      "ACI-003",
+      "ACI-004",
+      "ACI-005",
+      "ACI-006",
+      "ACI-007",
+      "ACI-008",
+      "ACI-009",
+    ].map((model) => ({
       loc: `/shop/${model}`,
       priority: 0.6,
       changefreq: "weekly",
@@ -75,6 +95,25 @@ module.exports = {
       "AC-017",
       "AC-019",
       "AC-020",
+    ].map((model) => ({
+      loc: `/shop/${model}`,
+      priority: 0.6,
+      changefreq: "weekly",
+    })),
+    // Promesa dinámicos
+    ...[
+      "AP-001",
+      "AP-002",
+      "AP-003",
+      "AP-004",
+      "AP-005",
+      "AP-006",
+      "AP-007",
+      "AP-008",
+      "AP-009",
+      "AP-010",
+      "AP-011",
+      "AP-012",
     ].map((model) => ({
       loc: `/shop/${model}`,
       priority: 0.6,
@@ -152,6 +191,29 @@ module.exports = {
       "AS-013",
       "AS-014",
       "AS-015",
+    ].map((model) => ({
+      loc: `/shop/${model}`,
+      priority: 0.6,
+      changefreq: "weekly",
+    })),
+    // Grado dinámicos
+    ...[
+      "AG-001",
+      "AG-002",
+      "AG-003",
+      "AG-004",
+      "AG-005",
+      "AG-006",
+      "AG-007",
+      "AG-008",
+      "AG-009",
+      "AG-010",
+      "AG-011",
+      "AG-012",
+      "AG-013",
+      "AG-014",
+      "AG-015",
+      "AG-016",
     ].map((model) => ({
       loc: `/shop/${model}`,
       priority: 0.6,

@@ -50,7 +50,7 @@ const guarantees = [
 
 const categories = [
   { type: "matrimonio", title: "Anillos de Matrimonio" },
-  { type: "cintillos", title: "Anillos de Promesa" },
+  { type: "cintillos", title: "Cintillos - Churumbelas" },
   { type: "set", title: "Sets de Anillos" },
 ] as const;
 

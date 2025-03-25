@@ -1,1 +1,1 @@
-export type CategoryType = "compromiso" | "matrimonio" | "set" | "cintillos"; 
+export type CategoryType = "compromiso"| "promesa" | "grado" | "matrimonio" | "set" | "cintillos"; 

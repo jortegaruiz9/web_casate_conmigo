@@ -67,10 +67,12 @@ let nav = [
 
 let typesOfRings = [
   { title: "Tipos de anillos" },
-  { title: "Anillo Promesa", direction: "/shop/cintillos" },
-  { title: "Anillo Compromiso", direction: "/shop/compromiso" },
+  { title: "Cintillos - Churumbelas", direction: "/shop/cintillos" },
+  { title: "Anillos Promesa", direction: "/shop/promesa" },
+  { title: "Anillos Compromiso", direction: "/shop/compromiso" },
   { title: "Anillos de Matrimonio", direction: "/shop/matrimonio" },
   { title: "Set de anillos", direction: "/shop/set" },
+  { title: "Anillos Grado", direction: "/shop/grado" },
 ];
 
 const age = new Date().getFullYear();

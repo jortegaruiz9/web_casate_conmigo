@@ -29,12 +29,14 @@ export default function Nav({ elements }: Props) {
       ],
     },
     {
-      category: "Anillos",
+      category: "Nuestros Anillos",
       items: [
         { name: "Cintillos", link: "/shop/cintillos" },
+        { name: "Promesa", link: "/shop/promesa" },
         { name: "Compromiso", link: "/shop/compromiso" },
         { name: "Matrimonio", link: "/shop/matrimonio" },
         { name: "Set Anillos", link: "/shop/set" },
+        { name: "Grado", link: "/shop/grado" },
       ],
     },
   ];
