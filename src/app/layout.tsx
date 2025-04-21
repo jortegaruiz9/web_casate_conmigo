@@ -60,7 +60,7 @@ export const metadata: Metadata = {
 // Elementos de navegación
 const items = [
   { name: "Catálogo", link: "/shop" },
-  { name: "Conoce más", link: "/explicacion" },
+  { name: "Artículos", link: "/articulos" },
   { name: "Nosotros", link: "/nosotros" },
 ];
 
