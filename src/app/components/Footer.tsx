@@ -61,7 +61,7 @@ let socialLinks = [
 let nav = [
   { title: "Navegación" },
   { title: "Catálogo", direction: "/shop" },
-  { title: "Conoce Más", direction: "/explicacion" },
+  { title: "Artículos", direction: "/articulos" },
   { title: "Nosotros", direction: "/nosotros" },
 ];
 

@@ -24,7 +24,7 @@ export default function Nav({ elements }: Props) {
       category: "Páginas de interés",
       items: [
         { name: "Catálogo", link: "/shop" },
-        { name: "Conoce más", link: "/explicacion" },
+        { name: "Artículos", link: "/articulos" },
         { name: "Nosotros", link: "/nosotros" },
       ],
     },
