@@ -16,7 +16,7 @@ export async function generateMetadata({
 
   if (!post) return {};
 
-  const fullUrl = `https://www.casateconmigo.ec/explicacion/${post.slug}`;
+  const fullUrl = `https://www.casateconmigo.ec/articulos/${post.slug}`;
   const fullImg = `https://www.casateconmigo.ec${post.img}`;
 
   return {
@@ -65,7 +65,7 @@ export default function Page({ params }: { params: { slug: string } }) {
     return shuffled.slice(0, count);
   };
 
-  const shareUrl = `https://www.casateconmigo.ec/explicacion/${post.slug}`;
+  const shareUrl = `https://www.casateconmigo.ec/articulos/${post.slug}`;
   const shareText = encodeURIComponent(`${post.title} — ${post.summary}`);
 
   const shareLinks = [
