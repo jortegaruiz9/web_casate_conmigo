@@ -208,13 +208,15 @@ export const Navbar = () => {
 
           <div className="py-2 lg:flex lg:justify-between lg:items-center lg:px-10 xl:px-20 xl:justify-around">
             <div className="lg:flex lg:flex-col lg:gap-y-4">
-              <Image
-                src="/logoWhite.svg"
-                alt="Veterinaria Rumipamba"
-                width={300}
-                height={80}
-                className="mb-8"
-              />
+              <Link href="/" onClick={() => setIsMenuOpen(false)}>
+                <Image
+                  src="/logoWhite.svg"
+                  alt="Veterinaria Rumipamba"
+                  width={300}
+                  height={80}
+                  className="mb-8"
+                />
+              </Link>
 
               <div className="space-y-4 mb-8">
                 <div className="flex items-center gap-x-2 text-white">
