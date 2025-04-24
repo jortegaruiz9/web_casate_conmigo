@@ -107,7 +107,7 @@ export const posts = [
     alt: "anillo de compromiso infinito",
 
     // Título completo y atractivo del artículo
-    title: "¿Conoce el anillo de compromiso del que todos hablan?",
+    title: "Conoce el anillo de compromiso del que todos hablan",
 
     // Breve texto para las cards (resumen visual)
     text: "Tendencias en este 2025 en anillos sencillos a partir de modelos clásicos y rescatados de una época antigua.",
