@@ -5,8 +5,6 @@ import { useState, useEffect, useContext } from "react";
 import { AdviserContext } from "@/app/context/AdviserContext";
 import { ScrollTo } from "@/app/utils/ScrollTo";
 import { inter } from "@/app/ui/fonts";
-import { sendGTMEvent, sendGAEvent } from "@next/third-parties/google";
-import { Button } from "@/components/ui/button";
 
 let socialLinks = [
   {
@@ -60,11 +58,10 @@ export const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [socialMedia, setSocialMedia] = useState(socialLinks[0]);
   const [formattedPhone, setFormattedPhone] = useState("");
-  const whatsapp = useContext(AdviserContext) as any;
-  const adviserName = useContext(AdviserContext) as any;
-  const adviser = adviserName.adviser.name;
 
-  // Bloquea scroll al abrir menú
+  const whatsapp = useContext(AdviserContext) as any;
+  const adviser = whatsapp.adviser.name;
+
   useEffect(() => {
     document.body.style.overflow = isMenuOpen ? "hidden" : "unset";
     return () => {
@@ -72,7 +69,6 @@ export const Navbar = () => {
     };
   }, [isMenuOpen]);
 
-  // Detectar scroll
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 55);
@@ -81,7 +77,6 @@ export const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Actualizar número formateado
   useEffect(() => {
     if (whatsapp?.adviser?.tel) {
       setFormattedPhone(formatPhone(whatsapp.adviser.tel));
