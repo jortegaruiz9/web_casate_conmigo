@@ -1,6 +1,5 @@
 import { Providers } from "./providers";
 import "./ui/globals.css";
-import Nav from "./components/Nav";
 import Footer from "./components/Footer";
 import AdviserContextProvider from "./context/AdviserContext";
 import { GoogleAnalytics, GoogleTagManager } from "@next/third-parties/google";
@@ -9,6 +8,7 @@ import { Metadata } from "next";
 import Promo from "./components/Promo";
 import CookieConsent from "./components/CookieConsent";
 import Script from "next/script";
+import { Navbar } from "@/components/Navbar";
 
 // Metadata para SEO
 export const metadata: Metadata = {
@@ -56,13 +56,6 @@ export const metadata: Metadata = {
     google: "tu-codigo-de-verificacion-de-google",
   },
 };
-
-// Elementos de navegación
-const items = [
-  { name: "Catálogo", link: "/shop" },
-  { name: "Artículos", link: "/articulos" },
-  { name: "Nosotros", link: "/nosotros" },
-];
 
 // RootLayout con optimización SEO
 export default function RootLayout({
@@ -151,13 +144,12 @@ export default function RootLayout({
           <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID || ""} />
           <header className="relative">
             <title>Cásate Conmigo</title>
-            <div className="relative z-50">
+            <div className="relative z-30">
               <Promo />
             </div>
             <div className="relative z-40">
-              <Nav elements={items} />
+              <Navbar />
             </div>
-            <hr className="border-gray-300" />
           </header>
           <main className="relative z-30">
             <Providers>{children}</Providers>
