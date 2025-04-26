@@ -123,7 +123,7 @@ export const Navbar = () => {
           <Image
             src="/logoBlack.svg"
             priority={true}
-            alt="logo de jortega"
+            alt="logo joyería cásate conmigo"
             width={180}
             height={36}
           />
@@ -152,7 +152,7 @@ export const Navbar = () => {
               <Image
                 src="/logoBlack.svg"
                 priority={true}
-                alt="logo de jortega"
+                alt="logo joyería cásate conmigo"
                 width={180}
                 height={36}
               />
@@ -211,7 +211,7 @@ export const Navbar = () => {
               <Link href="/" onClick={() => setIsMenuOpen(false)}>
                 <Image
                   src="/logoWhite.svg"
-                  alt="Veterinaria Rumipamba"
+                  alt="logo cásate conmigo joyería"
                   width={300}
                   height={80}
                   className="mb-8"
@@ -292,7 +292,7 @@ export const Navbar = () => {
                 </li>
               </ul>
               <Link
-                href="articulos"
+                href="/articulos"
                 onClick={() => handleNavClick("departamentos")}
                 className="block text-2xl text-white hover:text-blue-500 transition-colors duration-300"
               >

@@ -4,9 +4,11 @@ import { useRouter } from "next/navigation";
 import Image from "next/image";
 import { CategoryType } from "@/app/types/category";
 import { rings as matrimonioRings } from "@/app/shop/matrimonio/Template";
+import { rings as grado } from "@/app/shop/grado/Template";
 import { rings as compromisoRings } from "@/app/shop/compromiso/Template";
 import { rings as setRings } from "@/app/shop/set/Template";
 import { rings as cintilloRings } from "@/app/shop/cintillos/Template";
+import { rings as promesa } from "@/app/shop/promesa/Template";
 import { inter } from "@/app/ui/fonts";
 import {
   Carousel,
@@ -38,6 +40,10 @@ export default function RelatedProducts({
         return setRings;
       case "cintillos":
         return cintilloRings;
+      case "grado":
+        return grado;
+      case "promesa":
+        return promesa;
       default:
         return [];
     }
