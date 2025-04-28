@@ -89,9 +89,9 @@ export const posts = [
 
     // Enlaces a productos relacionados
     links: [
-      "/shop/AC-012",
-      "/shop/AC-010",
-      "/shop/AC-001",
+      "/shop/compromiso/AC-012",
+      "/shop/compromiso/AC-010",
+      "/shop/compromiso/AC-001",
     ],
   },
   {
@@ -140,7 +140,7 @@ export const posts = [
 
     // Enlaces a productos relacionados
     links: [
-      "/shop/AC-012",
+      "/shop/compromiso/AC-012",
     ],
   }
 ];
