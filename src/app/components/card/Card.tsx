@@ -1,12 +1,8 @@
 "use client";
 import { useState, useEffect } from "react";
-import Image from "next/image";
-import { montserrat, raleway } from "@/app/ui/fonts";
 import { CategoryType } from "@/app/types/category";
 import ColorForm from "./ColorForm";
-import WhatsAppButton from "./WhatsAppButton";
-import Adviser from "./Adviser";
-import InstructionModal from "./InstructionModal";
+
 import { Inter } from "next/font/google";
 import { useRouter } from "next/navigation";
 import OptimizedImage from "./OptimizedImage";
@@ -38,7 +34,6 @@ export default function Card({ product }: CardProps) {
     Rosa: product.imageRose ?? product.image,
   };
 
-  // Precarga de imágenes al montar el componente
   useEffect(() => {
     const preloadImages = () => {
       Object.values(imageMap).forEach((src) => {
@@ -87,11 +82,10 @@ export default function Card({ product }: CardProps) {
   }, [tipoOro, product.image, product.imageSilver, product.imageRose]);
 
   const handleNavigateToProduct = () => {
-    router.push(`/shop/${product.model}`);
+    router.push(`/shop/${product.category}/${product.model}`);
   };
 
   const handleTipoOroChange = (tipo: "Amarillo" | "Blanco" | "Rosa") => {
-    // Aplicar el cambio de imagen inmediatamente
     requestAnimationFrame(() => {
       setTipoOro(tipo);
       setImgProduct(imageMap[tipo]);
@@ -117,11 +111,14 @@ export default function Card({ product }: CardProps) {
             />
           </div>
         </div>
+
         {/* Parte de abajo */}
         <div
           className={`${inter.className} antialiased px-3 pt-3 text-myZinc text-sm flex flex-col gap-y-2`}
         >
-          <h2>{product.model}</h2>
+          <h2 className="cursor-pointer" onClick={handleNavigateToProduct}>
+            {product.model}
+          </h2>
           <div className="flex justify-between items-center">
             <h4 className="text-xs text-zinc-600">
               {tipoPlata
@@ -137,8 +134,9 @@ export default function Card({ product }: CardProps) {
           <div className="flex justify-between items-center">
             <h4 className="text-xs text-zinc-600">Oro 18k {tipoOro}</h4>
             <p>
-              $
-              {precioOro !== null ? `${precioOro.toFixed(2)}` : "No disponible"}
+              {precioOro !== null
+                ? `$${precioOro.toFixed(2)}`
+                : "No disponible"}
             </p>
           </div>
           <div className="flex justify-between items-center mt-2">

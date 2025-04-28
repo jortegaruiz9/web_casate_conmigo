@@ -112,10 +112,18 @@ export default function Page({ params }: { params: { slug: string } }) {
     >
       {/* HEADER */}
       <div className="p-6 sm:px-6 sm:py-8">
-        <Link href="/articulos" className="flex items-center mb-4">
-          <span className="icon-[topcoat--back]" />
-          Volver
-        </Link>
+        <nav className="flex items-center text-sm text-zinc-600 mb-6">
+          <Link href="/" className="hover:text-zinc-900">
+            Inicio
+          </Link>
+          <span className="mx-2 text-zinc-400">/</span>
+          <Link href="/articulos" className="hover:text-zinc-900">
+            Artículos
+          </Link>
+          <span className="mx-2 text-zinc-400">/</span>
+          <span className="text-zinc-900">{post.title}</span>
+        </nav>
+
         <h1 className="text-3xl sm:text-4xl font-semibold">{post.title}</h1>
         <p className="mt-2 text-lg sm:text-md whitespace-pre-line">
           {post.summary}

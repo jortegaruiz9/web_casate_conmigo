@@ -12,15 +12,26 @@ import { rings as compromisoRings } from "../shop/compromiso/Template";
 import { rings as cintillosRings } from "../shop/cintillos/Template";
 import { rings as setRings } from "../shop/set/Template";
 import { CategoryType } from "../types/category";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 interface RingsCarouselProps {
   category: CategoryType;
   title: string;
 }
 
+// Función para barajar los anillos de forma aleatoria
+function shuffleArray(array: any[]) {
+  const shuffled = [...array];
+  for (let i = shuffled.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+  }
+  return shuffled;
+}
+
 export default function RingsCarousel({ category, title }: RingsCarouselProps) {
   const [api, setApi] = useState<CarouselApi>();
+  const [randomRings, setRandomRings] = useState<any[]>([]);
 
   const getRingsByCategory = () => {
     switch (category) {
@@ -37,7 +48,12 @@ export default function RingsCarousel({ category, title }: RingsCarouselProps) {
     }
   };
 
-  const rings = getRingsByCategory();
+  // Cada vez que cambie la categoría, baraja los anillos
+  useEffect(() => {
+    const rings = getRingsByCategory();
+    const shuffledRings = shuffleArray(rings);
+    setRandomRings(shuffledRings);
+  }, [category]);
 
   return (
     <div className="w-full py-10">
@@ -72,7 +88,7 @@ export default function RingsCarousel({ category, title }: RingsCarouselProps) {
         className="w-full"
       >
         <CarouselContent>
-          {rings.slice(0, 8).map((ring, index) => (
+          {randomRings.slice(0, 8).map((ring, index) => (
             <CarouselItem
               key={index}
               className="basis-[300px] md:basis-1/3 lg:basis-1/4"

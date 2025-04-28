@@ -1,12 +1,11 @@
 "use client";
 
 import Button from "@/app/components/Button";
+import Link from "next/link";
 import Card from "@/app/components/card/Card";
-import InstructionColors from "@/app/components/InstructionColors";
 import { gtmPageView } from "@/app/lib/gtm";
 import { gaPageView } from "@/app/lib/ga";
 import { useEffect } from "react";
-import Image from "next/image";
 import { ProductType } from "../../types/product";
 import { CategoryType } from "@/app/types/category";
 
@@ -169,12 +168,12 @@ export const rings = [
   // },
   {
     category: "compromiso" as CategoryType,
-    image: "/modelos/compromiso/ac-018/amarillo.png",
-    imageSilver: "/modelos/compromiso/ac-018/blanco.png",
-    imageRose: "/modelos/compromiso/ac-018/rosado.png",
+    image: "/modelos/compromiso/ac-018/infinito-amarillo.jpg",
+    imageSilver: "/modelos/compromiso/ac-018/infinito-blanco.jpg",
+    imageRose: "/modelos/compromiso/ac-018/infinito-rosado.jpg",
     linkProduct:
       "https://www.instagram.com/p/DE6kN7NO_VB/?igsh=MTR1ZnUybjg3emVrbA==",
-    alt: "imagen modelo AC-01",
+    alt: "imagen modelo AC-012",
     model: "AC-012",
     color: "rosado",
     grabado: false,
@@ -285,11 +284,26 @@ export default function ShopTemplate() {
     gaPageView(window.location.href);
   }, []);
 
+  const categoryTitle = "Compromiso";
+
   return (
     <div className="flex flex-col items-center justify-center">
-      <Button />
-      <h1 className="text-myZinc text-lg mb-10 font-bold">
-        Anillos de Compromiso
+      {/* Breadcrumbs */}
+      <nav className="mt-8 mb-4 w-full pl-4 md:pl-36">
+        <ol className="flex items-center space-x-2 text-sm">
+          <li>
+            <Link href="/shop" className="text-zinc-600 hover:text-zinc-900">
+              Catálogo
+            </Link>
+          </li>
+          <li>
+            <span className="mx-2 text-zinc-400">/</span>
+            <span className="text-zinc-900">{categoryTitle}</span>
+          </li>
+        </ol>
+      </nav>
+      <h1 className="text-black mb-6 font-semibold">
+        Nuestros anillos de Compromiso
       </h1>
       <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-12">
         {rings.map((model, index) => {
