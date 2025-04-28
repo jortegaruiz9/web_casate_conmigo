@@ -291,7 +291,7 @@ export default function ProductClient({ params }: ClientPageProps) {
               tipoPlata={tipoPlata}
               precioOro={precioOro}
               precioPlata={precioPlata}
-              linkProduct={undefined}
+              linkProduct={`https://casateconmigo.ec/shop/${product.category}/${product.model}`}
               category={product.category}
             />
 

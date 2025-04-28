@@ -1,14 +1,21 @@
 import { Metadata } from "next";
 import ProductClient from "./ProductClient";
+import { findProductServer } from "./findProductServer";
 
-// Metadata básica basada solo en params
 export async function generateMetadata({
   params,
 }: {
   params: { category: string; slug: string };
 }): Promise<Metadata> {
-  const title = `Anillo ${params.slug} - Cásate Conmigo`;
-  const description = `Descubre el modelo ${params.slug} en nuestra colección de anillos de ${params.category}. Hecho artesanalmente en Ecuador.`;
+  const product = await findProductServer(params.category, params.slug); // 👈 ¡Faltaba el await!
+
+  const title = product
+    ? `Anillo ${product.model} - Cásate Conmigo`
+    : `Anillo ${params.slug} - Cásate Conmigo`;
+
+  const description = product
+    ? `Descubre el modelo ${product.model} en nuestra colección de anillos de ${product.category}. Hecho artesanalmente en Ecuador.`
+    : `Descubre el modelo ${params.slug} en nuestra colección de anillos de ${params.category}. Hecho artesanalmente en Ecuador.`;
 
   return {
     title,
@@ -21,17 +28,18 @@ export async function generateMetadata({
       siteName: "Cásate Conmigo",
       images: [
         {
-          url: `https://casateconmigo.ec/opengraph-default.jpg`, // (Opcional) Usa una imagen general si quieres
+          url: product
+            ? `https://casateconmigo.ec${product.image}`
+            : `https://casateconmigo.ec/opengraph-default.jpg`,
           width: 800,
           height: 600,
-          alt: "Cásate Conmigo - Anillos",
+          alt: product ? product.alt : "Cásate Conmigo - Anillos",
         },
       ],
     },
   };
 }
 
-// Componente principal
 export default function Page({
   params,
 }: {

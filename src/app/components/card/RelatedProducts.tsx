@@ -74,7 +74,9 @@ export default function RelatedProducts({
             >
               <div
                 className="cursor-pointer"
-                onClick={() => router.push(`/shop/${product.model}`)}
+                onClick={() =>
+                  router.push(`/shop/${category}/${product.model}`)
+                }
               >
                 <div className="relative aspect-square mb-2">
                   <Image
