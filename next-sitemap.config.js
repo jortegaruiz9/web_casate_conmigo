@@ -1,9 +1,9 @@
 const posts = require("./sitemap-posts");
 const products = require("./data/products");
 
-const generateShopPaths = (prefix, slugs) =>
+const generateShopPaths = (category, slugs) =>
   slugs.map((slug) => ({
-    loc: `/shop/${slug}`,
+    loc: `/shop/${category}/${slug}`,
     priority: 0.6,
     changefreq: "weekly",
   }));
@@ -33,13 +33,13 @@ module.exports = {
       changefreq: "weekly",
     })),
 
-    // Productos dinámicos
-    ...generateShopPaths("ACI", products.cintillos),
-    ...generateShopPaths("AC", products.compromiso),
-    ...generateShopPaths("AP", products.promesa),
-    ...generateShopPaths("AM", products.matrimonio),
-    ...generateShopPaths("AS", products.set),
-    ...generateShopPaths("AG", products.grado),
+    // Productos dinámicos corregidos
+    ...generateShopPaths("cintillos", products.cintillos),
+    ...generateShopPaths("compromiso", products.compromiso),
+    ...generateShopPaths("promesa", products.promesa),
+    ...generateShopPaths("matrimonio", products.matrimonio),
+    ...generateShopPaths("set", products.set),
+    ...generateShopPaths("grado", products.grado),
   ],
 
   transform: async (config, path) => {

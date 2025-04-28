@@ -1,4 +1,5 @@
 "use client";
+
 import NewHero from "./components/NewHero";
 import ReviewCarousel from "./components/ReviewsCarousel";
 import RingsCarousel from "./components/RingsCarousel";
@@ -98,10 +99,7 @@ export default function Home() {
           {/* Sección de Características */}
           <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 px-4 mb-16">
             {features.map((feature, index) => (
-              <div
-                key={index}
-                className="text-center p-6 bg-gray-100 rounded-lg"
-              >
+              <div key={index} className="text-center p-6 bg-gray-100 ">
                 <span className={`${feature.icon} text-4xl text-myZinc mb-4`} />
                 <h3 className="font-semibold text-myZinc mb-2">
                   {feature.title}
@@ -121,7 +119,7 @@ export default function Home() {
           ))}
 
           {/* Sección de Garantía */}
-          <section className="text-center py-12 px-4 bg-gray-100 my-16 rounded-lg">
+          <section className="text-center py-12 px-4 bg-gray-100 my-16 ">
             <h2 className="text-2xl font-semibold text-myZinc mb-6">
               Calidad Garantizada
             </h2>
@@ -139,7 +137,6 @@ export default function Home() {
               ))}
             </div>
           </section>
-
           {/* Reseñas */}
           <section className="mb-16">
             <h2 className="text-2xl font-semibold text-myZinc mb-8 text-center">
