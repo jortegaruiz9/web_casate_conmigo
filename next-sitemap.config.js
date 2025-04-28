@@ -1,5 +1,5 @@
-const posts = require("./sitemap-posts");
-const products = require("./data/products");
+const products = require("./src/app/data/products");
+const posts = require("./src/app/data/sitemap-posts");
 
 const generateShopPaths = (category, slugs) =>
   slugs.map((slug) => ({
@@ -13,6 +13,7 @@ module.exports = {
   generateRobotsTxt: true,
   sitemapSize: 5000,
   exclude: ["/api/*", "/admin/*", "/_next/*"],
+
   additionalPaths: async (config) => [
     // Páginas principales e informativas
     { loc: "/", priority: 1.0, changefreq: "daily" },
@@ -33,7 +34,7 @@ module.exports = {
       changefreq: "weekly",
     })),
 
-    // Productos dinámicos corregidos
+    // Productos dinámicos
     ...generateShopPaths("cintillos", products.cintillos),
     ...generateShopPaths("compromiso", products.compromiso),
     ...generateShopPaths("promesa", products.promesa),
