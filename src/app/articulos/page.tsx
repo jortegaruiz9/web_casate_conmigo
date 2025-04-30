@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 
 export default function Articulos() {
   return (
-    <div className={` ${inter.className} text-black px-6`}>
+    <div className={` ${inter.className} text-myZinc px-6`}>
       <div className="flex justify-center items-center">
         <div className="flex flex-col items-start gap-y-2 mt-10 sm:items-center sm:text-center">
           <p className="px-2 py-1 bg-zinc-200 text-xs">Todo sobre</p>
