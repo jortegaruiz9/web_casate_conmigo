@@ -6,7 +6,7 @@ import PostCard from "@/components/PostCard";
 import { Metadata } from "next";
 import { inter } from "@/app/ui/fonts";
 
-// ✅ SEO: Generar OpenGraph por post
+// ✅ SEO dinámico
 export async function generateMetadata({
   params,
 }: {
@@ -46,14 +46,6 @@ export async function generateMetadata({
     },
   };
 }
-
-const socialMedia = [
-  { app: "icon-[uim--facebook-f]" },
-  { app: "icon-[fa6-brands--whatsapp]" },
-  { app: "icon-[pajamas--x]" },
-  { app: "icon-[dashicons--linkedin]" },
-  { app: "icon-[mdi--telegram]" },
-];
 
 export default function Page({ params }: { params: { slug: string } }) {
   const post = posts.find((p) => p.slug === params.slug);
@@ -108,32 +100,34 @@ export default function Page({ params }: { params: { slug: string } }) {
 
   return (
     <div
-      className={`${inter.className} text-black sm:max-w-screen-md sm:mx-auto`}
+      className={`${inter.className} text-myZinc sm:max-w-screen-md sm:mx-auto`}
     >
-      {/* HEADER */}
+      {/* Navegación */}
       <div className="p-6 sm:px-6 sm:py-8">
-        <nav className="flex items-center text-sm text-zinc-600 mb-6">
-          <Link href="/" className="hover:text-zinc-900">
-            Inicio
-          </Link>
+        <nav className="text-sm md:flex md:items-center">
+          <Link href="/">Inicio</Link>
           <span className="mx-2 text-zinc-400">/</span>
-          <Link href="/articulos" className="hover:text-zinc-900">
-            Artículos
-          </Link>
+          <Link href="/articulos">Artículos</Link>
           <span className="mx-2 text-zinc-400">/</span>
-          <span className="text-zinc-900">{post.title}</span>
+          <div className="pr-6 md:pr-0">
+            <span className="text-zinc-900 text-xs md:text-sm mt-4">
+              {post.title}
+            </span>
+          </div>
         </nav>
-
-        <h1 className="text-3xl sm:text-4xl font-semibold">{post.title}</h1>
+        <h1 className="text-3xl sm:text-4xl font-semibold mt-4">
+          {post.title}
+        </h1>
         <p className="mt-2 text-lg sm:text-md whitespace-pre-line">
           {post.summary}
         </p>
         <h6 className="mt-4 text-sm text-zinc-500">
           por <strong className="text-black">Sandra Ortega</strong>
         </h6>
+
         <hr className="my-6" />
 
-        {/* Íconos para compartir */}
+        {/* Redes sociales */}
         <div className="flex flex-wrap justify-center gap-3 mt-4">
           {shareLinks.map((s, i) => (
             <a
@@ -188,24 +182,29 @@ export default function Page({ params }: { params: { slug: string } }) {
         <p className="mb-4 font-light leading-tight">{post.descriptionImg3}</p>
         <div dangerouslySetInnerHTML={{ __html: post.content3 }} />
 
-        {/* Enlaces sugeridos */}
+        {/* Enlaces sugeridos con nombre personalizado */}
         {post.links && post.links.length > 0 && (
           <div className="mt-6 space-y-3">
-            <h5 className="font-semibold">Enlaces a modelos sugeridos:</h5>
-            {post.links.map((url, i) => (
-              <Link
-                key={i}
-                href={url}
-                rel="noopener noreferrer"
-                className="block underline text-blue-600 hover:text-blue-800 font-semibold"
-              >
-                Ranking {i + 1} de nuestro post
-              </Link>
-            ))}
+            <h5 className="font-semibold">Enlaces sugeridos:</h5>
+            {post.links.map((link, i) => {
+              const isObject =
+                typeof link === "object" && "href" in link && "label" in link;
+              return (
+                <Link
+                  key={i}
+                  href={isObject ? link.href : (link as string)}
+                  rel="noopener noreferrer"
+                  className="block underline text-blue-600 hover:text-blue-800 font-semibold"
+                >
+                  {isObject ? link.label : `Ranking ${i + 1} de nuestro post`}
+                </Link>
+              );
+            })}
           </div>
         )}
       </div>
 
+      {/* Redes sociales - parte inferior */}
       <div className="p-6">
         <hr />
         <div className="py-6 flex flex-col items-center">
@@ -230,7 +229,7 @@ export default function Page({ params }: { params: { slug: string } }) {
 
       {/* Otros posts */}
       <div className="p-6">
-        <h6 className="text-lg font-medium">Otros post de interés:</h6>
+        <h6 className="text-lg font-medium">Otros posts de interés:</h6>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-4">
           {getRandomPosts(post.slug, 3).map((p) => (
             <PostCard key={p.slug} post={p} />
