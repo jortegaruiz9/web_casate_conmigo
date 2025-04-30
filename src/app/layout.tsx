@@ -98,11 +98,11 @@ export default function RootLayout({
           <Script
             id="gtm-script"
             strategy="afterInteractive"
-            src={`https://www.googletagmanager.com/gtm.js?id=GTM-PCZR7KW9`}
+            src={`https://www.googletagmanager.com/gtm.js?id=GTM-PVV3DFSP`}
           />
           <noscript>
             <iframe
-              src="https://www.googletagmanager.com/ns.html?id=GTM-PCZR7KW9"
+              src="https://www.googletagmanager.com/ns.html?id=GTM-PVV3DFSP"
               height="0"
               width="0"
               style={{ display: "none", visibility: "hidden" }}
