@@ -5,7 +5,7 @@ import Script from "next/script";
 
 // Usar el ID original de GTM
 const GTM_ID = process.env.NEXT_PUBLIC_GTM_ID || "GTM-PVV3DFSP";
-const GA_ID = "G-ZKWNJCQD3D";
+const GA_ID = "G-PGHRC21TQD";
 
 const GoogleTagManager = () => {
   return (

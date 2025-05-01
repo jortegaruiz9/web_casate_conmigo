@@ -1,7 +1,7 @@
 export const initializeConsent = () => {
   window.dataLayer = window.dataLayer || [];
   window.dataLayer.push({
-    'gtag_id': 'G-ZKWNJCQD3D',
+    'gtag_id': 'G-PGHRC21TQD',
     'cookie_flags': 'SameSite=None;Secure',
     'analytics_storage': 'granted',
     'ad_storage': 'granted',
