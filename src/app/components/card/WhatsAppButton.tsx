@@ -69,7 +69,7 @@ ${
     }?text=${encodeURIComponent(whatsappMessage)}`;
 
     sendGAEvent({ event: "A-buttonComprar", value: "1910" });
-    sendGTMEvent({ event: "buttonComprar", value: "910" });
+    sendGTMEvent({ event: "GTM-COTIZACION", value: "910" });
 
     window.open(whatsappLink, "_blank");
   };
