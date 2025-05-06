@@ -40,7 +40,7 @@ const guarantees = [
     text: "Material Certificado",
   },
   {
-    icon: "icon-[material-symbols--warranty]",
+    icon: "icon-[subway--save]",
     text: "Garantía por un año",
   },
   {
