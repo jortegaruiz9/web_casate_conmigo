@@ -43,16 +43,29 @@ const WhatsAppButton: React.FC<WhatsAppButtonProps> = ({
 
     let tallaMessage = "";
     if (isDoubleRing) {
-      tallaMessage = `• Tallas:
+      tallaMessage = `• Talla:
     - Talla él: ${selectedSize || "Necesito asesoría"}
     - Talla ella: ${selectedSizeWoman || "Necesito asesoría"}`;
     } else {
       tallaMessage = `• Talla: ${selectedSize || "Necesito asesoría"}`;
     }
 
+    // Determinar el material y precio
+    let materialMessage = "";
+    if (precioOro !== null && precioOro > 0) {
+      materialMessage = `• Material: Oro 18k ${tipoOro}
+• Precio: $${precioOro.toFixed(2)}`;
+    } else if (precioPlata !== null && precioPlata > 0) {
+      materialMessage = `• Material: Plata 925 con baño ${tipoPlata}
+• Precio: $${precioPlata.toFixed(2)}`;
+    } else {
+      materialMessage =
+        "• Material: Necesito información sobre materiales y precios";
+    }
+
     const whatsappMessage = `¡Hola! Me interesa el modelo ${model}
 
-• Color: ${tipoOro}
+${materialMessage}
 ${tallaMessage}
 ${
   selectedCity
@@ -61,6 +74,14 @@ ${
 }
 
 ➡️ Ver producto: ${linkProduct || "No disponible"}`;
+
+    console.log("Debug - Material Info:", {
+      precioOro,
+      precioPlata,
+      tipoOro,
+      tipoPlata,
+      materialMessage,
+    });
 
     console.log("Mensaje final:", whatsappMessage);
 
@@ -77,7 +98,7 @@ ${
   return (
     <button
       onClick={handleOrderClick}
-      className="w-full py-3 px-4 bg-myZinc text-white flex items-center justify-center gap-2 hover:bg-zinc-700 transition-colors mt-6"
+      className="w-full py-2 px-4 bg-myZinc text-white flex items-center justify-center rounded-[10px] h-12 gap-2 hover:bg-zinc-700 transition-colors"
     >
       <span className="icon-[ri--whatsapp-fill] text-xl" />
       <span>Comprar por WhatsApp</span>

@@ -1,3 +1,74 @@
+# Cásate Conmigo - Tienda Web
+
+Aplicación web para la tienda de anillos de compromiso y matrimonio "Cásate Conmigo".
+
+## Características
+
+- Catálogo de anillos por categorías
+- Sistema de pedidos en línea
+- Integración con Payphone para procesamiento de pagos
+- Panel de administración para gestión de pedidos
+
+## Tecnologías
+
+- Next.js 14 (App Router)
+- TypeScript
+- Tailwind CSS
+- Payphone como gateway de pago
+
+## Configuración
+
+### Requisitos previos
+
+- Node.js 18 o superior
+- npm o yarn
+- Cuenta en Payphone
+
+### Instalación
+
+1. Clonar el repositorio:
+
+   ```
+   git clone https://github.com/tu-usuario/web-casate-conmigo.git
+   cd web-casate-conmigo
+   ```
+
+2. Instalar dependencias:
+
+   ```
+   npm install
+   ```
+
+3. Configurar variables de entorno:
+   Crea un archivo `.env.local` en la raíz del proyecto con las siguientes variables:
+
+   ```
+   # Payphone API
+   NEXT_PUBLIC_PAYPHONE_TOKEN=tu_token_payphone
+   NEXT_PUBLIC_PAYPHONE_STORE_ID=tu_store_id_payphone
+   PAYPHONE_TOKEN=tu_token_payphone
+
+   # Admin Email
+   ADMIN_EMAIL=admin@casateconmigo.ec
+   ```
+
+4. Iniciar el servidor de desarrollo:
+   ```
+   npm run dev
+   ```
+
+## Sistema de Pagos
+
+La integración con Payphone se realiza mediante una página dedicada de checkout, que mejora la experiencia del usuario y evita problemas de redirección.
+
+## Flujo de Compra
+
+1. El usuario selecciona un producto y configura sus opciones (material, talla, grabado)
+2. Completa sus datos personales y de envío
+3. Es redirigido a la página de checkout para realizar el pago
+4. Después del pago exitoso, es redirigido a la página de confirmación
+5. El usuario puede compartir los detalles de su pedido con un asesor vía WhatsApp
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started

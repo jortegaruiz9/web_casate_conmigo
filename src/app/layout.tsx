@@ -68,6 +68,55 @@ export default function RootLayout({
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta charSet="UTF-8" />
+        {/* Script de EmailJS para envío de correos */}
+        <Script
+          id="emailjs-init"
+          strategy="beforeInteractive"
+          src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"
+        />
+        <Script
+          id="emailjs-config"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function() {
+                function initEmailJS() {
+                  if (typeof window.emailjs !== 'undefined') {
+                    try {
+                      window.emailjs.init('7g9Eo75qyHjgNk4Ai');
+                      console.log('EmailJS inicializado correctamente');
+                    } catch (err) {
+                      console.error('Error al inicializar EmailJS:', err);
+                    }
+                  } else {
+                    console.error('EmailJS no está disponible al inicializar');
+                  }
+                }
+                
+                // Intentar inicializar inmediatamente
+                initEmailJS();
+                
+                // Como respaldo, intentar de nuevo cuando la ventana esté completamente cargada
+                window.addEventListener('load', function() {
+                  if (typeof window.emailjs === 'undefined') {
+                    console.error('EmailJS no se cargó correctamente, intentando cargar de nuevo');
+                    
+                    // Intentar cargar el script manualmente
+                    const script = document.createElement('script');
+                    script.src = 'https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js';
+                    script.onload = function() {
+                      console.log('Script de EmailJS cargado manualmente');
+                      initEmailJS();
+                    };
+                    document.head.appendChild(script);
+                  } else {
+                    console.log('EmailJS está disponible a nivel global');
+                  }
+                });
+              })();
+            `,
+          }}
+        />
         <Script
           id="gtm-init"
           strategy="beforeInteractive"
