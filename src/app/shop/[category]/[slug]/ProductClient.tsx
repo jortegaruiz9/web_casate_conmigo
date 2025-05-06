@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState, useRef, useCallback } from "react";
 import { notFound } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
@@ -265,7 +265,7 @@ export default function ProductClient({ params }: ClientPageProps) {
 
         // Datos del pago
         precio: formData.precio,
-        precioCaja: formData.cajaSeleccionada === "led" ? 20 : 0,
+        ...(formData.cajaSeleccionada === "led" ? { precioCaja: 20 } : {}),
         total: calcularTotal().total,
 
         // Datos necesarios para Payphone
@@ -285,31 +285,59 @@ export default function ProductClient({ params }: ClientPageProps) {
     }
   };
 
-  // Función para manejar la finalización del pago
-  const handlePaymentComplete = async (response: any) => {
-    try {
-      // Cerrar el modal primero
-      setShowPayphoneModal(false);
+  // Función para calcular el total
+  const calcularTotal = () => {
+    const precioBase = Number(formData.precio || 0);
+    // Solo considerar precio de la caja si es LED
+    const precioCaja = formData.cajaSeleccionada === "led" ? 20 : 0;
+    const subtotal = precioBase + precioCaja;
+    const impuestoPayphone = Math.round(subtotal * 0.0605 * 100) / 100;
+    return {
+      subtotal,
+      impuestoPayphone,
+      total: subtotal + impuestoPayphone,
+    };
+  };
 
-      console.log("Respuesta inicial Payphone:", response);
+  // Optimizar handlePaymentComplete con useCallback para evitar recreaciones
+  const memoizedHandlePaymentComplete = useCallback(
+    async (response: any) => {
+      try {
+        // Cerrar el modal primero
+        setShowPayphoneModal(false);
 
-      // Validar que tenemos los datos necesarios
-      if (!response.transactionId || !response.clientTransactionId) {
-        console.error("Datos de transacción incompletos", response);
-        return;
-      }
+        console.log("Respuesta inicial Payphone:", response);
 
-      // Consultar detalles de la transacción mediante API
-      const verificationResponse = await fetch("/api/payment/verify", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          id: response.transactionId,
-          clientTransactionId: response.clientTransactionId,
-          // Añadir los datos del pedido para el envío del email de confirmación
-          orderData: {
+        // Validar que tenemos los datos necesarios
+        if (!response.transactionId || !response.clientTransactionId) {
+          console.error("Datos de transacción incompletos", response);
+          return;
+        }
+
+        // Consultar detalles de la transacción mediante API
+        const verificationResponse = await fetch(
+          `/api/payment/verify?id=${response.transactionId}`,
+          {
+            method: "GET",
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        );
+
+        if (!verificationResponse.ok) {
+          throw new Error("Error al verificar el pago");
+        }
+
+        const paymentDetails = await verificationResponse.json();
+        console.log("Detalles de verificación:", paymentDetails);
+
+        // Si el pago está aprobado
+        if (paymentDetails.statusCode === 3) {
+          // 3 = Aprobado según la doc de Payphone
+          // Crear objeto con datos para confirmación
+          const totales = calcularTotal();
+          const confirmationData = {
             // Datos del producto
             productModel: product.model,
             productCategory: product.category,
@@ -333,98 +361,87 @@ export default function ProductClient({ params }: ClientPageProps) {
 
             // Datos del pago
             precio: formData.precio,
-            precioCaja: formData.cajaSeleccionada === "led" ? 20 : 0,
-            subtotal: calcularTotal().subtotal,
-            impuestoPayphone: calcularTotal().impuestoPayphone,
-            total: calcularTotal().total,
-          },
-        }),
-      });
+            ...(formData.cajaSeleccionada === "led" ? { precioCaja: 20 } : {}),
+            subtotal: totales.subtotal,
+            impuestoPayphone: totales.impuestoPayphone,
+            total: totales.total,
 
-      if (!verificationResponse.ok) {
-        throw new Error("Error al verificar el pago");
-      }
+            // Datos de la transacción Payphone
+            transactionId: paymentDetails.transactionId,
+            authorizationCode: paymentDetails.authorizationCode || "",
+            lastDigits: paymentDetails.lastDigits || "",
 
-      const paymentDetails = await verificationResponse.json();
-      console.log("Detalles de pago verificados:", paymentDetails);
+            // Información sobre el email de confirmación
+            emailSent: paymentDetails.emailSent || false,
+          };
 
-      // Si el pago está aprobado
-      if (paymentDetails.statusCode === 3) {
-        // 3 = Aprobado según la doc de Payphone
-        // Crear objeto con datos para confirmación
-        const totales = calcularTotal();
-        const confirmationData = {
-          // Datos del producto
-          productModel: product.model,
-          productCategory: product.category,
-          material: formData.material,
-          color: formData.material === "Oro" ? tipoOro : tipoPlata,
-          size: selectedSize,
-          sizeWoman: selectedSizeWoman,
-          grabadoEl: formData.grabadoEl,
-          grabadoElla: formData.grabadoElla,
-          cajaSeleccionada: formData.cajaSeleccionada,
+          // Guardar en sessionStorage como respaldo en caso de problemas con la URL
+          sessionStorage.setItem(
+            "orderConfirmation",
+            JSON.stringify(confirmationData)
+          );
 
-          // Datos del cliente
-          nombres: formData.nombres,
-          apellidos: formData.apellidos,
-          telefono: formData.telefono,
-          cedula: formData.cedula,
-          email: formData.email,
-          ciudad: selectedCity,
-          direccion: formData.direccion,
-          tipoEntrega: formData.tipoEntrega,
+          // Almacenar también en localStorage para mayor persistencia
+          localStorage.setItem(
+            "pendingOrderDetails",
+            JSON.stringify(confirmationData)
+          );
 
-          // Datos del pago
-          precio: formData.precio,
-          precioCaja: formData.cajaSeleccionada === "led" ? 20 : 0,
-          subtotal: totales.subtotal,
-          impuestoPayphone: totales.impuestoPayphone,
-          total: totales.total,
+          // Serializar y codificar datos para URL
+          const encodedData = encodeURIComponent(
+            JSON.stringify(confirmationData)
+          );
 
-          // Datos de la transacción Payphone
-          transactionId: paymentDetails.transactionId,
-          authorizationCode: paymentDetails.authorizationCode || "",
-          lastDigits: paymentDetails.lastDigits || "",
-
-          // Información sobre el email de confirmación
-          emailSent: paymentDetails.emailSent || false,
-        };
-
-        // Guardar en sessionStorage como respaldo en caso de problemas con la URL
-        sessionStorage.setItem(
-          "orderConfirmation",
-          JSON.stringify(confirmationData)
-        );
-
-        // Almacenar también en localStorage para mayor persistencia
-        localStorage.setItem(
-          "pendingOrderDetails",
-          JSON.stringify(confirmationData)
-        );
-
-        // Serializar y codificar datos para URL
-        const encodedData = encodeURIComponent(
-          JSON.stringify(confirmationData)
-        );
-
-        // Redireccionar a la página de confirmación
-        window.location.href = `/payment/success?data=${encodedData}`;
-      } else {
-        // Mostrar error si el pago no está aprobado
+          // Redireccionar a la página de confirmación
+          window.location.href = `/payment/success?data=${encodedData}`;
+        } else {
+          // Mostrar error si el pago no está aprobado
+          alert(
+            `Error en el pago: ${
+              paymentDetails.message || "No se pudo completar la transacción"
+            }`
+          );
+        }
+      } catch (error) {
+        console.error("Error en el proceso de pago:", error);
         alert(
-          `Error en el pago: ${
-            paymentDetails.message || "No se pudo completar la transacción"
-          }`
+          "Hubo un error al procesar el pago. Por favor, intenta nuevamente."
         );
       }
-    } catch (error) {
-      console.error("Error en el proceso de pago:", error);
-      alert(
-        "Hubo un error al procesar el pago. Por favor, intenta nuevamente."
-      );
-    }
-  };
+    },
+    [
+      product,
+      formData,
+      selectedSize,
+      selectedSizeWoman,
+      selectedCity,
+      tipoOro,
+      tipoPlata,
+      calcularTotal,
+    ]
+  );
+
+  useEffect(() => {
+    const handleMessage = (event: MessageEvent) => {
+      // Monitorear si se detecta un evento de redirección
+      console.log("Mensaje recibido en ventana principal:", event.data);
+
+      if (event.data?.type === "PAYMENT_COMPLETE" && !redirected.current) {
+        console.log("Pago completado, preparando redirección");
+        redirected.current = true;
+        setShowPayphoneModal(false);
+        setTimeout(() => {
+          memoizedHandlePaymentComplete(event.data.data);
+        }, 500);
+      }
+    };
+
+    window.addEventListener("message", handleMessage);
+    return () => {
+      window.removeEventListener("message", handleMessage);
+      redirected.current = false;
+    };
+  }, [memoizedHandlePaymentComplete]);
 
   // Función para actualizar el precio cuando cambia el material
   const handleMaterialChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
@@ -450,45 +467,10 @@ export default function ProductClient({ params }: ClientPageProps) {
     }));
   };
 
-  // Función para calcular el total
-  const calcularTotal = () => {
-    const precioBase = Number(formData.precio || 0);
-    const precioCaja = formData.cajaSeleccionada === "led" ? 20 : 0;
-    const subtotal = precioBase + precioCaja;
-    const impuestoPayphone = Math.round(subtotal * 0.0605 * 100) / 100;
-    return {
-      subtotal,
-      impuestoPayphone,
-      total: subtotal + impuestoPayphone,
-    };
-  };
-
   const handleCityChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const value = e.target.value;
     setSelectedCity(value);
   };
-
-  useEffect(() => {
-    const handleMessage = (event: MessageEvent) => {
-      // Monitorear si se detecta un evento de redirección
-      console.log("Mensaje recibido en ventana principal:", event.data);
-
-      if (event.data?.type === "PAYMENT_COMPLETE" && !redirected.current) {
-        console.log("Pago completado, preparando redirección");
-        redirected.current = true;
-        setShowPayphoneModal(false);
-        setTimeout(() => {
-          handlePaymentComplete(event.data.data);
-        }, 500);
-      }
-    };
-
-    window.addEventListener("message", handleMessage);
-    return () => {
-      window.removeEventListener("message", handleMessage);
-      redirected.current = false;
-    };
-  }, []);
 
   if (isLoading) return <div>Cargando...</div>;
   if (!product) return notFound();
@@ -1101,17 +1083,18 @@ export default function ProductClient({ params }: ClientPageProps) {
                 <div className="w-11/12 flex justify-center bg-gray-200 rounded-[10px] text-xs">
                   {typeForm === "pay" ? (
                     <p className="text-xs px-4 py-2">
-                      Al hacer clic en "Comprar Ahora", aceptas nuestros
-                      Términos y Condiciones y reconoces que tu pago será
-                      procesado de forma segura. Tu información de pago está
-                      encriptada y no será almacenada después de esta
+                      Al hacer clic en &quot;Comprar Ahora&quot;, aceptas
+                      nuestros Términos y Condiciones y reconoces que tu pago
+                      será procesado de forma segura. Tu información de pago
+                      está encriptada y no será almacenada después de esta
                       transacción.
                     </p>
                   ) : (
                     <p className="text-xs px-4 py-2">
-                      Al hacer clic en "Cotizar por WhatsApp", contactarás con
-                      un asesor que recibirá este modelo y podrás pedirle
-                      información sobre tallas, grabado, precios y material
+                      Al hacer clic en &quot;Cotizar por WhatsApp&quot;,
+                      contactarás con un asesor que recibirá este modelo y
+                      podrás pedirle información sobre tallas, grabado, precios
+                      y material
                     </p>
                   )}
                 </div>
@@ -1352,7 +1335,7 @@ export default function ProductClient({ params }: ClientPageProps) {
         paymentData={paymentData}
         token={process.env.NEXT_PUBLIC_PAYPHONE_TOKEN || ""}
         storeId={process.env.NEXT_PUBLIC_PAYPHONE_STORE_ID || ""}
-        onPaymentComplete={handlePaymentComplete}
+        onPaymentComplete={memoizedHandlePaymentComplete}
       />
     </div>
   );

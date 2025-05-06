@@ -1,12 +1,17 @@
 "use client";
 
-import { useEffect, useState, useContext } from "react";
-import { useSearchParams, useRouter } from "next/navigation";
-import Link from "next/link";
-import { inter } from "@/app/ui/fonts";
-import { AdviserContext } from "@/app/context/AdviserContext";
+import { Suspense } from "react";
 
 export default function PaymentFailedPage() {
+  return (
+    <Suspense fallback={<div>Cargando...</div>}>
+      <PaymentFailedContent />
+    </Suspense>
+  );
+}
+
+// Componente con todo el contenido actual
+function PaymentFailedContent() {
   const searchParams = useSearchParams();
   const router = useRouter();
   const { adviser } = useContext(AdviserContext);
@@ -143,3 +148,10 @@ export default function PaymentFailedPage() {
     </div>
   );
 }
+
+// Importaciones necesarias para el componente
+import { useEffect, useState, useContext } from "react";
+import { useSearchParams, useRouter } from "next/navigation";
+import Link from "next/link";
+import { inter } from "@/app/ui/fonts";
+import { AdviserContext } from "@/app/context/AdviserContext";

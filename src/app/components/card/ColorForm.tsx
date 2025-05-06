@@ -50,7 +50,7 @@ const ColorForm: React.FC<ColorFormProps> = ({
     // Precio oro inicial
     const precioOroInicial = grams * PRECIOS.ORO_AMARILLO;
     setPrecioOro(precioOroInicial);
-  }, []); // Solo se ejecuta al montar el componente
+  }, [category, grams, setPrecioOro, setPrecioPlata]); // Incluir todas las dependencias
 
   // Precalcular precios según la categoría
   const preciosPlata = {

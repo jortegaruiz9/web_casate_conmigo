@@ -42,7 +42,7 @@ export default function Card({ product }: CardProps) {
       });
     };
     preloadImages();
-  }, [product.image, product.imageSilver, product.imageRose]);
+  }, [product.image, product.imageSilver, product.imageRose, imageMap]);
 
   const [imgProduct, setImgProduct] = useState(imageMap.Amarillo);
   const precioPlataInicial =

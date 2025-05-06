@@ -1,7 +1,8 @@
 "use client";
 
-import { useContext, useEffect, useState } from "react";
+import { Suspense } from "react";
 import { useSearchParams } from "next/navigation";
+import { useContext, useEffect, useState } from "react";
 import Link from "next/link";
 import { AdviserContext } from "@/app/context/AdviserContext";
 
@@ -55,6 +56,15 @@ declare global {
 }
 
 export default function PaymentSuccessPage() {
+  return (
+    <Suspense fallback={<div>Cargando...</div>}>
+      <PaymentSuccessContent />
+    </Suspense>
+  );
+}
+
+// Componente con todo el contenido actual
+function PaymentSuccessContent() {
   const searchParams = useSearchParams();
   const { adviser } = useContext(AdviserContext);
   const [loading, setLoading] = useState(true);
