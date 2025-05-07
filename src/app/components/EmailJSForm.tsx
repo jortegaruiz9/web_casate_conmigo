@@ -76,7 +76,7 @@ export default function EmailJSForm({
       }
 
       const serviceID = "default_service";
-      const templateID = "template_uvsnwjl";
+      const templateID = "template_8xccjbi";
 
       // Usar exactamente el mismo método que muestra el ejemplo del usuario
       console.log("Enviando formulario con EmailJS...");

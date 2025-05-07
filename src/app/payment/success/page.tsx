@@ -31,6 +31,7 @@ interface OrderDetails {
   transactionId?: string;
   authorizationCode?: string;
   lastDigits?: string;
+  adviser?: { name: string };
   [key: string]: any; // Para permitir acceso dinámico a propiedades
 }
 
@@ -122,6 +123,23 @@ function PaymentSuccessContent() {
           typeof window.emailjs !== "undefined"
         ) {
           console.log("Enviando email de confirmación automáticamente...");
+          console.log("Datos del pedido para correo:", orderData);
+
+          // Verificar si hay información del asesor
+          let asesorLetra = "N/A";
+          if (orderData.adviser && orderData.adviser.name) {
+            asesorLetra = orderData.adviser.name.toUpperCase().charAt(0);
+            console.log(
+              "Información del asesor encontrada:",
+              orderData.adviser,
+              "- Letra:",
+              asesorLetra
+            );
+          } else {
+            console.log(
+              "No se encontró información del asesor en los datos del pedido"
+            );
+          }
 
           // Usar una versión inline de la función para evitar problemas de dependencias
           try {
@@ -183,6 +201,9 @@ ${
 *Comisión Payphone (6.05%):* $${impuesto.toFixed(2)}
 *Total:* $${total.toFixed(2)}
 
+*INFORMACIÓN ADICIONAL*
+------------------------
+*Asesor:* ${asesorLetra}
 *ID transacción:* ${orderData.transactionId || "No disponible"}
 ${
   orderData.authorizationCode
@@ -196,23 +217,15 @@ ${orderData.lastDigits ? `*Últimos dígitos:* ${orderData.lastDigits}` : ""}
 
             const response = await window.emailjs.send(
               "default_service",
-              "template_uvsnwjl",
+              "template_8xccjbi",
               {
-                title: `Confirmación de Pedido - ${
-                  orderData.productModel || "Anillo"
-                }`,
                 name: `${orderData.nombres || ""} ${orderData.apellidos || ""}`,
                 time: new Date().toLocaleString(),
                 message: detailedMessage,
                 email: orderData.email,
-                to_email: orderData.email,
-                to_name: `${orderData.nombres || ""} ${
-                  orderData.apellidos || ""
-                }`,
-                product_model: orderData.productModel || "Anillo",
-                material: orderData.material || "",
-                color: orderData.color || "",
-                total: `$${total.toFixed(2)}`,
+                title: `Confirmación de Pedido - ${
+                  orderData.productModel || "Anillo"
+                } - Asesor: ${asesorLetra}`,
               }
             );
 
@@ -355,6 +368,23 @@ ${orderData.lastDigits ? `*Últimos dígitos:* ${orderData.lastDigits}` : ""}
       console.log(
         "Enviando email directamente desde el cliente con datos completos"
       );
+      console.log("Datos del pedido para reenvío:", orderData);
+
+      // Verificar si hay información del asesor
+      let asesorLetra = "N/A";
+      if (orderData.adviser && orderData.adviser.name) {
+        asesorLetra = orderData.adviser.name.toUpperCase().charAt(0);
+        console.log(
+          "Información del asesor encontrada para reenvío:",
+          orderData.adviser,
+          "- Letra:",
+          asesorLetra
+        );
+      } else {
+        console.log(
+          "No se encontró información del asesor en los datos del pedido para reenvío"
+        );
+      }
 
       // Calcular totales si es necesario
       const subtotal = orderData.subtotal
@@ -417,6 +447,9 @@ ${
 *Comisión Payphone (6.05%):* $${impuesto.toFixed(2)}
 *Total:* $${total.toFixed(2)}
 
+*INFORMACIÓN ADICIONAL*
+------------------------
+*Asesor:* ${asesorLetra}
 *ID transacción:* ${orderData.transactionId || "No disponible"}
 ${
   orderData.authorizationCode
@@ -431,24 +464,15 @@ ${orderData.lastDigits ? `*Últimos dígitos:* ${orderData.lastDigits}` : ""}
       // Usar directamente la función send de EmailJS en el cliente
       const response = await window.emailjs.send(
         "default_service",
-        "template_uvsnwjl",
+        "template_8xccjbi",
         {
-          // Campos básicos que espera el formulario de ejemplo
-          title: `Confirmación de Pedido - ${
-            orderData.productModel || "Anillo"
-          }`,
           name: `${orderData.nombres || ""} ${orderData.apellidos || ""}`,
           time: new Date().toLocaleString(),
           message: detailedMessage,
           email: orderData.email,
-
-          // Datos básicos del pedido para la plantilla (mantenemos estos por compatibilidad)
-          to_email: orderData.email,
-          to_name: `${orderData.nombres || ""} ${orderData.apellidos || ""}`,
-          product_model: orderData.productModel || "Anillo",
-          material: orderData.material || "",
-          color: orderData.color || "",
-          total: `$${total.toFixed(2)}`,
+          title: `Confirmación de Pedido - ${
+            orderData.productModel || "Anillo"
+          }`,
         }
       );
 

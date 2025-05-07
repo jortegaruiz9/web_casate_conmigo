@@ -129,13 +129,22 @@ export const Navbar = () => {
           />
         </Link>
         <button
-          className="w-10 h-10 rounded-full flex items-center justify-center"
+          className="w-10 h-10 rounded-full flex items-center justify-center relative z-[51]"
           onClick={() => setIsMenuOpen(!isMenuOpen)}
         >
           <span
-            className={`transition-transform duration-300 ${
-              isMenuOpen ? "rotate-90" : ""
-            } icon-[material-symbols-light--menu] text-black text-xl`}
+            className={`${
+              isMenuOpen
+                ? "hidden"
+                : "icon-[material-symbols-light--menu] text-black text-xl"
+            }`}
+          />
+          <span
+            className={`${
+              isMenuOpen
+                ? "icon-[material-symbols--close] text-white text-xl"
+                : "hidden"
+            }`}
           />
         </button>
       </div>
@@ -171,13 +180,22 @@ export const Navbar = () => {
                 </li>
               </ul>
               <button
-                className="w-10 h-10 rounded-full bg-myZinc flex items-center justify-center hover:bg-gradient-to-b hover:bg-myZinc/90 transition duration-500"
+                className="w-10 h-10 rounded-full bg-myZinc flex items-center justify-center hover:bg-gradient-to-b hover:bg-myZinc/90 transition duration-500 relative z-[51]"
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
               >
                 <span
-                  className={`transition-transform duration-300 ${
-                    isMenuOpen ? "rotate-90" : ""
-                  } icon-[material-symbols-light--menu] text-white text-xl`}
+                  className={`${
+                    isMenuOpen
+                      ? "hidden"
+                      : "icon-[material-symbols-light--menu] text-white text-xl"
+                  }`}
+                />
+                <span
+                  className={`${
+                    isMenuOpen
+                      ? "icon-[material-symbols--close] text-white text-xl"
+                      : "hidden"
+                  }`}
                 />
               </button>
             </div>
@@ -198,12 +216,7 @@ export const Navbar = () => {
       >
         <div className="min-h-screen px-6">
           <div className="h-20 relative">
-            <button
-              onClick={() => setIsMenuOpen(false)}
-              className="absolute right-0 top-1/2 -translate-y-1/2 text-white p-2"
-            >
-              <span className="icon-[material-symbols--close] text-2xl" />
-            </button>
+            {/* Eliminamos el botón de cerrar aquí ya que ahora usamos el mismo botón que el de apertura */}
           </div>
 
           <div className="py-2 lg:flex lg:justify-between lg:items-center lg:px-10 xl:px-20 xl:justify-around">

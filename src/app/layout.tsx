@@ -14,13 +14,13 @@ import { Navbar } from "@/components/Navbar";
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.casateconmigo.ec"),
   title: {
-    default: "Cásate Conmigo - Anillos de Compromiso y Matrimonio",
+    default: "Joyería Cásate Conmigo",
     template: "%s | Cásate Conmigo",
   },
   description: "Encuentra el anillo perfecto para tu momento especial",
   keywords: ["anillos", "compromiso", "matrimonio", "joyas", "oro", "plata"],
   openGraph: {
-    title: "Cásate Conmigo - Anillos de Compromiso y Matrimonio",
+    title: "Joyería Cásate Conmigo",
     description: "Encuentra el anillo perfecto para tu momento especial",
     url: "https://www.casateconmigo.ec",
     siteName: "Cásate Conmigo",
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
         url: "/og-image.jpg", // Esta imagen debe estar en la carpeta public
         width: 1200,
         height: 630,
-        alt: "Cásate Conmigo - Anillos",
+        alt: "Cásate Conmigo - Anillos de boda",
       },
     ],
     locale: "es_EC",
@@ -37,7 +37,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Cásate Conmigo - Anillos de Compromiso y Matrimonio",
+    title: "Joyería Cásate Conmigo",
     description: "Encuentra el anillo perfecto para tu momento especial",
     images: ["/og-image.jpg"],
   },

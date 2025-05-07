@@ -89,9 +89,57 @@ async function sendConfirmationEmail(orderData: OrderDetails, paymentDetails: an
     // Datos para enviar a EmailJS
     const data = {
       service_id: 'default_service', // Usar el serviceID proporcionado por el usuario
-      template_id: 'template_uvsnwjl', // Usar el templateID proporcionado por el usuario
+      template_id: 'template_8xccjbi', // Usar el templateID proporcionado por el usuario
       user_id: '7g9Eo75qyHjgNk4Ai', // Tu user_id de EmailJS
-      template_params: templateParams
+      template_params: {
+        name: `${orderData.nombres || ""} ${orderData.apellidos || ""}`,
+        time: new Date().toLocaleString('es-EC', {
+          weekday: 'long',
+          year: 'numeric',
+          month: 'long',
+          day: 'numeric',
+          hour: '2-digit',
+          minute: '2-digit'
+        }),
+        message: `
+*DATOS DEL PEDIDO*
+------------------------
+*Producto:* ${orderData.productModel || "No disponible"}
+*Categoría:* ${orderData.productCategory || "No disponible"}
+*Material:* ${orderData.material || "No disponible"} ${orderData.color || ""}
+${orderData.size ? `*Talla:* ${orderData.size}` : ""}
+${orderData.sizeWoman ? `*Talla mujer:* ${orderData.sizeWoman}` : ""}
+${orderData.grabadoEl ? `*Grabado él:* ${orderData.grabadoEl}` : ""}
+${orderData.grabadoElla ? `*Grabado ella:* ${orderData.grabadoElla}` : ""}
+*Caja:* ${orderData.cajaSeleccionada === "led" ? "Caja LED" : "Caja Gamuza"}
+
+*DATOS DE ENTREGA*
+------------------------
+*Ciudad:* ${orderData.ciudad || "No disponible"}
+*Dirección:* ${orderData.direccion || "No disponible"}
+*Método de entrega:* ${orderData.tipoEntrega === "envio" ? "Envío Gratuito Servientrega" : "Retiro en tienda Quito"}
+*Teléfono:* +593${orderData.telefono || "No disponible"}
+*Email:* ${orderData.email}
+
+*RESUMEN DE PAGO*
+------------------------
+${orderData.precio ? `*Precio base:* $${Number(orderData.precio).toFixed(2)}` : ""}
+${orderData.precioCaja && Number(orderData.precioCaja) > 0 ? `*Caja LED:* $${Number(orderData.precioCaja).toFixed(2)}` : ""}
+*Subtotal:* $${subtotal.toFixed(2)}
+*Comisión Payphone (6.05%):* $${impuesto.toFixed(2)}
+*Total:* $${total.toFixed(2)}
+
+*ID transacción:* ${orderData.transactionId || paymentDetails.transactionId || "No disponible"}
+${orderData.authorizationCode || paymentDetails.authorizationCode ? 
+  `*Código autorización:* ${orderData.authorizationCode || paymentDetails.authorizationCode}` : ""}
+${orderData.lastDigits || paymentDetails.lastDigits ? 
+  `*Últimos dígitos:* ${orderData.lastDigits || paymentDetails.lastDigits}` : ""}
+
+¡Gracias por tu compra!
+`,
+        email: orderData.email,
+        title: `Confirmación de Pedido - ${orderData.productModel || "Anillo"}`
+      }
     };
     
     console.log('Intentando enviar email con los siguientes parámetros:', data);

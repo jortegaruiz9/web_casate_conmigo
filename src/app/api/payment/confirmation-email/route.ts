@@ -55,21 +55,27 @@ export async function POST(request: Request) {
       // Simplificar drásticamente el objeto para descartar problemas de formato
       const emailJSData = {
         service_id: 'default_service',
-        template_id: 'template_uvsnwjl',
+        template_id: 'template_8xccjbi',
         user_id: '7g9Eo75qyHjgNk4Ai',
         template_params: {
-          // Campos básicos que espera el formulario de ejemplo
-          title: "Confirmación de Pedido",
           name: orderData.nombres || "Cliente",
           time: new Date().toLocaleString(),
-          message: "Tu pedido ha sido confirmado. Gracias por tu compra.",
+          message: `
+*DATOS DEL PEDIDO*
+------------------------
+*Producto:* ${orderData.productModel || "No disponible"}
+*Categoría:* ${orderData.productCategory || "No disponible"}
+*Material:* ${orderData.material || "No disponible"} ${orderData.color || ""}
+${orderData.size ? `*Talla:* ${orderData.size}` : ""}
+${orderData.sizeWoman ? `*Talla mujer:* ${orderData.sizeWoman}` : ""}
+${orderData.grabadoEl ? `*Grabado él:* ${orderData.grabadoEl}` : ""}
+${orderData.grabadoElla ? `*Grabado ella:* ${orderData.grabadoElla}` : ""}
+*Caja:* ${orderData.cajaSeleccionada === "led" ? "Caja LED" : "Caja Gamuza"}
+
+¡Gracias por tu compra!
+`,
           email: orderData.email,
-          
-          // Datos básicos del pedido para la plantilla
-          to_email: orderData.email,
-          to_name: orderData.nombres || "Cliente",
-          product_model: orderData.productModel || "Anillo",
-          total: orderData.total || "0.00"
+          title: `Confirmación de Pedido - ${orderData.productModel || "Anillo"}`
         }
       };
       
