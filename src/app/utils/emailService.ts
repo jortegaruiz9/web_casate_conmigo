@@ -27,6 +27,12 @@ export const sendEmail = async (
       throw new Error('EmailJS no está disponible en el cliente');
     }
 
+    console.log('Enviando email con EmailJS - Params:', {
+      serviceId,
+      templateId,
+      userId: userId || 'default'
+    });
+
     // Enviar correo electrónico
     const response = await window.emailjs.send(
       serviceId,
@@ -52,6 +58,8 @@ export const sendOrderConfirmationEmail = async (
   orderData: any
 ): Promise<{ status: number; text: string }> => {
   try {
+    console.log('Iniciando envío de correo de confirmación. Datos recibidos:', orderData);
+    
     // Calcular totales si es necesario
     const subtotal = orderData.subtotal 
       ? Number(orderData.subtotal)
@@ -64,54 +72,83 @@ export const sendOrderConfirmationEmail = async (
     const total = orderData.total 
       ? Number(orderData.total)
       : subtotal + impuesto;
+    
+    // Comprobar información del asesor
+    let asesorLetra = "N/A";
+    if (orderData.adviser && orderData.adviser.name) {
+      asesorLetra = orderData.adviser.name.toUpperCase().charAt(0);
+    }
+    
+    console.log('Información del asesor - Letra:', asesorLetra);
 
     // Preparar parámetros para la plantilla
     const templateParams = {
-      to_email: orderData.email,
-      to_name: `${orderData.nombres} ${orderData.apellidos}`,
-      product_model: orderData.productModel || 'No disponible',
-      product_category: orderData.productCategory || 'No disponible',
-      material: orderData.material || 'No disponible',
-      color: orderData.color || 'No disponible',
-      size: orderData.size?.toString() || 'N/A',
-      size_woman: orderData.sizeWoman?.toString() || 'N/A',
-      grabado_el: orderData.grabadoEl || 'N/A',
-      grabado_ella: orderData.grabadoElla || 'N/A',
-      caja: orderData.cajaSeleccionada === "led" ? "Caja LED" : "Caja Gamuza",
-      ciudad: orderData.ciudad || 'No disponible',
-      direccion: orderData.direccion || 'No disponible',
-      metodo_entrega: orderData.tipoEntrega === "envio" 
-        ? "Envío Gratuito Servientrega" 
-        : "Retiro en tienda Quito",
-      telefono: orderData.telefono || 'No disponible',
-      precio_base: orderData.precio ? `$${Number(orderData.precio).toFixed(2)}` : 'N/A',
-      precio_caja: orderData.precioCaja && Number(orderData.precioCaja) > 0 
-        ? `$${Number(orderData.precioCaja).toFixed(2)}` 
-        : '$0.00',
-      subtotal: `$${subtotal.toFixed(2)}`,
-      comision: `$${impuesto.toFixed(2)}`,
-      total: `$${total.toFixed(2)}`,
-      transaction_id: orderData.transactionId || 'No disponible',
-      authorization_code: orderData.authorizationCode || 'No disponible',
-      last_digits: orderData.lastDigits || 'No disponible',
-      payment_date: new Date().toLocaleString('es-EC', {
+      name: `${orderData.nombres} ${orderData.apellidos}`,
+      time: new Date().toLocaleString('es-EC', {
         weekday: 'long',
         year: 'numeric',
         month: 'long',
         day: 'numeric',
         hour: '2-digit',
         minute: '2-digit'
-      })
+      }),
+      message: `
+*DATOS DEL PEDIDO*
+------------------------
+*Producto:* ${orderData.productModel || "No disponible"}
+*Categoría:* ${orderData.productCategory || "No disponible"}
+*Material:* ${orderData.material || "No disponible"} ${orderData.color || ""}
+${orderData.size ? `*Talla:* ${orderData.size}` : ""}
+${orderData.sizeWoman ? `*Talla mujer:* ${orderData.sizeWoman}` : ""}
+${orderData.grabadoEl ? `*Grabado él:* ${orderData.grabadoEl}` : ""}
+${orderData.grabadoElla ? `*Grabado ella:* ${orderData.grabadoElla}` : ""}
+*Caja:* ${orderData.cajaSeleccionada === "led" ? "Caja LED" : "Caja Gamuza"}
+
+*DATOS DE ENTREGA*
+------------------------
+*Ciudad:* ${orderData.ciudad || "No disponible"}
+*Dirección:* ${orderData.direccion || "No disponible"}
+*Método de entrega:* ${orderData.tipoEntrega === "envio" ? "Envío Gratuito Servientrega" : "Retiro en tienda Quito"}
+*Teléfono:* +593${orderData.telefono || "No disponible"}
+*Email:* ${orderData.email}
+
+*RESUMEN DE PAGO*
+------------------------
+${orderData.precio ? `*Precio base:* $${Number(orderData.precio).toFixed(2)}` : ""}
+${orderData.precioCaja && Number(orderData.precioCaja) > 0 ? `*Caja LED:* $${Number(orderData.precioCaja).toFixed(2)}` : ""}
+*Subtotal:* $${subtotal.toFixed(2)}
+*Comisión Payphone (6.05%):* $${impuesto.toFixed(2)}
+*Total:* $${total.toFixed(2)}
+
+*INFORMACIÓN ADICIONAL*
+------------------------
+*Asesor:* ${asesorLetra}
+*ID transacción:* ${orderData.transactionId || "No disponible"}
+${orderData.authorizationCode ? `*Código autorización:* ${orderData.authorizationCode}` : ""}
+${orderData.lastDigits ? `*Últimos dígitos:* ${orderData.lastDigits}` : ""}
+
+¡Gracias por tu compra!
+`,
+      email: orderData.email,
+      title: `Confirmación de Pedido - ${orderData.productModel || "Anillo"} - Asesor: ${asesorLetra}`,
     };
 
-    console.log('Enviando email con los siguientes parámetros:', templateParams);
+    console.log('Enviando email con los siguientes parámetros:', {
+      recipient: templateParams.email,
+      title: templateParams.title,
+      messageLength: templateParams.message.length,
+      asesorLetra: asesorLetra
+    });
 
     // Enviar correo de confirmación
-    return await sendEmail(
+    const response = await sendEmail(
       'default_service', // Usar el serviceID proporcionado por el usuario
-      'template_uvsnwjl', // Usar el templateID proporcionado por el usuario
+      'template_8xccjbi', // Usar el templateID proporcionado por el usuario
       templateParams
     );
+    
+    console.log('Respuesta de EmailJS después de enviar:', response);
+    return response;
   } catch (error) {
     console.error('Error al enviar correo de confirmación:', error);
     throw error;

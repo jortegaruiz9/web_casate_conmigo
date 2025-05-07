@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState, useRef, useCallback } from "react";
+import { useEffect, useState, useRef, useCallback, useContext } from "react";
 import { notFound } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
@@ -10,6 +10,7 @@ import SizeModal from "@/app/components/SizeModal";
 import WhatsAppButton from "@/app/components/card/WhatsAppButton";
 import RelatedProducts from "@/app/components/card/RelatedProducts";
 import PayphoneModal from "@/app/components/PayphoneModal";
+import { AdviserContext } from "@/app/context/AdviserContext";
 
 // Importar arrays de productos
 import { rings as compromiseRings } from "@/app/shop/compromiso/Template";
@@ -55,6 +56,7 @@ function findProduct(category: string, slug: string) {
 
 // Componente cliente
 export default function ProductClient({ params }: ClientPageProps) {
+  const { adviser } = useContext(AdviserContext);
   const [imgProduct, setImgProduct] = useState("");
   const [typeForm, setTypeForm] = useState("cotizar");
   const [product, setProduct] = useState<any>(null);
@@ -263,6 +265,9 @@ export default function ProductClient({ params }: ClientPageProps) {
         direccion: formData.direccion,
         tipoEntrega: formData.tipoEntrega,
 
+        // Datos del asesor
+        adviser: adviser,
+
         // Datos del pago
         precio: formData.precio,
         ...(formData.cajaSeleccionada === "led" ? { precioCaja: 20 } : {}),
@@ -359,6 +364,9 @@ export default function ProductClient({ params }: ClientPageProps) {
             direccion: formData.direccion,
             tipoEntrega: formData.tipoEntrega,
 
+            // Datos del asesor
+            adviser: adviser,
+
             // Datos del pago
             precio: formData.precio,
             ...(formData.cajaSeleccionada === "led" ? { precioCaja: 20 } : {}),
@@ -418,6 +426,7 @@ export default function ProductClient({ params }: ClientPageProps) {
       tipoOro,
       tipoPlata,
       calcularTotal,
+      adviser,
     ]
   );
 
@@ -1044,7 +1053,7 @@ export default function ProductClient({ params }: ClientPageProps) {
                   <div className="w-full flex justify-center text-sm py-4">
                     <div className="w-11/12 space-y-3">
                       <div
-                        className={`flex gap-x-2 ${
+                        className={`flex items-center gap-x-2 ${
                           formErrors.tipoEntrega ? "text-red-500" : ""
                         }`}
                       >
@@ -1054,11 +1063,14 @@ export default function ProductClient({ params }: ClientPageProps) {
                           value="envio"
                           onChange={handleInputChange}
                           checked={formData.tipoEntrega === "envio"}
+                          className="w-5 h-5 cursor-pointer"
                         />
-                        <span>Envío Gratuito Servientrega</span>
+                        <span className="text-base">
+                          Envío Gratuito Servientrega
+                        </span>
                       </div>
                       <div
-                        className={`flex gap-x-2 ${
+                        className={`flex items-center gap-x-2 ${
                           formErrors.tipoEntrega ? "text-red-500" : ""
                         }`}
                       >
@@ -1068,8 +1080,11 @@ export default function ProductClient({ params }: ClientPageProps) {
                           value="retiro"
                           onChange={handleInputChange}
                           checked={formData.tipoEntrega === "retiro"}
+                          className="w-5 h-5 cursor-pointer"
                         />
-                        <span>Retiro en tienda Quito</span>
+                        <span className="text-base">
+                          Retiro en tienda Quito
+                        </span>
                       </div>
                       {formErrors.tipoEntrega && (
                         <p className="text-red-500 text-xs">
