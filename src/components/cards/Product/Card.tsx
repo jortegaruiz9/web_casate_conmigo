@@ -1,8 +1,7 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { CategoryType } from "@/app/types/category";
 import ColorForm from "./ColorForm";
-
 import { Inter } from "next/font/google";
 import { useRouter } from "next/navigation";
 import OptimizedImage from "./OptimizedImage";
@@ -28,11 +27,14 @@ interface CardProps {
 
 export default function Card({ product }: CardProps) {
   const [isCreateModalOpen, setIsCreateModalOpen] = useState(false);
-  const imageMap = {
-    Amarillo: product.image,
-    Blanco: product.imageSilver ?? product.image,
-    Rosa: product.imageRose ?? product.image,
-  };
+  const imageMap = useMemo(
+    () => ({
+      Amarillo: product.image,
+      Blanco: product.imageSilver ?? product.image,
+      Rosa: product.imageRose ?? product.image,
+    }),
+    [product.image, product.imageSilver, product.imageRose]
+  );
 
   useEffect(() => {
     const preloadImages = () => {
@@ -42,7 +44,7 @@ export default function Card({ product }: CardProps) {
       });
     };
     preloadImages();
-  }, [product.image, product.imageSilver, product.imageRose, imageMap]);
+  }, [imageMap]);
 
   const [imgProduct, setImgProduct] = useState(imageMap.Amarillo);
   const precioPlataInicial =

@@ -6,15 +6,15 @@ import {
   CarouselItem,
   type CarouselApi,
 } from "@/components/ui/carousel";
-import Card from "./card/Card";
-import { ProductType } from "../types/product";
+import Card from "@/components/cards/Product/Card";
+import { ProductType } from "@/app/types/product";
 
 interface ProductsCarouselProps {
   products: ProductType[];
   maxProducts?: number;
 }
 
-const ProductsCarousel: React.FC<ProductsCarouselProps> = ({
+const Products: React.FC<ProductsCarouselProps> = ({
   products,
   maxProducts = 8,
 }) => {
@@ -66,4 +66,4 @@ const ProductsCarousel: React.FC<ProductsCarouselProps> = ({
   );
 };
 
-export default ProductsCarousel;
+export default Products;

@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { inter } from "../ui/fonts";
+import { inter } from "@/app/ui/fonts";
 type Props = {
   adviser: {
     image: string;
@@ -10,7 +10,7 @@ type Props = {
   };
 };
 
-export default function CardAdviser({ adviser }: Props) {
+export default function Adviser({ adviser }: Props) {
   return (
     <div className="w-[100%] h-[200px] lg:h-[280px] flex items-end relative shadow-lg text-myWhite">
       <Image

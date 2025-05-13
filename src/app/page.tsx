@@ -1,8 +1,8 @@
 "use client";
 
-import NewHero from "./components/NewHero";
-import ReviewCarousel from "./components/ReviewsCarousel";
-import RingsCarousel from "./components/RingsCarousel";
+import Hero from "@/components/top/Hero";
+import Reviews from "@/components/carrousel/Reviews";
+import Rings from "@/components/carrousel/Rings";
 import { inter } from "./ui/fonts";
 import { Button } from "@/components/ui/button";
 import { AdviserContext } from "./context/AdviserContext";
@@ -78,11 +78,11 @@ export default function Home() {
           <span className="icon-[bi--whatsapp] text-2xl" />
         </Button>
       </div>
-      <NewHero />
+      <Hero />
       <div className="flex flex-col place-content-center items-center overflow-hidden">
         <div className="w-11/12 max-w-7xl">
           {/* Carrusel de Compromiso */}
-          <RingsCarousel category="compromiso" title="Anillos de Compromiso" />
+          <Rings category="compromiso" title="Anillos de Compromiso" />
 
           {/* Sección de Introducción */}
           <section className="text-center py-12 px-4">
@@ -111,7 +111,7 @@ export default function Home() {
 
           {/* Carruseles de Productos */}
           {categories.map((category, index) => (
-            <RingsCarousel
+            <Rings
               key={index}
               category={category.type}
               title={category.title}
@@ -142,7 +142,7 @@ export default function Home() {
             <h2 className="text-2xl font-semibold text-myZinc mb-8 text-center">
               Lo que Dicen Nuestros Clientes
             </h2>
-            <ReviewCarousel />
+            <Reviews />
           </section>
         </div>
       </div>

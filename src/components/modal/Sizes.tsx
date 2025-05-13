@@ -3,7 +3,7 @@ import { createPortal } from "react-dom";
 import { inter } from "@/app/ui/fonts";
 import { CategoryType } from "@/app/types/category";
 
-interface SizeModalProps {
+interface SizesProps {
   showSizes: boolean;
   setShowSizes: (show: boolean) => void;
   selectedSize: number | null;
@@ -13,7 +13,7 @@ interface SizeModalProps {
   setSelectedSizeWoman?: (size: number | null) => void;
 }
 
-export default function SizeModal({
+export default function Sizes({
   showSizes,
   setShowSizes,
   selectedSize,
@@ -21,7 +21,7 @@ export default function SizeModal({
   category,
   selectedSizeWoman,
   setSelectedSizeWoman,
-}: SizeModalProps) {
+}: SizesProps) {
   if (!showSizes) return null;
 
   const isDoubleRing = category === "set" || category === "matrimonio";

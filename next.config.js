@@ -32,6 +32,17 @@ const nextConfig = {
         destination: "https://www.casateconmigo.ec/:path*",
         permanent: true,
       },
+      {
+        source: "/:path*",
+        has: [
+          {
+            type: "host",
+            value: "casateconmigo.ec",
+          },
+        ],
+        destination: "https://www.casateconmigo.ec/:path*",
+        permanent: true,
+      },
     ];
   },
 };

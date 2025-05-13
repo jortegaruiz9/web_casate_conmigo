@@ -1,10 +1,10 @@
 "use client";
 import Image from "next/image";
 import { useContext, useState, useEffect } from "react";
-import { AdviserContext } from "../context/AdviserContext";
+import { AdviserContext } from "@/app/context/AdviserContext";
 import Link from "next/link";
-import { montserrat } from "../ui/fonts";
-import BrandCarousel from "./BrandCarousel";
+import { montserrat } from "@/app/ui/fonts";
+import BrandCarousel from "@/components/sup/BrandCarousel";
 
 let socialLinks = [
   {

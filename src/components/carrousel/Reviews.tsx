@@ -5,8 +5,6 @@ import {
   Carousel,
   CarouselContent,
   CarouselItem,
-  CarouselPrevious,
-  CarouselNext,
   type CarouselApi,
 } from "@/components/ui/carousel";
 
@@ -132,7 +130,7 @@ const reviews = [
   },
 ];
 
-const ReviewCarousel: React.FC = () => {
+const Reviews: React.FC = () => {
   const [shuffledReviews, setShuffledReviews] = useState(reviews);
   const [api, setApi] = React.useState<CarouselApi>();
 
@@ -201,4 +199,4 @@ const ReviewCarousel: React.FC = () => {
   );
 };
 
-export default ReviewCarousel;
+export default Reviews;

@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 
-export default function PostCard({ post }: { post: any }) {
+export default function Post({ post }: { post: any }) {
   return (
     <div className="bg-myZinc flex flex-col overflow-hidden shadow-md transition hover:scale-[1.01]">
       <Link href={`/articulos/${post.slug}`} className="flex flex-col h-full">

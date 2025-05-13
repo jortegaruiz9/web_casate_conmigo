@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState, useRef, useCallback } from "react";
 import { createPortal } from "react-dom";
 
 interface PayphoneModalProps {
@@ -74,19 +74,22 @@ export default function PayphoneModal({
   }, [isOpen, onClose]);
 
   // Función para manejar el cierre del modal
-  const handlePaymentSuccess = (data: any) => {
-    console.log("Pago exitoso detectado, cerrando modal...", data);
+  const handlePaymentSuccess = useCallback(
+    (data: any) => {
+      console.log("Pago exitoso detectado, cerrando modal...", data);
 
-    setPaymentCompleted(true);
+      setPaymentCompleted(true);
 
-    // Agregar setTimeout para asegurar que se muestre el feedback antes del cierre
-    setTimeout(() => {
-      if (onPaymentComplete) {
-        onPaymentComplete(data);
-      }
-      onClose(); // Cerrar inmediatamente
-    }, 300);
-  };
+      // Agregar setTimeout para asegurar que se muestre el feedback antes del cierre
+      setTimeout(() => {
+        if (onPaymentComplete) {
+          onPaymentComplete(data);
+        }
+        onClose(); // Cerrar inmediatamente
+      }, 300);
+    },
+    [onClose, onPaymentComplete]
+  );
 
   useEffect(() => {
     // Limpiamos el set de mensajes procesados cuando se abre/cierra el modal
@@ -268,7 +271,7 @@ export default function PayphoneModal({
     return () => {
       window.removeEventListener("message", handleMessage);
     };
-  }, [onClose, onPaymentComplete]);
+  }, [onClose, onPaymentComplete, handlePaymentSuccess]);
 
   // Si no está montado, no renderizar nada
   if (!isMounted) return null;
