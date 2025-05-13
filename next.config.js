@@ -42,6 +42,7 @@ const nextConfig = {
         ],
         destination: "https://www.casateconmigo.ec/:path*",
         permanent: true,
+        basePath: false,
       },
     ];
   },
