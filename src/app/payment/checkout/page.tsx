@@ -1,10 +1,8 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import Link from "next/link";
 import { inter } from "@/app/ui/fonts";
 import Script from "next/script";
-import Head from "next/head";
 import { useRouter } from "next/navigation";
 
 export default function CheckoutPage() {

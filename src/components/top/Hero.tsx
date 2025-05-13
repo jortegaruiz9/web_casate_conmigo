@@ -4,7 +4,7 @@ import { sendGTMEvent, sendGAEvent } from "@next/third-parties/google";
 import { useState, useEffect } from "react";
 import Image from "next/image";
 
-export default function NewHero() {
+export default function Hero() {
   const [isVideoEnabled, setIsVideoEnabled] = useState(false);
   const [isMobileVideoError, setIsMobileVideoError] = useState(false);
   const [isImageLoaded, setIsImageLoaded] = useState(false);

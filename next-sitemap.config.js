@@ -9,7 +9,7 @@ const generateShopPaths = (category, slugs) =>
   }));
 
 module.exports = {
-  siteUrl: "https://casateconmigo.ec",
+  siteUrl: "https://www.casateconmigo.ec",
   generateRobotsTxt: true,
   sitemapSize: 5000,
   exclude: ["/api/*", "/admin/*", "/_next/*"],

@@ -1,14 +1,14 @@
 import { Providers } from "./providers";
 import "./ui/globals.css";
-import Footer from "./components/Footer";
+import Footer from "@/components/sup/Footer";
 import AdviserContextProvider from "./context/AdviserContext";
 import { GoogleAnalytics, GoogleTagManager } from "@next/third-parties/google";
 import { raleway } from "./ui/fonts";
 import { Metadata } from "next";
-import Promo from "./components/Promo";
-import CookieConsent from "./components/CookieConsent";
+import Promo from "@/components/top/Promo";
+import CookieConsent from "@/components/ui/CookieConsent";
 import Script from "next/script";
-import { Navbar } from "@/components/Navbar";
+import { Navbar } from "@/components/top/Navbar";
 
 // Metadata para SEO
 export const metadata: Metadata = {

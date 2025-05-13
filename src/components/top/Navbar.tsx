@@ -222,13 +222,14 @@ export const Navbar = () => {
           <div className="py-2 lg:flex lg:justify-between lg:items-center lg:px-10 xl:px-20 xl:justify-around">
             <div className="lg:flex lg:flex-col lg:gap-y-4">
               <Link href="/" onClick={() => setIsMenuOpen(false)}>
-                <Image
-                  src="/logoWhite.svg"
-                  alt="logo cásate conmigo joyería"
-                  width={300}
-                  height={80}
-                  className="mb-8"
-                />
+                <div className="relative w-[300px] h-[80px] mb-8">
+                  <Image
+                    src="/logoWhite.svg"
+                    alt="logo cásate conmigo joyería"
+                    fill
+                    style={{ objectFit: "contain" }}
+                  />
+                </div>
               </Link>
 
               <div className="space-y-4 mb-8">

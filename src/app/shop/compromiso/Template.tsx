@@ -1,10 +1,9 @@
 "use client";
 
-import Button from "@/app/components/Button";
 import Link from "next/link";
-import Card from "@/app/components/card/Card";
-import { gtmPageView } from "@/app/lib/gtm";
-import { gaPageView } from "@/app/lib/ga";
+import Card from "@/components/cards/Product/Card";
+import { gtmPageView } from "@/app/lib/analytics";
+import { gaPageView } from "@/app/lib/analytics";
 import { useEffect } from "react";
 import { compromisoRings } from "@/app/data/compromisoRings"; // 👈 Importar los datos correctos
 
@@ -42,13 +41,11 @@ export default function ShopTemplate() {
         Nuestros anillos de Compromiso
       </h1>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-12">
+      <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-12 mb-20">
         {rings.map((model, index) => (
           <Card key={index} product={model} />
         ))}
       </div>
-
-      <Button />
     </div>
   );
 }

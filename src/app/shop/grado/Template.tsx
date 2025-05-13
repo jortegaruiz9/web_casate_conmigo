@@ -1,10 +1,9 @@
 "use client";
 
-import Button from "@/app/components/Button";
-import Card from "@/app/components/card/Card";
+import Card from "@/components/cards/Product/Card";
 import Link from "next/link";
-import { gtmPageView } from "@/app/lib/gtm";
-import { gaPageView } from "@/app/lib/ga";
+import { gtmPageView } from "@/app/lib/analytics";
+import { gaPageView } from "@/app/lib/analytics";
 import { useEffect } from "react";
 import { gradoRings } from "@/app/data/gradoRings"; // 👈 Importamos desde /data
 
@@ -42,13 +41,11 @@ export default function ShopTemplate() {
         Nuestros anillos de Grado
       </h1>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-12">
+      <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-12 mb-20">
         {rings.map((model, index) => (
           <Card key={index} product={model} />
         ))}
       </div>
-
-      <Button />
     </div>
   );
 }

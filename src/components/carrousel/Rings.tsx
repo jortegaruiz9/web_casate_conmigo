@@ -6,15 +6,15 @@ import {
   CarouselItem,
   type CarouselApi,
 } from "@/components/ui/carousel";
-import Card from "./card/Card";
-import { rings as matrimonioRings } from "../shop/matrimonio/Template";
-import { rings as compromisoRings } from "../shop/compromiso/Template";
-import { rings as cintillosRings } from "../shop/cintillos/Template";
-import { rings as setRings } from "../shop/set/Template";
-import { CategoryType } from "../types/category";
-import { useState, useEffect } from "react";
+import Card from "@/components/cards/Product/Card";
+import { rings as matrimonioRings } from "@/app/shop/matrimonio/Template";
+import { rings as compromisoRings } from "@/app/shop/compromiso/Template";
+import { rings as cintillosRings } from "@/app/shop/cintillos/Template";
+import { rings as setRings } from "@/app/shop/set/Template";
+import { CategoryType } from "@/app/types/category";
+import { useState, useEffect, useCallback } from "react";
 
-interface RingsCarouselProps {
+interface RingsProps {
   category: CategoryType;
   title: string;
 }
@@ -29,11 +29,11 @@ function shuffleArray(array: any[]) {
   return shuffled;
 }
 
-export default function RingsCarousel({ category, title }: RingsCarouselProps) {
+export default function Rings({ category, title }: RingsProps) {
   const [api, setApi] = useState<CarouselApi>();
   const [randomRings, setRandomRings] = useState<any[]>([]);
 
-  const getRingsByCategory = () => {
+  const getRingsByCategory = useCallback(() => {
     switch (category) {
       case "matrimonio":
         return matrimonioRings;
@@ -46,14 +46,14 @@ export default function RingsCarousel({ category, title }: RingsCarouselProps) {
       default:
         return [];
     }
-  };
+  }, [category]);
 
   // Cada vez que cambie la categoría, baraja los anillos
   useEffect(() => {
     const rings = getRingsByCategory();
     const shuffledRings = shuffleArray(rings);
     setRandomRings(shuffledRings);
-  }, [category]);
+  }, [category, getRingsByCategory]);
 
   return (
     <div className="w-full py-10">

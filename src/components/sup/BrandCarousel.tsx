@@ -60,6 +60,7 @@ export default function Home() {
                 alt={brand.alt}
                 width={brand.w}
                 height={brand.h}
+                style={{ width: `${brand.w}px`, height: `${brand.h}px` }}
                 onError={(e) =>
                   console.log(`Error loading image: ${brand.alt}`)
                 }

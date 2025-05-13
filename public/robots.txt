@@ -3,7 +3,7 @@ User-agent: *
 Allow: /
 
 # Host
-Host: https://casateconmigo.ec
+Host: https://www.casateconmigo.ec
 
 # Sitemaps
-Sitemap: https://casateconmigo.ec/sitemap.xml
+Sitemap: https://www.casateconmigo.ec/sitemap.xml

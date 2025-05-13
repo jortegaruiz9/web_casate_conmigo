@@ -5,8 +5,7 @@ export const metadata: Metadata = {
 };
 
 import Image from "next/image";
-import CardAdviser from "../components/CardAdviser";
-import ReviewCarousel from "../components/ReviewsCarousel";
+import Adviser from "@/components/cards/Adviser";
 
 const perfiles = [
   {
@@ -78,10 +77,10 @@ export default function contacto() {
               </p>
             </div>
             <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-1 md:gap-4">
-              <CardAdviser adviser={perfiles[0]} />
-              <CardAdviser adviser={perfiles[1]} />
-              <CardAdviser adviser={perfiles[2]} />
-              <CardAdviser adviser={perfiles[3]} />
+              <Adviser adviser={perfiles[0]} />
+              <Adviser adviser={perfiles[1]} />
+              <Adviser adviser={perfiles[2]} />
+              <Adviser adviser={perfiles[3]} />
             </div>
           </div>
         </section>

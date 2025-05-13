@@ -69,7 +69,7 @@ const products = [
 
 export default function Shop() {
   return (
-    <div className="flex flex-col justify-center items-center w-full max-w-[1440px] mx-auto px-4">
+    <div className="flex flex-col justify-center items-center w-full max-w-[1440px] mx-auto px-4 mb-20">
       <div>
         <h1 className="text-myZinc mt-12 text-2xl font-bold">
           Selecciona la categoría

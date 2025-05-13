@@ -2,7 +2,7 @@ import { notFound } from "next/navigation";
 import { posts } from "@/app/data/posts";
 import Image from "next/image";
 import Link from "next/link";
-import PostCard from "@/components/PostCard";
+import Post from "@/components/cards/Post";
 import { Metadata } from "next";
 import { inter } from "@/app/ui/fonts";
 
@@ -232,7 +232,7 @@ export default function Page({ params }: { params: { slug: string } }) {
         <h6 className="text-lg font-medium">Otros posts de interés:</h6>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-4">
           {getRandomPosts(post.slug, 3).map((p) => (
-            <PostCard key={p.slug} post={p} />
+            <Post key={p.slug} post={p} />
           ))}
         </div>
       </div>

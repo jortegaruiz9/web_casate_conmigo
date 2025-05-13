@@ -5,11 +5,11 @@ import { notFound } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
 import { inter } from "@/app/ui/fonts";
-import ColorForm from "@/app/components/card/ColorForm";
-import SizeModal from "@/app/components/SizeModal";
-import WhatsAppButton from "@/app/components/card/WhatsAppButton";
-import RelatedProducts from "@/app/components/card/RelatedProducts";
-import PayphoneModal from "@/app/components/PayphoneModal";
+import ColorForm from "@/components/cards/Product/ColorForm";
+import Sizes from "@/components/modal/Sizes";
+import WhatsAppButton from "@/components/cards/Product/WhatsAppButton";
+import RelatedProducts from "@/components/cards/Product/RelatedProducts";
+import PayphoneModal from "@/components/payphone/PayphoneModal";
 import { AdviserContext } from "@/app/context/AdviserContext";
 
 // Importar arrays de productos
@@ -291,7 +291,7 @@ export default function ProductClient({ params }: ClientPageProps) {
   };
 
   // Función para calcular el total
-  const calcularTotal = () => {
+  const calcularTotal = useCallback(() => {
     const precioBase = Number(formData.precio || 0);
     // Solo considerar precio de la caja si es LED
     const precioCaja = formData.cajaSeleccionada === "led" ? 20 : 0;
@@ -302,7 +302,7 @@ export default function ProductClient({ params }: ClientPageProps) {
       impuestoPayphone,
       total: subtotal + impuestoPayphone,
     };
-  };
+  }, [formData.precio, formData.cajaSeleccionada]);
 
   // Optimizar handlePaymentComplete con useCallback para evitar recreaciones
   const memoizedHandlePaymentComplete = useCallback(
@@ -671,7 +671,7 @@ export default function ProductClient({ params }: ClientPageProps) {
                     </p>
                   )}
 
-                  <SizeModal
+                  <Sizes
                     showSizes={showSizes}
                     setShowSizes={setShowSizes}
                     selectedSize={selectedSize}

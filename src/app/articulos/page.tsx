@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 import { posts } from "@/app/data/posts";
-import PostCard from "@/components/PostCard";
+import Post from "@/components/cards/Post";
 import { inter } from "@/app/ui/fonts";
 
 export const metadata: Metadata = {
@@ -26,7 +26,7 @@ export default function Articulos() {
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:px-0 sm:scale-75 mb-8 sm:mb-0">
         {posts.map((post) => (
-          <PostCard key={post.slug} post={post} />
+          <Post key={post.slug} post={post} />
         ))}
       </div>
     </div>
