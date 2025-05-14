@@ -32,6 +32,8 @@ const nextConfig = {
         destination: "https://www.casateconmigo.ec/:path*",
         permanent: true,
       },
+
+
       {
         source: "/:path*",
         has: [
@@ -44,6 +46,7 @@ const nextConfig = {
         permanent: true,
         basePath: false,
       },
+
     ];
   },
 };
