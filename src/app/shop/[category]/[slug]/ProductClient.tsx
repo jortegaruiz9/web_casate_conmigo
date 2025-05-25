@@ -241,6 +241,24 @@ export default function ProductClient({ params }: ClientPageProps) {
   };
 
   const handleComprar = () => {
+    // Verificar que el precio total sea válido
+    const total = calcularTotal().total;
+    if (total < 30) {
+      // Añadir error específico para el material
+      setFormErrors((prev) => ({
+        ...prev,
+        material:
+          "El precio del producto no es válido. Por favor, verifica tu selección de material y color.",
+      }));
+
+      // Hacer scroll hasta el elemento de material
+      const materialElement = document.querySelector('[name="material"]');
+      if (materialElement) {
+        materialElement.scrollIntoView({ behavior: "smooth", block: "center" });
+      }
+      return;
+    }
+
     if (validateForm()) {
       // Almacenar datos completos del formulario en sessionStorage
       const orderData = {
