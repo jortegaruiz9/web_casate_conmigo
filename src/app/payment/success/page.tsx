@@ -480,7 +480,6 @@ ${orderData.lastDigits ? `*Últimos dígitos:* ${orderData.lastDigits}` : ""}
 
       if (response.status === 200) {
         setEmailSent(true);
-        alert("¡Correo de confirmación enviado exitosamente!");
       } else {
         alert(`Error al enviar el correo: Código ${response.status}`);
       }
