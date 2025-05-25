@@ -52,8 +52,8 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
-  verification: {
-    google: "tu-codigo-de-verificacion-de-google",
+  other: {
+    "google-site-verification": "RXI2IdnEDaIizHTuOq25nd0DfXDhA1kGbrulY3uZL30",
   },
 };
 
@@ -67,6 +67,11 @@ export default function RootLayout({
     <html lang="es" className="dark">
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        {/* ✅ Meta para verificación de Search Console */}
+        <meta
+          name="google-site-verification"
+          content="RXI2IdnEDaIizHTuOq25nd0DfXDhA1kGbrulY3uZL30"
+        />
         <meta charSet="UTF-8" />
         {/* Script de EmailJS para envío de correos */}
         <Script
