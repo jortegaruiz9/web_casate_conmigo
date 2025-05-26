@@ -7,22 +7,23 @@ export async function generateMetadata({
 }: {
   params: { category: string; slug: string };
 }): Promise<Metadata> {
-  const product = await findProductServer(params.category, params.slug); // 👈 ¡Faltaba el await!
+  const resolvedParams = await params;
+  const product = await findProductServer(resolvedParams.category, resolvedParams.slug);
 
   const title = product
     ? `Anillo ${product.model} - Cásate Conmigo`
-    : `Anillo ${params.slug} - Cásate Conmigo`;
+    : `Anillo ${resolvedParams.slug} - Cásate Conmigo`;
 
   const description = product
     ? `Descubre el modelo ${product.model} en nuestra colección de anillos de ${product.category}. Hecho artesanalmente en Ecuador.`
-    : `Descubre el modelo ${params.slug} en nuestra colección de anillos de ${params.category}. Hecho artesanalmente en Ecuador.`;
+    : `Descubre el modelo ${resolvedParams.slug} en nuestra colección de anillos de ${resolvedParams.category}. Hecho artesanalmente en Ecuador.`;
 
   return {
     title,
     description,
     openGraph: {
       type: "website",
-      url: `https://casateconmigo.ec/shop/${params.category}/${params.slug}`,
+      url: `https://casateconmigo.ec/shop/${resolvedParams.category}/${resolvedParams.slug}`,
       title,
       description,
       siteName: "Cásate Conmigo",
@@ -40,10 +41,11 @@ export async function generateMetadata({
   };
 }
 
-export default function Page({
+export default async function Page({
   params,
 }: {
-  params: { category: string; slug: string };
+  params: Promise<{ category: string; slug: string }>;
 }) {
-  return <ProductClient params={params} />;
+  const { category, slug } = await params;
+  return <ProductClient params={{ category, slug }} />;
 }
