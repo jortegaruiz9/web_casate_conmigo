@@ -99,16 +99,6 @@ export default function Hero() {
       <div className="relative z-10 flex flex-col items-center justify-end pb-20 h-full">
         <div className="flex items-center gap-6 text-sm tracking-wide">
           <Link
-            onClick={() => {
-              sendGAEvent({
-                event: "A-Ir al catalogo",
-                value: "1456",
-              });
-              sendGTMEvent({
-                event: "Ir al catalogo",
-                value: "456",
-              });
-            }}
             href="./shop"
             rel="noopener noreferrer"
             className="px-6 py-3 bg-white text-myZinc transition-all"
@@ -119,11 +109,11 @@ export default function Hero() {
           <a
             onClick={() => {
               sendGAEvent({
-                event: "A-botonMaps",
+                event: "click_maps",
                 value: "12345",
               });
               sendGTMEvent({
-                event: "botonMaps",
+                event: "click_maps",
                 value: "2345",
               });
             }}

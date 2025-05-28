@@ -5,6 +5,7 @@ import { useState, useEffect, useContext } from "react";
 import { AdviserContext } from "@/app/context/AdviserContext";
 import { ScrollTo } from "@/app/utils/ScrollTo";
 import { inter } from "@/app/ui/fonts";
+import { sendGTMEvent, sendGAEvent } from "@next/third-parties/google";
 
 let socialLinks = [
   {
@@ -252,12 +253,32 @@ export const Navbar = () => {
 
               <div className="flex gap-x-4 mb-8">
                 <a
+                  onClick={() => {
+                    sendGAEvent({
+                      event: "button_llamar",
+                      value: "401",
+                    });
+                    sendGTMEvent({
+                      event: "button_llamar",
+                      value: "1401",
+                    });
+                  }}
                   href={`tel:+593${whatsapp.adviser.tel}`}
                   className="flex-1 bg-white text-myZinc py-3 rounded-full font-medium text-center"
                 >
                   Llamar
                 </a>
                 <a
+                  onClick={() => {
+                    sendGAEvent({
+                      event: "click_maps_nav",
+                      value: "342",
+                    });
+                    sendGTMEvent({
+                      event: "click_maps-nav",
+                      value: "1342",
+                    });
+                  }}
                   href="https://www.google.com/maps/place/C%C3%A1sate+Conmigo+-+Anillos+de+compromiso+y+matrimonio/@-0.1774134,-78.4897115,17z/data=!3m1!4b1!4m6!3m5!1s0x91d59b1a9f0784b7:0x7a2bd47f59ff07ac!8m2!3d-0.1774134!4d-78.4871366!16s%2Fg%2F11mvp85br2?entry=ttu&g_ep=EgoyMDI1MDQyMS4wIKXMDSoJLDEwMjExNDU1SAFQAw%3D%3D"
                   target="_blank"
                   className="flex-1 bg-white/10 text-white py-3 rounded-full font-medium text-center"

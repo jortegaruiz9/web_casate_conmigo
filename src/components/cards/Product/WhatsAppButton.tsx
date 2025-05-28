@@ -89,8 +89,8 @@ ${
       whatsapp.adviser.tel
     }?text=${encodeURIComponent(whatsappMessage)}`;
 
-    sendGAEvent({ event: "A-buttonComprar", value: "1910" });
-    sendGTMEvent({ event: "GTM-COTIZACION", value: "910" });
+    sendGAEvent({ event: "button_buy_whatsapp", value: "1910" });
+    sendGTMEvent({ event: "button_buy_whatsapp", value: "910" });
 
     window.open(whatsappLink, "_blank");
   };

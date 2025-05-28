@@ -140,15 +140,17 @@ export default function RootLayout({
       </head>
       <AdviserContextProvider>
         <body className={`${raleway.className} antialiased bg-myWhite`}>
+          <GoogleTagManager gtmId={process.env.NEXT_PUBLIC_GTM_ID || ""} />
+          <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID || ""} />
           <CookieConsent />
           <Script
             id="gtm-script"
             strategy="afterInteractive"
-            src={`https://www.googletagmanager.com/gtm.js?id=GTM-PVV3DFSP`}
+            src={`https://www.googletagmanager.com/gtm.js?id=${process.env.NEXT_PUBLIC_GTM_ID}`}
           />
           <noscript>
             <iframe
-              src="https://www.googletagmanager.com/ns.html?id=GTM-PVV3DFSP"
+              src={`https://www.googletagmanager.com/ns.html?id=${process.env.NEXT_PUBLIC_GTM_ID}`}
               height="0"
               width="0"
               style={{ display: "none", visibility: "hidden" }}
