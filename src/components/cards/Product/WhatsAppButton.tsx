@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { AdviserContext } from "@/app/context/AdviserContext";
-import { sendGTMEvent, sendGAEvent } from "@next/third-parties/google";
+import { sendGAEvent, sendGTMEvent } from "@/app/utils/analytics";
 import { CategoryType } from "@/app/types/category";
 
 export interface WhatsAppButtonProps {
@@ -89,8 +89,8 @@ ${
       whatsapp.adviser.tel
     }?text=${encodeURIComponent(whatsappMessage)}`;
 
-    sendGAEvent({ event: "A-buttonComprar", value: "1910" });
-    sendGTMEvent({ event: "GTM-COTIZACION", value: "910" });
+    sendGAEvent({ event: "button_buy_whatsapp", value: "1910" });
+    sendGTMEvent({ event: "button_buy_whatsapp", value: "910" });
 
     window.open(whatsappLink, "_blank");
   };

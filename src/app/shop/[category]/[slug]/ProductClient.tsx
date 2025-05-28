@@ -11,6 +11,7 @@ import WhatsAppButton from "@/components/cards/Product/WhatsAppButton";
 import RelatedProducts from "@/components/cards/Product/RelatedProducts";
 import PayphoneModal from "@/components/payphone/PayphoneModal";
 import { AdviserContext } from "@/app/context/AdviserContext";
+import { sendGTMEvent, sendGAEvent } from "@next/third-parties/google";
 
 // Importar arrays de productos
 import { rings as compromiseRings } from "@/app/shop/compromiso/Template";
@@ -1184,7 +1185,17 @@ export default function ProductClient({ params }: ClientPageProps) {
                   ) : (
                     <div
                       className="h-12 w-full bg-[#ff6f03] rounded-[10px] flex justify-center items-center cursor-pointer hover:bg-[#e66600]"
-                      onClick={handleComprar}
+                      onClick={() => {
+                        sendGAEvent({
+                          event: "button_buy_payphone",
+                          value: "220",
+                        });
+                        sendGTMEvent({
+                          event: "button_buy_payphone",
+                          value: "1220",
+                        });
+                        handleComprar();
+                      }}
                     >
                       <h6 className="text-white">Comprar Ahora</h6>
                     </div>
