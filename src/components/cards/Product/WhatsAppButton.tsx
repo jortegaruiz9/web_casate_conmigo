@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { AdviserContext } from "@/app/context/AdviserContext";
-import { sendGTMEvent, sendGAEvent } from "@next/third-parties/google";
+import { sendGAEvent, sendGTMEvent } from "@/app/utils/analytics";
 import { CategoryType } from "@/app/types/category";
 
 export interface WhatsAppButtonProps {

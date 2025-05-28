@@ -5,7 +5,7 @@ import { useState, useEffect, useContext } from "react";
 import { AdviserContext } from "@/app/context/AdviserContext";
 import { ScrollTo } from "@/app/utils/ScrollTo";
 import { inter } from "@/app/ui/fonts";
-import { sendGTMEvent, sendGAEvent } from "@next/third-parties/google";
+import { sendGTMEvent, sendGAEvent } from "@/app/utils/analytics";
 
 let socialLinks = [
   {
@@ -275,7 +275,7 @@ export const Navbar = () => {
                       value: "342",
                     });
                     sendGTMEvent({
-                      event: "click_maps-nav",
+                      event: "click_maps_nav",
                       value: "1342",
                     });
                   }}

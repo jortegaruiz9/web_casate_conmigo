@@ -7,6 +7,7 @@ import { inter } from "./ui/fonts";
 import { Button } from "@/components/ui/button";
 import { AdviserContext } from "./context/AdviserContext";
 import { useContext } from "react";
+import { sendGAEvent, sendGTMEvent } from "@/app/utils/analytics";
 
 const features = [
   {
@@ -70,10 +71,20 @@ export default function Home() {
     <main className={inter.className}>
       <div className="fixed bottom-4 right-6 sm:right-14 md:right-32 lg:right-14 z-50  ">
         <Button
+          onClick={() => {
+            sendGAEvent({
+              event: "click_whatsapp_home",
+              value: "4614",
+            });
+            sendGTMEvent({
+              event: "click_whatsapp_home",
+              value: "614",
+            });
+            handleOrderClick({} as React.MouseEvent<HTMLButtonElement>);
+          }}
           variant="whatsapp"
           size="rounded"
           className="animate-bounce shadow-md"
-          onClick={handleOrderClick}
         >
           <span className="icon-[bi--whatsapp] text-2xl" />
         </Button>

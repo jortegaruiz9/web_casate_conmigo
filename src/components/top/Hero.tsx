@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import { sendGTMEvent, sendGAEvent } from "@next/third-parties/google";
+import { sendGAEvent, sendGTMEvent } from "@/app/utils/analytics";
 import { useState, useEffect } from "react";
 import Image from "next/image";
 
