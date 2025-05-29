@@ -503,6 +503,42 @@ export default function ProductClient({ params }: ClientPageProps) {
   if (isLoading) return <div>Cargando...</div>;
   if (!product) return notFound();
 
+  {
+    product && (
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org/",
+            "@type": "Product",
+            name: `Anillo ${product.model}`,
+            image: `https://casateconmigo.ec${product.image}`,
+            description: `Anillo ${product.model} de la colección ${
+              categoryNames[product.category]
+            }`,
+            brand: {
+              "@type": "Brand",
+              name: "Cásate Conmigo",
+            },
+            sku: product.model,
+            category: categoryNames[product.category],
+            offers: {
+              "@type": "Offer",
+              priceCurrency: "USD",
+              price:
+                (formData.material === "Oro"
+                  ? precioOro
+                  : precioPlata
+                )?.toFixed(2) || "0",
+              availability: "https://schema.org/InStock",
+              url: `https://casateconmigo.ec/shop/${product.category}/${product.model}`,
+            },
+          }),
+        }}
+      />
+    );
+  }
+
   return (
     <div className={`text-myZinc ${inter.className}`}>
       <div className="container mx-auto px-4 py-8">
@@ -539,6 +575,7 @@ export default function ProductClient({ params }: ClientPageProps) {
                 src={imgProduct}
                 alt={product.alt || ""}
                 fill
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 className="object-cover"
               />
             </div>

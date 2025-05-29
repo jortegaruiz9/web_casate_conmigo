@@ -62,11 +62,10 @@ export default function RootLayout({
   const gaId = process.env.NEXT_PUBLIC_GA_ID || "";
 
   return (
-    <html lang="es" className="dark">
+    <html lang="es" className="dark" suppressHydrationWarning>
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta charSet="UTF-8" />
-
         {/* Inicializar Consentimiento de Cookies */}
         <Script
           id="cookie-consent"
@@ -98,7 +97,6 @@ export default function RootLayout({
 
           {/* Tu contenido */}
           <header className="relative">
-            <title>Cásate Conmigo</title>
             <div className="relative z-30">
               <Promo />
             </div>
