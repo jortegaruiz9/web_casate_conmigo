@@ -56,6 +56,14 @@ let socialLinks = [
       "https://www.instagram.com/casate.conmigo_so?igsh=OTZjMnZzMjhzNmk%3D&utm_source=qr",
     tel: "095 860 6651",
   },
+  {
+    name: "sc",
+    whatsapp:
+      "https://api.whatsapp.com/send/?phone=%2B593969089758&text=Me+interesa+conocer+m%C3%A1s+sobre+sus+anillos%2C+pude+revisar+su+web&type=phone_number&app_absent=0",
+    facebook: "#",
+    instagram: "https://www.instagram.com/casateconmigo.samu/",
+    tel: "096 908 9758",
+  },
 ];
 
 let nav = [
@@ -95,6 +103,9 @@ export default function Footer() {
         break;
       case "d":
         setSocialMedia(socialLinks[4]);
+        break;
+      case "sc":
+        setSocialMedia(socialLinks[5]);
         break;
       default:
         setSocialMedia(socialLinks[0]);

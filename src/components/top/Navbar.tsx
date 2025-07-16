@@ -52,6 +52,13 @@ let socialLinks = [
     instagram:
       "https://www.instagram.com/casate.conmigo_so?igsh=OTZjMnZzMjhzNmk%3D&utm_source=qr",
   },
+  {
+    name: "sc",
+    whatsapp:
+      "https://api.whatsapp.com/send/?phone=%2B593969089758&text=Me+interesa+conocer+m%C3%A1s+sobre+sus+anillos%2C+pude+revisar+su+web&type=phone_number&app_absent=0",
+    facebook: "#",
+    instagram: "https://www.instagram.com/casateconmigo.samu/",
+  },
 ];
 
 export const Navbar = () => {
@@ -97,6 +104,9 @@ export const Navbar = () => {
         break;
       case "d":
         setSocialMedia(socialLinks[4]);
+        break;
+      case "sc":
+        setSocialMedia(socialLinks[5]);
         break;
       default:
         setSocialMedia(socialLinks[0]);
