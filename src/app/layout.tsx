@@ -1,4 +1,3 @@
-import { Providers } from "./providers";
 import "./ui/globals.css";
 import Footer from "@/components/sup/Footer";
 import AdviserContextProvider from "./context/AdviserContext";
@@ -9,6 +8,7 @@ import Promo from "@/components/top/Promo";
 import CookieConsent from "@/components/ui/CookieConsent";
 import Script from "next/script";
 import { Navbar } from "@/components/top/Navbar";
+import EmailJSProvider from "@/components/EmailJSProvider";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.casateconmigo.ec"),
@@ -86,6 +86,9 @@ export default function RootLayout({
 
       <AdviserContextProvider>
         <body className={`${raleway.className} antialiased bg-myWhite`}>
+          {/* EmailJS Provider - Client Component */}
+          <EmailJSProvider />
+
           {/* Google Tag Manager */}
           <GoogleTagManager gtmId={gtmId} />
 
@@ -105,9 +108,7 @@ export default function RootLayout({
             </div>
           </header>
 
-          <main className="relative z-30">
-            <Providers>{children}</Providers>
-          </main>
+          <main className="relative z-30">{children}</main>
 
           <footer className="relative z-30">
             <Footer />

@@ -5,6 +5,7 @@ import { useSearchParams } from "next/navigation";
 import { useContext, useEffect, useState } from "react";
 import Link from "next/link";
 import { AdviserContext } from "@/app/context/AdviserContext";
+import { sendEmailWithRetry } from "@/app/utils/emailService";
 
 // Definir tipo para el pedido
 interface OrderDetails {
@@ -33,27 +34,6 @@ interface OrderDetails {
   lastDigits?: string;
   adviser?: { name: string };
   [key: string]: any; // Para permitir acceso dinámico a propiedades
-}
-
-// Añadir la definición de tipos para EmailJS en Window
-declare global {
-  interface Window {
-    emailjs: {
-      init: (userId: string) => void;
-      send: (
-        serviceId: string,
-        templateId: string,
-        templateParams: Record<string, any>,
-        userId?: string
-      ) => Promise<{ status: number; text: string }>;
-      sendForm: (
-        serviceId: string,
-        templateId: string,
-        form: HTMLFormElement | string,
-        userId?: string
-      ) => Promise<{ status: number; text: string }>;
-    };
-  }
 }
 
 export default function PaymentSuccessPage() {
@@ -117,11 +97,7 @@ function PaymentSuccessContent() {
     if (!loading && orderData && orderData.email && !emailSent) {
       // Pequeño retraso para asegurar que todo está cargado
       const timer = setTimeout(async () => {
-        // Comprobar si EmailJS está disponible
-        if (
-          typeof window !== "undefined" &&
-          typeof window.emailjs !== "undefined"
-        ) {
+        try {
           console.log("Enviando email de confirmación automáticamente...");
           console.log("Datos del pedido para correo:", orderData);
 
@@ -141,27 +117,30 @@ function PaymentSuccessContent() {
             );
           }
 
-          // Usar una versión inline de la función para evitar problemas de dependencias
-          try {
-            setSendingEmail(true);
-            console.log("Enviando email automático desde el cliente");
+          setSendingEmail(true);
+          console.log("Enviando email automático desde el cliente");
 
-            // Calcular totales si es necesario
-            const subtotal = orderData.subtotal
-              ? Number(orderData.subtotal)
-              : Number(orderData.precio || 0) +
-                Number(orderData.precioCaja || 0);
+          // Calcular totales si es necesario
+          const subtotal = orderData.subtotal
+            ? Number(orderData.subtotal)
+            : Number(orderData.precio || 0) + Number(orderData.precioCaja || 0);
 
-            const impuesto = orderData.impuestoPayphone
-              ? Number(orderData.impuestoPayphone)
-              : Math.round(subtotal * 0.0605 * 100) / 100;
+          const impuesto = orderData.impuestoPayphone
+            ? Number(orderData.impuestoPayphone)
+            : Math.round(subtotal * 0.0605 * 100) / 100;
 
-            const total = orderData.total
-              ? Number(orderData.total)
-              : subtotal + impuesto;
+          const total = orderData.total
+            ? Number(orderData.total)
+            : subtotal + impuesto;
 
-            // Crear mensaje detallado con formato
-            const detailedMessage = `
+          // Usar la nueva función de envío con reintentos
+          const response = await sendEmailWithRetry(
+            "default_service",
+            "template_8xccjbi",
+            {
+              name: `${orderData.nombres || ""} ${orderData.apellidos || ""}`,
+              time: new Date().toLocaleString(),
+              message: `
 *DATOS DEL PEDIDO*
 ------------------------
 *Producto:* ${orderData.productModel || "No disponible"}
@@ -178,10 +157,10 @@ ${orderData.grabadoElla ? `*Grabado ella:* ${orderData.grabadoElla}` : ""}
 *Ciudad:* ${orderData.ciudad || "No disponible"}
 *Dirección:* ${orderData.direccion || "No disponible"}
 *Método de entrega:* ${
-              orderData.tipoEntrega === "envio"
-                ? "Envío Gratuito Servientrega"
-                : "Retiro en tienda Quito"
-            }
+                orderData.tipoEntrega === "envio"
+                  ? "Envío Gratuito Servientrega"
+                  : "Retiro en tienda Quito"
+              }
 *Teléfono:* +593${orderData.telefono || "No disponible"}
 *Email:* ${orderData.email}
 
@@ -213,33 +192,23 @@ ${
 ${orderData.lastDigits ? `*Últimos dígitos:* ${orderData.lastDigits}` : ""}
 
 ¡Gracias por tu compra!
-`;
+`,
+              email: orderData.email,
+              title: `Confirmación de Pedido - ${
+                orderData.productModel || "Anillo"
+              } - Asesor: ${asesorLetra}`,
+            },
+            "7g9Eo75qyHjgNk4Ai"
+          );
 
-            const response = await window.emailjs.send(
-              "default_service",
-              "template_8xccjbi",
-              {
-                name: `${orderData.nombres || ""} ${orderData.apellidos || ""}`,
-                time: new Date().toLocaleString(),
-                message: detailedMessage,
-                email: orderData.email,
-                title: `Confirmación de Pedido - ${
-                  orderData.productModel || "Anillo"
-                } - Asesor: ${asesorLetra}`,
-              }
-            );
-
-            console.log("Resultado de EmailJS automático:", response);
-            if (response.status === 200) {
-              setEmailSent(true);
-            }
-          } catch (err) {
-            console.error("Error al enviar correo automático:", err);
-          } finally {
-            setSendingEmail(false);
+          console.log("Resultado de EmailJS automático:", response);
+          if (response.status === 200) {
+            setEmailSent(true);
           }
-        } else {
-          console.error("EmailJS no está disponible para envío automático");
+        } catch (err) {
+          console.error("Error al enviar correo automático:", err);
+        } finally {
+          setSendingEmail(false);
         }
       }, 1500);
 
@@ -399,15 +368,14 @@ ${orderData.lastDigits ? `*Últimos dígitos:* ${orderData.lastDigits}` : ""}
         ? Number(orderData.total)
         : subtotal + impuesto;
 
-      // Verificar que EmailJS está disponible
-      if (typeof window.emailjs === "undefined") {
-        throw new Error(
-          "EmailJS no está disponible en el cliente. Verifica que el script esté cargado correctamente."
-        );
-      }
-
-      // Crear mensaje detallado con formato
-      const detailedMessage = `
+      // Usar la nueva función de envío con reintentos
+      const response = await sendEmailWithRetry(
+        "default_service",
+        "template_8xccjbi",
+        {
+          name: `${orderData.nombres || ""} ${orderData.apellidos || ""}`,
+          time: new Date().toLocaleString(),
+          message: `
 *DATOS DEL PEDIDO*
 ------------------------
 *Producto:* ${orderData.productModel || "No disponible"}
@@ -424,10 +392,10 @@ ${orderData.grabadoElla ? `*Grabado ella:* ${orderData.grabadoElla}` : ""}
 *Ciudad:* ${orderData.ciudad || "No disponible"}
 *Dirección:* ${orderData.direccion || "No disponible"}
 *Método de entrega:* ${
-        orderData.tipoEntrega === "envio"
-          ? "Envío Gratuito Servientrega"
-          : "Retiro en tienda Quito"
-      }
+            orderData.tipoEntrega === "envio"
+              ? "Envío Gratuito Servientrega"
+              : "Retiro en tienda Quito"
+          }
 *Teléfono:* +593${orderData.telefono || "No disponible"}
 *Email:* ${orderData.email}
 
@@ -459,27 +427,20 @@ ${
 ${orderData.lastDigits ? `*Últimos dígitos:* ${orderData.lastDigits}` : ""}
 
 ¡Gracias por tu compra!
-`;
-
-      // Usar directamente la función send de EmailJS en el cliente
-      const response = await window.emailjs.send(
-        "default_service",
-        "template_8xccjbi",
-        {
-          name: `${orderData.nombres || ""} ${orderData.apellidos || ""}`,
-          time: new Date().toLocaleString(),
-          message: detailedMessage,
+`,
           email: orderData.email,
           title: `Confirmación de Pedido - ${
             orderData.productModel || "Anillo"
           }`,
-        }
+        },
+        "7g9Eo75qyHjgNk4Ai"
       );
 
       console.log("Resultado de EmailJS:", response);
 
       if (response.status === 200) {
         setEmailSent(true);
+        alert("Correo de confirmación enviado correctamente");
       } else {
         alert(`Error al enviar el correo: Código ${response.status}`);
       }

@@ -12,14 +12,14 @@ interface EmailTemplateParams {
  * @param serviceId ID del servicio configurado en EmailJS
  * @param templateId ID de la plantilla configurada en EmailJS
  * @param templateParams Parámetros para la plantilla
- * @param userId ID de usuario de EmailJS (opcional, usa el configurado globalmente si no se proporciona)
+ * @param userId ID de usuario de EmailJS (requerido según documentación)
  * @returns Promise que resuelve a la respuesta de EmailJS
  */
 export const sendEmail = async (
   serviceId: string,
   templateId: string,
   templateParams: EmailTemplateParams,
-  userId?: string
+  userId: string
 ): Promise<{ status: number; text: string }> => {
   try {
     // Verificar que EmailJS esté disponible
@@ -30,10 +30,81 @@ export const sendEmail = async (
     console.log('Enviando email con EmailJS - Params:', {
       serviceId,
       templateId,
-      userId: userId || 'default'
+      userId
     });
 
-    // Enviar correo electrónico
+    // Enviar correo electrónico según documentación oficial
+    const response = await window.emailjs.send(
+      serviceId,
+      templateId,
+      templateParams,
+      userId
+    );
+
+    console.log('Email enviado con éxito:', response);
+    return response;
+  } catch (error) {
+    console.error('Error al enviar email:', error);
+    throw error;
+  }
+};
+
+/**
+ * Verifica si EmailJS está disponible y espera a que se cargue si es necesario
+ * @param maxAttempts Número máximo de intentos (por defecto 10)
+ * @param delayMs Tiempo de espera entre intentos en milisegundos (por defecto 500)
+ * @returns Promise<boolean> - true si EmailJS está disponible, false si no se pudo cargar
+ */
+export const waitForEmailJS = async (
+  maxAttempts: number = 10,
+  delayMs: number = 500
+): Promise<boolean> => {
+  let attempts = 0;
+  
+  while (attempts < maxAttempts) {
+    if (typeof window !== "undefined" && typeof window.emailjs !== "undefined") {
+      console.log("EmailJS está disponible");
+      return true;
+    }
+    
+    console.log(`Intento ${attempts + 1}: EmailJS no está disponible, esperando...`);
+    await new Promise(resolve => setTimeout(resolve, delayMs));
+    attempts++;
+  }
+  
+  console.error("EmailJS no está disponible después de varios intentos");
+  return false;
+};
+
+/**
+ * Envía un correo electrónico utilizando EmailJS con verificación de disponibilidad
+ * @param serviceId ID del servicio configurado en EmailJS
+ * @param templateId ID de la plantilla configurada en EmailJS
+ * @param templateParams Parámetros para la plantilla
+ * @param userId ID de usuario de EmailJS (requerido según documentación)
+ * @returns Promise que resuelve a la respuesta de EmailJS
+ */
+export const sendEmailWithRetry = async (
+  serviceId: string,
+  templateId: string,
+  templateParams: EmailTemplateParams,
+  userId: string
+): Promise<{ status: number; text: string }> => {
+  try {
+    // Verificar que EmailJS esté disponible
+    const isAvailable = await waitForEmailJS();
+    
+    if (!isAvailable) {
+      throw new Error('EmailJS no está disponible en el cliente después de varios intentos');
+    }
+
+    console.log('Enviando email con EmailJS - Params:', {
+      serviceId,
+      templateId,
+      userId
+    });
+
+    // Enviar correo electrónico según documentación oficial
     const response = await window.emailjs.send(
       serviceId,
       templateId,
@@ -144,7 +215,8 @@ ${orderData.lastDigits ? `*Últimos dígitos:* ${orderData.lastDigits}` : ""}
     const response = await sendEmail(
       'default_service', // Usar el serviceID proporcionado por el usuario
       'template_8xccjbi', // Usar el templateID proporcionado por el usuario
-      templateParams
+      templateParams,
+      '7g9Eo75qyHjgNk4Ai' // Usar el userId correcto
     );
     
     console.log('Respuesta de EmailJS después de enviar:', response);
@@ -155,23 +227,4 @@ ${orderData.lastDigits ? `*Últimos dígitos:* ${orderData.lastDigits}` : ""}
   }
 };
 
-// Añadir la definición de tipos para EmailJS en Window
-declare global {
-  interface Window {
-    emailjs: {
-      init: (userId: string) => void;
-      send: (
-        serviceId: string,
-        templateId: string,
-        templateParams: Record<string, any>,
-        userId?: string
-      ) => Promise<{ status: number; text: string }>;
-      sendForm: (
-        serviceId: string,
-        templateId: string,
-        form: HTMLFormElement | string,
-        userId?: string
-      ) => Promise<{ status: number; text: string }>;
-    };
-  }
-} 
+ 

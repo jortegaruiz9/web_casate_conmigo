@@ -52,23 +52,26 @@ let socialLinks = [
     instagram:
       "https://www.instagram.com/casate.conmigo_so?igsh=OTZjMnZzMjhzNmk%3D&utm_source=qr",
   },
-  {
-    name: "sc",
-    whatsapp:
-      "https://api.whatsapp.com/send/?phone=%2B593969089758&text=Me+interesa+conocer+m%C3%A1s+sobre+sus+anillos%2C+pude+revisar+su+web&type=phone_number&app_absent=0",
-    facebook: "#",
-    instagram: "https://www.instagram.com/casateconmigo.samu/",
-  },
 ];
 
 export const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  const [socialMedia, setSocialMedia] = useState(socialLinks[0]);
+  const [socialMedia, setSocialMedia] = useState(
+    socialLinks[0] || {
+      name: "s",
+      whatsapp:
+        "https://api.whatsapp.com/send/?phone=%2B593995001783&text=Me+interesa+conocer+m%C3%A1s+sobre+sus+anillos%2C+pude+revisar+su+web&type=phone_number&app_absent=0",
+      facebook:
+        "https://www.facebook.com/share/929rZriTMVZDzydQ/?mibextid=LQQJ4d",
+      instagram:
+        "https://www.instagram.com/casate_conmigo777?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==",
+    }
+  );
   const [formattedPhone, setFormattedPhone] = useState("");
 
   const whatsapp = useContext(AdviserContext) as any;
-  const adviser = whatsapp.adviser.name;
+  const adviser = whatsapp?.adviser?.name || "s";
 
   useEffect(() => {
     document.body.style.overflow = isMenuOpen ? "hidden" : "unset";
@@ -354,33 +357,34 @@ export const Navbar = () => {
               <div className="hidden lg:block text-white">
                 <hr className="border-t border-white/10 mb-6 text-background " />
                 <ul className="flex gap-x-4 md:gap-x-8 text-2xl text-black">
-                  {(Object.keys(socialMedia) as Array<keyof typeof socialMedia>)
-                    .filter((key) => key !== "name")
-                    .map((key) => {
-                      const icons: Record<
-                        "whatsapp" | "facebook" | "instagram",
-                        string
-                      > = {
-                        whatsapp: "icon-[bi--whatsapp]",
-                        facebook: "icon-[basil--facebook-solid]",
-                        instagram: "icon-[radix-icons--instagram-logo]",
-                      };
-                      return (
-                        <li
-                          key={key}
-                          className="hover:scale-110 transition-all"
-                        >
-                          <a
-                            className=" bg-white rounded-full w-12 h-12 flex items-center justify-center"
-                            href={socialMedia[key]}
-                            target="_blank"
-                            rel="noopener noreferrer"
+                  {socialMedia &&
+                    (["whatsapp", "facebook", "instagram"] as const).map(
+                      (key) => {
+                        const icons: Record<
+                          "whatsapp" | "facebook" | "instagram",
+                          string
+                        > = {
+                          whatsapp: "icon-[bi--whatsapp]",
+                          facebook: "icon-[basil--facebook-solid]",
+                          instagram: "icon-[radix-icons--instagram-logo]",
+                        };
+                        return (
+                          <li
+                            key={key}
+                            className="hover:scale-110 transition-all"
                           >
-                            <span className={icons[key]} />
-                          </a>
-                        </li>
-                      );
-                    })}
+                            <a
+                              className=" bg-white rounded-full w-12 h-12 flex items-center justify-center"
+                              href={socialMedia[key]}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                            >
+                              <span className={icons[key]} />
+                            </a>
+                          </li>
+                        );
+                      }
+                    )}
                 </ul>
               </div>
             </nav>

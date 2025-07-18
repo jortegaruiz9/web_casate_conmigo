@@ -2,6 +2,7 @@
 
 import React, { useRef, useState, useEffect } from "react";
 import Script from "next/script";
+import { sendEmailWithRetry } from "@/app/utils/emailService";
 
 interface EmailJSFormProps {
   title?: string;
@@ -69,21 +70,26 @@ export default function EmailJSForm({
     }
 
     try {
-      if (typeof window.emailjs === "undefined") {
-        throw new Error(
-          "EmailJS no está disponible. Asegúrate de que el script esté cargado correctamente."
-        );
-      }
-
-      const serviceID = "default_service";
-      const templateID = "template_8xccjbi";
-
-      // Usar exactamente el mismo método que muestra el ejemplo del usuario
       console.log("Enviando formulario con EmailJS...");
-      const response = await window.emailjs.sendForm(
-        serviceID,
-        templateID,
-        formRef.current
+
+      // Usar la nueva función de envío con reintentos
+      const response = await sendEmailWithRetry(
+        "default_service",
+        "template_8xccjbi",
+        {
+          name:
+            (formRef.current.querySelector("#name") as HTMLInputElement)
+              ?.value || "",
+          time: new Date().toLocaleString(),
+          message:
+            (formRef.current.querySelector("#message") as HTMLTextAreaElement)
+              ?.value || "",
+          email: emailField.value,
+          title:
+            (formRef.current.querySelector("#title") as HTMLInputElement)
+              ?.value || title,
+        },
+        "7g9Eo75qyHjgNk4Ai"
       );
 
       console.log("Respuesta de EmailJS:", response);
@@ -120,9 +126,8 @@ export default function EmailJSForm({
       if (onError) {
         onError(err);
       }
-    } finally {
-      setSending(false);
     }
+    setSending(false);
   };
 
   return (
@@ -245,25 +250,4 @@ export default function EmailJSForm({
       </form>
     </div>
   );
-}
-
-// Añadir la definición de tipos para EmailJS en Window
-declare global {
-  interface Window {
-    emailjs: {
-      init: (userId: string) => void;
-      send: (
-        serviceId: string,
-        templateId: string,
-        templateParams: Record<string, any>,
-        userId?: string
-      ) => Promise<{ status: number; text: string }>;
-      sendForm: (
-        serviceId: string,
-        templateId: string,
-        form: HTMLFormElement | string,
-        userId?: string
-      ) => Promise<{ status: number; text: string }>;
-    };
-  }
 }
