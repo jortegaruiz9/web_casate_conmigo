@@ -23,7 +23,6 @@ const adviserDetails: Adviser[] = [
   { name: "f", tel: 983883197 },
   { name: "j", tel: 984171976 },
   { name: "d", tel: 958606651 },
-  { name: "sc", tel: 969089758 },
 ];
 
 // Función auxiliar para manejar localStorage de forma segura

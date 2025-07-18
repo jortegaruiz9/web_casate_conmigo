@@ -56,14 +56,6 @@ let socialLinks = [
       "https://www.instagram.com/casate.conmigo_so?igsh=OTZjMnZzMjhzNmk%3D&utm_source=qr",
     tel: "095 860 6651",
   },
-  {
-    name: "sc",
-    whatsapp:
-      "https://api.whatsapp.com/send/?phone=%2B593969089758&text=Me+interesa+conocer+m%C3%A1s+sobre+sus+anillos%2C+pude+revisar+su+web&type=phone_number&app_absent=0",
-    facebook: "#",
-    instagram: "https://www.instagram.com/casateconmigo.samu/",
-    tel: "096 908 9758",
-  },
 ];
 
 let nav = [
@@ -87,8 +79,19 @@ const age = new Date().getFullYear();
 
 export default function Footer() {
   const adviserName = useContext(AdviserContext) as any;
-  const adviser = adviserName.adviser.name;
-  const [socialMedia, setSocialMedia] = useState(socialLinks[0]);
+  const adviser = adviserName?.adviser?.name || "s";
+  const [socialMedia, setSocialMedia] = useState(
+    socialLinks[0] || {
+      name: "s",
+      whatsapp:
+        "https://api.whatsapp.com/send/?phone=%2B593995001783&text=Me+interesa+conocer+m%C3%A1s+sobre+sus+anillos%2C+pude+revisar+su+web&type=phone_number&app_absent=0",
+      facebook:
+        "https://www.facebook.com/share/929rZriTMVZDzydQ/?mibextid=LQQJ4d",
+      instagram:
+        "https://www.instagram.com/casate_conmigo777?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==",
+      tel: "099 500 1783",
+    }
+  );
 
   useEffect(() => {
     switch (adviser) {
@@ -103,9 +106,6 @@ export default function Footer() {
         break;
       case "d":
         setSocialMedia(socialLinks[4]);
-        break;
-      case "sc":
-        setSocialMedia(socialLinks[5]);
         break;
       default:
         setSocialMedia(socialLinks[0]);
@@ -208,9 +208,8 @@ export default function Footer() {
           />
         </Link>
         <ul className="flex gap-x-4 md:gap-x-8 text-2xl text-myZinc">
-          {(Object.keys(socialMedia) as Array<keyof typeof socialMedia>)
-            .filter((key) => key !== "name" && key !== "tel")
-            .map((key) => {
+          {socialMedia &&
+            (["whatsapp", "facebook", "instagram"] as const).map((key) => {
               const icons: Record<
                 "whatsapp" | "facebook" | "instagram",
                 string
