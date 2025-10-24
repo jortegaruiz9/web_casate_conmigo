@@ -628,16 +628,9 @@ export default function ProductClient({ params }: ClientPageProps) {
                 {/*Boton de payphone*/}
                 <div
                   className={`w-1/2 h-10  rounded-tl-[10px] ${
-                    typeForm === "pay" ? "bg-[#ff6f03]" : "bg-gray-200"
+                    typeForm === "pay" ? "bg-[#ff6f03]" : "bg-gray-100"
                   } flex justify-center items-center`}
-                  onClick={() => {
-                    setTypeForm("pay");
-                  }}
-                >
-                  <div className="text-white font-semibold">
-                    <span>Pay</span>
-                  </div>
-                </div>
+                ></div>
                 {/*Boton de cotizar*/}
                 <div
                   className={`w-1/2 h-10  rounded-tr-[10px] ${
