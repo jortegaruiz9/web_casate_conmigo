@@ -159,9 +159,9 @@ export const compromisoRings = [
     // },
     {
       category: "compromiso" as CategoryType,
-      image: "/modelos/compromiso/ac-018/infinito-amarillo.jpg",
-      imageSilver: "/modelos/compromiso/ac-018/infinito-blanco.jpg",
-      imageRose: "/modelos/compromiso/ac-018/infinito-rosado.jpg",
+      image: "/modelos/compromiso/infinity/yellow.png",
+      imageSilver: "/modelos/compromiso/infinity/white.png",
+      imageRose: "/modelos/compromiso/infinity/rose.png",
       linkProduct:
         "https://www.instagram.com/p/DE6kN7NO_VB/?igsh=MTR1ZnUybjg3emVrbA==",
       alt: "imagen modelo AC-012",
