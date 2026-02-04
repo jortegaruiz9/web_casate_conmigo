@@ -168,7 +168,7 @@ export const compromisoRings = [
       model: "AC-012",
       color: "rosado",
       grabado: false,
-      grams: 4,
+      grams: 3,
       bestSeller: true,
     },
     //   se puso el 18 en la posicion 12 debido a que no se puede hacer el 12 de momento
