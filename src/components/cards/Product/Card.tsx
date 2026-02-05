@@ -5,7 +5,7 @@ import ColorForm from "./ColorForm";
 import { Inter } from "next/font/google";
 import { useRouter } from "next/navigation";
 import OptimizedImage from "./OptimizedImage";
-import { PRECIOS } from "@/app/config/constants";
+import { PRECIOS, DESCUENTO_PLATA_AMARILLO } from "@/app/config/constants";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -47,10 +47,16 @@ export default function Card({ product }: CardProps) {
   }, [imageMap]);
 
   const [imgProduct, setImgProduct] = useState(imageMap.Amarillo);
-  const precioPlataInicial =
+  // Precio plata inicial con descuento para baño amarillo
+  const precioPlataBase =
     product.category === "matrimonio"
       ? PRECIOS.PLATA_MATRIMONIO
+      : product.category === "grado"
+      ? PRECIOS.PLATA_GRADO
+      : product.category === "set"
+      ? PRECIOS.PLATA_SET
       : PRECIOS.PLATA_COMPROMISO;
+  const precioPlataInicial = precioPlataBase - DESCUENTO_PLATA_AMARILLO;
 
   const precioOroInicial = product.grams * PRECIOS.ORO_AMARILLO;
 
@@ -127,11 +133,24 @@ export default function Card({ product }: CardProps) {
                 ? `Plata 925 & Baño ${tipoPlata}`
                 : "No disponible en plata"}
             </h4>
-            <p>
-              {precioPlata !== null
-                ? `$${precioPlata.toFixed(2)}`
-                : "No disponible"}
-            </p>
+            <div className="flex items-center gap-2">
+              {precioPlata !== null ? (
+                tipoPlata === "Amarillo" || tipoPlata === "Blanco" ? (
+                  <>
+                    <span className="text-xs text-zinc-400 line-through">
+                      ${(precioPlata + DESCUENTO_PLATA_AMARILLO).toFixed(2)}
+                    </span>
+                    <span className="text-red-600 font-semibold">
+                      ${precioPlata.toFixed(2)}
+                    </span>
+                  </>
+                ) : (
+                  <p>${precioPlata.toFixed(2)}</p>
+                )
+              ) : (
+                <p>No disponible</p>
+              )}
+            </div>
           </div>
           <div className="flex justify-between items-center">
             <h4 className="text-xs text-zinc-600">Oro 18k {tipoOro}</h4>

@@ -8,6 +8,9 @@ export const PRECIOS = {
   PLATA_SET: 220
 };
 
+// Descuento para plata con baño amarillo
+export const DESCUENTO_PLATA_AMARILLO = 20;
+
 export const TIPOS_MATERIAL = {
   SILVER: 'silver',
   GOLD: 'gold',

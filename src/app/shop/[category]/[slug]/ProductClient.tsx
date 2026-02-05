@@ -20,6 +20,7 @@ import { rings as cintilloRings } from "@/app/shop/cintillos/Template";
 import { rings as promesaRings } from "@/app/shop/promesa/Template";
 import { rings as gradoRings } from "@/app/shop/grado/Template";
 import { rings as setRings } from "@/app/shop/set/Template";
+import { DESCUENTO_PLATA_AMARILLO } from "@/app/config/constants";
 
 // Tipos
 interface ClientPageProps {
@@ -593,11 +594,24 @@ export default function ProductClient({ params }: ClientPageProps) {
                     ? `Plata 925 Con Baño ${tipoPlata}`
                     : "No disponible en plata"}
                 </h4>
-                <p>
-                  {precioPlata !== null
-                    ? `$${precioPlata.toFixed(2)}`
-                    : "No disponible"}
-                </p>
+                <div className="flex items-center gap-2">
+                  {precioPlata !== null ? (
+                    tipoPlata === "Amarillo" || tipoPlata === "Blanco" ? (
+                      <>
+                        <span className="text-sm text-zinc-400 line-through">
+                          ${(precioPlata + DESCUENTO_PLATA_AMARILLO).toFixed(2)}
+                        </span>
+                        <span className="text-red-600 font-semibold">
+                          ${precioPlata.toFixed(2)}
+                        </span>
+                      </>
+                    ) : (
+                      <p>${precioPlata.toFixed(2)}</p>
+                    )
+                  ) : (
+                    <p>No disponible</p>
+                  )}
+                </div>
               </div>
               <div className="flex justify-between items-center">
                 <h4 className="text-sm">Oro 18k {tipoOro}</h4>
@@ -676,7 +690,9 @@ export default function ProductClient({ params }: ClientPageProps) {
                           : "No disponible en plata"}
                         {" - "}
                         {precioPlata !== null
-                          ? `$${precioPlata.toFixed(2)}`
+                          ? tipoPlata === "Amarillo" || tipoPlata === "Blanco"
+                            ? `$${(precioPlata + DESCUENTO_PLATA_AMARILLO).toFixed(2)} → $${precioPlata.toFixed(2)}`
+                            : `$${precioPlata.toFixed(2)}`
                           : "No disponible"}
                       </option>
                       <option value="Oro">

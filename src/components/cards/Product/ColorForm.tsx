@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useId } from "react";
-import { PRECIOS } from "@/app/config/constants";
+import { PRECIOS, DESCUENTO_PLATA_AMARILLO } from "@/app/config/constants";
 import { BañoType } from "@/app/types/forms";
 import { CategoryType } from "@/app/types/category";
 
@@ -18,6 +18,20 @@ interface ColorFormProps {
  * @param {ColorFormProps} props - Propiedades del componente
  * @returns {JSX.Element} Formulario de selección de color
  */
+// Función para obtener precio base de plata según categoría
+const getPrecioPlataBase = (category: CategoryType) => {
+  switch (category) {
+    case "grado":
+      return PRECIOS.PLATA_GRADO;
+    case "matrimonio":
+      return PRECIOS.PLATA_MATRIMONIO;
+    case "set":
+      return PRECIOS.PLATA_SET;
+    default:
+      return PRECIOS.PLATA_COMPROMISO;
+  }
+};
+
 const ColorForm: React.FC<ColorFormProps> = ({
   category,
   grams,
@@ -30,54 +44,21 @@ const ColorForm: React.FC<ColorFormProps> = ({
 
   // Inicializar precios al montar el componente
   useEffect(() => {
-    // Precio plata inicial según la categoría
-    let precioPlataInicial;
-    switch (category) {
-      case "grado":
-        precioPlataInicial = PRECIOS.PLATA_GRADO;
-        break;
-      case "matrimonio":
-        precioPlataInicial = PRECIOS.PLATA_MATRIMONIO;
-        break;
-      case "set":
-        precioPlataInicial = PRECIOS.PLATA_SET;
-        break;
-      default:
-        precioPlataInicial = PRECIOS.PLATA_COMPROMISO;
-    }
+    // Precio plata inicial con descuento para baño amarillo
+    const precioPlataBase = getPrecioPlataBase(category);
+    const precioPlataInicial = precioPlataBase - DESCUENTO_PLATA_AMARILLO;
     setPrecioPlata(precioPlataInicial);
 
     // Precio oro inicial
     const precioOroInicial = grams * PRECIOS.ORO_AMARILLO;
     setPrecioOro(precioOroInicial);
-  }, [category, grams, setPrecioOro, setPrecioPlata]); // Incluir todas las dependencias
+  }, [category, grams, setPrecioOro, setPrecioPlata]);
 
   // Precalcular precios según la categoría
+  const precioPlataBase = getPrecioPlataBase(category);
   const preciosPlata = {
-    BañoAmarillo: (() => {
-      switch (category) {
-        case "grado":
-          return PRECIOS.PLATA_GRADO;
-        case "matrimonio":
-          return PRECIOS.PLATA_MATRIMONIO;
-        case "set":
-          return PRECIOS.PLATA_SET;
-        default:
-          return PRECIOS.PLATA_COMPROMISO;
-      }
-    })(),
-    BañoBlanco: (() => {
-      switch (category) {
-        case "grado":
-          return PRECIOS.PLATA_GRADO;
-        case "matrimonio":
-          return PRECIOS.PLATA_MATRIMONIO;
-        case "set":
-          return PRECIOS.PLATA_SET;
-        default:
-          return PRECIOS.PLATA_COMPROMISO;
-      }
-    })(),
+    BañoAmarillo: precioPlataBase - DESCUENTO_PLATA_AMARILLO, // Con descuento
+    BañoBlanco: precioPlataBase - DESCUENTO_PLATA_AMARILLO, // Con descuento
     BañoRosa: null,
   };
 
